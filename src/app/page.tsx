@@ -45,12 +45,12 @@ export default function Home() {
         padding: "50px 24px 70px", position: "relative", overflow: "hidden"
       }}>
         <FloatingShapes />
-        <div style={{
+        <div className="hero-layout" style={{
           maxWidth: 960, margin: "0 auto", position: "relative",
           display: "flex", alignItems: "center", justifyContent: "center", gap: 56, flexWrap: "wrap"
         }}>
 
-        <div style={{ maxWidth: 420, position: "relative", zIndex: 1 }}>
+        <div className="hero-text" style={{ maxWidth: 420, position: "relative", zIndex: 1 }}>
           <div className="fu" style={{ fontSize: 46, fontWeight: 800, color: P.text, lineHeight: 1.12, letterSpacing: -1.5 }}>
             How much can<br />you <span style={{ color: P.accent }}>remember</span>?
           </div>
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="fu fu2" style={{ position: "relative", zIndex: 1, animation: "phoneBob 5s infinite ease-in-out" }}>
+        <div className="fu fu2 phone-wrapper" style={{ position: "relative", zIndex: 1, animation: "phoneBob 5s infinite ease-in-out" }}>
           <PhoneMockup />
         </div>
         </div>

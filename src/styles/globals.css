@@ -7,10 +7,19 @@ a { color: inherit; text-decoration: none; }
 
 /* Animation keyframes — referenced by components */
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-@keyframes phoneBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@keyframes phoneBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
 
 .fu { opacity:0; animation: fadeUp 0.8s forwards; }
 .fu1 { animation-delay:0.1s; }
 .fu2 { animation-delay:0.2s; }
 .fu3 { animation-delay:0.35s; }
 .fu4 { animation-delay:0.5s; }
+
+/* Responsive hero stacking */
+@media (max-width: 768px) {
+  .hero-layout { flex-direction: column !important; text-align: center; }
+  .hero-text { align-items: center; }
+  .hero-text .fu2 { justify-content: center !important; }
+  .hero-text .fu3 { justify-content: center !important; }
+  .phone-wrapper { transform: scale(0.85); }
+}
