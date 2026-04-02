@@ -73,7 +73,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="fu fu2 phone-wrapper" style={{ flexShrink: 0, position: "relative", zIndex: 1, animation: "phoneBob 5s infinite ease-in-out" }}>
+        <div className="phone-wrapper" style={{ flexShrink: 0, position: "relative", zIndex: 1, animation: "fadeUp 0.8s 0.2s forwards ease-out, phoneBob 5s 1s infinite ease-in-out", opacity: 0 }}>
           <PhoneMockup />
         </div>
         </div>
