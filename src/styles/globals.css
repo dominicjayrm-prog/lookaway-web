@@ -17,7 +17,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Responsive hero stacking */
 @media (max-width: 768px) {
-  .hero-layout { flex-direction: column !important; text-align: center; }
+  .hero-layout { flex-wrap: wrap !important; flex-direction: column !important; text-align: center; }
   .hero-text { align-items: center; }
   .hero-text .fu2 { justify-content: center !important; }
   .hero-text .fu3 { justify-content: center !important; }
