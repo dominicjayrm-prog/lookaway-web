@@ -11,12 +11,12 @@ const P = COLORS;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "LookAway",
+  "name": "Blanked",
   "operatingSystem": "iOS",
   "applicationCategory": "GameApplication",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "1" },
-  "description": "Study the scene. Look away. Answer from memory. A visual memory game with 200 levels across 6 worlds.",
+  "description": "Study the scene. It disappears. Answer from memory. A visual memory game with 200 levels across 6 worlds.",
   "url": SITE_URL,
   "downloadUrl": APP_STORE_URL,
   "screenshot": `${SITE_URL}/og-image.png`,
@@ -39,14 +39,14 @@ export default function Home() {
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <Logo size={36} id="nav" />
             <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
-              Look<span style={{ color: P.accent }}>Away</span>
+              Blank<span style={{ color: P.accent }}>ed</span>
             </span>
           </div>
           <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Download LookAway on the App Store"
+            aria-label="Download Blanked on the App Store"
             style={{
               padding: "9px 20px", borderRadius: 10, background: P.text, color: "white",
               fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
@@ -73,7 +73,7 @@ export default function Home() {
                   How much can<br />you <span style={{ color: P.accent }}>remember</span>?
                 </h1>
                 <p className="fu fu1" style={{ fontSize: 17, color: P.textM, lineHeight: 1.65, marginTop: 18, maxWidth: 370 }}>
-                  Study the scene. Look away. Answer from memory. A visual memory game that starts simple and gets impossibly hard.
+                  Study the scene. It disappears. Answer from memory. A visual memory game that starts simple and gets impossibly hard.
                 </p>
 
                 <div className="fu fu2" style={{ display: "flex", gap: 12, marginTop: 28, alignItems: "center", flexWrap: "wrap" }}>
@@ -255,7 +255,7 @@ export default function Home() {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Download LookAway on the App Store"
+              aria-label="Download Blanked on the App Store"
               style={{
                 display: "inline-flex", padding: "15px 36px", borderRadius: 14,
                 background: `linear-gradient(135deg, ${P.accent}, ${P.accentL})`,
@@ -263,7 +263,7 @@ export default function Home() {
                 boxShadow: `0 4px 24px ${P.accent}25`, textDecoration: "none"
               }}
             >
-              Download LookAway
+              Download Blanked
             </a>
             <p style={{ fontSize: 12, color: P.textD, marginTop: 14 }}>Available on iOS. Android coming soon.</p>
           </section>

@@ -6,11 +6,11 @@ import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'LookAway terms of service. Read our terms and conditions for using the app.',
+  description: 'Blanked terms of service. Read our terms and conditions for using the app.',
   alternates: { canonical: 'https://playlookaway.app/terms' },
   openGraph: {
-    title: 'Terms of Service | LookAway',
-    description: 'LookAway terms of service. Read our terms and conditions.',
+    title: 'Terms of Service | Blanked',
+    description: 'Blanked terms of service. Read our terms and conditions.',
     url: 'https://playlookaway.app/terms',
   },
 };
@@ -28,7 +28,7 @@ export default function TermsPage() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="terms-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
-            Look<span style={{ color: COLORS.accent }}>Away</span>
+            Blank<span style={{ color: COLORS.accent }}>ed</span>
           </span>
         </Link>
       </div>
@@ -40,14 +40,14 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>1. Acceptance of Terms</h2>
           <p style={pStyle}>
-            By downloading, installing, or using LookAway (&ldquo;the App&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not use the App.
+            By downloading, installing, or using Blanked (&ldquo;the App&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not use the App.
           </p>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>2. Description of Service</h2>
           <p style={pStyle}>
-            LookAway is a free-to-play visual memory game available on iOS. The App includes 200 levels across 6 worlds, friend challenges, and optional in-app purchases. The core game experience is free and does not require an account to start playing.
+            Blanked is a free-to-play visual memory game available on iOS. The App includes 200 levels across 6 worlds, friend challenges, and optional in-app purchases. The core game experience is free and does not require an account to start playing.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>4. In-App Purchases</h2>
           <p style={pStyle}>
-            LookAway may offer optional in-app purchases. All purchases are processed through the Apple App Store and are subject to Apple&apos;s terms and conditions. Refund requests should be directed to Apple in accordance with their refund policy.
+            Blanked may offer optional in-app purchases. All purchases are processed through the Apple App Store and are subject to Apple&apos;s terms and conditions. Refund requests should be directed to Apple in accordance with their refund policy.
           </p>
           <p style={pStyle}>
             We do not process payments directly and do not have access to your payment information.
@@ -76,7 +76,7 @@ export default function TermsPage() {
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>5. User Conduct</h2>
-          <p style={pStyle}>When using LookAway, you agree not to:</p>
+          <p style={pStyle}>When using Blanked, you agree not to:</p>
           <ul style={ulStyle}>
             <li>Use cheats, exploits, automation software, or any unauthorised third-party tools</li>
             <li>Harass, abuse, or send offensive content to other users through friend challenges or any other feature</li>
@@ -89,14 +89,14 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>6. Intellectual Property</h2>
           <p style={pStyle}>
-            All content in LookAway &mdash; including but not limited to game design, graphics, animations, sounds, text, and code &mdash; is the intellectual property of LookAway and is protected by applicable copyright and trademark laws. You may not copy, modify, distribute, or create derivative works from any part of the App without our express written permission.
+            All content in Blanked &mdash; including but not limited to game design, graphics, animations, sounds, text, and code &mdash; is the intellectual property of Blanked and is protected by applicable copyright and trademark laws. You may not copy, modify, distribute, or create derivative works from any part of the App without our express written permission.
           </p>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>7. Limitation of Liability</h2>
           <p style={pStyle}>
-            LookAway is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without warranties of any kind, either express or implied. To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of the App.
+            Blanked is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without warranties of any kind, either express or implied. To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of the App.
           </p>
         </div>
 
@@ -110,7 +110,7 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>9. Governing Law</h2>
           <p style={pStyle}>
-            These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which LookAway operates, without regard to its conflict of law provisions.
+            These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Blanked operates, without regard to its conflict of law provisions.
           </p>
         </div>
 

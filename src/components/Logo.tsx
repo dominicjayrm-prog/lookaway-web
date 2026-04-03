@@ -1,7 +1,7 @@
 export default function Logo({ size = 44, id = "logo" }: { size?: number; id?: string }) {
   const gradientId = `lg_${id}`;
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="LookAway logo">
+    <svg width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="Blanked logo">
       <defs>
         <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#6C5CE7" />

@@ -6,8 +6,8 @@ import AppStoreButton from '@/components/AppStoreButton';
 import { COLORS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Join me on LookAway!',
-  description: 'Someone invited you to play LookAway — the visual memory game. Download it free.',
+  title: 'Join me on Blanked!',
+  description: 'Someone invited you to play Blanked — the visual memory game. Download it free.',
 };
 
 export default async function InvitePage({ params }: { params: Promise<{ userId: string }> }) {
@@ -28,8 +28,8 @@ export default async function InvitePage({ params }: { params: Promise<{ userId:
 
       {isMobile ? (
         <div style={{ textAlign: "center", maxWidth: 400 }}>
-          <meta httpEquiv="refresh" content={`0;url=lookaway://invite/${userId}`} />
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening LookAway...</h1>
+          <meta httpEquiv="refresh" content={`0;url=blanked://invite/${userId}`} />
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening Blanked...</h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 24 }}>
             If the app doesn&apos;t open automatically, download it below.
           </p>
@@ -41,7 +41,7 @@ export default async function InvitePage({ params }: { params: Promise<{ userId:
             You&apos;re <span style={{ color: COLORS.accent }}>invited</span>!
           </h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 8 }}>
-            A friend wants you to join them on LookAway — the visual memory game.
+            A friend wants you to join them on Blanked — the visual memory game.
           </p>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 32 }}>
             Open this link on your phone to get started.
