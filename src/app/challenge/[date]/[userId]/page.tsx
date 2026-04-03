@@ -23,7 +23,7 @@ export default async function ChallengePage({ params }: { params: Promise<{ date
       fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif", padding: 24
     }}>
       <Link href="/" style={{ marginBottom: 32 }}>
-        <Logo size={64} />
+        <Logo size={64} id="challenge" />
       </Link>
 
       {isMobile ? (

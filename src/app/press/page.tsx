@@ -6,7 +6,13 @@ import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Press Kit',
-  description: 'LookAway press kit. Download logos, screenshots, and app information.',
+  description: 'LookAway press kit. Download logos, screenshots, and app information for media coverage.',
+  alternates: { canonical: 'https://playlookaway.app/press' },
+  openGraph: {
+    title: 'Press Kit | LookAway',
+    description: 'Download LookAway logos, screenshots, and app information for press coverage.',
+    url: 'https://playlookaway.app/press',
+  },
 };
 
 const P = COLORS;
@@ -17,7 +23,7 @@ export default function PressPage() {
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Logo size={36} />
+          <Logo size={36} id="press-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
             Look<span style={{ color: P.accent }}>Away</span>
           </span>
@@ -84,7 +90,7 @@ export default function PressPage() {
               border: "1px solid rgba(0,0,0,0.03)", textAlign: "center"
             }}>
               <div style={{ marginBottom: 12 }}>
-                <Logo size={80} />
+                <Logo size={80} id="press-icon" />
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>App Icon</div>
               <div style={{ fontSize: 12, color: P.textD }}>PNG, 1024×1024</div>
@@ -96,7 +102,7 @@ export default function PressPage() {
               border: "1px solid rgba(0,0,0,0.03)", textAlign: "center"
             }}>
               <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
-                <Logo size={40} />
+                <Logo size={40} id="press-light" />
                 <span style={{ fontSize: 22, fontWeight: 800, color: P.text }}>Look<span style={{ color: P.accent }}>Away</span></span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>Logo (Light)</div>
@@ -109,7 +115,7 @@ export default function PressPage() {
               border: "1px solid rgba(0,0,0,0.03)", textAlign: "center"
             }}>
               <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
-                <Logo size={40} />
+                <Logo size={40} id="press-dark" />
                 <span style={{ fontSize: 22, fontWeight: 800, color: "white" }}>Look<span style={{ color: P.accentL }}>Away</span></span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Logo (Dark)</div>

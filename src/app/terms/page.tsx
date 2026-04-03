@@ -6,7 +6,13 @@ import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'LookAway terms of service.',
+  description: 'LookAway terms of service. Read our terms and conditions for using the app.',
+  alternates: { canonical: 'https://playlookaway.app/terms' },
+  openGraph: {
+    title: 'Terms of Service | LookAway',
+    description: 'LookAway terms of service. Read our terms and conditions.',
+    url: 'https://playlookaway.app/terms',
+  },
 };
 
 const sectionStyle: React.CSSProperties = { marginBottom: 36 };
@@ -20,7 +26,7 @@ export default function TermsPage() {
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Logo size={36} />
+          <Logo size={36} id="terms-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             Look<span style={{ color: COLORS.accent }}>Away</span>
           </span>
