@@ -4,22 +4,22 @@ import { COLORS } from '@/lib/constants';
 
 export default function Footer() {
   return (
-    <div style={{
+    <footer style={{
       padding: "32px 24px", borderTop: "1px solid rgba(0,0,0,0.05)",
       display: "flex", justifyContent: "space-between", alignItems: "center",
       flexWrap: "wrap", gap: 16
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        <Logo size={24} />
+        <Logo size={24} id="footer" />
         <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.text }}>LookAway</span>
         <span style={{ fontSize: 12, color: COLORS.textD }}>&copy; 2026</span>
       </div>
-      <div style={{ display: "flex", gap: 20 }}>
+      <nav style={{ display: "flex", gap: 20 }} aria-label="Footer navigation">
         <Link href="/privacy" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Privacy</Link>
         <Link href="/terms" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Terms</Link>
         <a href="mailto:hello@playlookaway.app" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Contact</a>
         <Link href="/press" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Press</Link>
-      </div>
-    </div>
+      </nav>
+    </footer>
   );
 }

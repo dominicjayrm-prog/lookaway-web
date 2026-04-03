@@ -7,6 +7,12 @@ import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'LookAway privacy policy. Learn how we handle your data.',
+  alternates: { canonical: 'https://playlookaway.app/privacy' },
+  openGraph: {
+    title: 'Privacy Policy | LookAway',
+    description: 'LookAway privacy policy. Learn how we handle your data.',
+    url: 'https://playlookaway.app/privacy',
+  },
 };
 
 const sectionStyle: React.CSSProperties = { marginBottom: 36 };
@@ -20,7 +26,7 @@ export default function PrivacyPage() {
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Logo size={36} />
+          <Logo size={36} id="privacy-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             Look<span style={{ color: COLORS.accent }}>Away</span>
           </span>
