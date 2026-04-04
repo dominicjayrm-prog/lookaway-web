@@ -48,8 +48,8 @@ export default async function Image() {
         </div>
 
         {/* Title */}
-        <div style={{ fontSize: 64, fontWeight: 800, color: '#1A1A18', letterSpacing: -2, display: 'flex' }}>
-          Blank<span style={{ color: '#6C5CE7' }}>ed</span>
+        <div style={{ fontSize: 64, fontWeight: 800, color: '#6C5CE7', letterSpacing: -2, display: 'flex' }}>
+          Blanked
         </div>
 
         {/* Subtitle */}

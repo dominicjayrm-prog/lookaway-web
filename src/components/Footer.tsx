@@ -11,7 +11,7 @@ export default function Footer() {
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <Logo size={24} id="footer" />
-        <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.text }}>Blanked</span>
+        <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.accent }}>Blanked</span>
         <span style={{ fontSize: 12, color: COLORS.textD }}>&copy; 2026</span>
       </div>
       <nav style={{ display: "flex", gap: 20 }} aria-label="Footer navigation">
