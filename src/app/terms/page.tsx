@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
-import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'Blanked terms of service. Read our terms and conditions for using the app.',
-  alternates: { canonical: 'https://playlookaway.app/terms' },
+  alternates: { canonical: `${SITE_URL}/terms` },
   openGraph: {
     title: 'Terms of Service | Blanked',
     description: 'Blanked terms of service. Read our terms and conditions.',
-    url: 'https://playlookaway.app/terms',
+    url: `${SITE_URL}/terms`,
   },
 };
 
@@ -25,7 +25,7 @@ export default function TermsPage() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+        <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="terms-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>

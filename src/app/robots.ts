@@ -1,5 +1,5 @@
-// TODO: Update domain from playlookaway.app to new Blanked domain
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/constants';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/challenge/', '/invite/'],
     },
-    sitemap: 'https://playlookaway.app/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

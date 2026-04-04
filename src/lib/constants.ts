@@ -12,11 +12,10 @@ export const COLORS = {
   textD: "#999999",
 } as const;
 
-// TODO: Update App Store URL once Blanked is live
+// TODO: Update these when the new Blanked domain and App Store listing are live
 export const APP_STORE_URL = "https://apps.apple.com/app/blanked/id6745136042";
-// TODO: Update domain from playlookaway.app to new Blanked domain
 export const SITE_URL = "https://playlookaway.app";
 export const APP_SCHEME = "blanked://";
-export const CONTACT_EMAIL = "hello@playlookaway.app"; // TODO: Update to Blanked email
+export const CONTACT_EMAIL = "hello@playlookaway.app";
 export const APPLE_TEAM_ID = "TEAMID";
 export const BUNDLE_ID = "com.blanked.app";

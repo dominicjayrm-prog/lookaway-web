@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
-import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Press Kit',
   description: 'Blanked press kit. Download logos, screenshots, and app information for media coverage.',
-  alternates: { canonical: 'https://playlookaway.app/press' },
+  alternates: { canonical: `${SITE_URL}/press` },
   openGraph: {
     title: 'Press Kit | Blanked',
     description: 'Download Blanked logos, screenshots, and app information for press coverage.',
-    url: 'https://playlookaway.app/press',
+    url: `${SITE_URL}/press`,
   },
 };
 
@@ -22,7 +22,7 @@ export default function PressPage() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: P.bg, minHeight: "100vh" }}>
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+        <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="press-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
             <span style={{ color: P.accent }}>Blanked</span>

@@ -59,8 +59,7 @@ export default async function Image() {
 
         {/* URL */}
         <div style={{ fontSize: 18, color: '#999999', marginTop: 32, display: 'flex' }}>
-          {/* TODO: Update domain from playlookaway.app to new Blanked domain */}
-          playlookaway.app
+          playblanked.app
         </div>
       </div>
     ),
