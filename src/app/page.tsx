@@ -39,7 +39,7 @@ export default function Home() {
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <Logo size={36} id="nav" />
             <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
-              Blank<span style={{ color: P.accent }}>ed</span>
+              <span style={{ color: P.accent }}>Blanked</span>
             </span>
           </div>
           <a

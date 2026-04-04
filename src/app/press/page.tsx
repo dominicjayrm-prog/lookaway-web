@@ -25,7 +25,7 @@ export default function PressPage() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="press-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
-            Blank<span style={{ color: P.accent }}>ed</span>
+            <span style={{ color: P.accent }}>Blanked</span>
           </span>
         </Link>
       </div>
@@ -103,7 +103,7 @@ export default function PressPage() {
             }}>
               <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
                 <Logo size={40} id="press-light" />
-                <span style={{ fontSize: 22, fontWeight: 800, color: P.text }}>Blank<span style={{ color: P.accent }}>ed</span></span>
+                <span style={{ fontSize: 22, fontWeight: 800, color: P.accent }}>Blanked</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>Logo (Light)</div>
               <div style={{ fontSize: 12, color: P.textD }}>For light backgrounds</div>
@@ -116,7 +116,7 @@ export default function PressPage() {
             }}>
               <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
                 <Logo size={40} id="press-dark" />
-                <span style={{ fontSize: 22, fontWeight: 800, color: "white" }}>Blank<span style={{ color: P.accentL }}>ed</span></span>
+                <span style={{ fontSize: 22, fontWeight: 800, color: P.accentL }}>Blanked</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Logo (Dark)</div>
               <div style={{ fontSize: 12, color: "#999" }}>For dark backgrounds</div>

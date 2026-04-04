@@ -28,7 +28,7 @@ export default function TermsPage() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="terms-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
-            Blank<span style={{ color: COLORS.accent }}>ed</span>
+            <span style={{ color: COLORS.accent }}>Blanked</span>
           </span>
         </Link>
       </div>
