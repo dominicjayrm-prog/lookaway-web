@@ -3,11 +3,21 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import AppStoreButton from '@/components/AppStoreButton';
-import { COLORS, APP_STORE_URL } from '@/lib/constants';
+import { COLORS, APP_STORE_URL, APP_SCHEME } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'You\'ve been challenged!',
   description: 'Someone challenged you to a visual memory battle in Blanked. Open this link on your phone to play.',
+  openGraph: {
+    title: "You've been challenged! | Blanked",
+    description: 'Someone challenged you to a visual memory battle. Can you beat their score?',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "You've been challenged! | Blanked",
+    description: 'Someone challenged you to a visual memory battle. Can you beat their score?',
+  },
+  robots: { index: false, follow: false },
 };
 
 export default async function ChallengePage({ params }: { params: Promise<{ date: string; userId: string }> }) {
@@ -28,7 +38,7 @@ export default async function ChallengePage({ params }: { params: Promise<{ date
 
       {isMobile ? (
         <div style={{ textAlign: "center", maxWidth: 400 }}>
-          <meta httpEquiv="refresh" content={`0;url=blanked://challenge/${date}/${userId}`} />
+          <meta httpEquiv="refresh" content={`0;url=${APP_SCHEME}challenge/${date}/${userId}`} />
           <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening Blanked...</h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 24 }}>
             If the app doesn&apos;t open automatically, download it below.

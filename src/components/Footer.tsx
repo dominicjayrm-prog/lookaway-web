@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Logo from './Logo';
-import { COLORS } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
       <nav style={{ display: "flex", gap: 20 }} aria-label="Footer navigation">
         <Link href="/privacy" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Privacy</Link>
         <Link href="/terms" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Terms</Link>
-        <a href="mailto:hello@playlookaway.app" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Contact</a>
+        <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Contact us by email" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Contact</a>
         <Link href="/press" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Press</Link>
       </nav>
     </footer>

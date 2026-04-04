@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
 import '@/styles/globals.css';
 
-// TODO: Update domain from playlookaway.app to new Blanked domain
 export const metadata: Metadata = {
-  metadataBase: new URL('https://playlookaway.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Blanked — The Visual Memory Game',
     template: '%s | Blanked',
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     'puzzle game', 'memory test', 'brain game', 'daily puzzle',
     'memory challenge', 'visual puzzle', 'brain training app',
     'memory improvement', 'cognitive training', 'mind game',
+    'blanked', 'blanked game', 'blanked app',
   ],
   authors: [{ name: 'Blanked' }],
   creator: 'Blanked',
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://playlookaway.app',
+    url: SITE_URL,
     title: "Blanked — Don't blank.",
     description: 'Study the scene. It disappears. Answer from memory. 200 levels. 6 worlds. Challenge your friends.',
     siteName: 'Blanked',
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   alternates: {
-    canonical: 'https://playlookaway.app',
+    canonical: SITE_URL,
   },
 };
 

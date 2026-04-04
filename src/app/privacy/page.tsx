@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
-import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Blanked privacy policy. Learn how we handle your data.',
-  alternates: { canonical: 'https://playlookaway.app/privacy' },
+  alternates: { canonical: `${SITE_URL}/privacy` },
   openGraph: {
     title: 'Privacy Policy | Blanked',
     description: 'Blanked privacy policy. Learn how we handle your data.',
-    url: 'https://playlookaway.app/privacy',
+    url: `${SITE_URL}/privacy`,
   },
 };
 
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+        <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="privacy-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>

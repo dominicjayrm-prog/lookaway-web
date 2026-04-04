@@ -3,11 +3,21 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
 import AppStoreButton from '@/components/AppStoreButton';
-import { COLORS } from '@/lib/constants';
+import { COLORS, APP_SCHEME } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Join me on Blanked!',
   description: 'Someone invited you to play Blanked — the visual memory game. Download it free.',
+  openGraph: {
+    title: 'Join me on Blanked!',
+    description: 'A friend wants you to play Blanked — the visual memory game. Download it free.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Join me on Blanked!',
+    description: 'A friend wants you to play Blanked — the visual memory game. Download it free.',
+  },
+  robots: { index: false, follow: false },
 };
 
 export default async function InvitePage({ params }: { params: Promise<{ userId: string }> }) {
@@ -28,7 +38,7 @@ export default async function InvitePage({ params }: { params: Promise<{ userId:
 
       {isMobile ? (
         <div style={{ textAlign: "center", maxWidth: 400 }}>
-          <meta httpEquiv="refresh" content={`0;url=blanked://invite/${userId}`} />
+          <meta httpEquiv="refresh" content={`0;url=${APP_SCHEME}invite/${userId}`} />
           <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening Blanked...</h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 24 }}>
             If the app doesn&apos;t open automatically, download it below.
