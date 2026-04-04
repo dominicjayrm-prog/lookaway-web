@@ -6,11 +6,11 @@ import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Press Kit',
-  description: 'LookAway press kit. Download logos, screenshots, and app information for media coverage.',
+  description: 'Blanked press kit. Download logos, screenshots, and app information for media coverage.',
   alternates: { canonical: 'https://playlookaway.app/press' },
   openGraph: {
-    title: 'Press Kit | LookAway',
-    description: 'Download LookAway logos, screenshots, and app information for press coverage.',
+    title: 'Press Kit | Blanked',
+    description: 'Download Blanked logos, screenshots, and app information for press coverage.',
     url: 'https://playlookaway.app/press',
   },
 };
@@ -25,7 +25,7 @@ export default function PressPage() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="press-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
-            Look<span style={{ color: P.accent }}>Away</span>
+            Blank<span style={{ color: P.accent }}>ed</span>
           </span>
         </Link>
       </div>
@@ -33,16 +33,16 @@ export default function PressPage() {
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "40px 24px 80px" }}>
         <h1 style={{ fontSize: 38, fontWeight: 800, color: P.text, marginBottom: 8, letterSpacing: -0.5 }}>Press Kit</h1>
         <p style={{ fontSize: 16, color: P.textM, marginBottom: 40, lineHeight: 1.7 }}>
-          Everything you need to write about LookAway. For press enquiries, contact{' '}
+          Everything you need to write about Blanked. For press enquiries, contact{' '}
           <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: P.accent, textDecoration: "underline" }}>{CONTACT_EMAIL}</a>.
         </p>
 
         {/* App Info */}
         <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontSize: 22, fontWeight: 700, color: P.text, marginBottom: 16 }}>About LookAway</h2>
+          <h2 style={{ fontSize: 22, fontWeight: 700, color: P.text, marginBottom: 16 }}>About Blanked</h2>
           <div style={{ display: "grid", gridTemplateColumns: "140px 1fr", gap: "8px 20px", fontSize: 16, color: P.textM, lineHeight: 1.7 }}>
-            <span style={{ fontWeight: 600, color: P.text }}>App name</span><span>LookAway</span>
-            <span style={{ fontWeight: 600, color: P.text }}>Tagline</span><span>How much can you remember?</span>
+            <span style={{ fontWeight: 600, color: P.text }}>App name</span><span>Blanked</span>
+            <span style={{ fontWeight: 600, color: P.text }}>Tagline</span><span>Don&apos;t blank.</span>
             <span style={{ fontWeight: 600, color: P.text }}>Platform</span><span>iOS (Android coming soon)</span>
             <span style={{ fontWeight: 600, color: P.text }}>Price</span><span>Free to play</span>
             <span style={{ fontWeight: 600, color: P.text }}>Content</span><span>200 levels across 6 worlds</span>
@@ -54,7 +54,7 @@ export default function PressPage() {
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 22, fontWeight: 700, color: P.text, marginBottom: 16 }}>Description</h2>
           <p style={{ fontSize: 16, color: P.textM, lineHeight: 1.7, marginBottom: 12 }}>
-            LookAway is a visual memory game that tests how much you can remember after a scene disappears. Each level presents a scene filled with coloured shapes, objects, numbers, and patterns. Players have a few seconds to memorise everything, then the scene vanishes and five questions test their recall.
+            Blanked is a visual memory game that tests how much you can remember after a scene disappears. Each level presents a scene filled with coloured shapes, objects, numbers, and patterns. Players have a few seconds to memorise everything, then the scene vanishes and five questions test their recall.
           </p>
           <p style={{ fontSize: 16, color: P.textM, lineHeight: 1.7, marginBottom: 12 }}>
             The game spans 200 levels across 6 worlds, each introducing new mechanics: from basic shape recognition to moving objects, photographic scenes, and the ultimate &ldquo;Mastermind&rdquo; world that combines everything. Difficulty ramps gradually, making the game accessible to casual players while providing a genuine challenge for memory enthusiasts.
@@ -103,7 +103,7 @@ export default function PressPage() {
             }}>
               <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
                 <Logo size={40} id="press-light" />
-                <span style={{ fontSize: 22, fontWeight: 800, color: P.text }}>Look<span style={{ color: P.accent }}>Away</span></span>
+                <span style={{ fontSize: 22, fontWeight: 800, color: P.text }}>Blank<span style={{ color: P.accent }}>ed</span></span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>Logo (Light)</div>
               <div style={{ fontSize: 12, color: P.textD }}>For light backgrounds</div>
@@ -116,7 +116,7 @@ export default function PressPage() {
             }}>
               <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
                 <Logo size={40} id="press-dark" />
-                <span style={{ fontSize: 22, fontWeight: 800, color: "white" }}>Look<span style={{ color: P.accentL }}>Away</span></span>
+                <span style={{ fontSize: 22, fontWeight: 800, color: "white" }}>Blank<span style={{ color: P.accentL }}>ed</span></span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Logo (Dark)</div>
               <div style={{ fontSize: 12, color: "#999" }}>For dark backgrounds</div>

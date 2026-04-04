@@ -1,3 +1,4 @@
+// TODO: Update domain from playlookaway.app to new Blanked domain
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {

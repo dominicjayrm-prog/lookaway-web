@@ -7,7 +7,7 @@ import { COLORS, APP_STORE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'You\'ve been challenged!',
-  description: 'Someone challenged you to a visual memory battle in LookAway. Open this link on your phone to play.',
+  description: 'Someone challenged you to a visual memory battle in Blanked. Open this link on your phone to play.',
 };
 
 export default async function ChallengePage({ params }: { params: Promise<{ date: string; userId: string }> }) {
@@ -28,8 +28,8 @@ export default async function ChallengePage({ params }: { params: Promise<{ date
 
       {isMobile ? (
         <div style={{ textAlign: "center", maxWidth: 400 }}>
-          <meta httpEquiv="refresh" content={`0;url=lookaway://challenge/${date}/${userId}`} />
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening LookAway...</h1>
+          <meta httpEquiv="refresh" content={`0;url=blanked://challenge/${date}/${userId}`} />
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening Blanked...</h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 24 }}>
             If the app doesn&apos;t open automatically, download it below.
           </p>
@@ -41,7 +41,7 @@ export default async function ChallengePage({ params }: { params: Promise<{ date
             You&apos;ve been <span style={{ color: COLORS.accent }}>challenged</span>!
           </h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 8 }}>
-            Someone wants to battle your visual memory in LookAway.
+            Someone wants to battle your visual memory in Blanked.
           </p>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 32 }}>
             Open this link on your phone to accept the challenge.

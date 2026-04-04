@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'LookAway — Visual Memory Game';
+export const alt = 'Blanked — Visual Memory Game';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -49,16 +49,17 @@ export default async function Image() {
 
         {/* Title */}
         <div style={{ fontSize: 64, fontWeight: 800, color: '#1A1A18', letterSpacing: -2, display: 'flex' }}>
-          Look<span style={{ color: '#6C5CE7' }}>Away</span>
+          Blank<span style={{ color: '#6C5CE7' }}>ed</span>
         </div>
 
         {/* Subtitle */}
         <div style={{ fontSize: 32, color: '#555555', marginTop: 12, display: 'flex' }}>
-          How much can you remember?
+          {"Don't blank."}
         </div>
 
         {/* URL */}
         <div style={{ fontSize: 18, color: '#999999', marginTop: 32, display: 'flex' }}>
+          {/* TODO: Update domain from playlookaway.app to new Blanked domain */}
           playlookaway.app
         </div>
       </div>

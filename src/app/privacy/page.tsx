@@ -6,11 +6,11 @@ import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'LookAway privacy policy. Learn how we handle your data.',
+  description: 'Blanked privacy policy. Learn how we handle your data.',
   alternates: { canonical: 'https://playlookaway.app/privacy' },
   openGraph: {
-    title: 'Privacy Policy | LookAway',
-    description: 'LookAway privacy policy. Learn how we handle your data.',
+    title: 'Privacy Policy | Blanked',
+    description: 'Blanked privacy policy. Learn how we handle your data.',
     url: 'https://playlookaway.app/privacy',
   },
 };
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} id="privacy-nav" />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
-            Look<span style={{ color: COLORS.accent }}>Away</span>
+            Blank<span style={{ color: COLORS.accent }}>ed</span>
           </span>
         </Link>
       </div>
@@ -39,13 +39,13 @@ export default function PrivacyPage() {
 
         <div style={sectionStyle}>
           <p style={pStyle}>
-            LookAway (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the LookAway mobile application.
+            Blanked (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use the Blanked mobile application.
           </p>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>What We Collect</h2>
-          <p style={pStyle}>When you use LookAway, we may collect the following information:</p>
+          <p style={pStyle}>When you use Blanked, we may collect the following information:</p>
           <ul style={ulStyle}>
             <li>Display name and username you choose when creating an account</li>
             <li>Game progress, including levels completed, star counts, and scores</li>
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>Third-Party Services</h2>
-          <p style={pStyle}>We use the following third-party services to operate LookAway:</p>
+          <p style={pStyle}>We use the following third-party services to operate Blanked:</p>
           <ul style={ulStyle}>
             <li><strong>Supabase</strong> &mdash; Database hosting and authentication</li>
             <li><strong>RevenueCat</strong> &mdash; In-app purchase management</li>
@@ -101,7 +101,7 @@ export default function PrivacyPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>Children&apos;s Privacy</h2>
           <p style={pStyle}>
-            LookAway is suitable for players of all ages. We do not knowingly collect personal information from children under the age of 13 without verifiable parental consent. If you believe we have inadvertently collected information from a child under 13, please contact us and we will promptly delete it.
+            Blanked is suitable for players of all ages. We do not knowingly collect personal information from children under the age of 13 without verifiable parental consent. If you believe we have inadvertently collected information from a child under 13, please contact us and we will promptly delete it.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>Changes to This Policy</h2>
           <p style={pStyle}>
-            We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the updated policy within the app. Your continued use of LookAway after changes are posted constitutes your acceptance of the revised policy.
+            We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the updated policy within the app. Your continued use of Blanked after changes are posted constitutes your acceptance of the revised policy.
           </p>
         </div>
 
