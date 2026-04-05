@@ -16,7 +16,7 @@ const jsonLd = {
   "applicationCategory": "GameApplication",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "1" },
-  "description": "Study the scene. It disappears. Answer from memory. A visual memory game with 200 levels across 6 worlds.",
+  "description": "Study the scene. It disappears. Answer from memory. A visual memory game with 380+ levels across 6 game modes.",
   "url": SITE_URL,
   "downloadUrl": APP_STORE_URL,
   "screenshot": `${SITE_URL}/og-image.png`,
@@ -65,15 +65,15 @@ export default function Home() {
           <section style={{ padding: "50px 24px 70px", position: "relative", overflow: "hidden" }} aria-label="Hero">
             <FloatingShapes />
             <div className="hero-layout" style={{
-              maxWidth: 960, margin: "0 auto", position: "relative",
-              display: "flex", alignItems: "center", justifyContent: "center", gap: 56
+              maxWidth: 1100, margin: "0 auto", position: "relative",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 60
             }}>
               <div className="hero-text" style={{ flex: "1 1 320px", maxWidth: 420, position: "relative", zIndex: 1 }}>
                 <h1 className="fu" style={{ fontSize: 46, fontWeight: 800, color: P.text, lineHeight: 1.12, letterSpacing: -1.5 }}>
                   How much can<br />you <span style={{ color: P.accent }}>remember</span>?
                 </h1>
                 <p className="fu fu1" style={{ fontSize: 17, color: P.textM, lineHeight: 1.65, marginTop: 18, maxWidth: 370 }}>
-                  Study the scene. It disappears. Answer from memory. A visual memory game that starts simple and gets impossibly hard.
+                  Study the scene. It disappears. Answer from memory. 6 game modes that start simple and get impossibly hard.
                 </p>
 
                 <div className="fu fu2" style={{ display: "flex", gap: 12, marginTop: 28, alignItems: "center", flexWrap: "wrap" }}>
@@ -82,7 +82,7 @@ export default function Home() {
                 </div>
 
                 <div className="fu fu3" style={{ display: "flex", gap: 28, marginTop: 32 }}>
-                  {[{ num: "200+", label: "Levels" }, { num: "6", label: "Worlds" }, { num: "30s", label: "Per round" }].map((s, i) => (
+                  {[{ num: "380+", label: "Levels" }, { num: "6", label: "Game modes" }, { num: "30s", label: "Per round" }].map((s, i) => (
                     <div key={i}>
                       <div style={{ fontSize: 24, fontWeight: 800, color: P.text }}>{s.num}</div>
                       <div style={{ fontSize: 12, color: P.textD, fontWeight: 500, marginTop: 2 }}>{s.label}</div>

@@ -1,227 +1,362 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { COLORS } from '@/lib/constants';
 
 const P = COLORS;
+const PINK = "#E84393";
 
-const HeartIcon = ({ filled, size = 10 }: { filled: boolean; size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? P.coral : "none"} stroke={filled ? P.coral : "#E8E6E1"} strokeWidth="2">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>
-);
+/* ── Screen data ──────────────────────────────────────── */
 
-const GemIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={P.accent} strokeWidth="2" strokeLinejoin="round">
-    <polygon points="12,2 22,8.5 18,22 6,22 2,8.5" />
-    <polyline points="2,8.5 12,12 22,8.5" />
-    <line x1="12" y1="2" x2="12" y2="12" />
-  </svg>
-);
-
-const ClosedEyeIcon = () => (
-  <svg width="28" height="20" viewBox="0 0 36 24">
-    <path d="M3 14 Q18 14 33 14" stroke={P.accent} strokeWidth="2.5" strokeLinecap="round" fill="none" />
-    <line x1="9" y1="15" x2="6" y2="21" stroke={P.accent} strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="18" y1="16" x2="18" y2="22" stroke={P.accent} strokeWidth="1.8" strokeLinecap="round" />
-    <line x1="27" y1="15" x2="30" y2="21" stroke={P.accent} strokeWidth="1.8" strokeLinecap="round" />
-  </svg>
-);
-
-const questions = [
-  { label: "QUESTION 1 OF 5", text: "How many red shapes were there?", options: ["1", "2", "3", "4"], correct: 0 },
-  { label: "QUESTION 2 OF 5", text: "What colour was the square?", options: ["Red", "Blue", "Green", "Gold"], correct: 1 },
+const screens = [
+  { label: "Classic Mode", tagline: "Memorise the scene. Answer from memory.", color: P.accent },
+  { label: "6 Game Modes", tagline: "380+ levels across 6 unique campaigns.", color: P.green },
+  { label: "Achievements", tagline: "Unlock badges. Earn gems. Track your progress.", color: P.gold },
+  { label: "Speed Recall", tagline: "Tap where each shape was on the canvas.", color: P.coral },
+  { label: "Colour Chain", tagline: "Memorise the grid. Recall each colour.", color: PINK },
 ];
 
-export default function PhoneMockup() {
-  const [phase, setPhase] = useState<'scene' | 'fade' | 'question'>('scene');
-  const [timer, setTimer] = useState(100);
-  const [activeQ, setActiveQ] = useState(0);
-  const [answered, setAnswered] = useState(false);
+/* ── Screen 1: Classic ────────────────────────────────── */
 
+function ClassicScreen() {
+  const [timer, setTimer] = useState(45);
   useEffect(() => {
-    let ts: ReturnType<typeof setTimeout>[] = [];
-    const loop = () => {
-      setPhase('scene'); setTimer(100); setActiveQ(0); setAnswered(false);
-      ts.push(setTimeout(() => setTimer(75), 400));
-      ts.push(setTimeout(() => setTimer(50), 900));
-      ts.push(setTimeout(() => setTimer(25), 1500));
-      ts.push(setTimeout(() => setTimer(8), 2200));
-      ts.push(setTimeout(() => { setPhase('fade'); setTimer(0); }, 2800));
-      ts.push(setTimeout(() => { setPhase('question'); setActiveQ(1); setAnswered(false); }, 3400));
-      ts.push(setTimeout(() => setAnswered(true), 4200));
-      ts.push(setTimeout(() => { setActiveQ(2); setAnswered(false); }, 5000));
-      ts.push(setTimeout(() => setAnswered(true), 5600));
-      ts.push(setTimeout(loop, 7000));
-    };
-    loop();
-    return () => ts.forEach(clearTimeout);
+    const iv = setInterval(() => {
+      setTimer(prev => prev <= 5 ? 45 : prev - 1.2);
+    }, 60);
+    return () => clearInterval(iv);
   }, []);
-
-  const q = activeQ > 0 ? questions[activeQ - 1] : null;
+  const pct = (timer / 45) * 100;
 
   return (
-    <div style={{ position: "relative", width: 260, height: 520 }}>
-      {/* Physical buttons — left */}
-      <div style={{ position: "absolute", left: -3, top: 100, width: 3, height: 28, borderRadius: 1.5, background: "#2D2D2D" }} />
-      <div style={{ position: "absolute", left: -3, top: 140, width: 3, height: 42, borderRadius: 1.5, background: "#2D2D2D" }} />
-      <div style={{ position: "absolute", left: -3, top: 190, width: 3, height: 42, borderRadius: 1.5, background: "#2D2D2D" }} />
-      {/* Physical button — right */}
-      <div style={{ position: "absolute", right: -3, top: 155, width: 3, height: 50, borderRadius: 1.5, background: "#2D2D2D" }} />
+    <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 6 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: 11, color: P.textD, cursor: "pointer" }}>✕</span>
+        <span style={{ fontSize: 8, fontWeight: 700, color: P.green, background: `${P.green}12`, padding: "2px 8px", borderRadius: 6, letterSpacing: 0.5 }}>LEVEL 4</span>
+        <div style={{ width: 11 }} />
+      </div>
+      <div style={{ height: 4, borderRadius: 2, background: "#EEEDE8", overflow: "hidden" }}>
+        <div style={{ width: `${pct}%`, height: "100%", borderRadius: 2, background: pct > 25 ? P.gold : P.coral, transition: "background 0.3s" }} />
+      </div>
+      <div style={{ fontSize: 11, color: P.textD, textAlign: "center", fontWeight: 500 }}>Memorise this scene!</div>
+      <div style={{ flex: 1, aspectRatio: "1/1", background: "white", borderRadius: 14, position: "relative", boxShadow: "0 1px 4px rgba(0,0,0,0.04)", overflow: "hidden", maxHeight: 200 }}>
+        <div style={{ position: "absolute", left: "14%", top: "14%", width: 36, height: 36, borderRadius: "50%", background: P.coral }} />
+        <div style={{ position: "absolute", right: "14%", top: "14%", width: 36, height: 36, borderRadius: 8, background: P.blue }} />
+        <div style={{ position: "absolute", left: "50%", top: "42%", transform: "translateX(-50%)", width: 34, height: 34, borderRadius: 6, background: P.accent }} />
+        <svg style={{ position: "absolute", left: "12%", bottom: "14%", width: 38, height: 38 }} viewBox="0 0 100 100"><polygon points="50,8 92,88 8,88" fill="#00B894" /></svg>
+        <div style={{ position: "absolute", right: "14%", bottom: "16%", width: 34, height: 34, borderRadius: "50%", background: P.gold }} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <span style={{ fontSize: 9, color: P.blue, background: `${P.blue}10`, padding: "3px 10px", borderRadius: 8, fontWeight: 600 }}>⏱ +3s 💎30</span>
+      </div>
+    </div>
+  );
+}
 
-      {/* Phone body */}
-      <div style={{
-        width: 260, height: 520, borderRadius: 40, background: "#1A1A18", padding: 8,
-        boxShadow: "0 30px 80px rgba(0,0,0,0.12), 0 10px 30px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.05)",
-        position: "relative", overflow: "hidden"
-      }}>
-        {/* Inner screen */}
-        <div style={{
-          width: "100%", height: "100%", borderRadius: 33, background: "#FAFAF7",
-          overflow: "hidden", position: "relative"
-        }}>
-          {/* Dynamic Island — inside inner screen so it clips properly */}
-          <div style={{
-            position: "absolute", top: 4, left: "50%", transform: "translateX(-50%)",
-            width: 90, height: 24, borderRadius: 12, background: "#1A1A18", zIndex: 10
-          }} />
+/* ── Screen 2: Journey ────────────────────────────────── */
 
-          {/* Screen content */}
-          <div style={{
-            position: "absolute", inset: 0,
-            padding: "34px 14px 10px",
-            display: "flex", flexDirection: "column"
+const campaigns = [
+  { letter: "C", name: "Classic", levels: "200", color: P.accent },
+  { letter: "S", name: "Speed Recall", levels: "45", color: P.coral },
+  { letter: "S", name: "Snap Match", levels: "45", color: P.blue },
+  { letter: "S", name: "Sequence", levels: "36", color: P.gold },
+  { letter: "C", name: "Counting", levels: "30", color: P.green },
+  { letter: "C", name: "Colour Chain", levels: "24", color: PINK },
+];
+
+function JourneyScreen() {
+  const [selected, setSelected] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setSelected(p => (p + 1) % 6), 1800);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 5 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: 16, fontWeight: 800, color: P.text }}>Journey</span>
+        <span style={{ fontSize: 8, fontWeight: 700, color: P.gold, background: `${P.gold}12`, padding: "2px 8px", borderRadius: 8 }}>⭐ 479/1140</span>
+      </div>
+      <div style={{ fontSize: 8, fontWeight: 700, color: P.textD, letterSpacing: 1 }}>CAMPAIGNS</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 5 }}>
+        {campaigns.map((c, i) => (
+          <div key={i} style={{
+            padding: "6px 4px", borderRadius: 8, textAlign: "center",
+            background: i === selected ? `${c.color}08` : "white",
+            border: i === selected ? `1.5px solid ${c.color}` : "1.5px solid #F0EFE9",
+            transform: i === selected ? "scale(1.04)" : "scale(1)",
+            transition: "all 0.3s"
           }}>
-            {/* Top bar: hearts + gems */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+            <div style={{ width: 22, height: 22, borderRadius: 6, background: c.color, color: "white", fontSize: 10, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 3px" }}>{c.letter}</div>
+            <div style={{ fontSize: 7, fontWeight: 700, color: P.text, lineHeight: 1.2 }}>{c.name}</div>
+            <div style={{ fontSize: 6, color: P.textD }}>{c.levels} levels</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ background: "white", borderRadius: 10, padding: "7px 8px", border: "1px solid #F0EFE9" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+          <span style={{ fontSize: 8, fontWeight: 700, color: P.text }}>World 1 — Shape Basics</span>
+          <span style={{ fontSize: 7, color: P.green, fontWeight: 700 }}>20/20</span>
+        </div>
+        <div style={{ height: 4, borderRadius: 2, background: "#EEEDE8", marginBottom: 5 }}>
+          <div style={{ width: "100%", height: "100%", borderRadius: 2, background: P.green }} />
+        </div>
+        <div style={{ background: P.green, color: "white", fontSize: 8, fontWeight: 700, textAlign: "center", padding: "4px 0", borderRadius: 6 }}>Continue</div>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-around", borderTop: "1px solid #F0EFE9", paddingTop: 5 }}>
+        {["🏠", "🗺️", "👤", "⚙️"].map((icon, i) => (
+          <span key={i} style={{ fontSize: 12, opacity: i === 1 ? 1 : 0.35 }}>{icon}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── Screen 3: Achievements ───────────────────────────── */
+
+const BRONZE = "#CD7F32", SILVER = "#B2BEC3", GOLD = "#D4A012";
+const achievements = [
+  { icon: "🌍", name: "World Traveller", desc: "Complete all worlds", tier: 3, count: "6/6" },
+  { icon: "⭐", name: "Perfectionist", desc: "Get 3 stars on levels", tier: 2, count: "3/3" },
+  { icon: "🎮", name: "Level Grinder", desc: "Complete 25 levels", tier: 1, count: "25/25" },
+  { icon: "🧠", name: "Memory Master", desc: "Score 100% accuracy", tier: 2, count: "25/25" },
+  { icon: "📅", name: "Daily Devotee", desc: "Play 200 daily rounds", tier: 3, count: "200/200" },
+  { icon: "👥", name: "Social Butterfly", desc: "Challenge 5 friends", tier: 1, count: "5/5" },
+  { icon: "🏆", name: "Champion", desc: "Win 5 challenges", tier: 0, count: "3/5" },
+  { icon: "💬", name: "Popular", desc: "Get 3 friend requests", tier: 1, count: "3/3" },
+];
+const tierColors = [null, BRONZE, SILVER, GOLD];
+
+function AchievementsScreen() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 6 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: 11, color: P.textD }}>←</span>
+        <span style={{ fontSize: 13, fontWeight: 800, color: P.text }}>Achievements</span>
+        <span style={{ fontSize: 9, color: P.textD, fontWeight: 600 }}>27/39</span>
+      </div>
+      <div style={{ display: "flex", gap: 4, overflowX: "auto" }}>
+        {["All", "Campaign", "Daily", "Social", "Streak"].map((f, i) => (
+          <span key={i} style={{
+            fontSize: 7, fontWeight: 700, padding: "3px 7px", borderRadius: 8, whiteSpace: "nowrap",
+            background: i === 0 ? P.green : "white", color: i === 0 ? "white" : P.textD,
+            border: i === 0 ? "none" : "1px solid #EEEDE8"
+          }}>{f}</span>
+        ))}
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 4, flex: 1, overflow: "hidden" }}>
+        {achievements.map((a, i) => (
+          <div key={i} style={{ background: "white", borderRadius: 8, padding: "5px 5px 4px", border: "1px solid #F0EFE9" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 4, marginBottom: 2 }}>
+              <span style={{ fontSize: 12 }}>{a.icon}</span>
+              <div>
+                <div style={{ fontSize: 7, fontWeight: 700, color: P.text, lineHeight: 1.2 }}>{a.name}</div>
+                <div style={{ fontSize: 6, color: P.textD, lineHeight: 1.2 }}>{a.desc}</div>
+              </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ display: "flex", gap: 2 }}>
-                {[1, 2, 3, 4, 5].map(i => <HeartIcon key={i} filled={i <= 4} />)}
-              </div>
-              <div style={{
-                display: "flex", alignItems: "center", gap: 4, padding: "2px 8px",
-                borderRadius: 10, background: `${P.accent}10`
-              }}>
-                <GemIcon />
-                <span style={{ fontSize: 9, fontWeight: 700, color: P.accent }}>50</span>
-              </div>
-            </div>
-
-            {/* Level badge */}
-            <div style={{ textAlign: "center", marginBottom: 5 }}>
-              <span style={{
-                display: "inline-block", padding: "2px 10px", borderRadius: 8,
-                background: `${P.accent}10`, fontSize: 9, fontWeight: 700, color: P.accent, letterSpacing: 1
-              }}>LEVEL 4</span>
-            </div>
-
-            {/* Timer bar */}
-            <div style={{ height: 4, borderRadius: 2, background: "#EEEDE8", marginBottom: 8, overflow: "hidden" }}>
-              <div style={{
-                width: `${timer}%`, height: "100%", borderRadius: 2,
-                background: timer > 50 ? P.accent : timer > 20 ? P.gold : P.coral,
-                transition: "width 0.5s linear, background 0.3s"
-              }} />
-            </div>
-
-            {/* Main canvas */}
-            <div style={{
-              flex: 1, borderRadius: 16, background: "white",
-              border: "1px solid rgba(0,0,0,0.04)", position: "relative",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.03)"
-            }}>
-              {/* Scene phase */}
-              {(phase === 'scene' || phase === 'fade') && (
-                <div style={{
-                  position: "absolute", inset: 0,
-                  opacity: phase === 'fade' ? 0 : 1,
-                  transition: "opacity 0.5s ease-out"
-                }}>
-                  <div style={{
-                    position: "absolute", top: 8, left: "50%", transform: "translateX(-50%)",
-                    fontSize: 9, color: P.textD, fontWeight: 600, whiteSpace: "nowrap"
-                  }}>Memorise this scene!</div>
-                  <div style={{ position: "absolute", left: "15%", top: "15%", width: 34, height: 34, borderRadius: "50%", background: P.coral, boxShadow: `0 2px 8px ${P.coral}30` }} />
-                  <div style={{ position: "absolute", right: "16%", top: "18%", width: 28, height: 28, borderRadius: 6, background: P.blue, boxShadow: `0 2px 8px ${P.blue}30` }} />
-                  <div style={{ position: "absolute", left: "40%", top: "40%" }}>
-                    <svg viewBox="0 0 100 100" width="26" height="26"><polygon points="50,5 63,35 95,35 69,57 79,90 50,70 21,90 31,57 5,35 37,35" fill={P.gold} /></svg>
-                  </div>
-                  <div style={{ position: "absolute", left: "14%", bottom: "18%" }}>
-                    <svg viewBox="0 0 100 100" width="24" height="24"><polygon points="50,5 95,50 50,95 5,50" fill={P.accent} /></svg>
-                  </div>
-                  <div style={{ position: "absolute", right: "15%", bottom: "20%" }}>
-                    <svg viewBox="0 0 100 100" width="30" height="30"><polygon points="50,8 92,88 8,88" fill={P.green} /></svg>
-                  </div>
-                </div>
-              )}
-
-              {/* Fade overlay */}
-              {phase === 'fade' && (
-                <div style={{
-                  position: "absolute", inset: 0, display: "flex", flexDirection: "column",
-                  alignItems: "center", justifyContent: "center", gap: 6,
-                  background: "rgba(250,250,247,0.9)", backdropFilter: "blur(3px)"
-                }}>
-                  <ClosedEyeIcon />
-                  <span style={{ fontSize: 10, fontWeight: 700, color: P.accent }}>Scene disappeared!</span>
-                </div>
-              )}
-
-              {/* Question phase */}
-              {phase === 'question' && q && (
-                <div style={{ padding: "10px 12px", width: "100%" }}>
-                  <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 6 }}>
-                    {[1, 2, 3, 4, 5].map(i => (
-                      <div key={i} style={{
-                        width: 6, height: 6, borderRadius: "50%",
-                        background: i < activeQ ? P.green : i === activeQ ? (answered ? P.green : P.accent) : "#E8E6E1"
-                      }} />
-                    ))}
-                  </div>
-                  <div style={{ fontSize: 7, color: P.textD, fontWeight: 700, marginBottom: 3, letterSpacing: 0.5, textAlign: "center" }}>{q.label}</div>
-                  <div style={{ fontSize: 10, fontWeight: 700, color: P.text, marginBottom: 8, lineHeight: 1.3, textAlign: "center" }}>{q.text}</div>
-                  {q.options.map((opt, i) => {
-                    const highlight = answered && i === q.correct;
-                    return (
-                      <div key={i} style={{
-                        padding: "7px 0", borderRadius: 8, textAlign: "center",
-                        marginBottom: 3, fontSize: 10, fontWeight: 600,
-                        background: highlight ? `${P.green}15` : "#F5F4F0",
-                        color: highlight ? P.green : P.textM,
-                        border: highlight ? `1.5px solid ${P.green}` : "1.5px solid transparent",
-                        transform: highlight ? "scale(1.02)" : "scale(1)",
-                        transition: "all 0.3s"
-                      }}>
-                        {opt}{highlight ? " ✓" : ""}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Power-up hints */}
-            {phase === 'question' && (
-              <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 6 }}>
-                {[
-                  <svg key="eye" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={P.textD} strokeWidth="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>,
-                  <svg key="cut" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={P.textD} strokeWidth="1.8"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" y1="4" x2="8.12" y2="15.88" /><line x1="14.47" y1="14.48" x2="20" y2="20" /><line x1="8.12" y1="8.12" x2="12" y2="12" /></svg>,
-                  <svg key="skip" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={P.textD} strokeWidth="1.8"><polygon points="5,4 15,12 5,20" /><line x1="19" y1="5" x2="19" y2="19" /></svg>,
-                ].map((icon, i) => (
-                  <div key={i} style={{ width: 28, height: 28, borderRadius: 7, background: "#F5F4F0", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0.5 }}>
-                    {icon}
-                  </div>
+                {[1, 2, 3].map(t => (
+                  <div key={t} style={{ width: 5, height: 5, borderRadius: "50%", background: a.tier >= t ? (tierColors[t] || "#E8E6E1") : "#E8E6E1" }} />
                 ))}
               </div>
-            )}
+              <span style={{ fontSize: 6, color: P.textD, fontWeight: 600 }}>{a.count}</span>
+            </div>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-          {/* Home indicator bar */}
-          <div style={{
-            position: "absolute", bottom: 6, left: "50%", transform: "translateX(-50%)",
-            width: 80, height: 4, borderRadius: 2, background: "#D0CEC8"
-          }} />
+/* ── Screen 4: Speed Recall ───────────────────────────── */
+
+function SpeedRecallScreen() {
+  const [phase, setPhase] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setPhase(p => (p + 1) % 3), 2000);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 6 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: P.textD, textAlign: "center" }}>
+        {phase === 0 ? "Memorise the positions!" : phase === 1 ? <span style={{ color: P.green }}>Where was the green circle?</span> : "Round complete!"}
+      </div>
+      <div style={{ flex: 1, aspectRatio: "1/1", background: "white", borderRadius: 14, position: "relative", boxShadow: "0 1px 4px rgba(0,0,0,0.04)", overflow: "hidden", maxHeight: 200 }}>
+        {phase === 0 && <>
+          <div style={{ position: "absolute", left: "18%", top: "20%", width: 28, height: 28, borderRadius: "50%", background: P.coral }} />
+          <div style={{ position: "absolute", right: "20%", top: "15%", width: 26, height: 26, borderRadius: 5, background: P.blue }} />
+          <div style={{ position: "absolute", left: "45%", top: "50%", width: 24, height: 24, borderRadius: "50%", background: P.green }} />
+          <div style={{ position: "absolute", left: "15%", bottom: "20%", width: 24, height: 24, borderRadius: 5, background: P.gold }} />
+          <svg style={{ position: "absolute", right: "18%", bottom: "22%", width: 28, height: 28 }} viewBox="0 0 100 100"><polygon points="50,8 92,88 8,88" fill={P.accent} /></svg>
+        </>}
+        {phase === 1 && <>
+          <div style={{ position: "absolute", left: "50%", top: "40%", transform: "translate(-50%,-50%)", width: 16, height: 16, borderRadius: "50%", background: P.green, opacity: 0.7 }} />
+          <div style={{ position: "absolute", left: "45%", top: "50%", transform: "translate(-50%,-50%)", width: 30, height: 30, borderRadius: "50%", border: `2px dashed ${P.green}` }} />
+        </>}
+        {phase === 2 && (
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ fontSize: 32, fontWeight: 800, color: P.coral }}>438</div>
+            <div style={{ fontSize: 10, color: P.textD }}>out of 500 points</div>
+          </div>
+        )}
+      </div>
+      {phase === 1 && <div style={{ fontSize: 9, color: P.green, fontWeight: 600, textAlign: "center" }}>6% off — 88 points!</div>}
+      {phase === 2 && (
+        <div style={{ display: "flex", justifyContent: "center", gap: 4 }}>
+          {[92, 88, 96, 84, 78].map((s, i) => (
+            <div key={i} style={{ width: 32, padding: "3px 0", borderRadius: 6, background: `${P.coral}10`, textAlign: "center", fontSize: 8, fontWeight: 700, color: P.coral }}>{s}</div>
+          ))}
         </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Screen 5: Colour Chain ───────────────────────────── */
+
+const gridColors = ["#FF6B6B", "#0984E3", "#00B894", "#D4A012", "#6C5CE7", "#E84393", "#FF6B6B", "#0984E3", "#00B894", "#D4A012", "#6C5CE7", "#E84393"];
+
+function ColourChainScreen() {
+  const [phase, setPhase] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setPhase(p => (p + 1) % 3), 2200);
+    return () => clearInterval(iv);
+  }, []);
+  const timerPct = 60;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100%", gap: 6 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: P.textD, textAlign: "center" }}>
+        {phase === 0 ? "Memorise the colours!" : phase === 1 ? <span style={{ color: P.gold }}>Where was Gold?</span> : "Round complete!"}
+      </div>
+      {phase === 0 && (
+        <>
+          <div style={{ height: 4, borderRadius: 2, background: "#EEEDE8", overflow: "hidden" }}>
+            <div style={{ width: `${timerPct}%`, height: "100%", borderRadius: 2, background: PINK }} />
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 4, flex: 1 }}>
+            {gridColors.map((c, i) => (
+              <div key={i} style={{ background: c, borderRadius: 6, minHeight: 24 }} />
+            ))}
+          </div>
+        </>
+      )}
+      {phase === 1 && (
+        <>
+          <div style={{ width: 36, height: 36, borderRadius: 8, background: P.gold, margin: "0 auto", boxShadow: `0 2px 8px ${P.gold}30` }} />
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 4, flex: 1 }}>
+            {gridColors.map((_, i) => {
+              const revealed = [2, 5, 9];
+              const isRevealed = revealed.includes(i);
+              const isCurrent = i === 9;
+              return (
+                <div key={i} style={{
+                  background: isRevealed ? `${P.green}10` : "#F5F4F0",
+                  borderRadius: 6, minHeight: 24,
+                  border: isCurrent ? `2px solid ${P.gold}` : isRevealed ? `2px solid ${P.green}` : "2px solid transparent"
+                }} />
+              );
+            })}
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", gap: 3 }}>
+            {[P.green, P.green, P.coral, P.accent, "#E8E6E1", "#E8E6E1"].map((c, i) => (
+              <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: c }} />
+            ))}
+          </div>
+        </>
+      )}
+      {phase === 2 && (
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6 }}>
+          <div style={{ fontSize: 32, fontWeight: 800, color: PINK }}>5/6</div>
+          <div style={{ fontSize: 10, color: P.textD }}>500 points</div>
+          <div style={{ display: "flex", gap: 4 }}>
+            {["✓", "✓", "✗", "✓", "✓", "✓"].map((r, i) => (
+              <div key={i} style={{ width: 24, height: 24, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, background: r === "✓" ? `${P.green}12` : `${P.coral}12`, color: r === "✓" ? P.green : P.coral }}>{r}</div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Main component ───────────────────────────────────── */
+
+const screenComponents = [ClassicScreen, JourneyScreen, AchievementsScreen, SpeedRecallScreen, ColourChainScreen];
+
+export default function PhoneMockup() {
+  const [active, setActive] = useState(0);
+  const [fadeKey, setFadeKey] = useState(0);
+
+  const goTo = useCallback((idx: number) => {
+    setActive(idx);
+    setFadeKey(k => k + 1);
+  }, []);
+
+  useEffect(() => {
+    const iv = setInterval(() => goTo((active + 1) % 5), 5000);
+    return () => clearInterval(iv);
+  }, [active, goTo]);
+
+  const ActiveScreen = screenComponents[active];
+  const s = screens[active];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+      {/* Phone frame */}
+      <div style={{ position: "relative", width: 260, height: 530 }}>
+        {/* Physical buttons */}
+        <div style={{ position: "absolute", left: -3, top: 100, width: 3, height: 28, borderRadius: 1.5, background: "#2D2D2D" }} />
+        <div style={{ position: "absolute", left: -3, top: 140, width: 3, height: 42, borderRadius: 1.5, background: "#2D2D2D" }} />
+        <div style={{ position: "absolute", left: -3, top: 190, width: 3, height: 42, borderRadius: 1.5, background: "#2D2D2D" }} />
+        <div style={{ position: "absolute", right: -3, top: 155, width: 3, height: 50, borderRadius: 1.5, background: "#2D2D2D" }} />
+
+        <div style={{
+          width: 260, height: 530, borderRadius: 36, background: "#1A1A18", padding: 7,
+          boxShadow: "0 24px 64px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.1)",
+          position: "relative", overflow: "hidden"
+        }}>
+          <div style={{ width: "100%", height: "100%", borderRadius: 30, background: "#FAFAF7", overflow: "hidden", position: "relative" }}>
+            {/* Notch */}
+            <div style={{ position: "absolute", top: 4, left: "50%", transform: "translateX(-50%)", width: 80, height: 22, borderRadius: 11, background: "#1A1A18", zIndex: 10 }} />
+
+            {/* Screen content with fade transition */}
+            <div key={fadeKey} style={{
+              position: "absolute", inset: 0, padding: "32px 12px 18px",
+              animation: "screenFadeIn 0.6s ease-out"
+            }}>
+              <ActiveScreen />
+            </div>
+
+            {/* Home indicator */}
+            <div style={{ position: "absolute", bottom: 5, left: "50%", transform: "translateX(-50%)", width: 90, height: 4, borderRadius: 2, background: "#D0CEC8" }} />
+          </div>
+        </div>
+      </div>
+
+      {/* Label + tagline */}
+      <div key={`label-${fadeKey}`} style={{ textAlign: "center", animation: "screenFadeIn 0.4s ease-out" }}>
+        <div style={{ fontSize: 15, fontWeight: 700, color: s.color }}>{s.label}</div>
+        <div style={{ fontSize: 12, color: P.textD, marginTop: 2 }}>{s.tagline}</div>
+      </div>
+
+      {/* Navigation dots */}
+      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+        {screens.map((sc, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Go to ${sc.label}`}
+            style={{
+              width: i === active ? 20 : 8, height: 8,
+              borderRadius: 4, border: "none", cursor: "pointer",
+              background: i === active ? sc.color : "#E8E6E1",
+              transition: "all 0.3s", padding: 0
+            }}
+          />
+        ))}
       </div>
     </div>
   );
