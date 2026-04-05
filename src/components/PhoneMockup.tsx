@@ -3,7 +3,12 @@
 import { useState, useEffect, useCallback, ReactNode } from 'react';
 import { COLORS } from '@/lib/constants';
 
-const P = { ...COLORS, teal: "#00CEC9", orange: "#E17055", pink: "#FD79A8", textM2: "#636E72", textD2: "#B2BEC3" };
+const P = {
+  ...COLORS,
+  teal: "#00CEC9",
+  orange: "#E17055",
+  pink: "#FD79A8",
+};
 
 const modeLabels = [
   { name: "Classic Mode", tagline: "Memorise the scene. Answer from memory.", color: P.accent },
@@ -13,16 +18,29 @@ const modeLabels = [
   { name: "Colour Chain", tagline: "Memorise the grid. Recall each colour.", color: P.pink },
 ];
 
+// ═══ PHONE FRAME ═══
 const PhoneFrame = ({ children }: { children: ReactNode }) => (
-  <div style={{ width: 270, height: 555, borderRadius: 38, background: "#1A1A18", padding: 7, position: "relative", boxShadow: "0 24px 64px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.1)" }}>
+  <div style={{
+    width: 270, height: 555, borderRadius: 38, background: "#1A1A18",
+    padding: 7, position: "relative",
+    boxShadow: "0 24px 64px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.1)",
+  }}>
     <div style={{ position: "absolute", top: 7, left: "50%", transform: "translateX(-50%)", width: 85, height: 22, borderRadius: 11, background: "#1A1A18", zIndex: 10 }} />
-    <div style={{ width: "100%", height: "100%", borderRadius: 32, background: P.bg, overflow: "hidden", position: "relative" }}>{children}</div>
+    <div style={{ width: "100%", height: "100%", borderRadius: 32, background: P.bg, overflow: "hidden", position: "relative" }}>
+      {children}
+    </div>
     <div style={{ position: "absolute", bottom: 12, left: "50%", transform: "translateX(-50%)", width: 95, height: 4, borderRadius: 2, background: "#555" }} />
   </div>
 );
 
+// ═══ TAB BAR ═══
 const TabBar = ({ activeIdx = 1 }: { activeIdx?: number }) => (
-  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "flex", justifyContent: "space-around", alignItems: "center", padding: "5px 8px 16px", background: "white", borderTop: "1px solid rgba(0,0,0,0.04)" }}>
+  <div style={{
+    position: "absolute", bottom: 0, left: 0, right: 0,
+    display: "flex", justifyContent: "space-around", alignItems: "center",
+    padding: "5px 8px 16px", background: "white",
+    borderTop: "1px solid rgba(0,0,0,0.04)",
+  }}>
     {[
       <svg key="0" width="18" height="18" viewBox="0 0 24 24"><path d="M8,5 L19,12 L8,19Z" fill={activeIdx===0?P.accent:"#C8CDD0"}/></svg>,
       <svg key="1" width="18" height="18" viewBox="0 0 24 24"><path d="M3,7 L8.5,4 L15.5,7 L21,4 V18 L15.5,21 L8.5,18 L3,21Z" fill="none" stroke={activeIdx===1?P.accent:"#C8CDD0"} strokeWidth="1.5" strokeLinejoin="round"/></svg>,
@@ -34,7 +52,8 @@ const TabBar = ({ activeIdx = 1 }: { activeIdx?: number }) => (
   </div>
 );
 
-function ClassicScreen() {
+// ═══ SCREEN 1: CLASSIC ═══
+const ClassicScreen = () => {
   const [timerWidth, setTimerWidth] = useState(90);
   useEffect(() => {
     const t = setInterval(() => setTimerWidth(w => Math.max(3, w - 0.35)), 50);
@@ -43,7 +62,7 @@ function ClassicScreen() {
   return (
     <div style={{ padding: "34px 14px 14px", height: "100%", display: "flex", flexDirection: "column" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-        <span style={{ fontSize: 12, color: P.textD2, fontWeight: 300 }}>✕</span>
+        <span style={{ fontSize: 12, color: P.textD, fontWeight: 300 }}>✕</span>
         <div style={{ padding: "2px 10px", borderRadius: 8, background: `${P.green}10`, border: `1px solid ${P.green}18` }}>
           <span style={{ fontSize: 8, fontWeight: 700, color: P.green, letterSpacing: 0.5 }}>LEVEL 4</span>
         </div>
@@ -52,7 +71,7 @@ function ClassicScreen() {
       <div style={{ height: 4, borderRadius: 2, background: "#E8E6E1", margin: "4px 0 8px" }}>
         <div style={{ width: `${timerWidth}%`, height: "100%", borderRadius: 2, background: timerWidth > 25 ? P.gold : P.coral, transition: "width 0.06s linear, background 0.3s" }} />
       </div>
-      <div style={{ fontSize: 11, textAlign: "center", color: P.textM2, marginBottom: 8, fontWeight: 500 }}>Memorise this scene!</div>
+      <div style={{ fontSize: 11, textAlign: "center", color: P.textM, marginBottom: 8, fontWeight: 500 }}>Memorise this scene!</div>
       <div style={{ width: "100%", aspectRatio: "1", background: "white", borderRadius: 14, position: "relative", boxShadow: "0 1px 8px rgba(0,0,0,0.03)" }}>
         <div style={{ position: "absolute", left: "14%", top: "14%", width: 38, height: 38, borderRadius: "50%", background: P.coral }} />
         <div style={{ position: "absolute", right: "14%", top: "13%", width: 38, height: 38, borderRadius: 8, background: P.blue }} />
@@ -62,17 +81,20 @@ function ClassicScreen() {
       </div>
       <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
         <div style={{ padding: "5px 16px", borderRadius: 10, background: `${P.blue}06`, border: `1px solid ${P.blue}10`, display: "flex", alignItems: "center", gap: 5 }}>
-          <span style={{ fontSize: 9, color: P.textD2 }}>⏱ +3s</span>
+          <span style={{ fontSize: 9, color: P.textD }}>⏱</span>
+          <span style={{ fontSize: 9, color: P.textD }}>+3s</span>
           <span style={{ fontSize: 9, color: P.blue }}>💎30</span>
         </div>
       </div>
     </div>
   );
-}
+};
 
-function JourneyScreen() {
+// ═══ SCREEN 2: JOURNEY ═══
+const JourneyScreen = () => {
   const [sel, setSel] = useState(0);
   useEffect(() => { const t = setInterval(() => setSel(m => (m+1)%6), 1800); return () => clearInterval(t); }, []);
+
   const c = [
     { l: "C", n: "Classic", ct: "200", col: P.accent },
     { l: "S", n: "Speed\nRecall", ct: "45", col: P.coral },
@@ -91,6 +113,7 @@ function JourneyScreen() {
   ];
   const wn = ["Shape Basics","Foundations","Sharp Eyes","First Steps","Focus","Palette"];
   const wl = ["20","15","15","12","15","12"];
+
   return (
     <div style={{ padding: "34px 12px 50px", height: "100%", overflow: "hidden" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
@@ -99,27 +122,39 @@ function JourneyScreen() {
           <span style={{ fontSize: 9, fontWeight: 700, color: P.gold }}>★ 479/1140</span>
         </div>
       </div>
-      <div style={{ fontSize: 7, fontWeight: 700, color: P.textD2, letterSpacing: 1.2, marginBottom: 5 }}>CAMPAIGNS</div>
+      <div style={{ fontSize: 7, fontWeight: 700, color: P.textD, letterSpacing: 1.2, marginBottom: 5 }}>CAMPAIGNS</div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 5, marginBottom: 7 }}>
         {c.map((m, i) => (
-          <div key={i} style={{ padding: "8px 2px 6px", borderRadius: 10, textAlign: "center", background: i===sel?`${m.col}08`:"white", border: i===sel?`1.5px solid ${m.col}35`:"1.5px solid rgba(0,0,0,0.03)", transition: "all 0.35s ease" }}>
-            <div style={{ width: 30, height: 30, borderRadius: 10, margin: "0 auto 3px", background: m.col, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "white" }}>{m.l}</div>
-            <div style={{ fontSize: 7.5, fontWeight: 700, lineHeight: 1.15, color: i===sel?m.col:P.text, whiteSpace: "pre-line" }}>{m.n}</div>
-            <div style={{ fontSize: 6.5, color: P.textD2, marginTop: 1 }}>{m.ct} levels</div>
+          <div key={i} style={{
+            padding: "8px 2px 6px", borderRadius: 10, textAlign: "center",
+            background: i===sel ? `${m.col}08` : "white",
+            border: i===sel ? `1.5px solid ${m.col}35` : "1.5px solid rgba(0,0,0,0.03)",
+            transition: "all 0.35s ease",
+          }}>
+            <div style={{
+              width: 30, height: 30, borderRadius: 10, margin: "0 auto 3px",
+              background: m.col,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 12, fontWeight: 800, color: "white",
+            }}>{m.l}</div>
+            <div style={{ fontSize: 7.5, fontWeight: 700, lineHeight: 1.15, color: i===sel ? m.col : P.text, whiteSpace: "pre-line" }}>{m.n}</div>
+            <div style={{ fontSize: 6.5, color: P.textD, marginTop: 1 }}>{m.ct} levels</div>
           </div>
         ))}
       </div>
+      {/* Description */}
       <div style={{ padding: "7px 10px", borderRadius: 9, background: `${c[sel].col}06`, border: `1px solid ${c[sel].col}12`, marginBottom: 6 }}>
         <div style={{ fontSize: 10, fontWeight: 700, color: c[sel].col }}>{info[sel].t}</div>
-        <div style={{ fontSize: 7.5, color: P.textM2, marginTop: 1 }}>{info[sel].d}</div>
+        <div style={{ fontSize: 7.5, color: P.textM, marginTop: 1 }}>{info[sel].d}</div>
         <div style={{ fontSize: 7, color: c[sel].col, fontWeight: 600, marginTop: 1 }}>{info[sel].s}</div>
       </div>
+      {/* World card */}
       <div style={{ padding: "7px 10px", borderRadius: 10, background: "white", border: `1.5px solid ${c[sel].col}20` }}>
         <div style={{ padding: "1px 6px", borderRadius: 4, background: `${c[sel].col}10`, display: "inline-block", marginBottom: 2 }}>
           <span style={{ fontSize: 6, fontWeight: 700, color: c[sel].col, letterSpacing: 0.5 }}>WORLD 1</span>
         </div>
         <div style={{ fontSize: 11, fontWeight: 700, color: P.text }}>{wn[sel]}</div>
-        <div style={{ fontSize: 7.5, color: P.textD2 }}>{wl[sel]} levels</div>
+        <div style={{ fontSize: 7.5, color: P.textD }}>{wl[sel]} levels</div>
         <div style={{ height: 3, borderRadius: 2, background: "#E8E6E1", margin: "4px 0 2px" }}>
           <div style={{ width: "100%", height: "100%", borderRadius: 2, background: c[sel].col }} />
         </div>
@@ -130,12 +165,12 @@ function JourneyScreen() {
       <TabBar activeIdx={1} />
     </div>
   );
-}
+};
 
-function AchievementsScreen() {
-  const tc = { bronze: "#CD7F32", silver: "#9CA3A8", gold: "#D4A012", none: "#E8E6E1" } as const;
-  type Tier = keyof typeof tc;
-  const badges: { n: string; d: string; t: Tier; p: string; dots: number[] }[] = [
+// ═══ SCREEN 3: ACHIEVEMENTS ═══
+const AchievementsScreen = () => {
+  const tc: Record<string, string> = { bronze: "#CD7F32", silver: "#9CA3A8", gold: "#D4A012", none: "#E8E6E1" };
+  const badges = [
     { n: "World Traveller", d: "Complete all levels", t: "gold", p: "6/6", dots: [1,1,1] },
     { n: "Perfectionist", d: "3 stars every level", t: "silver", p: "3/3", dots: [1,1,0] },
     { n: "Level Grinder", d: "Complete levels", t: "bronze", p: "25/25", dots: [1,0,0] },
@@ -155,34 +190,34 @@ function AchievementsScreen() {
     <svg key="6" width="15" height="15" viewBox="0 0 24 24"><path d="M8,2 H16 V10 C16,13 14,15 12,15 C10,15 8,13 8,10Z" fill="none" stroke="currentColor" strokeWidth="1.5"/><line x1="12" y1="15" x2="12" y2="19" stroke="currentColor" strokeWidth="1.5"/><rect x="8" y="19" width="8" height="2" rx="1" fill="none" stroke="currentColor" strokeWidth="1.2"/></svg>,
     <svg key="7" width="15" height="15" viewBox="0 0 24 24"><path d="M12,20 C12,20 4,14 4,8.5 C4,5.5 6.5,3 9,3 C10.5,3 11.5,4 12,5 C12.5,4 13.5,3 15,3 C17.5,3 20,5.5 20,8.5 C20,14 12,20 12,20Z" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg>,
   ];
-  const tierDotColors = ["#CD7F32", "#9CA3A8", "#D4A012"];
+  const tierKeys = ["bronze", "silver", "gold"] as const;
   return (
     <div style={{ padding: "34px 10px 12px", height: "100%", overflow: "hidden" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-          <span style={{ fontSize: 12, color: P.textD2 }}>‹</span>
+          <span style={{ fontSize: 12, color: P.textD }}>‹</span>
           <span style={{ fontSize: 14, fontWeight: 800, color: P.text }}>Achievements</span>
         </div>
-        <span style={{ fontSize: 9, fontWeight: 600, color: P.textD2 }}>27/39</span>
+        <span style={{ fontSize: 9, fontWeight: 600, color: P.textD }}>27/39</span>
       </div>
       <div style={{ display: "flex", gap: 3, marginBottom: 7, flexWrap: "wrap" }}>
         {["All","Campaign","Daily","Social","Streak","Mastery"].map((f,i) => (
-          <div key={f} style={{ padding: "2px 7px", borderRadius: 7, fontSize: 7, fontWeight: 600, background: i===0?P.green:"white", color: i===0?"white":P.textM2, border: i===0?"none":"1px solid rgba(0,0,0,0.05)" }}>{f}</div>
+          <div key={f} style={{ padding: "2px 7px", borderRadius: 7, fontSize: 7, fontWeight: 600, background: i===0?P.green:"white", color: i===0?"white":P.textM, border: i===0?"none":"1px solid rgba(0,0,0,0.05)" }}>{f}</div>
         ))}
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 5 }}>
         {badges.map((b,i) => {
           const col = b.t!=="none" ? tc[b.t] : "#CCC";
           return (
-            <div key={i} style={{ padding: "7px 8px", borderRadius: 10, background: "white", border: b.t!=="none"?`1.5px solid ${col}35`:"1.5px solid rgba(0,0,0,0.04)" }}>
+            <div key={i} style={{ padding: "7px 8px", borderRadius: 10, background: "white", border: b.t!=="none" ? `1.5px solid ${col}35` : "1.5px solid rgba(0,0,0,0.04)" }}>
               <div style={{ width: 26, height: 26, borderRadius: 8, marginBottom: 3, background: b.t!=="none"?`${col}12`:"#F5F4F0", display: "flex", alignItems: "center", justifyContent: "center", color: col }}>{icons[i]}</div>
               <div style={{ fontSize: 8, fontWeight: 700, color: P.text, marginBottom: 1 }}>{b.n}</div>
-              <div style={{ fontSize: 6.5, color: P.textD2, marginBottom: 3 }}>{b.d}</div>
+              <div style={{ fontSize: 6.5, color: P.textD, marginBottom: 3 }}>{b.d}</div>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <div style={{ display: "flex", gap: 3 }}>
-                  {b.dots.map((f,j) => (<div key={j} style={{ width: 6, height: 6, borderRadius: 3, background: f ? tierDotColors[j] : "#E8E6E1" }} />))}
+                  {b.dots.map((f,j) => (<div key={j} style={{ width: 6, height: 6, borderRadius: 3, background: f ? tc[tierKeys[j]] : "#E8E6E1" }} />))}
                 </div>
-                <span style={{ fontSize: 7, color: P.textD2 }}>{b.p}</span>
+                <span style={{ fontSize: 7, color: P.textD }}>{b.p}</span>
               </div>
             </div>
           );
@@ -190,20 +225,21 @@ function AchievementsScreen() {
       </div>
     </div>
   );
-}
+};
 
-function SpeedRecallScreen() {
+// ═══ SCREEN 4: SPEED RECALL ═══
+const SpeedRecallScreen = () => {
   const [phase, setPhase] = useState(0);
   useEffect(() => { const t = setInterval(() => setPhase(p => (p+1)%3), 2000); return () => clearInterval(t); }, []);
   return (
     <div style={{ padding: "34px 14px 14px", height: "100%", display: "flex", flexDirection: "column" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
         <span style={{ fontSize: 11, fontWeight: 700, color: P.coral }}>Speed Recall</span>
-        <span style={{ fontSize: 9, color: P.textD2 }}>Round 3/5</span>
+        <span style={{ fontSize: 9, color: P.textD }}>Round 3/5</span>
       </div>
       {phase===0 && (<>
         <div style={{ height: 4, borderRadius: 2, background: "#E8E6E1", marginBottom: 6 }}><div style={{ width: "65%", height: "100%", borderRadius: 2, background: P.coral }} /></div>
-        <div style={{ fontSize: 10, textAlign: "center", color: P.textM2, marginBottom: 6, fontWeight: 500 }}>Memorise the positions!</div>
+        <div style={{ fontSize: 10, textAlign: "center", color: P.textM, marginBottom: 6, fontWeight: 500 }}>Memorise the positions!</div>
         <div style={{ width: "100%", aspectRatio: "1", background: "white", borderRadius: 14, position: "relative", boxShadow: "0 1px 6px rgba(0,0,0,0.03)" }}>
           <div style={{ position: "absolute", left: "16%", top: "14%", width: 32, height: 32, borderRadius: "50%", background: P.coral }} />
           <div style={{ position: "absolute", right: "14%", top: "20%", width: 30, height: 30, borderRadius: 7, background: P.blue }} />
@@ -213,7 +249,7 @@ function SpeedRecallScreen() {
         </div>
       </>)}
       {phase===1 && (<>
-        <div style={{ fontSize: 10, textAlign: "center", color: P.textM2, marginBottom: 6, fontWeight: 500 }}>Where was the <span style={{ color: P.green, fontWeight: 700 }}>green circle</span>?</div>
+        <div style={{ fontSize: 10, textAlign: "center", color: P.textM, marginBottom: 6, fontWeight: 500 }}>Where was the <span style={{ color: P.green, fontWeight: 700 }}>green circle</span>?</div>
         <div style={{ width: "100%", aspectRatio: "1", background: "white", borderRadius: 14, position: "relative", boxShadow: "0 1px 6px rgba(0,0,0,0.03)" }}>
           <div style={{ position: "absolute", left: "40%", top: "45%", width: 10, height: 10, borderRadius: 5, background: P.green, zIndex: 2 }} />
           <div style={{ position: "absolute", left: "38%", top: "36%", width: 28, height: 28, borderRadius: 14, border: `2px dashed ${P.green}60` }} />
@@ -230,9 +266,9 @@ function SpeedRecallScreen() {
       </>)}
       {phase===2 && (
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ fontSize: 11, color: P.textD2, marginBottom: 8 }}>Round complete!</div>
+          <div style={{ fontSize: 11, color: P.textD, marginBottom: 8 }}>Round complete!</div>
           <div style={{ fontSize: 40, fontWeight: 800, color: P.coral, lineHeight: 1 }}>438</div>
-          <div style={{ fontSize: 12, color: P.textD2, marginTop: 4 }}>out of 500 points</div>
+          <div style={{ fontSize: 12, color: P.textD, marginTop: 4 }}>out of 500 points</div>
           <div style={{ display: "flex", gap: 5, marginTop: 16 }}>
             {[92,96,88,84,78].map((s,i) => (
               <div key={i} style={{ width: 34, height: 34, borderRadius: 9, background: `${P.coral}10`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -244,9 +280,10 @@ function SpeedRecallScreen() {
       )}
     </div>
   );
-}
+};
 
-function ColourChainScreen() {
+// ═══ SCREEN 5: COLOUR CHAIN ═══
+const ColourChainScreen = () => {
   const [phase, setPhase] = useState(0);
   useEffect(() => { const t = setInterval(() => setPhase(p => (p+1)%3), 2200); return () => clearInterval(t); }, []);
   const gc = [P.coral, P.blue, P.green, P.gold, P.accent, P.teal, P.orange, P.pink, "#636E72", P.coral, P.blue, P.green];
@@ -254,10 +291,10 @@ function ColourChainScreen() {
     <div style={{ padding: "34px 14px 14px", height: "100%", display: "flex", flexDirection: "column" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
         <span style={{ fontSize: 11, fontWeight: 700, color: P.pink }}>Colour Chain</span>
-        <span style={{ fontSize: 9, color: P.textD2 }}>Round 4/6</span>
+        <span style={{ fontSize: 9, color: P.textD }}>Round 4/6</span>
       </div>
       {phase===0 && (<>
-        <div style={{ fontSize: 10, textAlign: "center", color: P.textM2, marginBottom: 6, fontWeight: 500 }}>Memorise the colours!</div>
+        <div style={{ fontSize: 10, textAlign: "center", color: P.textM, marginBottom: 6, fontWeight: 500 }}>Memorise the colours!</div>
         <div style={{ height: 4, borderRadius: 2, background: "#E8E6E1", marginBottom: 8 }}><div style={{ width: "55%", height: "100%", borderRadius: 2, background: P.pink }} /></div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6, padding: "0 6px" }}>
           {gc.map((c,i) => (<div key={i} style={{ aspectRatio: "1", borderRadius: 10, background: c }} />))}
@@ -265,7 +302,7 @@ function ColourChainScreen() {
       </>)}
       {phase===1 && (<>
         <div style={{ textAlign: "center", marginBottom: 6 }}>
-          <div style={{ fontSize: 10, color: P.textM2, marginBottom: 5 }}>Where was this colour?</div>
+          <div style={{ fontSize: 10, color: P.textM, marginBottom: 5 }}>Where was this colour?</div>
           <div style={{ width: 40, height: 40, borderRadius: 11, background: P.gold, margin: "0 auto 4px", boxShadow: `0 3px 10px ${P.gold}30` }} />
           <span style={{ fontSize: 12, fontWeight: 700, color: P.gold }}>Gold</span>
         </div>
@@ -281,9 +318,9 @@ function ColourChainScreen() {
       </>)}
       {phase===2 && (
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ fontSize: 11, color: P.textD2, marginBottom: 8 }}>Round complete!</div>
+          <div style={{ fontSize: 11, color: P.textD, marginBottom: 8 }}>Round complete!</div>
           <div style={{ fontSize: 40, fontWeight: 800, color: P.pink, lineHeight: 1 }}>5/6</div>
-          <div style={{ fontSize: 12, color: P.textD2, marginTop: 4 }}>500 points</div>
+          <div style={{ fontSize: 12, color: P.textD, marginTop: 4 }}>500 points</div>
           <div style={{ display: "flex", gap: 5, marginTop: 16 }}>
             {["\u2713","\u2713","\u2717","\u2713","\u2713","\u2713"].map((r,i) => (
               <div key={i} style={{ width: 28, height: 28, borderRadius: 7, background: r==="\u2713"?`${P.green}12`:`${P.coral}12`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: r==="\u2713"?P.green:P.coral }}>{r}</div>
@@ -293,10 +330,11 @@ function ColourChainScreen() {
       )}
     </div>
   );
-}
+};
 
-const screenComponents = [ClassicScreen, JourneyScreen, AchievementsScreen, SpeedRecallScreen, ColourChainScreen];
+const screens = [ClassicScreen, JourneyScreen, AchievementsScreen, SpeedRecallScreen, ColourChainScreen];
 
+// ═══ MAIN COMPONENT ═══
 export default function PhoneMockup() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [fadeKey, setFadeKey] = useState(0);
@@ -307,42 +345,30 @@ export default function PhoneMockup() {
   }, []);
 
   useEffect(() => {
-    const t = setInterval(() => {
-      setActiveIdx(i => {
-        const next = (i + 1) % 5;
-        setFadeKey(k => k + 1);
-        return next;
-      });
-    }, 5000);
+    const t = setInterval(() => goTo((activeIdx + 1) % 5), 5000);
     return () => clearInterval(t);
-  }, []);
+  }, [activeIdx, goTo]);
 
-  const ActiveScreen = screenComponents[activeIdx];
+  const ActiveScreen = screens[activeIdx];
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
-      <PhoneFrame>
-        <div key={fadeKey} style={{ height: "100%", animation: "screenFadeIn 0.6s ease-out" }}>
-          <ActiveScreen />
-        </div>
-      </PhoneFrame>
-
+      <div className="phone-bob">
+        <PhoneFrame>
+          <div key={fadeKey} style={{ height: "100%", animation: "screenFadeIn 0.6s ease-out" }}><ActiveScreen /></div>
+        </PhoneFrame>
+      </div>
       <div key={`lbl-${fadeKey}`} style={{ textAlign: "center", animation: "screenFadeIn 0.4s ease-out" }}>
         <div style={{ fontSize: 15, fontWeight: 700, color: modeLabels[activeIdx].color }}>{modeLabels[activeIdx].name}</div>
-        <div style={{ fontSize: 12, color: P.textD2, marginTop: 3 }}>{modeLabels[activeIdx].tagline}</div>
+        <div style={{ fontSize: 12, color: P.textD, marginTop: 3 }}>{modeLabels[activeIdx].tagline}</div>
       </div>
-
       <div style={{ display: "flex", gap: 6 }}>
-        {modeLabels.map((m, i) => (
+        {modeLabels.map((m,i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Go to ${m.name}`}
-            style={{
-              width: i === activeIdx ? 20 : 8, height: 8, borderRadius: 4,
-              background: i === activeIdx ? m.color : "#E8E6E1",
-              cursor: "pointer", transition: "all 0.3s", border: "none", padding: 0
-            }}
+            style={{ width: i===activeIdx?20:8, height: 8, borderRadius: 4, background: i===activeIdx?m.color:"#E8E6E1", cursor: "pointer", transition: "all 0.3s", border: "none", padding: 0 }}
           />
         ))}
       </div>
