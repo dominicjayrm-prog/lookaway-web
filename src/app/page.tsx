@@ -67,7 +67,7 @@ export default function Home() {
         <main>
           {/* ═══ HERO ═══ */}
           <section id="hero" style={{ minHeight: "90vh", padding: "60px 40px", display: "flex", alignItems: "center", justifyContent: "center" }} aria-label="Hero">
-            <div className="hero-layout" style={{ maxWidth: 1100, width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 60 }}>
+            <div className="hero-layout" style={{ maxWidth: 1100, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 60 }}>
               <div className="hero-text" style={{ flex: 1, maxWidth: 480 }}>
                 <div className="fu" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 48 }}>
                   <Logo size={42} id="hero" />
