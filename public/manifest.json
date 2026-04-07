@@ -1,0 +1,16 @@
+{
+  "name": "Blanked — Visual Memory Game",
+  "short_name": "Blanked",
+  "description": "A visual memory game backed by science. Study the scene, it disappears, answer from memory.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAFAF7",
+  "theme_color": "#FAFAF7",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

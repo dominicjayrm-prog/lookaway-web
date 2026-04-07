@@ -6,12 +6,18 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Blanked privacy policy. Learn how we handle your data.',
+  description: 'Blanked privacy policy — learn how we collect, use, and protect your data. We never sell your information to third parties or advertisers.',
   alternates: { canonical: `${SITE_URL}/privacy` },
   openGraph: {
     title: 'Privacy Policy | Blanked',
-    description: 'Blanked privacy policy. Learn how we handle your data.',
+    description: 'Blanked privacy policy — learn how we collect, use, and protect your data. We never sell your information.',
     url: `${SITE_URL}/privacy`,
+    images: ['/og-image.png'],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | Blanked',
+    description: 'Blanked privacy policy — learn how we collect, use, and protect your data.',
   },
 };
 
