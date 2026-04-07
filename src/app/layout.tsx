@@ -1,20 +1,24 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { SITE_URL } from '@/lib/constants';
 import '@/styles/globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#FAFAF7',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Blanked — The Visual Memory Game',
+    default: 'Blanked — Visual Memory Game | Train Your Brain in 2 Minutes a Day',
     template: '%s | Blanked',
   },
-  description: 'Study the scene. It disappears. Answer from memory. A visual memory game with 200 levels across 6 worlds. Challenge friends head-to-head. Free to play.',
+  description: 'A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Free to play on iOS.',
   keywords: [
-    'memory game', 'brain training', 'visual memory', 'brain test',
-    'puzzle game', 'memory test', 'brain game', 'daily puzzle',
-    'memory challenge', 'visual puzzle', 'brain training app',
-    'memory improvement', 'cognitive training', 'mind game',
-    'blanked', 'blanked game', 'blanked app',
+    'memory game', 'brain training', 'visual memory', 'puzzle game',
+    'brain game', 'cognitive training', 'memory training app', 'iOS game',
+    'free brain game', 'blanked', 'blanked game',
   ],
   authors: [{ name: 'Blanked' }],
   creator: 'Blanked',
@@ -23,15 +27,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: SITE_URL,
-    title: "Blanked — Don't blank.",
-    description: 'Study the scene. It disappears. Answer from memory. 200 levels. 6 worlds. Challenge your friends.',
+    title: 'Blanked — Visual Memory Game',
+    description: 'Study the scene. It disappears. Answer from memory. A visual memory game that starts simple and gets impossibly hard.',
     siteName: 'Blanked',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Blanked — Visual Memory Game' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Blanked — Don't blank.",
-    description: 'A visual memory game that starts simple and gets impossibly hard. Challenge friends head-to-head.',
+    title: 'Blanked — Visual Memory Game',
+    description: 'Study the scene. It disappears. Answer from memory. 6 game modes, 380+ levels. Free on iOS.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -45,6 +49,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
+  },
+  other: {
+    'apple-itunes-app': 'app-id=6745136042',
   },
 };
 

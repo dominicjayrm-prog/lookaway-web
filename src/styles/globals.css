@@ -5,32 +5,50 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FAFAF7; color: #1A1A18; }
 a { color: inherit; text-decoration: none; }
 
-/* Focus styles for keyboard navigation */
+/* Focus styles */
 a:focus-visible, button:focus-visible {
   outline: 2px solid #6C5CE7;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Animation keyframes */
+/* Animations */
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 @keyframes phoneBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
 @keyframes phoneIn { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-@keyframes screenFadeIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@keyframes shimmer { 0% { transform: translateX(-200%) skewX(-20deg); } 100% { transform: translateX(200%) skewX(-20deg); } }
+@keyframes navSlideIn { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@keyframes starPop { 0% { transform:scale(0); opacity:0; } 60% { transform:scale(1.3); opacity:1; } 100% { transform:scale(1); opacity:1; } }
 
 .fu { opacity:0; animation: fadeUp 0.8s forwards; }
-.phone-bob { animation: phoneBob 6s infinite ease-in-out; }
-.phone-fade { opacity: 0; animation: phoneIn 0.8s 0.2s forwards ease-out; }
 .fu1 { animation-delay:0.1s; }
 .fu2 { animation-delay:0.2s; }
 .fu3 { animation-delay:0.35s; }
 .fu4 { animation-delay:0.5s; }
+.phone-bob { animation: phoneBob 6s infinite ease-in-out; }
+.phone-fade { opacity: 0; animation: phoneIn 0.8s 0.2s forwards ease-out; }
 
-/* Responsive hero stacking */
+/* Responsive */
 @media (max-width: 768px) {
   .hero-layout { flex-wrap: wrap !important; flex-direction: column !important; text-align: center; }
   .hero-text { align-items: center; }
   .hero-text .fu2 { justify-content: center !important; }
   .hero-text .fu3 { justify-content: center !important; }
-  .phone-bob { transform: scale(0.85); animation: none; }
+  .phone-bob { transform: scale(0.88); }
+  .stats-row { gap: 24px !important; }
+  .modes-grid { grid-template-columns: 1fr !important; }
+  .science-cards { flex-direction: column !important; align-items: center !important; }
+}
+
+@media (max-width: 480px) {
+  .phone-bob { transform: scale(0.82); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
