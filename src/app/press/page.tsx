@@ -6,12 +6,18 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Press Kit',
-  description: 'Blanked press kit. Download logos, screenshots, and app information for media coverage.',
+  description: 'Blanked press kit — download logos, screenshots, and app information for media coverage. A visual memory game with 380+ levels across 6 game modes.',
   alternates: { canonical: `${SITE_URL}/press` },
   openGraph: {
     title: 'Press Kit | Blanked',
-    description: 'Download Blanked logos, screenshots, and app information for press coverage.',
+    description: 'Download Blanked logos, screenshots, and app information. A visual memory game with 380+ levels.',
     url: `${SITE_URL}/press`,
+    images: ['/og-image.png'],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Press Kit | Blanked',
+    description: 'Download Blanked logos, screenshots, and app information for press coverage.',
   },
 };
 

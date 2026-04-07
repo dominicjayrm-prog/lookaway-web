@@ -7,15 +7,17 @@ import { COLORS, APP_SCHEME } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Join me on Blanked!',
-  description: 'Someone invited you to play Blanked — the visual memory game. Download it free.',
+  description: 'A friend invited you to play Blanked — the visual memory game backed by science. 6 game modes, 380+ levels. Download it free on iOS and start training your memory.',
   openGraph: {
     title: 'Join me on Blanked!',
-    description: 'A friend wants you to play Blanked — the visual memory game. Download it free.',
+    description: 'A friend wants you to play Blanked — the visual memory game. 6 game modes, 380+ levels. Download free.',
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Join me on Blanked!',
-    description: 'A friend wants you to play Blanked — the visual memory game. Download it free.',
+    description: 'A friend wants you to play Blanked — the visual memory game. 6 game modes, 380+ levels. Download free.',
+    images: ['/og-image.png'],
   },
   robots: { index: false, follow: false },
 };
@@ -32,14 +34,17 @@ export default async function InvitePage({ params }: { params: Promise<{ userId:
       minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
       fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif", padding: 24
     }}>
-      <Link href="/" style={{ marginBottom: 32 }}>
+      <Link href="/" aria-label="Blanked home" style={{ marginBottom: 32 }}>
         <Logo size={64} id="invite" />
       </Link>
+
+      <h1 style={{ fontSize: isMobile ? 32 : 36, fontWeight: 800, color: COLORS.text, marginBottom: 12, textAlign: "center" }}>
+        {isMobile ? "Opening Blanked..." : <>You&apos;re <span style={{ color: COLORS.accent }}>invited</span>!</>}
+      </h1>
 
       {isMobile ? (
         <div style={{ textAlign: "center", maxWidth: 400 }}>
           <meta httpEquiv="refresh" content={`0;url=${APP_SCHEME}invite/${userId}`} />
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>Opening Blanked...</h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 24 }}>
             If the app doesn&apos;t open automatically, download it below.
           </p>
@@ -47,9 +52,6 @@ export default async function InvitePage({ params }: { params: Promise<{ userId:
         </div>
       ) : (
         <div style={{ textAlign: "center", maxWidth: 440 }}>
-          <h1 style={{ fontSize: 36, fontWeight: 800, color: COLORS.text, marginBottom: 12 }}>
-            You&apos;re <span style={{ color: COLORS.accent }}>invited</span>!
-          </h1>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 8 }}>
             A friend wants you to join them on Blanked — the visual memory game.
           </p>

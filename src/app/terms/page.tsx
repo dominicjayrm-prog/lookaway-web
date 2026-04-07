@@ -6,12 +6,18 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Blanked terms of service. Read our terms and conditions for using the app.',
+  description: 'Blanked terms of service — read our terms and conditions for using the visual memory game app, including user accounts, purchases, and conduct.',
   alternates: { canonical: `${SITE_URL}/terms` },
   openGraph: {
     title: 'Terms of Service | Blanked',
-    description: 'Blanked terms of service. Read our terms and conditions.',
+    description: 'Blanked terms of service — read our terms and conditions for using the app.',
     url: `${SITE_URL}/terms`,
+    images: ['/og-image.png'],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Service | Blanked',
+    description: 'Blanked terms of service — read our terms and conditions for using the app.',
   },
 };
 

@@ -199,11 +199,11 @@ export default function Home() {
                   position: "relative", overflow: "hidden",
                 }}
               >
-                <span style={{ position: "relative", zIndex: 1 }}>Download — It&apos;s Free</span>
+                <span style={{ position: "relative", zIndex: 1 }}>Play Now</span>
                 <div style={{
-                  position: "absolute", top: 0, left: 0, width: 50, height: "100%",
-                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                  animation: "shimmer 2.5s infinite",
+                  position: "absolute", top: 0, width: 50, height: "100%",
+                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent)",
+                  animation: "shimmer 2.5s infinite linear",
                 }} />
               </a>
               <p style={{ fontSize: 12, color: "#B2BEC3", marginTop: 14 }}>Available on iOS</p>
