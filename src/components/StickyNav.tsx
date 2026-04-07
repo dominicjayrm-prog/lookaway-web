@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Logo from './Logo';
+import Blink from './Blink';
 import { COLORS, APP_STORE_URL } from '@/lib/constants';
 
 export default function StickyNav() {
@@ -27,7 +27,7 @@ export default function StickyNav() {
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Logo size={28} id="sticky-nav" />
+          <Blink size={26} expression="normal" />
           <span style={{ fontSize: 15, fontWeight: 700, color: COLORS.accent }}>Blanked</span>
         </div>
         <a

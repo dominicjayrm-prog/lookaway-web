@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { COLORS } from '@/lib/constants';
+import Blink from './Blink';
 
-type Phase = 'memorise' | 'question' | 'complete';
+type Phase = 'memorise' | 'goBlank' | 'question' | 'complete';
 type QuestionState = 'idle' | 'selected' | 'correct';
 
 export default function PhoneMockup() {
@@ -24,25 +25,33 @@ export default function PhoneMockup() {
 
       timerIv = setInterval(() => setTimerWidth(w => Math.max(3, w - 0.41)), 50);
 
+      // Phase 1: Go Blank at 4s
       ts.push(setTimeout(() => {
         clearInterval(timerIv);
-        setPhase('question');
-        setQuestionState('idle');
+        setPhase('goBlank');
       }, 4000));
 
-      ts.push(setTimeout(() => setQuestionState('selected'), 5200));
-      ts.push(setTimeout(() => setQuestionState('correct'), 6200));
+      // Phase 2: Question at 5s
+      ts.push(setTimeout(() => {
+        setPhase('question');
+        setQuestionState('idle');
+      }, 5000));
 
+      ts.push(setTimeout(() => setQuestionState('selected'), 6200));
+      ts.push(setTimeout(() => setQuestionState('correct'), 7200));
+
+      // Phase 3: Complete at 9.5s
       ts.push(setTimeout(() => {
         setPhase('complete');
         setStarsShown(0);
-      }, 8500));
+      }, 9500));
 
-      ts.push(setTimeout(() => setStarsShown(1), 9000));
-      ts.push(setTimeout(() => setStarsShown(2), 9300));
-      ts.push(setTimeout(() => setStarsShown(3), 9600));
+      ts.push(setTimeout(() => setStarsShown(1), 10000));
+      ts.push(setTimeout(() => setStarsShown(2), 10300));
+      ts.push(setTimeout(() => setStarsShown(3), 10600));
 
-      ts.push(setTimeout(loop, 12500));
+      // Loop at 13.5s
+      ts.push(setTimeout(loop, 13500));
     };
 
     loop();
@@ -257,8 +266,17 @@ export default function PhoneMockup() {
     </div>
   );
 
+  const renderGoBlankScreen = () => (
+    <div style={{ padding: '34px 14px 14px', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+      <Blink size={50} expression="blank" />
+      <div style={{ fontSize: 16, fontWeight: 800, color: COLORS.accent }}>Go blank!</div>
+      <div style={{ fontSize: 11, color: '#636E72' }}>What do you remember?</div>
+    </div>
+  );
+
   const screens: Record<Phase, () => React.JSX.Element> = {
     memorise: renderMemoriseScreen,
+    goBlank: renderGoBlankScreen,
     question: renderQuestionScreen,
     complete: renderCompleteScreen,
   };
