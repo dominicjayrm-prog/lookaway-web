@@ -1,4 +1,5 @@
-import Logo from '@/components/Logo';
+import Blink from '@/components/Blink';
+import MeetBlink from '@/components/MeetBlink';
 import PhoneMockup from '@/components/PhoneMockup';
 import StickyNav from '@/components/StickyNav';
 import AnimatedCounter from '@/components/AnimatedCounter';
@@ -70,7 +71,7 @@ export default function Home() {
             <div className="hero-layout" style={{ maxWidth: 1100, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 60 }}>
               <div className="hero-text" style={{ flex: 1, maxWidth: 480 }}>
                 <div className="fu" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 48 }}>
-                  <Logo size={42} id="hero" />
+                  <Blink size={38} expression="normal" />
                   <span style={{ fontSize: 18, fontWeight: 700, color: P.accent }}>Blanked</span>
                 </div>
 
@@ -164,11 +165,14 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ═══ MEET BLINK ═══ */}
+          <MeetBlink />
+
           {/* ═══ FINAL CTA ═══ */}
           <section id="download" style={{ padding: "80px 40px 60px", textAlign: "center" }} aria-label="Download">
             <div style={{ maxWidth: 600, margin: "0 auto" }}>
               <div style={{ margin: "0 auto 24px" }}>
-                <Logo size={72} id="cta" />
+                <Blink size={80} expression="celebrate" />
               </div>
               <h2 style={{ fontSize: 38, fontWeight: 800, color: P.text, marginBottom: 12, letterSpacing: -0.5 }}>
                 Ready to train your <span style={{ color: P.accent }}>memory</span>?
