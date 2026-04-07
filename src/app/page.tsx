@@ -171,7 +171,7 @@ export default function Home() {
           {/* ═══ FINAL CTA ═══ */}
           <section id="download" style={{ padding: "80px 40px 60px", textAlign: "center" }} aria-label="Download">
             <div style={{ maxWidth: 600, margin: "0 auto" }}>
-              <div style={{ margin: "0 auto 24px" }}>
+              <div style={{ margin: "0 auto 24px", display: "flex", justifyContent: "center" }}>
                 <Blink size={80} expression="celebrate" />
               </div>
               <h2 style={{ fontSize: 38, fontWeight: 800, color: P.text, marginBottom: 12, letterSpacing: -0.5 }}>
