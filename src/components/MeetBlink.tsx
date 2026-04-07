@@ -62,7 +62,7 @@ export default function MeetBlink() {
       </p>
 
       {/* Cycling showcase */}
-      <div style={{ marginBottom: 12 }}>
+      <div style={{ marginBottom: 12, display: "flex", justifyContent: "center" }}>
         <Blink size={160} expression={current.expr} />
       </div>
       <div key={idx} style={{ fontSize: 14, fontWeight: 600, color: P.accent, marginBottom: 48, animation: "screenFadeIn 0.4s ease-out" }}>
