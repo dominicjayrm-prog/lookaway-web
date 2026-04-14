@@ -1,15 +1,18 @@
 import { generateHTML } from '@tiptap/html';
 import StarterKit from '@tiptap/starter-kit';
-import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
-import Underline from '@tiptap/extension-underline';
 import type { JSONContent } from '@tiptap/core';
 
+// Must match the extensions in components/admin/Editor.tsx
 const EXTENSIONS = [
-  StarterKit.configure({ heading: { levels: [2, 3, 4] } }),
-  Link.configure({ openOnClick: false, HTMLAttributes: { rel: 'noopener noreferrer nofollow' } }),
+  StarterKit.configure({
+    heading: { levels: [2, 3, 4] },
+    link: {
+      openOnClick: false,
+      HTMLAttributes: { rel: 'noopener noreferrer nofollow' },
+    },
+  }),
   Image.configure({ HTMLAttributes: { loading: 'lazy' } }),
-  Underline,
 ];
 
 /** Render TipTap JSON to HTML string for SSR. */

@@ -56,6 +56,7 @@ export async function POST(req: NextRequest) {
 export async function GET() {
   const session = await requireAuth();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  const { data } = await supabaseAdmin().from('blog_posts').select('*').order('updated_at', { ascending: false });
+  const { data, error } = await supabaseAdmin().from('blog_posts').select('*').order('updated_at', { ascending: false });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json(data ?? []);
 }

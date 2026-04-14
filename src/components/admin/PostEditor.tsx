@@ -148,13 +148,14 @@ export default function PostEditor({ post, existingSlugs }: Props) {
     router.refresh();
   }
 
-  // Auto-save every 10s if dirty
+  // Auto-save every 10s if dirty (uses ref to avoid resetting the interval on every keystroke)
+  const saveRef = useRef<(() => Promise<unknown>) | null>(null);
+  saveRef.current = () => save(undefined, true);
   useEffect(() => {
     if (!post) return; // only for existing posts
-    const iv = setInterval(() => { void save(undefined, true); }, 10000);
+    const iv = setInterval(() => { void saveRef.current?.(); }, 10000);
     return () => clearInterval(iv);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [post, title, slug, subtitle, metaDescription, keywords, bannerUrl, bannerAlt, content]);
+  }, [post]);
 
   function addKeyword() {
     const k = keywordInput.trim().toLowerCase();
