@@ -6,8 +6,9 @@ export const alt = 'Blanked blog post';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default async function Image({ params }: { params: { slug: string } }) {
-  const post = await getPublishedPostBySlug(params.slug);
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPublishedPostBySlug(slug);
   const title = post?.title ?? 'Blanked';
   const subtitle = post?.subtitle ?? post?.meta_description ?? 'Train your memory in 2 minutes a day';
 

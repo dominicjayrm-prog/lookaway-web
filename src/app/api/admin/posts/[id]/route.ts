@@ -13,7 +13,8 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ id:
   const session = await requireAuth();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   const { id } = await params;
-  const { data } = await supabaseAdmin().from('blog_posts').select('*').eq('id', id).maybeSingle();
+  const { data, error } = await supabaseAdmin().from('blog_posts').select('*').eq('id', id).maybeSingle();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   if (!data) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   return NextResponse.json(data);
 }

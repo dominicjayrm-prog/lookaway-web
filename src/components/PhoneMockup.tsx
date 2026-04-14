@@ -14,7 +14,7 @@ export default function PhoneMockup() {
   const [starsShown, setStarsShown] = useState(0);
 
   useEffect(() => {
-    let ts: ReturnType<typeof setTimeout>[] = [];
+    const ts: ReturnType<typeof setTimeout>[] = [];
     let timerIv: ReturnType<typeof setInterval>;
 
     const loop = () => {
