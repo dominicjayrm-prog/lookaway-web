@@ -295,7 +295,8 @@ export default function PostEditor({ post, existingSlugs }: Props) {
         @media (max-width: 900px) {
           .editor-grid { grid-template-columns: 1fr !important; }
         }
-        .tiptap-content .ProseMirror { outline: none; min-height: 400px; }
+        .tiptap-content { background: white; }
+        .tiptap-content .ProseMirror { outline: none; min-height: 400px; padding: 24px 28px 40px; }
         .tiptap-content .ProseMirror h2 { font-size: 26px; font-weight: 800; margin: 24px 0 10px; color: #1A1A18; letter-spacing: -0.3px; }
         .tiptap-content .ProseMirror h3 { font-size: 20px; font-weight: 700; margin: 20px 0 8px; color: #1A1A18; }
         .tiptap-content .ProseMirror h4 { font-size: 16px; font-weight: 700; margin: 16px 0 6px; color: #1A1A18; }
