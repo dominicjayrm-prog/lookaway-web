@@ -1,0 +1,61 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getSession } from '@/lib/auth';
+import { supabaseAdmin } from '@/lib/supabase';
+import { renderTiptapToHtml, countWords, readingTime } from '@/lib/tiptap-html';
+import { isValidSlug } from '@/lib/slug';
+
+async function requireAuth() {
+  const session = await getSession();
+  if (!session) return null;
+  return session;
+}
+
+export async function POST(req: NextRequest) {
+  const session = await requireAuth();
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  const body = await req.json();
+  const { title, slug, subtitle, meta_description, keywords, banner_url, banner_alt, content, published } = body;
+
+  if (!title?.trim()) return NextResponse.json({ error: 'Title is required' }, { status: 400 });
+  if (!isValidSlug(slug)) return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
+
+  const wordCount = countWords(content);
+  const minutes = readingTime(wordCount);
+  const contentHtml = renderTiptapToHtml(content);
+
+  const { data, error } = await supabaseAdmin()
+    .from('blog_posts')
+    .insert({
+      title: title.trim(),
+      slug: slug.trim(),
+      subtitle: subtitle || null,
+      meta_description: meta_description || null,
+      keywords: keywords || [],
+      banner_url: banner_url || null,
+      banner_alt: banner_alt || null,
+      content,
+      content_html: contentHtml,
+      word_count: wordCount,
+      reading_time_minutes: minutes,
+      published: Boolean(published),
+      published_at: published ? new Date().toISOString() : null,
+    })
+    .select()
+    .single();
+
+  if (error) {
+    if (error.code === '23505') {
+      return NextResponse.json({ error: 'A post with this slug already exists' }, { status: 409 });
+    }
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+  return NextResponse.json(data);
+}
+
+export async function GET() {
+  const session = await requireAuth();
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const { data } = await supabaseAdmin().from('blog_posts').select('*').order('updated_at', { ascending: false });
+  return NextResponse.json(data ?? []);
+}
