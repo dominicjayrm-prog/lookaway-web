@@ -38,10 +38,10 @@ export default async function Image() {
             <span style={{ fontSize: 28, fontWeight: 800, color: '#6C5CE7' }}>Blanked</span>
           </div>
           <div style={{ fontSize: 48, fontWeight: 800, color: '#1A1A18', lineHeight: 1.15, marginBottom: 16, display: 'flex', flexWrap: 'wrap' }}>
-            Your memory is more powerful than you think
+            Train your memory in 2 minutes a day
           </div>
           <div style={{ fontSize: 20, color: '#636E72', display: 'flex' }}>
-            Train your brain in 2 minutes a day
+            The visual memory game backed by science
           </div>
         </div>
 

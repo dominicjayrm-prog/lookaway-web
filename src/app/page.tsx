@@ -76,7 +76,7 @@ export default function Home() {
                 </div>
 
                 <h1 className="fu fu1" style={{ fontSize: 48, fontWeight: 800, color: P.text, lineHeight: 1.1, margin: "0 0 20px", letterSpacing: -1 }}>
-                  Your memory is more powerful than you <span style={{ color: P.accent }}>think</span>
+                  Train your <span style={{ color: P.accent }}>memory</span> in 2 minutes a day
                 </h1>
 
                 <p className="fu fu2" style={{ fontSize: 17, color: "#636E72", lineHeight: 1.6, margin: "0 0 32px" }}>
