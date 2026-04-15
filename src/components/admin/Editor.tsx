@@ -29,6 +29,7 @@ const P = COLORS;
 
 export default function Editor({ value, onChange }: Props) {
   const [preview, setPreview] = useState(false);
+  const [dragOver, setDragOver] = useState(false);
   const taRef = useRef<HTMLTextAreaElement>(null);
 
   // Auto-resize the textarea to fit its content.
@@ -77,8 +78,65 @@ export default function Editor({ value, onChange }: Props) {
     e.target.value = '';
   }
 
+  /** Paste an image from the clipboard directly into the editor. */
+  function onPaste(e: React.ClipboardEvent<HTMLTextAreaElement>) {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    for (const item of items) {
+      if (item.kind === 'file' && item.type.startsWith('image/')) {
+        const file = item.getAsFile();
+        if (file) {
+          e.preventDefault();
+          void handlePasteImage(file);
+          return;
+        }
+      }
+    }
+  }
+
+  /** Drag-and-drop a .md/.markdown file to replace the editor content. */
+  function onDragOver(e: React.DragEvent<HTMLDivElement>) {
+    if (Array.from(e.dataTransfer.items).some((i) => i.kind === 'file')) {
+      e.preventDefault();
+      setDragOver(true);
+    }
+  }
+
+  function onDragLeave() {
+    setDragOver(false);
+  }
+
+  async function onDrop(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files?.[0];
+    if (!file) return;
+    const isMarkdown = /\.(md|markdown|mdx)$/i.test(file.name) || file.type === 'text/markdown';
+    if (isMarkdown) {
+      if (value.trim().length > 0 && !confirm('Replace the current editor content with this file?')) return;
+      const text = await file.text();
+      onChange(text);
+      return;
+    }
+    if (file.type.startsWith('image/')) {
+      void handlePasteImage(file);
+      return;
+    }
+    alert('Drop a .md file to import content, or an image to insert.');
+  }
+
   return (
-    <div style={{ border: '1.5px solid #EEEDE8', borderRadius: 14, background: 'white', overflow: 'hidden' }}>
+    <div
+      onDragOver={onDragOver}
+      onDragLeave={onDragLeave}
+      onDrop={onDrop}
+      style={{
+        border: `1.5px solid ${dragOver ? '#6C5CE7' : '#EEEDE8'}`,
+        borderRadius: 14, background: 'white', overflow: 'hidden',
+        boxShadow: dragOver ? '0 0 0 3px #6C5CE725' : 'none',
+        transition: 'border-color 120ms, box-shadow 120ms',
+      }}
+    >
       {/* Toolbar */}
       <div style={{
         display: 'flex', flexWrap: 'wrap', gap: 4, padding: '8px 12px',
@@ -123,8 +181,9 @@ export default function Editor({ value, onChange }: Props) {
           ref={taRef}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onPaste={onPaste}
           placeholder={
-            '# Start writing\n\nUse ## for H2 headings, ### for H3.\n\n**Bold**, _italic_, `code`.\n\n- Bullet lists\n- Like this\n\nYou can also paste markdown straight from ChatGPT or Claude.'
+            '# Start writing\n\nUse ## for H2 headings, ### for H3.\n\n**Bold**, _italic_, `code`.\n\n- Bullet lists\n- Like this\n\nYou can paste markdown straight from ChatGPT or Claude, paste an image from your clipboard, or drag a .md file onto the editor.'
           }
           style={{
             width: '100%', minHeight: 400, padding: '24px 28px 40px',

@@ -10,13 +10,20 @@ interface Props {
   wordCount: number;
   readingTime: number;
   onRecheckLinks: () => void;
+  /** Image srcs in the content that are missing alt text. Shown inline under the alt-missing check. */
+  missingAltImages?: string[];
+}
+
+function shortUrl(url: string, max = 52): string {
+  if (url.length <= max) return url;
+  return `${url.slice(0, max - 3)}…`;
 }
 
 const dot = (color: string): React.CSSProperties => ({
   width: 8, height: 8, borderRadius: '50%', background: color, flexShrink: 0, marginTop: 5,
 });
 
-export default function SeoPanel({ checks, linkResults, checkingLinks, wordCount, readingTime, onRecheckLinks }: Props) {
+export default function SeoPanel({ checks, linkResults, checkingLinks, wordCount, readingTime, onRecheckLinks, missingAltImages = [] }: Props) {
   const errors = checks.filter(c => c.severity === 'error');
   const warnings = checks.filter(c => c.severity === 'warning');
   const infos = checks.filter(c => c.severity === 'info');
@@ -48,9 +55,18 @@ export default function SeoPanel({ checks, linkResults, checkingLinks, wordCount
         {checks.map(c => (
           <li key={c.id} style={{ display: 'flex', gap: 8, fontSize: 12, lineHeight: 1.45 }}>
             <span style={dot(c.severity === 'error' ? '#FF6B6B' : c.severity === 'warning' ? '#D4A012' : '#0984E3')} />
-            <div>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div style={{ color: '#1A1A18', fontWeight: 600 }}>{c.message}</div>
               {c.fix && <div style={{ color: '#636E72', marginTop: 2 }}>{c.fix}</div>}
+              {c.id === 'img-alt-missing' && missingAltImages.length > 0 && (
+                <ul style={{ listStyle: 'none', padding: 0, margin: '6px 0 0', display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  {missingAltImages.map((src, i) => (
+                    <li key={`${src}-${i}`} style={{ fontSize: 11, color: '#636E72', fontFamily: 'ui-monospace, monospace', wordBreak: 'break-all' }}>
+                      {i + 1}. {shortUrl(src)}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </li>
         ))}
