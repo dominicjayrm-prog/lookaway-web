@@ -4,7 +4,16 @@ import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 
 const BUCKET = 'blog-banners';
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+// Map of allowed MIME types to the canonical file extension we'll use when
+// saving. This prevents an attacker who crafts a filename like `hack.php.png`
+// from getting `php` as the stored extension — we ignore `file.name` entirely
+// and derive the extension from the MIME type instead.
+const MIME_TO_EXT: Record<string, string> = {
+  'image/jpeg': 'jpg',
+  'image/png': 'png',
+  'image/webp': 'webp',
+  'image/gif': 'gif',
+};
 const MAX_SIZE = 8 * 1024 * 1024; // 8MB
 
 export async function POST(req: NextRequest) {
@@ -17,7 +26,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'No file provided' }, { status: 400 });
   }
 
-  if (!ALLOWED_TYPES.includes(file.type)) {
+  const ext = MIME_TO_EXT[file.type];
+  if (!ext) {
     return NextResponse.json({ error: 'Unsupported file type. Use JPG, PNG, WebP, or GIF.' }, { status: 400 });
   }
 
@@ -27,7 +37,6 @@ export async function POST(req: NextRequest) {
 
   const bytes = await file.arrayBuffer();
   const hash = crypto.createHash('sha256').update(Buffer.from(bytes)).digest('hex').slice(0, 16);
-  const ext = file.name.split('.').pop()?.toLowerCase() || 'png';
   const filename = `${hash}-${Date.now()}.${ext}`;
 
   const admin = supabaseAdmin();

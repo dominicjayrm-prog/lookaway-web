@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Terms of Service | Blanked',
     description: 'The rules for using Blanked - accounts, subscriptions, in-app purchases, virtual currency.',
     url: `${SITE_URL}/terms`,
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary',
@@ -73,7 +73,7 @@ export default function TermsPage() {
             Blanked is a visual memory game available on iOS. The App includes:
           </p>
           <ul style={ulStyle}>
-            <li>A free-to-play core game with 200+ levels across 6 worlds, head-to-head friend challenges, and optional in-app advertising</li>
+            <li>A free-to-play core game with 380+ levels across 6 game modes, head-to-head friend challenges, and optional in-app advertising</li>
             <li><strong>Blanked+</strong> - an auto-renewing subscription that unlocks unlimited lives, exclusive cosmetics, and removes ads (available monthly or yearly)</li>
             <li>Optional one-time in-app purchases, including gem packs and a &ldquo;Remove Ads&rdquo; upgrade</li>
           </ul>
