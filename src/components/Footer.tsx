@@ -15,6 +15,7 @@ export default function Footer() {
         <span style={{ fontSize: 12, color: COLORS.textD }}>&copy; 2026</span>
       </div>
       <nav style={{ display: "flex", gap: 20, flexWrap: "wrap" }} aria-label="Footer navigation">
+        <Link href="/about" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>About</Link>
         <Link href="/blog" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Blog</Link>
         <Link href="/support" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Support</Link>
         <Link href="/privacy" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Privacy</Link>

@@ -1,5 +1,7 @@
 import Blink from '@/components/Blink';
 import MeetBlink from '@/components/MeetBlink';
+import HomeFaq from '@/components/HomeFaq';
+import { HOME_FAQS } from '@/lib/home-faqs';
 import PhoneMockup from '@/components/PhoneMockup';
 import StickyNav from '@/components/StickyNav';
 import AnimatedCounter from '@/components/AnimatedCounter';
@@ -31,6 +33,15 @@ const jsonLd = [
     "applicationCategory": "Games",
     "applicationSubCategory": "Brain Games",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": HOME_FAQS.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
   },
 ];
 
@@ -167,6 +178,9 @@ export default function Home() {
 
           {/* ═══ MEET BLINK ═══ */}
           <MeetBlink />
+
+          {/* ═══ FAQ ═══ */}
+          <HomeFaq />
 
           {/* ═══ FINAL CTA ═══ */}
           <section id="download" style={{ padding: "80px 40px 60px", textAlign: "center" }} aria-label="Download">
