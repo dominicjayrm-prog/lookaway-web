@@ -6,7 +6,7 @@ import { useState } from 'react';
 import type { BlogPost } from '@/lib/supabase';
 
 function formatDate(iso: string | null) {
-  if (!iso) return '—';
+  if (!iso) return '-';
   const d = new Date(iso);
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }

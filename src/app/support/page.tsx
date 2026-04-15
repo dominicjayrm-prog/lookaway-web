@@ -30,11 +30,10 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    q: 'I found a bug — how do I report it?',
+    q: 'I found a bug, how do I report it?',
     a: (
       <>
-        Email us at <Em />. Include your iOS version, device model (e.g. iPhone 15 Pro), and what you were doing when the bug happened.
-        A screenshot or short screen recording helps us fix it faster.
+        Email us at <Em />. Include your iOS version, device model (e.g. iPhone 15 Pro), and what you were doing when the bug happened. A screenshot or short screen recording helps us fix it faster.
       </>
     ),
   },
@@ -42,8 +41,7 @@ const faqs: FaqItem[] = [
     q: 'My purchase / gems / subscription didn\u2019t show up',
     a: (
       <>
-        First, try <strong>Settings → Restore Purchases</strong> inside the app — this re-syncs with Apple and usually fixes it instantly.
-        If that doesn&rsquo;t work, email us with your Apple Sign In email (or username) and we&rsquo;ll sort it out.
+        First, try{' '}<strong>Settings &rarr; Restore Purchases</strong>{' '}inside the app. This re-syncs with Apple and usually fixes it instantly. If that doesn&rsquo;t work, email us with your Apple Sign In email (or username) and we&rsquo;ll sort it out.
       </>
     ),
   },
@@ -51,9 +49,7 @@ const faqs: FaqItem[] = [
     q: 'How do I cancel Blanked+?',
     a: (
       <>
-        Blanked+ is an auto-renewing subscription billed by Apple, so cancellation happens in iOS:{' '}
-        <strong>Settings → [your name] → Subscriptions → Blanked → Cancel Subscription</strong>.
-        You&rsquo;ll keep access until the end of your current billing period.
+        Blanked+ is an auto-renewing subscription billed by Apple, so cancellation happens in iOS:{' '}<strong>Settings &rarr; [your name] &rarr; Subscriptions &rarr; Blanked &rarr; Cancel Subscription</strong>. You&rsquo;ll keep access until the end of your current billing period.
       </>
     ),
   },
@@ -61,8 +57,7 @@ const faqs: FaqItem[] = [
     q: 'How do I delete my account?',
     a: (
       <>
-        Inside the app: <strong>Settings → Profile → Delete Account</strong>. This deletes your progress, gems, friends, and personal data within 30 days.
-        You can also email us if you can&rsquo;t access the app.
+        Inside the app:{' '}<strong>Settings &rarr; Profile &rarr; Delete Account</strong>. This deletes your progress, gems, friends, and personal data within 30 days. You can also email us if you can&rsquo;t access the app.
       </>
     ),
   },
@@ -70,9 +65,7 @@ const faqs: FaqItem[] = [
     q: 'I forgot what email I used to sign up',
     a: (
       <>
-        If you used Apple Sign In, Apple may have created a private relay email address for you — check{' '}
-        <strong>iPhone Settings → [your name] → Sign-In &amp; Security → Sign in with Apple</strong> to see the apps linked to your Apple ID.
-        Still stuck? Email us and we&rsquo;ll help you recover the account.
+        If you used Apple Sign In, Apple may have created a private relay email address for you. Check{' '}<strong>iPhone Settings &rarr; [your name] &rarr; Sign-In &amp; Security &rarr; Sign in with Apple</strong>{' '}to see the apps linked to your Apple ID. Still stuck? Email us and we&rsquo;ll help you recover the account.
       </>
     ),
   },
@@ -80,7 +73,7 @@ const faqs: FaqItem[] = [
     q: 'My streak got reset and I didn\u2019t miss a day',
     a: (
       <>
-        This one&rsquo;s on us — streak bugs are the worst. Email us with your username and roughly when the streak broke, and we&rsquo;ll restore it if it was a system error.
+        This one&rsquo;s on us, streak bugs are the worst. Email us with your username and roughly when the streak broke, and we&rsquo;ll restore it if it was a system error.
       </>
     ),
   },
@@ -88,7 +81,7 @@ const faqs: FaqItem[] = [
     q: 'I want to request a feature',
     a: (
       <>
-        Honestly, we love these emails. Tell us what you&rsquo;d want to see and why — we read every one and a lot of our best ideas have come from players.
+        Honestly, we love these emails. Tell us what you&rsquo;d want to see and why. We read every one, and a lot of our best ideas have come from players.
       </>
     ),
   },
@@ -215,7 +208,7 @@ export default function SupportPage() {
               </h3>
               <p style={{ fontSize: 14, color: '#636E72', lineHeight: 1.6, margin: 0 }}>
                 When emailing about a bug or account issue, include your username (or Apple Sign In email), iOS version, device model,
-                and — if possible — a screenshot or screen recording. It speeds things up hugely.
+                and, if possible, a screenshot or screen recording. It speeds things up hugely.
               </p>
             </div>
           </div>

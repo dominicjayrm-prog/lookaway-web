@@ -7,16 +7,16 @@ import { COLORS, APP_SCHEME } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Join me on Blanked!',
-  description: 'A friend invited you to play Blanked — the visual memory game backed by science. 6 game modes, 380+ levels. Download it free on iOS and start training your memory.',
+  description: 'A friend invited you to play Blanked - the visual memory game backed by science. 6 game modes, 380+ levels. Download it free on iOS and start training your memory.',
   openGraph: {
     title: 'Join me on Blanked!',
-    description: 'A friend wants you to play Blanked — the visual memory game. 6 game modes, 380+ levels. Download free.',
+    description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 380+ levels. Download free.',
     images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Join me on Blanked!',
-    description: 'A friend wants you to play Blanked — the visual memory game. 6 game modes, 380+ levels. Download free.',
+    description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 380+ levels. Download free.',
     images: ['/og-image.png'],
   },
   robots: { index: false, follow: false },
@@ -53,7 +53,7 @@ export default async function InvitePage({ params }: { params: Promise<{ userId:
       ) : (
         <div style={{ textAlign: "center", maxWidth: 440 }}>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 8 }}>
-            A friend wants you to join them on Blanked — the visual memory game.
+            A friend wants you to join them on Blanked - the visual memory game.
           </p>
           <p style={{ fontSize: 16, color: COLORS.textM, lineHeight: 1.6, marginBottom: 32 }}>
             Open this link on your phone to get started.

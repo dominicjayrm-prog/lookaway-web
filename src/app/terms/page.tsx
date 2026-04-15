@@ -6,18 +6,18 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Blanked terms of service — the rules for using our visual memory game, Blanked+ subscriptions, in-app purchases, virtual currency, and your account.',
+  description: 'Blanked terms of service - the rules for using our visual memory game, Blanked+ subscriptions, in-app purchases, virtual currency, and your account.',
   alternates: { canonical: `${SITE_URL}/terms` },
   openGraph: {
     title: 'Terms of Service | Blanked',
-    description: 'The rules for using Blanked — accounts, subscriptions, in-app purchases, virtual currency.',
+    description: 'The rules for using Blanked - accounts, subscriptions, in-app purchases, virtual currency.',
     url: `${SITE_URL}/terms`,
     images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary',
     title: 'Terms of Service | Blanked',
-    description: 'The rules for using Blanked — accounts, subscriptions, and purchases.',
+    description: 'The rules for using Blanked - accounts, subscriptions, and purchases.',
   },
 };
 
@@ -74,7 +74,7 @@ export default function TermsPage() {
           </p>
           <ul style={ulStyle}>
             <li>A free-to-play core game with 200+ levels across 6 worlds, head-to-head friend challenges, and optional in-app advertising</li>
-            <li><strong>Blanked+</strong> — an auto-renewing subscription that unlocks unlimited lives, exclusive cosmetics, and removes ads (available monthly or yearly)</li>
+            <li><strong>Blanked+</strong> - an auto-renewing subscription that unlocks unlimited lives, exclusive cosmetics, and removes ads (available monthly or yearly)</li>
             <li>Optional one-time in-app purchases, including gem packs and a &ldquo;Remove Ads&rdquo; upgrade</li>
           </ul>
           <p style={pStyle}>
@@ -88,7 +88,7 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>3. Age Requirement</h2>
           <p style={pStyle}>
-            You must be at least 13 years old to use Blanked (or the minimum age of digital consent in your country — up to 16 in some EU member states). If you&apos;re under 18, you confirm that you have permission from a parent or legal guardian to use the App and to make any purchases.
+            You must be at least 13 years old to use Blanked (or the minimum age of digital consent in your country - up to 16 in some EU member states). If you&apos;re under 18, you confirm that you have permission from a parent or legal guardian to use the App and to make any purchases.
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export default function TermsPage() {
           </p>
           <ul style={ulStyle}>
             <li>Choose a username that isn&apos;t offensive, misleading, impersonating another person, or infringing anyone&apos;s trademarks or intellectual property rights</li>
-            <li>Keep your account credentials secure — you&apos;re responsible for all activity under your account</li>
+            <li>Keep your account credentials secure - you&apos;re responsible for all activity under your account</li>
             <li>Not share your account with others, sell it, or transfer it</li>
           </ul>
           <p style={pStyle}>
@@ -116,13 +116,13 @@ export default function TermsPage() {
             Blanked+ is an auto-renewing subscription with a monthly or yearly billing period. The following terms apply:
           </p>
           <ul style={ulStyle}>
-            <li><strong>Pricing &amp; length</strong> — The subscription length and price are clearly disclosed at the point of purchase in the App</li>
-            <li><strong>Payment</strong> — Payment is charged to your Apple ID account at confirmation of purchase</li>
-            <li><strong>Auto-renewal</strong> — Your subscription automatically renews unless auto-renewal is switched off at least 24 hours before the end of the current period</li>
-            <li><strong>Renewal charge</strong> — Your Apple ID will be charged for renewal within 24 hours prior to the end of the current period, at the price of the current subscription plan</li>
-            <li><strong>Managing your subscription</strong> — You can manage your subscription and switch off auto-renewal by going to your Apple ID account settings after purchase: <strong>Settings → [your name] → Subscriptions</strong></li>
-            <li><strong>No mid-period cancellation</strong> — Cancelling doesn&apos;t trigger a refund of the current billing period; you&apos;ll keep Blanked+ access until the end of the period you paid for</li>
-            <li><strong>Free trials</strong> — Any unused portion of a free trial period will be forfeited when you purchase a subscription</li>
+            <li><strong>Pricing &amp; length</strong> - The subscription length and price are clearly disclosed at the point of purchase in the App</li>
+            <li><strong>Payment</strong> - Payment is charged to your Apple ID account at confirmation of purchase</li>
+            <li><strong>Auto-renewal</strong> - Your subscription automatically renews unless auto-renewal is switched off at least 24 hours before the end of the current period</li>
+            <li><strong>Renewal charge</strong> - Your Apple ID will be charged for renewal within 24 hours prior to the end of the current period, at the price of the current subscription plan</li>
+            <li><strong>Managing your subscription</strong> - You can manage your subscription and switch off auto-renewal by going to your Apple ID account settings after purchase: <strong>Settings → [your name] → Subscriptions</strong></li>
+            <li><strong>No mid-period cancellation</strong> - Cancelling doesn&apos;t trigger a refund of the current billing period; you&apos;ll keep Blanked+ access until the end of the period you paid for</li>
+            <li><strong>Free trials</strong> - Any unused portion of a free trial period will be forfeited when you purchase a subscription</li>
           </ul>
           <p style={pStyle}>
             Links to these Terms and our{' '}
@@ -137,8 +137,8 @@ export default function TermsPage() {
             Blanked offers two kinds of in-app purchases:
           </p>
           <ul style={ulStyle}>
-            <li><strong>One-time purchases</strong> — such as gem packs and the &ldquo;Remove Ads&rdquo; upgrade. These do not recur.</li>
-            <li><strong>Subscriptions</strong> — Blanked+, as described in Section 5 above</li>
+            <li><strong>One-time purchases</strong> - such as gem packs and the &ldquo;Remove Ads&rdquo; upgrade. These do not recur.</li>
+            <li><strong>Subscriptions</strong> - Blanked+, as described in Section 5 above</li>
           </ul>
           <p style={pStyle}>
             All purchases are processed by Apple through the App Store. We do not process payments directly and do not have access to your card or payment details.
@@ -181,7 +181,7 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>9. User-Generated Content</h2>
           <p style={pStyle}>
-            When you choose a username, upload a profile photo, or otherwise contribute content to the App, you grant us a worldwide, non-exclusive, royalty-free, sublicensable licence to use, host, store, display, and reproduce that content for the purpose of operating and providing the App — for example, showing your username on leaderboards, or your avatar to your friends.
+            When you choose a username, upload a profile photo, or otherwise contribute content to the App, you grant us a worldwide, non-exclusive, royalty-free, sublicensable licence to use, host, store, display, and reproduce that content for the purpose of operating and providing the App - for example, showing your username on leaderboards, or your avatar to your friends.
           </p>
           <p style={pStyle}>
             You represent and warrant that you own, or have all necessary rights to, any content you upload, and that it doesn&apos;t violate anyone else&apos;s rights or any applicable law.
@@ -194,7 +194,7 @@ export default function TermsPage() {
         <div style={sectionStyle}>
           <h2 style={h2Style}>10. Intellectual Property</h2>
           <p style={pStyle}>
-            All content in Blanked — including but not limited to game design, graphics, animations, sounds, text, code, and our mascot Blink — is our intellectual property and is protected by applicable copyright, trademark, and other laws. You may not copy, modify, distribute, reverse-engineer, or create derivative works from any part of the App without our express written permission.
+            All content in Blanked - including but not limited to game design, graphics, animations, sounds, text, code, and our mascot Blink - is our intellectual property and is protected by applicable copyright, trademark, and other laws. You may not copy, modify, distribute, reverse-engineer, or create derivative works from any part of the App without our express written permission.
           </p>
           <p style={pStyle}>
             We grant you a limited, personal, non-exclusive, non-transferable licence to use the App on a device that you own or control, solely for your personal, non-commercial use, in accordance with these Terms.
@@ -213,10 +213,10 @@ export default function TermsPage() {
           </p>
           <ul style={ulStyle}>
             <li>Your access to the App ends immediately</li>
-            <li>Your data — including gems, cosmetics, progress, and friend connections — will be removed as described in our{' '}
+            <li>Your data - including gems, cosmetics, progress, and friend connections - will be removed as described in our{' '}
               <Link href="/privacy" style={linkStyle}>Privacy Policy</Link>
             </li>
-            <li>Any active Blanked+ subscription will continue to renew through Apple until you cancel it in your Apple ID settings — we can&apos;t cancel Apple-managed subscriptions on your behalf</li>
+            <li>Any active Blanked+ subscription will continue to renew through Apple until you cancel it in your Apple ID settings - we can&apos;t cancel Apple-managed subscriptions on your behalf</li>
             <li>Remaining gems and any non-consumed subscription benefits are forfeited</li>
           </ul>
         </div>
