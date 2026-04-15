@@ -38,6 +38,8 @@ a:focus-visible, button:focus-visible {
   .stats-row { gap: 24px !important; }
   .modes-grid { grid-template-columns: 1fr !important; }
   .science-cards { flex-direction: column !important; align-items: center !important; }
+  .sticky-nav-links { gap: 12px !important; }
+  .sticky-nav-links a:not([aria-label]) { display: none; }
 }
 
 @media (max-width: 480px) {
