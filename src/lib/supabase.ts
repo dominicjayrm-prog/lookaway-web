@@ -37,4 +37,11 @@ export interface BlogPost {
   published_at: string | null;
   created_at: string;
   updated_at: string;
+  /** Optional FAQ entries rendered as an accordion + FAQPage JSON-LD on the public post. */
+  faqs: BlogFaq[];
+}
+
+export interface BlogFaq {
+  q: string;
+  a: string;
 }

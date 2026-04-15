@@ -3,6 +3,7 @@ import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 import { mdToHtml, mdWordCount, mdReadingTime } from '@/lib/markdown';
 import { isValidSlug } from '@/lib/slug';
+import { sanitizeFaqs } from '@/lib/faqs';
 
 async function requireAuth() {
   const session = await getSession();
@@ -15,7 +16,7 @@ export async function POST(req: NextRequest) {
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   const body = await req.json();
-  const { title, slug, subtitle, meta_description, keywords, banner_url, banner_alt, content, published } = body;
+  const { title, slug, subtitle, meta_description, keywords, banner_url, banner_alt, content, faqs, published } = body;
 
   if (!title?.trim()) return NextResponse.json({ error: 'Title is required' }, { status: 400 });
   if (!isValidSlug(slug)) return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
@@ -24,6 +25,7 @@ export async function POST(req: NextRequest) {
   const wordCount = mdWordCount(md);
   const minutes = mdReadingTime(wordCount);
   const contentHtml = mdToHtml(md);
+  const cleanFaqs = sanitizeFaqs(faqs);
 
   const { data, error } = await supabaseAdmin()
     .from('blog_posts')
@@ -41,6 +43,7 @@ export async function POST(req: NextRequest) {
       content_html: contentHtml,
       word_count: wordCount,
       reading_time_minutes: minutes,
+      faqs: cleanFaqs,
       published: Boolean(published),
       published_at: published ? new Date().toISOString() : null,
     })

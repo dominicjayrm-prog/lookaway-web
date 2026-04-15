@@ -3,6 +3,7 @@ import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 import { mdToHtml, mdWordCount, mdReadingTime } from '@/lib/markdown';
 import { isValidSlug } from '@/lib/slug';
+import { sanitizeFaqs } from '@/lib/faqs';
 
 async function requireAuth() {
   const session = await getSession();
@@ -25,7 +26,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const { id } = await params;
 
   const body = await req.json();
-  const { title, slug, subtitle, meta_description, keywords, banner_url, banner_alt, content, published } = body;
+  const { title, slug, subtitle, meta_description, keywords, banner_url, banner_alt, content, faqs, published } = body;
 
   if (!title?.trim()) return NextResponse.json({ error: 'Title is required' }, { status: 400 });
   if (!isValidSlug(slug)) return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
@@ -38,6 +39,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const wordCount = mdWordCount(md);
   const minutes = mdReadingTime(wordCount);
   const contentHtml = mdToHtml(md);
+  const cleanFaqs = sanitizeFaqs(faqs);
 
   const update: Record<string, unknown> = {
     title: title.trim(),
@@ -51,6 +53,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     content_html: contentHtml,
     word_count: wordCount,
     reading_time_minutes: minutes,
+    faqs: cleanFaqs,
   };
 
   if (published !== undefined) {

@@ -3,11 +3,13 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPublishedPostBySlug, getRelatedPosts } from '@/lib/blog';
 import { extractTocAndInjectIds } from '@/lib/toc';
+import { buildFaqJsonLd } from '@/lib/faqs';
 import PostBody from '@/components/blog/PostBody';
 import BlogDownloadCTA from '@/components/blog/BlogDownloadCTA';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import ReadingProgress from '@/components/blog/ReadingProgress';
 import Toc from '@/components/blog/Toc';
+import BlogFaqs from '@/components/blog/BlogFaqs';
 import Footer from '@/components/Footer';
 import Blink from '@/components/Blink';
 import { SITE_URL } from '@/lib/constants';
@@ -60,6 +62,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
   const related = await getRelatedPosts(post);
   const { html: processedHtml, items: tocItems } = extractTocAndInjectIds(post.content_html);
+  const faqs = Array.isArray(post.faqs) ? post.faqs : [];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -76,9 +79,14 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     wordCount: post.word_count,
   };
 
+  const faqJsonLd = faqs.length > 0 ? buildFaqJsonLd(faqs) : null;
+
   return (
     <div style={{ background: '#FAFAF7', minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
 
       <ReadingProgress />
 
@@ -131,6 +139,8 @@ export default async function BlogPostPage({ params }: { params: Params }) {
           )}
 
           <PostBody html={processedHtml} />
+
+          <BlogFaqs faqs={faqs} />
 
           <BlogDownloadCTA />
 
