@@ -19,3 +19,17 @@ export const APP_SCHEME = "blanked://";
 export const CONTACT_EMAIL = "hello@playblanked.com";
 export const APPLE_TEAM_ID = "TEAMID";
 export const BUNDLE_ID = "com.blanked.app";
+
+/** Founder / default blog author. Shown on /about, on every blog post, and
+ *  surfaced to Google via Article JSON-LD with sameAs links. */
+export const FOUNDER = {
+  name: "Dominic",
+  fullName: "Dominic Roworth",
+  role: "Founder",
+  location: "Gibraltar",
+  avatar: "/founder.jpg",
+  linkedin: "https://www.linkedin.com/in/dominicroworth/",
+  instagram: "https://www.instagram.com/dj.rar",
+  email: CONTACT_EMAIL,
+  bio: "Founder of Blanked. Lives and builds from Gibraltar. Writes about memory, game design, and the weird satisfaction of forgetting where you parked.",
+} as const;

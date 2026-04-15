@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Logo from '@/components/Logo';
+import Logo from '@/components/BlinkAppIcon';
 import BlinkAppIcon from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
@@ -30,7 +30,7 @@ export default function PressPage() {
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Logo size={36} id="press-nav" />
+          <Logo size={36} />
           <span style={{ fontSize: 18, fontWeight: 800, color: P.text }}>
             <span style={{ color: P.accent }}>Blanked</span>
           </span>

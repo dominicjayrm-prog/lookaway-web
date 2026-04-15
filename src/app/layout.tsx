@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, FOUNDER } from '@/lib/constants';
 import '@/styles/globals.css';
 
 export const viewport: Viewport = {
@@ -54,6 +54,42 @@ export const metadata: Metadata = {
   },
 };
 
+// Site-wide Organization + Person schema — gives Google a durable "who is
+// behind Blanked" signal on every page, which pairs with the per-post
+// Article author and the /about page to compound E-E-A-T.
+const siteJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#org`,
+      name: 'Blanked',
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon` },
+      sameAs: [FOUNDER.linkedin, FOUNDER.instagram],
+      founder: { '@id': `${SITE_URL}/#founder` },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'Blanked',
+      publisher: { '@id': `${SITE_URL}/#org` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#founder`,
+      name: FOUNDER.fullName,
+      givenName: FOUNDER.name,
+      jobTitle: FOUNDER.role,
+      worksFor: { '@id': `${SITE_URL}/#org` },
+      url: `${SITE_URL}/about`,
+      image: `${SITE_URL}${FOUNDER.avatar}`,
+      sameAs: [FOUNDER.linkedin, FOUNDER.instagram],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,6 +98,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
         {children}
         <Analytics />
         <SpeedInsights />
