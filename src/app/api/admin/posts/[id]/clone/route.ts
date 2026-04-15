@@ -47,6 +47,7 @@ export async function POST(_req: NextRequest, { params }: { params: Promise<{ id
       content_html: source.content_html,
       word_count: source.word_count,
       reading_time_minutes: source.reading_time_minutes,
+      faqs: source.faqs ?? [],
       published: false,
       published_at: null,
     })

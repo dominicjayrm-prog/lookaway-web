@@ -5,10 +5,11 @@ import { useRouter } from 'next/navigation';
 import Editor from './Editor';
 import BannerUploader from './BannerUploader';
 import SeoPanel from './SeoPanel';
+import FaqEditor from './FaqEditor';
 import { runSeoChecks, summarizeChecks } from '@/lib/seo-check';
 import { mdWordCount, mdReadingTime, mdExtractLinks, mdExtractImages } from '@/lib/markdown';
 import { slugify, isValidSlug } from '@/lib/slug';
-import type { BlogPost } from '@/lib/supabase';
+import type { BlogPost, BlogFaq } from '@/lib/supabase';
 import type { LinkCheckResult } from '@/lib/link-check';
 
 interface Props {
@@ -45,6 +46,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
   const [bannerUrl, setBannerUrl] = useState<string | null>(post?.banner_url ?? null);
   const [bannerAlt, setBannerAlt] = useState<string | null>(post?.banner_alt ?? null);
   const [content, setContent] = useState<string>(readMarkdown(post?.content));
+  const [faqs, setFaqs] = useState<BlogFaq[]>(post?.faqs ?? []);
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [lastSavedAt, setLastSavedAt] = useState<Date | null>(post ? new Date(post.updated_at) : null);
@@ -63,7 +65,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
       return;
     }
     setDirty(true);
-  }, [title, slug, subtitle, metaDescription, keywords, bannerUrl, bannerAlt, content]);
+  }, [title, slug, subtitle, metaDescription, keywords, bannerUrl, bannerAlt, content, faqs]);
 
   // Warn before closing the tab if there are unsaved changes.
   const dirtyRef = useRef(dirty);
@@ -137,6 +139,9 @@ export default function PostEditor({ post, existingSlugs }: Props) {
       keywords, banner_url: bannerUrl, banner_alt: bannerAlt,
       // Send the markdown source; the API renders HTML server-side.
       content,
+      // Drop empty entries before saving — a question-only or answer-only row
+      // should not leak into the JSON-LD schema.
+      faqs: faqs.filter(f => f.q.trim().length > 0 && f.a.trim().length > 0),
       ...(publishedOverride !== undefined ? { published: publishedOverride } : {}),
     };
   }
@@ -367,6 +372,9 @@ export default function PostEditor({ post, existingSlugs }: Props) {
           />
         </aside>
       </div>
+
+      {/* FAQ section — full-width below the editor, above the sidebar columns */}
+      <FaqEditor faqs={faqs} onChange={setFaqs} />
 
       <style>{`
         @media (max-width: 900px) {
