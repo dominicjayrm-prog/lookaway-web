@@ -33,6 +33,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
           <nav style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <Link href="/admin" style={{ fontSize: 13, color: pathname === '/admin' ? '#1A1A18' : '#636E72', fontWeight: 600 }}>Posts</Link>
             <Link href="/admin/posts/new" style={{ fontSize: 13, color: pathname === '/admin/posts/new' ? '#1A1A18' : '#636E72', fontWeight: 600 }}>New post</Link>
+            <Link href="/admin/subscribers" style={{ fontSize: 13, color: pathname === '/admin/subscribers' ? '#1A1A18' : '#636E72', fontWeight: 600 }}>Subscribers</Link>
             <Link href="/" target="_blank" rel="noopener" style={{ fontSize: 13, color: '#636E72', fontWeight: 600 }}>View site ↗</Link>
             <form action="/admin/logout" method="POST" style={{ display: 'inline' }}>
               <button type="submit" style={{

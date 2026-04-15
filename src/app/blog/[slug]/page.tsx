@@ -10,9 +10,13 @@ import RelatedPosts from '@/components/blog/RelatedPosts';
 import ReadingProgress from '@/components/blog/ReadingProgress';
 import Toc from '@/components/blog/Toc';
 import BlogFaqs from '@/components/blog/BlogFaqs';
+import ShareButtons from '@/components/blog/ShareButtons';
+import BlogAuthorByline from '@/components/blog/BlogAuthorByline';
+import BlogAuthorCard from '@/components/blog/BlogAuthorCard';
+import EmailCapture from '@/components/EmailCapture';
 import Footer from '@/components/Footer';
 import Blink from '@/components/Blink';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, FOUNDER } from '@/lib/constants';
 
 type Params = Promise<{ slug: string }>;
 
@@ -72,8 +76,23 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     image: post.banner_url || undefined,
     datePublished: post.published_at,
     dateModified: post.updated_at,
-    author: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
+    // Author as a Person with sameAs so Google can merge the author entity
+    // across profiles. Big E-E-A-T signal for a small-site founder blog.
+    author: {
+      '@type': 'Person',
+      name: FOUNDER.fullName,
+      url: `${SITE_URL}/about`,
+      image: `${SITE_URL}${FOUNDER.avatar}`,
+      jobTitle: FOUNDER.role,
+      worksFor: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
+      sameAs: [FOUNDER.linkedin, FOUNDER.instagram],
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Blanked',
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon` },
+    },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
     keywords: post.keywords?.join(', '),
     wordCount: post.word_count,
@@ -101,15 +120,18 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       <div className="blog-layout">
         <article className="blog-article">
           <header style={{ marginBottom: 32 }}>
-            <div style={{ fontSize: 12, color: '#B2BEC3', marginBottom: 12 }}>
-              {formatDate(post.published_at)} · {post.reading_time_minutes} min read
-            </div>
             <h1 style={{ fontSize: 42, fontWeight: 800, color: '#1A1A18', margin: 0, lineHeight: 1.15, letterSpacing: -0.8 }}>
               {post.title}
             </h1>
             {post.subtitle && (
               <p style={{ fontSize: 19, color: '#636E72', marginTop: 14, lineHeight: 1.5 }}>{post.subtitle}</p>
             )}
+            <div style={{ marginTop: 20 }}>
+              <BlogAuthorByline
+                publishedAt={formatDate(post.published_at)}
+                readingTime={post.reading_time_minutes}
+              />
+            </div>
           </header>
 
           {post.banner_url && (
@@ -140,7 +162,22 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
           <PostBody html={processedHtml} />
 
+          <ShareButtons
+            url={`${SITE_URL}/blog/${post.slug}`}
+            title={post.title}
+          />
+
+          <BlogAuthorCard />
+
           <BlogFaqs faqs={faqs} />
+
+          <div style={{ marginTop: 40 }}>
+            <EmailCapture
+              source={`blog:${post.slug}`}
+              heading="Enjoyed this? Get more in your inbox."
+              subhead="A short email when a new Blanked post goes up. Memory science, product stories, and the occasional tip. No spam."
+            />
+          </div>
 
           <BlogDownloadCTA />
 

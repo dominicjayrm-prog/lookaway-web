@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
-import Logo from '@/components/Logo';
+import Logo from '@/components/BlinkAppIcon';
 import AppStoreButton from '@/components/AppStoreButton';
 import { COLORS, APP_SCHEME } from '@/lib/constants';
 
@@ -35,7 +35,7 @@ export default async function ChallengePage({ params }: { params: Promise<{ date
       fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif", padding: 24
     }}>
       <Link href="/" aria-label="Blanked home" style={{ marginBottom: 32 }}>
-        <Logo size={64} id="challenge" />
+        <Logo size={64} />
       </Link>
 
       <h1 style={{ fontSize: isMobile ? 32 : 36, fontWeight: 800, color: COLORS.text, marginBottom: 12, textAlign: "center" }}>

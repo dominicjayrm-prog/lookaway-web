@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
-import { COLORS, APP_STORE_URL, SITE_URL } from '@/lib/constants';
+import { COLORS, APP_STORE_URL, SITE_URL, FOUNDER } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -96,15 +96,88 @@ export default function AboutPage() {
             </li>
           </ul>
 
+          <h2 style={h2}>Meet the founder</h2>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '160px 1fr', gap: 24,
+            alignItems: 'start', marginBottom: 22,
+          }} className="founder-grid">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/founder.jpg"
+              alt="Dominic, founder of Blanked"
+              width={160}
+              height={160}
+              style={{
+                width: 160, height: 160, borderRadius: 20,
+                objectFit: 'cover',
+                boxShadow: '0 6px 28px rgba(108,92,231,0.18)',
+                border: `2px solid ${P.accent}20`,
+                background: '#EEEDE8',
+              }}
+            />
+            <div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: P.text, marginBottom: 2 }}>
+                Dominic
+              </div>
+              <div style={{ fontSize: 13, color: P.textD, marginBottom: 14, letterSpacing: 0.2 }}>
+                Founder · Gibraltar
+              </div>
+              <p style={{ ...p, marginBottom: 12 }}>
+                I&apos;m Dominic, the one person behind Blanked. I live and build from Gibraltar, a tiny rock at the bottom of Spain where somehow I&apos;ve ended up spending too many late nights obsessing over how memory actually works.
+              </p>
+              <p style={{ ...p, marginBottom: 12 }}>
+                The honest version: I&apos;ve always been the guy who forgets names at parties. Every time it happened I&apos;d think, &ldquo;there has to be a way to train this.&rdquo; I tried the big brain-training apps. They felt like homework dressed up as research papers, locked behind subscriptions I resented. None of them made me want to open them again the next day.
+              </p>
+              <p style={{ ...p, marginBottom: 14 }}>
+                So I built what I actually wanted to play. I write every line of code, design every level, draw every Blink expression, and reply to every email that lands at{' '}
+                <a href="mailto:hello@playblanked.com" style={{ color: P.accent, textDecoration: 'underline' }}>hello@playblanked.com</a>. I love building apps, and I love that a game I made from a desk in Gibraltar might nudge someone on the other side of the world to remember a name, a password, or what they walked into the kitchen to do.
+              </p>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                <a
+                  href={FOUNDER.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dominic on LinkedIn"
+                  style={socialChip}
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href={FOUNDER.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dominic on Instagram"
+                  style={socialChip}
+                >
+                  Instagram ↗
+                </a>
+                <a
+                  href={`mailto:${FOUNDER.email}`}
+                  aria-label="Email Dominic"
+                  style={socialChip}
+                >
+                  Email ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
           <h2 style={h2}>Where we are now</h2>
           <p style={p}>
-            Blanked is launching on iOS. Android is on the roadmap but not promised on a date yet. We are focused on making the iOS experience as good as we can first.
+            Blanked is launching on iOS. Android is on the roadmap but not promised on a date yet. I&apos;m focused on making the iOS experience as good as it can be first.
           </p>
           <p style={p}>
-            If you want to reach us, email{' '}
-            <a href="mailto:hello@playblanked.com" style={{ color: P.accent, textDecoration: 'underline' }}>hello@playblanked.com</a>. We read everything and reply to most messages within 48 hours.
+            If you want to reach out, email{' '}
+            <a href="mailto:hello@playblanked.com" style={{ color: P.accent, textDecoration: 'underline' }}>hello@playblanked.com</a>. I read everything and reply to most messages within 48 hours.
           </p>
         </section>
+
+        <style>{`
+          @media (max-width: 600px) {
+            .founder-grid { grid-template-columns: 1fr !important; justify-items: center; text-align: center; }
+            .founder-grid > div { text-align: left; }
+          }
+        `}</style>
 
         {/* CTAs */}
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 40 }}>
@@ -153,4 +226,13 @@ const valueCard: React.CSSProperties = {
 
 const valueTitle: React.CSSProperties = {
   display: 'block', color: COLORS.text, fontWeight: 700, fontSize: 15, marginBottom: 4,
+};
+
+const socialChip: React.CSSProperties = {
+  padding: '6px 12px', borderRadius: 8,
+  border: `1.5px solid ${COLORS.accent}30`,
+  background: 'white',
+  color: COLORS.accent,
+  fontSize: 13, fontWeight: 600,
+  textDecoration: 'none',
 };

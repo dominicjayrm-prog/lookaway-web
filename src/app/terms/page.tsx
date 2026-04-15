@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Logo from '@/components/Logo';
+import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
@@ -39,7 +39,7 @@ export default function TermsPage() {
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Logo size={36} id="terms-nav" />
+          <Logo size={36} />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>
           </span>
