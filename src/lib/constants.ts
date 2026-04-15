@@ -31,5 +31,5 @@ export const FOUNDER = {
   linkedin: "https://www.linkedin.com/in/dominicroworth/",
   instagram: "https://www.instagram.com/dj.rar",
   email: CONTACT_EMAIL,
-  bio: "Founder of Blanked. Lives and builds from Gibraltar. Writes about memory, game design, and the weird satisfaction of forgetting where you parked.",
+  bio: "I'm Dominic, founder of Blanked. I live and build from Gibraltar, and I write about memory, game design, and the weird satisfaction of forgetting where you parked.",
 } as const;

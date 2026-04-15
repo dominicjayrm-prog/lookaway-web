@@ -7,16 +7,23 @@ export default function Footer() {
   return (
     <footer style={{
       borderTop: "1px solid rgba(0,0,0,0.05)",
-      padding: "36px 24px 32px",
-      display: "flex", flexDirection: "column", gap: 28,
     }}>
-      {/* Email capture — primary footer hook */}
-      <div style={{ maxWidth: 520 }}>
-        <EmailCapture source="footer" />
+      {/* Pre-footer email-capture band — centred, soft purple tint so it
+          reads as a "wait, don't leave yet" moment rather than a footer
+          add-on. */}
+      <div style={{
+        background: `linear-gradient(180deg, ${COLORS.accent}08 0%, ${COLORS.accent}12 100%)`,
+        borderBottom: "1px solid rgba(108,92,231,0.08)",
+        padding: "48px 24px",
+      }}>
+        <div style={{ maxWidth: 640, margin: "0 auto" }}>
+          <EmailCapture source="footer" />
+        </div>
       </div>
 
       {/* Brand row + nav */}
       <div style={{
+        padding: "28px 24px",
         display: "flex", justifyContent: "space-between", alignItems: "center",
         flexWrap: "wrap", gap: 16,
       }}>
