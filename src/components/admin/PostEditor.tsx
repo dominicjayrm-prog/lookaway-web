@@ -54,7 +54,14 @@ export default function PostEditor({ post, existingSlugs }: Props) {
   const [checkingLinks, setCheckingLinks] = useState(false);
 
   // Mark dirty whenever any post field changes. Cleared on successful save.
+  // Skips the initial mount so a fresh page doesn't claim "Unsaved changes"
+  // before the user has actually touched anything.
+  const firstRenderRef = useRef(true);
   useEffect(() => {
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false;
+      return;
+    }
     setDirty(true);
   }, [title, slug, subtitle, metaDescription, keywords, bannerUrl, bannerAlt, content]);
 

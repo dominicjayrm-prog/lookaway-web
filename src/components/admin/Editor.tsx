@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef, useEffect, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { marked } from 'marked';
 import { COLORS } from '@/lib/constants';
 
@@ -29,16 +29,7 @@ const P = COLORS;
 
 export default function Editor({ value, onChange }: Props) {
   const [preview, setPreview] = useState(false);
-  const [dragOver, setDragOver] = useState(false);
   const taRef = useRef<HTMLTextAreaElement>(null);
-
-  // Auto-resize the textarea to fit its content.
-  useEffect(() => {
-    const el = taRef.current;
-    if (!el) return;
-    el.style.height = 'auto';
-    el.style.height = Math.max(400, el.scrollHeight) + 'px';
-  }, [value]);
 
   const html = useMemo(() => toHtml(value), [value]);
 
@@ -50,7 +41,6 @@ export default function Editor({ value, onChange }: Props) {
     const selected = value.slice(start, end);
     const next = value.slice(0, start) + before + selected + after + value.slice(end);
     onChange(next);
-    // Restore selection roughly where the user was
     requestAnimationFrame(() => {
       el.focus();
       const pos = start + before.length + selected.length;
@@ -58,7 +48,7 @@ export default function Editor({ value, onChange }: Props) {
     });
   }
 
-  async function handlePasteImage(file: File) {
+  async function uploadImageFile(file: File) {
     const form = new FormData();
     form.append('file', file);
     const res = await fetch('/api/admin/upload', { method: 'POST', body: form });
@@ -74,74 +64,16 @@ export default function Editor({ value, onChange }: Props) {
 
   function onFileInput(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
-    if (file) void handlePasteImage(file);
+    if (file) void uploadImageFile(file);
     e.target.value = '';
   }
 
-  /** Paste an image from the clipboard directly into the editor. */
-  function onPaste(e: React.ClipboardEvent<HTMLTextAreaElement>) {
-    const items = e.clipboardData?.items;
-    if (!items) return;
-    for (const item of items) {
-      if (item.kind === 'file' && item.type.startsWith('image/')) {
-        const file = item.getAsFile();
-        if (file) {
-          e.preventDefault();
-          void handlePasteImage(file);
-          return;
-        }
-      }
-    }
-  }
-
-  /** Drag-and-drop a .md/.markdown file to replace the editor content. */
-  function onDragOver(e: React.DragEvent<HTMLDivElement>) {
-    if (Array.from(e.dataTransfer.items).some((i) => i.kind === 'file')) {
-      e.preventDefault();
-      setDragOver(true);
-    }
-  }
-
-  function onDragLeave() {
-    setDragOver(false);
-  }
-
-  async function onDrop(e: React.DragEvent<HTMLDivElement>) {
-    e.preventDefault();
-    setDragOver(false);
-    const file = e.dataTransfer.files?.[0];
-    if (!file) return;
-    const isMarkdown = /\.(md|markdown|mdx)$/i.test(file.name) || file.type === 'text/markdown';
-    if (isMarkdown) {
-      if (value.trim().length > 0 && !confirm('Replace the current editor content with this file?')) return;
-      const text = await file.text();
-      onChange(text);
-      return;
-    }
-    if (file.type.startsWith('image/')) {
-      void handlePasteImage(file);
-      return;
-    }
-    alert('Drop a .md file to import content, or an image to insert.');
-  }
-
   return (
-    <div
-      onDragOver={onDragOver}
-      onDragLeave={onDragLeave}
-      onDrop={onDrop}
-      style={{
-        border: `1.5px solid ${dragOver ? '#6C5CE7' : '#EEEDE8'}`,
-        borderRadius: 14, background: 'white', overflow: 'hidden',
-        boxShadow: dragOver ? '0 0 0 3px #6C5CE725' : 'none',
-        transition: 'border-color 120ms, box-shadow 120ms',
-      }}
-    >
-      {/* Toolbar */}
+    <div style={{ border: '1.5px solid #EEEDE8', borderRadius: 14, background: 'white', overflow: 'hidden' }}>
+      {/* Toolbar (not sticky — kept simple to avoid stacking-context issues) */}
       <div style={{
         display: 'flex', flexWrap: 'wrap', gap: 4, padding: '8px 12px',
         borderBottom: '1px solid #EEEDE8', background: '#FAFAF7',
-        position: 'sticky', top: 60, zIndex: 5,
       }}>
         <ToolbarBtn onClick={() => insertAtCursor('## ')} title="Heading 2">H2</ToolbarBtn>
         <ToolbarBtn onClick={() => insertAtCursor('### ')} title="Heading 3">H3</ToolbarBtn>
@@ -173,7 +105,7 @@ export default function Editor({ value, onChange }: Props) {
       {preview ? (
         <div
           className="markdown-preview"
-          style={{ padding: '24px 28px 40px', minHeight: 400 }}
+          style={{ padding: '24px 28px 40px', minHeight: 600 }}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       ) : (
@@ -181,15 +113,15 @@ export default function Editor({ value, onChange }: Props) {
           ref={taRef}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          onPaste={onPaste}
-          placeholder={
-            '# Start writing\n\nUse ## for H2 headings, ### for H3.\n\n**Bold**, _italic_, `code`.\n\n- Bullet lists\n- Like this\n\nYou can paste markdown straight from ChatGPT or Claude, paste an image from your clipboard, or drag a .md file onto the editor.'
-          }
+          autoFocus
+          placeholder="Start writing here. Use ## for H2 headings, ### for H3. **Bold**, _italic_, `code`. Paste markdown straight from ChatGPT or Claude."
           style={{
-            width: '100%', minHeight: 400, padding: '24px 28px 40px',
-            border: 'none', outline: 'none', resize: 'none',
+            display: 'block',
+            width: '100%', height: 600, padding: '24px 28px 40px',
+            border: 'none', outline: 'none', resize: 'vertical',
             fontFamily: 'ui-monospace, "SF Mono", Menlo, monospace',
             fontSize: 14, lineHeight: 1.7, color: P.text, background: 'white',
+            boxSizing: 'border-box',
           }}
         />
       )}
