@@ -6,7 +6,7 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Press Kit',
-  description: 'Blanked press kit — download logos, screenshots, and app information for media coverage. A visual memory game with 380+ levels across 6 game modes.',
+  description: 'Blanked press kit - download logos, screenshots, and app information for media coverage. A visual memory game with 380+ levels across 6 game modes.',
   alternates: { canonical: `${SITE_URL}/press` },
   openGraph: {
     title: 'Press Kit | Blanked',
@@ -66,7 +66,7 @@ export default function PressPage() {
             The game spans 200 levels across 6 worlds, each introducing new mechanics: from basic shape recognition to moving objects, photographic scenes, and the ultimate &ldquo;Mastermind&rdquo; world that combines everything. Difficulty ramps gradually, making the game accessible to casual players while providing a genuine challenge for memory enthusiasts.
           </p>
           <p style={{ fontSize: 16, color: P.textM, lineHeight: 1.7 }}>
-            Players can challenge friends head-to-head: both players see the same scenes, answer the same questions, and compare scores. It&apos;s pure skill with zero luck &mdash; the perfect game for competitive friends.
+            Players can challenge friends head-to-head: both players see the same scenes, answer the same questions, and compare scores. It&apos;s pure skill with zero luck, the perfect game for competitive friends.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function PressPage() {
           <h2 style={{ fontSize: 22, fontWeight: 700, color: P.text, marginBottom: 16 }}>Key Features</h2>
           <ul style={{ fontSize: 16, color: P.textM, lineHeight: 1.7, paddingLeft: 24 }}>
             <li>200 hand-crafted levels across 6 themed worlds</li>
-            <li>30-60 second gameplay sessions — perfect for short breaks</li>
+            <li>30-60 second gameplay sessions - perfect for short breaks</li>
             <li>Head-to-head friend challenges with shared scenes</li>
             <li>Progressive difficulty from simple shapes to complex photographic scenes</li>
             <li>Star-based scoring system with achievements and rankings</li>

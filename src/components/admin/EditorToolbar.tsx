@@ -92,7 +92,7 @@ export default function EditorToolbar({ editor, onImageUpload }: Props) {
       <Sep />
       <Btn active={editor.isActive('link')} onClick={addLink} title="Link">🔗 Link</Btn>
       <Btn onClick={onImageClick} title="Insert image">🖼 Image</Btn>
-      <Btn onClick={() => editor.chain().focus().setHorizontalRule().run()} title="Divider">— HR</Btn>
+      <Btn onClick={() => editor.chain().focus().setHorizontalRule().run()} title="Divider">- HR</Btn>
 
       <div style={{ flex: 1 }} />
       <Btn disabled={!editor.can().undo()} onClick={() => editor.chain().focus().undo().run()} title="Undo">↶</Btn>

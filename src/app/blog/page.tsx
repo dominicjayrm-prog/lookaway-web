@@ -44,13 +44,13 @@ export default async function BlogIndexPage() {
             Memory, <span style={{ color: '#6C5CE7' }}>trained</span>.
           </h1>
           <p style={{ fontSize: 16, color: '#636E72', maxWidth: 560, margin: '12px auto 0', lineHeight: 1.6 }}>
-            Practical articles on memory, brain training, and the science of learning — from the team behind Blanked.
+            Practical articles on memory, brain training, and the science of learning - from the team behind Blanked.
           </p>
         </div>
 
         {posts.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '80px 20px', color: '#636E72', fontSize: 15 }}>
-            Nothing published yet — check back soon.
+            Nothing published yet - check back soon.
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24 }}>

@@ -225,7 +225,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
           <div style={{ background: 'white', border: '1.5px solid #EEEDE8', borderRadius: 12, padding: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: '#636E72', letterSpacing: 0.5 }}>METADATA</div>
 
-            <Field label="Slug" hint="URL path — /blog/your-slug">
+            <Field label="Slug" hint="URL path - /blog/your-slug">
               <input
                 type="text"
                 value={slug}
@@ -235,7 +235,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
               />
             </Field>
 
-            <Field label="Subtitle" hint="Optional — shown below title on post page">
+            <Field label="Subtitle" hint="Optional - shown below title on post page">
               <input
                 type="text"
                 value={subtitle}

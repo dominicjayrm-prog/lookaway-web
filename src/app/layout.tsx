@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Blanked — Train Your Brain in 2 Minutes a Day',
+    default: 'Blanked - Train Your Brain in 2 Minutes a Day',
     template: '%s | Blanked',
   },
   description: 'A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Free to play on iOS.',
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: SITE_URL,
-    title: 'Blanked — Visual Memory Game',
+    title: 'Blanked - Visual Memory Game',
     description: 'Study the scene. It disappears. Answer from memory. A visual memory game that starts simple and gets impossibly hard.',
     siteName: 'Blanked',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Blanked — Visual Memory Game' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Blanked - Visual Memory Game' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blanked — Visual Memory Game',
+    title: 'Blanked - Visual Memory Game',
     description: 'Study the scene. It disappears. Answer from memory. 6 game modes, 380+ levels. Free on iOS.',
     images: ['/opengraph-image'],
   },
