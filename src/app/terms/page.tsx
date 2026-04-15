@@ -78,7 +78,7 @@ export default function TermsPage() {
             <li>Optional one-time in-app purchases, including gem packs and a &ldquo;Remove Ads&rdquo; upgrade</li>
           </ul>
           <p style={pStyle}>
-            You can download and start playing in guest mode without an account. However, signing in (via Apple Sign In or email) is required to access friend challenges, cloud sync across devices, leaderboards, streak rewards, and any in-app purchase or subscription.
+            An account is required to play Blanked. You sign in via Apple Sign In or email when you first open the app. This lets us save your progress, streaks, gems, and friend connections, and keep them in sync across devices.
           </p>
           <p style={pStyle}>
             Ads displayed in the free version can be removed by purchasing &ldquo;Remove Ads&rdquo; or subscribing to Blanked+.

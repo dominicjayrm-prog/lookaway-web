@@ -34,6 +34,6 @@ export const HOME_FAQS: Faq[] = [
   },
   {
     q: 'Do I need an account to play?',
-    a: 'No. You can download and start playing in guest mode straight away. You only need to sign in (with Apple or email) if you want friend challenges, cloud sync across devices, streak rewards, or to make a purchase.',
+    a: 'Yes. You sign in with Apple or email when you open the app. It takes a few seconds and keeps your progress, streaks, gems, and friends safe across devices. We only use your email for account recovery, not for marketing.',
   },
 ];
