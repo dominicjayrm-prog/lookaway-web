@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
-import { renderTiptapToHtml, countWords, readingTime } from '@/lib/tiptap-html';
+import { mdToHtml, mdWordCount, mdReadingTime } from '@/lib/markdown';
 import { isValidSlug } from '@/lib/slug';
 
 async function requireAuth() {
@@ -34,9 +34,10 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const { data: existing } = await supabaseAdmin().from('blog_posts').select('published, published_at').eq('id', id).maybeSingle();
   if (!existing) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-  const wordCount = countWords(content);
-  const minutes = readingTime(wordCount);
-  const contentHtml = renderTiptapToHtml(content);
+  const md = typeof content === 'string' ? content : '';
+  const wordCount = mdWordCount(md);
+  const minutes = mdReadingTime(wordCount);
+  const contentHtml = mdToHtml(md);
 
   const update: Record<string, unknown> = {
     title: title.trim(),
@@ -46,7 +47,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     keywords: keywords || [],
     banner_url: banner_url || null,
     banner_alt: banner_alt || null,
-    content,
+    content: { type: 'markdown', source: md },
     content_html: contentHtml,
     word_count: wordCount,
     reading_time_minutes: minutes,

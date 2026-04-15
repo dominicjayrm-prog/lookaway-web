@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
-import { renderTiptapToHtml, countWords, readingTime } from '@/lib/tiptap-html';
+import { mdToHtml, mdWordCount, mdReadingTime } from '@/lib/markdown';
 import { isValidSlug } from '@/lib/slug';
 
 async function requireAuth() {
@@ -20,9 +20,10 @@ export async function POST(req: NextRequest) {
   if (!title?.trim()) return NextResponse.json({ error: 'Title is required' }, { status: 400 });
   if (!isValidSlug(slug)) return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
 
-  const wordCount = countWords(content);
-  const minutes = readingTime(wordCount);
-  const contentHtml = renderTiptapToHtml(content);
+  const md = typeof content === 'string' ? content : '';
+  const wordCount = mdWordCount(md);
+  const minutes = mdReadingTime(wordCount);
+  const contentHtml = mdToHtml(md);
 
   const { data, error } = await supabaseAdmin()
     .from('blog_posts')
@@ -34,7 +35,9 @@ export async function POST(req: NextRequest) {
       keywords: keywords || [],
       banner_url: banner_url || null,
       banner_alt: banner_alt || null,
-      content,
+      // Store the markdown source in the JSONB column so the editor can
+      // round-trip it. HTML is separate, in content_html.
+      content: { type: 'markdown', source: md },
       content_html: contentHtml,
       word_count: wordCount,
       reading_time_minutes: minutes,

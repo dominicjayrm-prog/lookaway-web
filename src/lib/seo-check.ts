@@ -1,6 +1,7 @@
 import { isValidSlug } from './slug';
-import { countH1s, checkHeadingHierarchy, extractImages, extractLinks, countWords } from './tiptap-html';
-import type { JSONContent } from '@tiptap/core';
+import {
+  mdCountH1s, mdCheckHeadingHierarchy, mdExtractImages, mdExtractLinks, mdWordCount,
+} from './markdown';
 
 export type Severity = 'error' | 'warning' | 'info';
 
@@ -20,7 +21,8 @@ export interface PostInput {
   keywords?: string[];
   banner_url?: string | null;
   banner_alt?: string | null;
-  content: JSONContent;
+  /** Markdown source. */
+  content: string;
   /** Slugs of other posts, used to detect duplicates (excludes the current post). */
   existingSlugs?: string[];
 }
@@ -31,7 +33,8 @@ export function runSeoChecks(input: PostInput): SeoCheck[] {
   const title = input.title?.trim() ?? '';
   const slug = input.slug?.trim() ?? '';
   const metaDesc = input.meta_description?.trim() ?? '';
-  const wordCount = countWords(input.content);
+  const md = input.content ?? '';
+  const wordCount = mdWordCount(md);
 
   // Title
   if (title.length === 0) {
@@ -68,22 +71,22 @@ export function runSeoChecks(input: PostInput): SeoCheck[] {
   }
 
   // H1 count in content (title is the H1, so content shouldn't have any)
-  const h1Count = countH1s(input.content);
+  const h1Count = mdCountH1s(md);
   if (h1Count > 0) {
-    checks.push({ id: 'content-h1', severity: 'error', message: `Content has ${h1Count} H1 heading(s) — the title is already the H1`, fix: 'Change H1s to H2s in the content', field: 'content' });
+    checks.push({ id: 'content-h1', severity: 'error', message: `Content has ${h1Count} H1 heading(s) — the title is already the H1`, fix: 'Change # headings to ## or ### in the content', field: 'content' });
   }
 
   // Heading hierarchy
-  const hierarchy = checkHeadingHierarchy(input.content);
+  const hierarchy = mdCheckHeadingHierarchy(md);
   if (!hierarchy.valid && hierarchy.issue) {
     checks.push({ id: 'heading-hierarchy', severity: 'warning', message: hierarchy.issue, fix: 'Reorder headings so levels flow sequentially', field: 'content' });
   }
 
   // Image alt text
-  const images = extractImages(input.content);
-  const missingAlt = images.filter(img => !img.alt).length;
+  const images = mdExtractImages(md);
+  const missingAlt = images.filter((img) => !img.alt).length;
   if (missingAlt > 0) {
-    checks.push({ id: 'img-alt-missing', severity: 'error', message: `${missingAlt} image(s) missing alt text`, fix: 'Click each image and add alt text', field: 'content' });
+    checks.push({ id: 'img-alt-missing', severity: 'error', message: `${missingAlt} image(s) missing alt text`, fix: 'Add alt text inside the brackets: ![Your description](url)', field: 'content' });
   }
 
   // Word count
@@ -102,12 +105,12 @@ export function runSeoChecks(input: PostInput): SeoCheck[] {
 }
 
 export function summarizeChecks(checks: SeoCheck[]): { errors: number; warnings: number; infos: number; canPublish: boolean } {
-  const errors = checks.filter(c => c.severity === 'error').length;
-  const warnings = checks.filter(c => c.severity === 'warning').length;
-  const infos = checks.filter(c => c.severity === 'info').length;
+  const errors = checks.filter((c) => c.severity === 'error').length;
+  const warnings = checks.filter((c) => c.severity === 'warning').length;
+  const infos = checks.filter((c) => c.severity === 'info').length;
   return { errors, warnings, infos, canPublish: errors === 0 };
 }
 
-export function countContentLinks(content: JSONContent) {
-  return extractLinks(content).length;
+export function countContentLinks(md: string) {
+  return mdExtractLinks(md).length;
 }

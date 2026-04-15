@@ -2,12 +2,11 @@
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import type { JSONContent } from '@tiptap/core';
 import Editor from './Editor';
 import BannerUploader from './BannerUploader';
 import SeoPanel from './SeoPanel';
 import { runSeoChecks, summarizeChecks } from '@/lib/seo-check';
-import { countWords, readingTime, extractLinks } from '@/lib/tiptap-html';
+import { mdWordCount, mdReadingTime, mdExtractLinks } from '@/lib/markdown';
 import { slugify, isValidSlug } from '@/lib/slug';
 import type { BlogPost } from '@/lib/supabase';
 import type { LinkCheckResult } from '@/lib/link-check';
@@ -17,7 +16,22 @@ interface Props {
   existingSlugs: string[];
 }
 
-const EMPTY_DOC: JSONContent = { type: 'doc', content: [{ type: 'paragraph' }] };
+/**
+ * Read markdown source out of the stored `content` field.
+ * New posts store `{ type: 'markdown', source: string }` in the JSONB column.
+ * Legacy TipTap posts have a ProseMirror doc — we fall back to empty so the
+ * author can paste the markdown in fresh. Public display still works because
+ * the rendered HTML is in `content_html`.
+ */
+function readMarkdown(content: unknown): string {
+  if (!content) return '';
+  if (typeof content === 'string') return content;
+  if (typeof content === 'object' && content !== null) {
+    const c = content as { type?: string; source?: unknown };
+    if (c.type === 'markdown' && typeof c.source === 'string') return c.source;
+  }
+  return '';
+}
 
 export default function PostEditor({ post, existingSlugs }: Props) {
   const router = useRouter();
@@ -30,9 +44,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
   const [keywordInput, setKeywordInput] = useState('');
   const [bannerUrl, setBannerUrl] = useState<string | null>(post?.banner_url ?? null);
   const [bannerAlt, setBannerAlt] = useState<string | null>(post?.banner_alt ?? null);
-  const [content, setContent] = useState<JSONContent>(
-    (post?.content as JSONContent) ?? EMPTY_DOC,
-  );
+  const [content, setContent] = useState<string>(readMarkdown(post?.content));
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [lastSavedAt, setLastSavedAt] = useState<Date | null>(post ? new Date(post.updated_at) : null);
@@ -44,8 +56,8 @@ export default function PostEditor({ post, existingSlugs }: Props) {
     if (!slugManuallyEdited && title) setSlug(slugify(title));
   }, [title, slugManuallyEdited]);
 
-  const wordCount = useMemo(() => countWords(content), [content]);
-  const minutes = useMemo(() => readingTime(wordCount), [wordCount]);
+  const wordCount = useMemo(() => mdWordCount(content), [content]);
+  const minutes = useMemo(() => mdReadingTime(wordCount), [wordCount]);
 
   const checks = useMemo(() => runSeoChecks({
     title, slug, subtitle, meta_description: metaDescription, keywords,
@@ -56,21 +68,8 @@ export default function PostEditor({ post, existingSlugs }: Props) {
   const linkBlockers = linkResults.some(l => !l.ok && l.type === 'internal');
   const finalCanPublish = canPublish && !linkBlockers;
 
-  // Check links whenever content stops changing for 2s
-  const linkTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => {
-    const urls = extractLinks(content);
-    if (urls.length === 0) { setLinkResults([]); return; }
-    if (linkTimeoutRef.current) clearTimeout(linkTimeoutRef.current);
-    linkTimeoutRef.current = setTimeout(() => {
-      void recheckLinks();
-    }, 2000);
-    return () => { if (linkTimeoutRef.current) clearTimeout(linkTimeoutRef.current); };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [content]);
-
   const recheckLinks = useCallback(async () => {
-    const urls = extractLinks(content);
+    const urls = mdExtractLinks(content);
     if (urls.length === 0) { setLinkResults([]); return; }
     setCheckingLinks(true);
     try {
@@ -87,10 +86,25 @@ export default function PostEditor({ post, existingSlugs }: Props) {
     }
   }, [content]);
 
+  // Check links whenever content stops changing for 2s
+  const linkTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    const urls = mdExtractLinks(content);
+    if (urls.length === 0) { setLinkResults([]); return; }
+    if (linkTimeoutRef.current) clearTimeout(linkTimeoutRef.current);
+    linkTimeoutRef.current = setTimeout(() => {
+      void recheckLinks();
+    }, 2000);
+    return () => { if (linkTimeoutRef.current) clearTimeout(linkTimeoutRef.current); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [content]);
+
   function buildBody(publishedOverride?: boolean) {
     return {
       title, slug, subtitle: subtitle || null, meta_description: metaDescription || null,
-      keywords, banner_url: bannerUrl, banner_alt: bannerAlt, content,
+      keywords, banner_url: bannerUrl, banner_alt: bannerAlt,
+      // Send the markdown source; the API renders HTML server-side.
+      content,
       ...(publishedOverride !== undefined ? { published: publishedOverride } : {}),
     };
   }
@@ -219,7 +233,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
 
       {/* Body: editor + sidebar */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: 20 }} className="editor-grid">
-        <Editor content={content} onChange={setContent} />
+        <Editor value={content} onChange={setContent} />
 
         <aside style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div style={{ background: 'white', border: '1.5px solid #EEEDE8', borderRadius: 12, padding: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -295,21 +309,6 @@ export default function PostEditor({ post, existingSlugs }: Props) {
         @media (max-width: 900px) {
           .editor-grid { grid-template-columns: 1fr !important; }
         }
-        .tiptap-content { background: white; }
-        .tiptap-content .ProseMirror { outline: none; min-height: 400px; padding: 24px 28px 40px; }
-        .tiptap-content .ProseMirror h2 { font-size: 26px; font-weight: 800; margin: 24px 0 10px; color: #1A1A18; letter-spacing: -0.3px; }
-        .tiptap-content .ProseMirror h3 { font-size: 20px; font-weight: 700; margin: 20px 0 8px; color: #1A1A18; }
-        .tiptap-content .ProseMirror h4 { font-size: 16px; font-weight: 700; margin: 16px 0 6px; color: #1A1A18; }
-        .tiptap-content .ProseMirror p { font-size: 16px; line-height: 1.7; margin: 0 0 12px; color: #1A1A18; }
-        .tiptap-content .ProseMirror ul, .tiptap-content .ProseMirror ol { padding-left: 24px; margin: 0 0 12px; font-size: 16px; line-height: 1.7; }
-        .tiptap-content .ProseMirror blockquote { border-left: 3px solid #6C5CE7; padding: 4px 16px; margin: 12px 0; color: #636E72; font-style: italic; }
-        .tiptap-content .ProseMirror a { color: #6C5CE7; text-decoration: underline; }
-        .tiptap-content .ProseMirror code { background: #F5F4F0; padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: ui-monospace, monospace; }
-        .tiptap-content .ProseMirror pre { background: #1A1A18; color: #FAFAF7; padding: 14px 18px; border-radius: 10px; margin: 12px 0; overflow-x: auto; }
-        .tiptap-content .ProseMirror pre code { background: transparent; color: inherit; padding: 0; }
-        .tiptap-content .ProseMirror img { max-width: 100%; border-radius: 10px; margin: 12px 0; }
-        .tiptap-content .ProseMirror hr { border: none; border-top: 1px solid #EEEDE8; margin: 24px 0; }
-        .tiptap-content .ProseMirror p.is-editor-empty:first-child::before { content: attr(data-placeholder); color: #B2BEC3; float: left; pointer-events: none; height: 0; }
       `}</style>
     </div>
   );
