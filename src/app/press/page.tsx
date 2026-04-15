@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
+import BlinkAppIcon from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
@@ -95,8 +96,8 @@ export default function PressPage() {
               padding: 24, borderRadius: 18, background: "white", boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
               border: "1px solid rgba(0,0,0,0.03)", textAlign: "center"
             }}>
-              <div style={{ marginBottom: 12 }}>
-                <Logo size={80} id="press-icon" />
+              <div style={{ marginBottom: 12, display: "flex", justifyContent: "center" }}>
+                <BlinkAppIcon size={80} />
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>App Icon</div>
               <div style={{ fontSize: 12, color: P.textD }}>PNG, 1024×1024</div>
@@ -107,9 +108,8 @@ export default function PressPage() {
               padding: 24, borderRadius: 18, background: "white", boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
               border: "1px solid rgba(0,0,0,0.03)", textAlign: "center"
             }}>
-              <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
-                <Logo size={40} id="press-light" />
-                <span style={{ fontSize: 22, fontWeight: 800, color: P.accent }}>Blanked</span>
+              <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", height: 80 }}>
+                <span style={{ fontSize: 28, fontWeight: 800, color: P.accent }}>Blanked</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>Logo (Light)</div>
               <div style={{ fontSize: 12, color: P.textD }}>For light backgrounds</div>
@@ -120,9 +120,8 @@ export default function PressPage() {
               padding: 24, borderRadius: 18, background: P.text, boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
               border: "1px solid rgba(0,0,0,0.03)", textAlign: "center"
             }}>
-              <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 80 }}>
-                <Logo size={40} id="press-dark" />
-                <span style={{ fontSize: 22, fontWeight: 800, color: P.accentL }}>Blanked</span>
+              <div style={{ marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", height: 80 }}>
+                <span style={{ fontSize: 28, fontWeight: 800, color: P.accentL }}>Blanked</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Logo (Dark)</div>
               <div style={{ fontSize: 12, color: "#999" }}>For dark backgrounds</div>

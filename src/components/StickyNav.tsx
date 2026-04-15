@@ -31,8 +31,10 @@ export default function StickyNav() {
           <Blink size={26} expression="normal" />
           <span style={{ fontSize: 15, fontWeight: 700, color: COLORS.accent }}>Blanked</span>
         </Link>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }} className="sticky-nav-links">
+          <Link href="/about" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>About</Link>
           <Link href="/blog" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Blog</Link>
+          <Link href="/compare/peak" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Compare</Link>
           <a
             href={APP_STORE_URL}
             target="_blank"
