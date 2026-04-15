@@ -6,7 +6,7 @@ import Editor from './Editor';
 import BannerUploader from './BannerUploader';
 import SeoPanel from './SeoPanel';
 import { runSeoChecks, summarizeChecks } from '@/lib/seo-check';
-import { mdWordCount, mdReadingTime, mdExtractLinks } from '@/lib/markdown';
+import { mdWordCount, mdReadingTime, mdExtractLinks, mdExtractImages } from '@/lib/markdown';
 import { slugify, isValidSlug } from '@/lib/slug';
 import type { BlogPost } from '@/lib/supabase';
 import type { LinkCheckResult } from '@/lib/link-check';
@@ -48,8 +48,29 @@ export default function PostEditor({ post, existingSlugs }: Props) {
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [lastSavedAt, setLastSavedAt] = useState<Date | null>(post ? new Date(post.updated_at) : null);
+  const [lastSaveFailed, setLastSaveFailed] = useState(false);
+  const [dirty, setDirty] = useState(false);
   const [linkResults, setLinkResults] = useState<LinkCheckResult[]>([]);
   const [checkingLinks, setCheckingLinks] = useState(false);
+
+  // Mark dirty whenever any post field changes. Cleared on successful save.
+  useEffect(() => {
+    setDirty(true);
+  }, [title, slug, subtitle, metaDescription, keywords, bannerUrl, bannerAlt, content]);
+
+  // Warn before closing the tab if there are unsaved changes.
+  const dirtyRef = useRef(dirty);
+  dirtyRef.current = dirty;
+  useEffect(() => {
+    function onBeforeUnload(e: BeforeUnloadEvent) {
+      if (!dirtyRef.current) return;
+      e.preventDefault();
+      // Spec: setting returnValue triggers the browser's generic prompt.
+      e.returnValue = '';
+    }
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+  }, []);
 
   // Auto-slug from title unless user edited the slug
   useEffect(() => {
@@ -58,6 +79,10 @@ export default function PostEditor({ post, existingSlugs }: Props) {
 
   const wordCount = useMemo(() => mdWordCount(content), [content]);
   const minutes = useMemo(() => mdReadingTime(wordCount), [wordCount]);
+  const missingAltImages = useMemo(
+    () => mdExtractImages(content).filter(img => !img.alt).map(img => img.src),
+    [content],
+  );
 
   const checks = useMemo(() => runSeoChecks({
     title, slug, subtitle, meta_description: metaDescription, keywords,
@@ -128,15 +153,22 @@ export default function PostEditor({ post, existingSlugs }: Props) {
       });
       if (!res.ok) {
         const { error } = await res.json().catch(() => ({ error: 'Save failed' }));
+        setLastSaveFailed(true);
         if (!silent) alert(error || 'Save failed');
         return null;
       }
       const data = await res.json();
       setLastSavedAt(new Date());
+      setLastSaveFailed(false);
+      setDirty(false);
       if (!post && data.id) {
         router.replace(`/admin/posts/${data.id}`);
       }
       return data;
+    } catch (err) {
+      setLastSaveFailed(true);
+      if (!silent) alert(err instanceof Error ? err.message : 'Save failed');
+      return null;
     } finally {
       setSaving(false);
     }
@@ -162,12 +194,17 @@ export default function PostEditor({ post, existingSlugs }: Props) {
     router.refresh();
   }
 
-  // Auto-save every 10s if dirty (uses ref to avoid resetting the interval on every keystroke)
+  // Auto-save every 3s if there are unsaved changes. Uses refs so the interval
+  // doesn't reset on every keystroke and can read the latest flags each tick.
   const saveRef = useRef<(() => Promise<unknown>) | null>(null);
   saveRef.current = () => save(undefined, true);
+  const savingRef = useRef(saving);
+  savingRef.current = saving;
   useEffect(() => {
     if (!post) return; // only for existing posts
-    const iv = setInterval(() => { void saveRef.current?.(); }, 10000);
+    const iv = setInterval(() => {
+      if (dirtyRef.current && !savingRef.current) void saveRef.current?.();
+    }, 3000);
     return () => clearInterval(iv);
   }, [post]);
 
@@ -194,9 +231,27 @@ export default function PostEditor({ post, existingSlugs }: Props) {
           }}
         />
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <div style={{ fontSize: 12, color: '#636E72' }}>
-            {saving ? 'Saving…' : lastSavedAt ? `Saved ${lastSavedAt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}` : 'Unsaved'}
+          <div style={{ fontSize: 12, color: lastSaveFailed ? '#FF6B6B' : '#636E72', fontWeight: lastSaveFailed ? 600 : 400 }}>
+            {saving
+              ? 'Saving…'
+              : lastSaveFailed
+                ? '⚠ Save failed'
+                : dirty
+                  ? 'Unsaved changes'
+                  : lastSavedAt
+                    ? `Saved ${lastSavedAt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`
+                    : 'Unsaved'}
           </div>
+          {post && (
+            <a
+              href={`/admin/posts/${post.id}/preview`}
+              target="_blank"
+              rel="noopener"
+              style={{ padding: '8px 14px', borderRadius: 8, border: '1.5px solid #EEEDE8', background: 'white', fontSize: 13, fontWeight: 600, color: '#1A1A18', textDecoration: 'none', fontFamily: 'inherit' }}
+            >
+              Preview ↗
+            </a>
+          )}
           <button
             type="button"
             onClick={() => save()}
@@ -301,6 +356,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
             wordCount={wordCount}
             readingTime={minutes}
             onRecheckLinks={recheckLinks}
+            missingAltImages={missingAltImages}
           />
         </aside>
       </div>

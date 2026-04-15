@@ -14,6 +14,7 @@ function formatDate(iso: string | null) {
 export default function PostList({ posts }: { posts: BlogPost[] }) {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [cloningId, setCloningId] = useState<string | null>(null);
 
   async function onDelete(id: string, title: string) {
     if (!confirm(`Delete "${title}"? This can't be undone.`)) return;
@@ -25,6 +26,19 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
     } else {
       alert('Delete failed');
     }
+  }
+
+  async function onClone(id: string) {
+    setCloningId(id);
+    const res = await fetch(`/api/admin/posts/${id}/clone`, { method: 'POST' });
+    setCloningId(null);
+    if (!res.ok) {
+      const { error } = await res.json().catch(() => ({ error: 'Clone failed' }));
+      alert(error || 'Clone failed');
+      return;
+    }
+    const data = await res.json();
+    router.push(`/admin/posts/${data.id}`);
   }
 
   if (posts.length === 0) {
@@ -70,9 +84,14 @@ export default function PostList({ posts }: { posts: BlogPost[] }) {
               <td style={{ ...td, color: '#636E72', fontSize: 13 }}>{formatDate(p.updated_at)}</td>
               <td style={{ ...td, textAlign: 'right' }}>
                 <Link href={`/admin/posts/${p.id}`} style={actionLink}>Edit</Link>
-                {p.published && (
+                {p.published ? (
                   <Link href={`/blog/${p.slug}`} target="_blank" rel="noopener" style={actionLink}>View</Link>
+                ) : (
+                  <Link href={`/admin/posts/${p.id}/preview`} target="_blank" rel="noopener" style={actionLink}>Preview</Link>
                 )}
+                <button onClick={() => onClone(p.id)} disabled={cloningId === p.id} style={{ ...actionLink, background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}>
+                  {cloningId === p.id ? '…' : 'Clone'}
+                </button>
                 <button onClick={() => onDelete(p.id, p.title)} disabled={deletingId === p.id} style={{ ...actionLink, color: '#FF6B6B', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}>
                   {deletingId === p.id ? '…' : 'Delete'}
                 </button>
