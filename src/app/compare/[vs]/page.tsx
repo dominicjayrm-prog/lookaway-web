@@ -19,13 +19,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!c) return { title: 'Comparison not found', robots: { index: false } };
 
   const title = `Blanked vs ${c.name}: which memory game is right for you?`;
-  const description = `An honest comparison of Blanked and ${c.name}. Pricing, focus, session length, and who each one is built for.`;
+  const description = `An honest, side-by-side comparison of Blanked and ${c.name}. We cover pricing, focus areas, session length, game modes, and who each one is best for.`;
   const url = `${SITE_URL}/compare/${c.slug}`;
 
   return {
     title,
     description,
     alternates: { canonical: url },
+    keywords: [`Blanked vs ${c.name}`, `${c.name} alternative`, 'memory game comparison', 'brain training app review'],
     openGraph: {
       type: 'article',
       title,

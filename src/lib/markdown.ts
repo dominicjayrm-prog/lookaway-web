@@ -1,12 +1,24 @@
 import { marked } from 'marked';
+import DOMPurify from 'isomorphic-dompurify';
 
 marked.setOptions({ gfm: true, breaks: false });
 
-/** Parse markdown to HTML. Synchronous. */
+/** Parse markdown to HTML. Synchronous.
+ *
+ *  Output is sanitized with DOMPurify so pasted content from AI tools
+ *  (or anywhere else) can't inject scripts or event handlers into the
+ *  published post. The admin is trusted but may unwittingly paste
+ *  malicious HTML — this is defense in depth for stored-XSS.
+ */
 export function mdToHtml(md: string): string {
   if (!md?.trim()) return '';
   try {
-    return marked.parse(md, { async: false }) as string;
+    const raw = marked.parse(md, { async: false }) as string;
+    return DOMPurify.sanitize(raw, {
+      ADD_ATTR: ['target', 'rel'],
+      FORBID_TAGS: ['script', 'style', 'iframe', 'object', 'embed', 'form'],
+      FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover', 'onfocus', 'onblur', 'onchange', 'onsubmit'],
+    });
   } catch {
     return '';
   }

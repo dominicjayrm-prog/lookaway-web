@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | Blanked',
     description: 'What we collect, how we use it, who we share it with, and your rights. We never sell your data.',
     url: `${SITE_URL}/privacy`,
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary',

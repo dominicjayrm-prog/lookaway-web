@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Press Kit | Blanked',
     description: 'Download Blanked logos, screenshots, and app information. A visual memory game with 380+ levels.',
     url: `${SITE_URL}/press`,
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary',
@@ -52,7 +52,7 @@ export default function PressPage() {
             <span style={{ fontWeight: 600, color: P.text }}>Tagline</span><span>Don&apos;t blank.</span>
             <span style={{ fontWeight: 600, color: P.text }}>Platform</span><span>iOS (Android coming soon)</span>
             <span style={{ fontWeight: 600, color: P.text }}>Price</span><span>Free to play</span>
-            <span style={{ fontWeight: 600, color: P.text }}>Content</span><span>200 levels across 6 worlds</span>
+            <span style={{ fontWeight: 600, color: P.text }}>Content</span><span>380+ levels across 6 game modes</span>
             <span style={{ fontWeight: 600, color: P.text }}>Multiplayer</span><span>Head-to-head friend challenges</span>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function PressPage() {
             Blanked is a visual memory game that tests how much you can remember after a scene disappears. Each level presents a scene filled with coloured shapes, objects, numbers, and patterns. Players have a few seconds to memorise everything, then the scene vanishes and five questions test their recall.
           </p>
           <p style={{ fontSize: 16, color: P.textM, lineHeight: 1.7, marginBottom: 12 }}>
-            The game spans 200 levels across 6 worlds, each introducing new mechanics: from basic shape recognition to moving objects, photographic scenes, and the ultimate &ldquo;Mastermind&rdquo; world that combines everything. Difficulty ramps gradually, making the game accessible to casual players while providing a genuine challenge for memory enthusiasts.
+            The game spans 380+ levels across 6 modes, each introducing new mechanics: from basic shape recognition to moving objects, photographic scenes, and the ultimate &ldquo;Mastermind&rdquo; mode that combines everything. Difficulty ramps gradually, making the game accessible to casual players while providing a genuine challenge for memory enthusiasts.
           </p>
           <p style={{ fontSize: 16, color: P.textM, lineHeight: 1.7 }}>
             Players can challenge friends head-to-head: both players see the same scenes, answer the same questions, and compare scores. It&apos;s pure skill with zero luck, the perfect game for competitive friends.

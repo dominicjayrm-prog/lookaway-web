@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Support | Blanked',
     description: 'Get help with Blanked. Contact us, report a bug, or ask about your account.',
     url: `${SITE_URL}/support`,
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   twitter: {
     card: 'summary',

@@ -17,43 +17,48 @@ export async function POST(_req: NextRequest, { params }: { params: Promise<{ id
   if (fetchErr) return NextResponse.json({ error: fetchErr.message }, { status: 500 });
   if (!source) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-  // Find a free slug. Start with "<slug>-copy", then append -2, -3, ... if taken.
   const baseSlug = `${source.slug}-copy`.slice(0, 60);
-  const { data: existing } = await sb
-    .from('blog_posts')
-    .select('slug')
-    .like('slug', `${baseSlug}%`);
-  const taken = new Set((existing ?? []).map(r => r.slug as string));
-  let newSlug = baseSlug;
-  let n = 2;
-  while (taken.has(newSlug)) {
+
+  const insertBody = {
+    title: `Copy of ${source.title}`.slice(0, 200),
+    subtitle: source.subtitle,
+    meta_description: source.meta_description,
+    keywords: source.keywords ?? [],
+    banner_url: source.banner_url,
+    banner_alt: source.banner_alt,
+    content: source.content,
+    content_html: source.content_html,
+    word_count: source.word_count,
+    reading_time_minutes: source.reading_time_minutes,
+    faqs: source.faqs ?? [],
+    published: false,
+    published_at: null,
+  };
+
+  // Try a fresh slug up to a handful of times. If the slug we picked loses
+  // a race against another concurrent request (unique constraint violation
+  // '23505'), append a suffix and retry. Falls back to a timestamp on the
+  // last attempt so the insert always eventually succeeds.
+  const candidates: string[] = [baseSlug];
+  for (let n = 2; n <= 9; n++) {
     const suffix = `-${n}`;
-    newSlug = `${baseSlug.slice(0, 60 - suffix.length)}${suffix}`;
-    n += 1;
-    if (n > 100) break; // sanity
+    candidates.push(`${baseSlug.slice(0, 60 - suffix.length)}${suffix}`);
+  }
+  const tsSuffix = `-${Date.now().toString(36).slice(-6)}`;
+  candidates.push(`${baseSlug.slice(0, 60 - tsSuffix.length)}${tsSuffix}`);
+
+  for (const slug of candidates) {
+    const { data, error } = await sb
+      .from('blog_posts')
+      .insert({ ...insertBody, slug })
+      .select()
+      .single();
+    if (!error) return NextResponse.json(data);
+    // 23505 = unique_violation; try the next candidate slug.
+    if (error.code !== '23505') {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
   }
 
-  const { data, error } = await sb
-    .from('blog_posts')
-    .insert({
-      title: `Copy of ${source.title}`.slice(0, 200),
-      slug: newSlug,
-      subtitle: source.subtitle,
-      meta_description: source.meta_description,
-      keywords: source.keywords ?? [],
-      banner_url: source.banner_url,
-      banner_alt: source.banner_alt,
-      content: source.content,
-      content_html: source.content_html,
-      word_count: source.word_count,
-      reading_time_minutes: source.reading_time_minutes,
-      faqs: source.faqs ?? [],
-      published: false,
-      published_at: null,
-    })
-    .select()
-    .single();
-
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data);
+  return NextResponse.json({ error: 'Could not allocate a free clone slug' }, { status: 500 });
 }
