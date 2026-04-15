@@ -29,6 +29,8 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { ListItemNode, ListNode } from '@lexical/list';
 import { LinkNode, AutoLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link';
+import { CodeNode, CodeHighlightNode } from '@lexical/code';
+import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode';
 import { TRANSFORMERS, $convertFromMarkdownString, $convertToMarkdownString } from '@lexical/markdown';
 import { $setBlocksType } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
@@ -458,6 +460,11 @@ export default function LexicalEditorComponent({ value, onChange }: Props) {
       ListNode,
       LinkNode,
       AutoLinkNode,
+      // Needed so @lexical/markdown's TRANSFORMERS can round-trip code
+      // blocks and horizontal rules without throwing "node not registered".
+      CodeNode,
+      CodeHighlightNode,
+      HorizontalRuleNode,
     ],
   };
 
