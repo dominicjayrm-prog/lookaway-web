@@ -43,6 +43,22 @@ export class ImageNode extends DecoratorNode<React.JSX.Element> {
     this.__alt = alt;
   }
 
+  /** Block-level. Critical: when @lexical/markdown exports the doc, it only
+   *  iterates top-level children of root and tries ElementTransformer.export
+   *  on each. If we report `true` here, $insertNodes nests this inside the
+   *  current paragraph, the export never visits us, and the image silently
+   *  drops out of the saved markdown — which is exactly the bug we're fixing.
+   */
+  isInline(): false {
+    return false;
+  }
+
+  /** Mark as a "keyboard-selectable" block so arrow keys and backspace
+   *  treat the image as a single unit. */
+  isKeyboardSelectable(): true {
+    return true;
+  }
+
   createDOM(_config: EditorConfig): HTMLElement {
     const div = document.createElement('div');
     div.style.margin = '16px 0';
