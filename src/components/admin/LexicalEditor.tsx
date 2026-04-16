@@ -31,7 +31,7 @@ import { ListItemNode, ListNode } from '@lexical/list';
 import { LinkNode, AutoLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link';
 import { CodeNode, CodeHighlightNode } from '@lexical/code';
 import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode';
-import { TRANSFORMERS, $convertFromMarkdownString, $convertToMarkdownString } from '@lexical/markdown';
+import { TRANSFORMERS as DEFAULT_TRANSFORMERS, $convertFromMarkdownString, $convertToMarkdownString } from '@lexical/markdown';
 import { $setBlocksType } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
 import {
@@ -39,6 +39,7 @@ import {
   $getRoot,
   $getSelection,
   $isRangeSelection,
+  $insertNodes,
   FORMAT_TEXT_COMMAND,
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
@@ -48,6 +49,11 @@ import {
   type LexicalEditor,
 } from 'lexical';
 import { $createHeadingNode, $createQuoteNode } from '@lexical/rich-text';
+import { ImageNode, $createImageNode, IMAGE_TRANSFORMER } from './ImageNode';
+
+// Prepend our IMAGE transformer so `![alt](url)` is consumed as a real
+// ImageNode before any text-based fallback could claim it.
+const TRANSFORMERS = [IMAGE_TRANSFORMER, ...DEFAULT_TRANSFORMERS];
 import { INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND } from '@lexical/list';
 
 interface Props {
@@ -267,12 +273,11 @@ function Toolbar() {
     }
     const { url } = await res.json();
     const alt = prompt('Alt text for this image (required for SEO):') || '';
-    // Insert as markdown; MarkdownShortcutPlugin will render it as an image.
+    // Insert a real ImageNode so the editor shows the picture inline.
+    // On save, the IMAGE transformer serialises it back to ![alt](url) markdown.
     editor.update(() => {
-      const selection = $getSelection();
-      if ($isRangeSelection(selection)) {
-        selection.insertRawText(`\n\n![${alt}](${url})\n\n`);
-      }
+      const imageNode = $createImageNode(url, alt);
+      $insertNodes([imageNode]);
     });
   }
 
@@ -426,10 +431,8 @@ function PasteImagePlugin() {
               const { url } = await res.json();
               const alt = prompt('Alt text for this image (required for SEO):') || '';
               editor.update(() => {
-                const selection = $getSelection();
-                if ($isRangeSelection(selection)) {
-                  selection.insertRawText(`\n\n![${alt}](${url})\n\n`);
-                }
+                const imageNode = $createImageNode(url, alt);
+                $insertNodes([imageNode]);
               });
             })
             .catch(() => alert('Image upload failed'));
@@ -465,6 +468,9 @@ export default function LexicalEditorComponent({ value, onChange }: Props) {
       CodeNode,
       CodeHighlightNode,
       HorizontalRuleNode,
+      // Custom decorator node that renders uploaded images inline instead
+      // of showing the raw `![alt](url)` markdown string.
+      ImageNode,
     ],
   };
 
