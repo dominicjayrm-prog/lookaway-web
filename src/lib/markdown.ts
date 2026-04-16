@@ -1,24 +1,46 @@
 import { marked } from 'marked';
-import DOMPurify from 'isomorphic-dompurify';
+import sanitizeHtml from 'sanitize-html';
 
 marked.setOptions({ gfm: true, breaks: false });
 
+// Tight whitelist of tags + attrs the blog editor may legitimately produce.
+// Scripts, iframes, inline styles, on* handlers, etc. are stripped. Pure JS —
+// no JSDOM — so this works unchanged in any Node runtime (Vercel serverless,
+// edge, local dev).
+const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'br', 'hr', 'blockquote',
+    'ul', 'ol', 'li',
+    'strong', 'em', 'u', 's', 'del', 'ins', 'sub', 'sup', 'mark',
+    'a', 'img',
+    'code', 'pre',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td',
+  ],
+  allowedAttributes: {
+    a: ['href', 'title', 'target', 'rel', 'id'],
+    img: ['src', 'alt', 'title', 'width', 'height', 'loading'],
+    h1: ['id'], h2: ['id'], h3: ['id'], h4: ['id'], h5: ['id'], h6: ['id'],
+    code: ['class'],
+    pre: ['class'],
+  },
+  allowedSchemes: ['http', 'https', 'mailto'],
+  allowedSchemesByTag: { img: ['http', 'https', 'data'] },
+  disallowedTagsMode: 'discard',
+  allowProtocolRelative: false,
+};
+
 /** Parse markdown to HTML. Synchronous.
  *
- *  Output is sanitized with DOMPurify so pasted content from AI tools
- *  (or anywhere else) can't inject scripts or event handlers into the
- *  published post. The admin is trusted but may unwittingly paste
- *  malicious HTML — this is defense in depth for stored-XSS.
+ *  Output is sanitized so pasted content from AI tools or anywhere else can't
+ *  inject scripts or event handlers into the published post. Admin is trusted
+ *  but may unwittingly paste malicious HTML — defense in depth for stored-XSS.
  */
 export function mdToHtml(md: string): string {
   if (!md?.trim()) return '';
   try {
     const raw = marked.parse(md, { async: false }) as string;
-    return DOMPurify.sanitize(raw, {
-      ADD_ATTR: ['target', 'rel'],
-      FORBID_TAGS: ['script', 'style', 'iframe', 'object', 'embed', 'form'],
-      FORBID_ATTR: ['onerror', 'onload', 'onclick', 'onmouseover', 'onfocus', 'onblur', 'onchange', 'onsubmit'],
-    });
+    return sanitizeHtml(raw, SANITIZE_OPTIONS);
   } catch {
     return '';
   }
