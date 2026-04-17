@@ -20,6 +20,13 @@ export const CONTACT_EMAIL = "hello@playblanked.com";
 export const APPLE_TEAM_ID = "TEAMID";
 export const BUNDLE_ID = "com.blanked.app";
 
+/** Brand social accounts (not personal). Shown in the footer + JSON-LD. */
+export const SOCIALS = {
+  facebook: "https://www.facebook.com/playblanked/",
+  linkedin: "https://www.linkedin.com/company/playblanked",
+  instagram: "https://www.instagram.com/playblanked",
+} as const;
+
 /** Founder / default blog author. Shown on /about, on every blog post, and
  *  surfaced to Google via Article JSON-LD with sameAs links. */
 export const FOUNDER = {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import BlinkAppIcon from './BlinkAppIcon';
 import EmailCapture from './EmailCapture';
+import SocialLinks from './SocialLinks';
 import { COLORS, CONTACT_EMAIL } from '@/lib/constants';
 
 export default function Footer() {
@@ -8,16 +9,19 @@ export default function Footer() {
     <footer style={{
       borderTop: "1px solid rgba(0,0,0,0.05)",
     }}>
-      {/* Pre-footer email-capture band — centred, soft purple tint so it
-          reads as a "wait, don't leave yet" moment rather than a footer
-          add-on. */}
+      {/* Pre-footer: socials + email capture on a soft purple tint band.
+          "Follow us" sits above the email form — two conversion hooks
+          stacked vertically, centred. */}
       <div style={{
         background: `linear-gradient(180deg, ${COLORS.accent}08 0%, ${COLORS.accent}12 100%)`,
         borderBottom: "1px solid rgba(108,92,231,0.08)",
         padding: "48px 24px",
       }}>
-        <div style={{ maxWidth: 640, margin: "0 auto" }}>
-          <EmailCapture source="footer" />
+        <div style={{ maxWidth: 640, margin: "0 auto", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
+          <SocialLinks />
+          <div style={{ width: "100%" }}>
+            <EmailCapture source="footer" />
+          </div>
         </div>
       </div>
 

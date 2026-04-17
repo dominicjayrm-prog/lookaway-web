@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SITE_URL, FOUNDER } from '@/lib/constants';
+import { SITE_URL, FOUNDER, SOCIALS } from '@/lib/constants';
 import '@/styles/globals.css';
 
 export const viewport: Viewport = {
@@ -66,7 +66,7 @@ const siteJsonLd = {
       name: 'Blanked',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon` },
-      sameAs: [FOUNDER.linkedin, FOUNDER.instagram],
+      sameAs: [SOCIALS.facebook, SOCIALS.linkedin, SOCIALS.instagram],
       founder: { '@id': `${SITE_URL}/#founder` },
     },
     {
