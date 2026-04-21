@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   other: {
-    'apple-itunes-app': 'app-id=6745136042',
+    'apple-itunes-app': 'app-id=6762019174',
   },
 };
 

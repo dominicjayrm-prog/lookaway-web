@@ -13,7 +13,7 @@ export const COLORS = {
 } as const;
 
 // TODO: Update APP_STORE_URL and APPLE_TEAM_ID when App Store listing is live
-export const APP_STORE_URL = "https://apps.apple.com/app/blanked/id6745136042";
+export const APP_STORE_URL = "https://apps.apple.com/app/blanked-memory-game/id6762019174";
 export const SITE_URL = "https://playblanked.com";
 export const APP_SCHEME = "blanked://";
 export const CONTACT_EMAIL = "hello@playblanked.com";
