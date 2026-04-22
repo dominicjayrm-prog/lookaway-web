@@ -13,8 +13,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Blanked - Free Memory Training Game | Train Your Brain in 2 Minutes',
-    template: '%s | Blanked - Memory Training Game',
+    default: 'Blanked: Free Visual Memory Game | Train Your Brain Daily',
+    template: '%s | Blanked',
   },
   description: 'Blanked is a free memory training game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Play free on iOS.',
   keywords: [
