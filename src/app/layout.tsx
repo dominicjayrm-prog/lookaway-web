@@ -97,12 +97,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Warm up the connection to Supabase Storage before any blog
+            banner <Image> is fetched — saves ~100-200ms on first
+            image load on mobile. */}
+        <link rel="preconnect" href="https://xbhewtoryhtguvlmodfi.supabase.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://xbhewtoryhtguvlmodfi.supabase.co" />
+      </head>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         {children}
+        {/* Analytics + Speed Insights load via next/script with
+            strategy="lazyOnload" (default for these packages) so they
+            don't block first paint. */}
         <Analytics />
         <SpeedInsights />
       </body>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
 import { COLORS, APP_STORE_URL, SITE_URL, FOUNDER } from '@/lib/constants';
@@ -101,8 +102,7 @@ export default function AboutPage() {
             display: 'grid', gridTemplateColumns: '160px 1fr', gap: 24,
             alignItems: 'start', marginBottom: 22,
           }} className="founder-grid">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/founder.jpg"
               alt="Dominic, founder of Blanked"
               width={160}
