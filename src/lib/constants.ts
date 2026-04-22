@@ -25,6 +25,8 @@ export const SOCIALS = {
   facebook: "https://www.facebook.com/playblanked/",
   linkedin: "https://www.linkedin.com/company/playblanked",
   instagram: "https://www.instagram.com/playblanked",
+  youtube: "https://www.youtube.com/@playblanked",
+  tiktok: "https://www.tiktok.com/@playblanked",
 } as const;
 
 /** Founder / default blog author. Shown on /about, on every blog post, and
