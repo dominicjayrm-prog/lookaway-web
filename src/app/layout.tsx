@@ -66,7 +66,7 @@ const siteJsonLd = {
       name: 'Blanked',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon` },
-      sameAs: [SOCIALS.facebook, SOCIALS.linkedin, SOCIALS.instagram],
+      sameAs: [SOCIALS.facebook, SOCIALS.linkedin, SOCIALS.instagram, SOCIALS.youtube, SOCIALS.tiktok],
       founder: { '@id': `${SITE_URL}/#founder` },
     },
     {
