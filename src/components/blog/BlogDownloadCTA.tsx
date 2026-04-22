@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { APP_STORE_URL } from '@/lib/constants';
 import Blink from '@/components/Blink';
 
@@ -35,6 +36,19 @@ export default function BlogDownloadCTA() {
         </svg>
         Download on the App Store
       </a>
+      <div style={{ marginTop: 14, fontSize: 13, color: '#636E72' }}>
+        <Link href="/blog" style={{ color: '#6C5CE7', textDecoration: 'none', fontWeight: 600 }}>
+          More from the blog
+        </Link>
+        {' · '}
+        <Link href="/about" style={{ color: '#6C5CE7', textDecoration: 'none', fontWeight: 600 }}>
+          About Blanked
+        </Link>
+        {' · '}
+        <Link href="/compare/peak" style={{ color: '#6C5CE7', textDecoration: 'none', fontWeight: 600 }}>
+          Compare apps
+        </Link>
+      </div>
     </div>
   );
 }

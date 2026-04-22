@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import Blink from '@/components/Blink';
 import MeetBlink from '@/components/MeetBlink';
 import HomeFaq from '@/components/HomeFaq';
+import LatestPosts from '@/components/LatestPosts';
 import { HOME_FAQS } from '@/lib/home-faqs';
 import PhoneMockup from '@/components/PhoneMockup';
 import StickyNav from '@/components/StickyNav';
@@ -178,6 +180,9 @@ export default function Home() {
 
           {/* ═══ MEET BLINK ═══ */}
           <MeetBlink />
+
+          {/* ═══ FROM THE BLOG ═══ */}
+          <LatestPosts />
 
           {/* ═══ FAQ ═══ */}
           <HomeFaq />

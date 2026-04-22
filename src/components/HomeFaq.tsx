@@ -46,12 +46,23 @@ export default function HomeFaq() {
               {item.q}
               <span style={{ fontSize: 18, color: P.textD, marginLeft: 12 }} aria-hidden="true">+</span>
             </summary>
-            <p style={{ padding: '0 20px 20px', fontSize: 15, color: '#636E72', lineHeight: 1.65, margin: 0 }}>
-              {item.a}
-            </p>
+            {item.aHtml ? (
+              <p
+                style={{ padding: '0 20px 20px', fontSize: 15, color: '#636E72', lineHeight: 1.65, margin: 0 }}
+                dangerouslySetInnerHTML={{ __html: item.aHtml }}
+              />
+            ) : (
+              <p style={{ padding: '0 20px 20px', fontSize: 15, color: '#636E72', lineHeight: 1.65, margin: 0 }}>
+                {item.a}
+              </p>
+            )}
           </details>
         ))}
       </div>
+      <style>{`
+        #faq a { color: ${P.accent}; text-decoration: underline; text-underline-offset: 3px; }
+        #faq a:hover { color: ${P.accentL}; }
+      `}</style>
     </section>
   );
 }

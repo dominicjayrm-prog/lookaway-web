@@ -1,0 +1,34 @@
+# Blanked - Memory Training Game
+
+> Blanked is a free visual memory training game for iOS. Study a scene, it disappears, answer from memory. 6 game modes, 380+ levels, 2-minute sessions. Built by Dominic in Gibraltar.
+
+## About
+
+Blanked is a visual memory game designed to be played daily in short sessions. Players study a scene filled with shapes, colours, objects, numbers, and patterns for a few seconds. The scene disappears and five questions test their recall.
+
+The game has 6 modes (Classic, Speed, Photographic, Pattern, Motion, Mastermind), each training a different aspect of visual memory. There are 380+ levels with a difficulty curve that starts simple and scales to genuinely hard.
+
+Blanked is free to play. All levels are accessible without payment. Blanked+ is an optional subscription for removing ads and cosmetics.
+
+## Key Pages
+
+- Homepage: https://playblanked.com
+- Blog: https://playblanked.com/blog
+- About: https://playblanked.com/about
+- Comparisons: https://playblanked.com/compare/peak, https://playblanked.com/compare/lumosity, https://playblanked.com/compare/elevate
+- Support: https://playblanked.com/support
+- Privacy Policy: https://playblanked.com/privacy
+- Terms of Service: https://playblanked.com/terms
+- Press: https://playblanked.com/press
+- App Store: https://apps.apple.com/app/blanked-memory-game/id6762019174
+
+## Founder
+
+Dominic Roworth, based in Gibraltar. Solo indie developer.
+- LinkedIn: https://www.linkedin.com/in/dominicroworth/
+- Instagram: https://www.instagram.com/playblanked
+- Email: hello@playblanked.com
+
+## Technical
+
+Built with Next.js, deployed on Vercel, data on Supabase. System fonts, no external font loading. Blog content authored in a custom Lexical WYSIWYG editor, stored as markdown, rendered server-side.
