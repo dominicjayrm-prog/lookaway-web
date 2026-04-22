@@ -11,8 +11,54 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/support`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE_URL}/privacy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.3 },
-    { url: `${SITE_URL}/terms`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.3 },
+    {
+      url: `${SITE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          'en-GB': `${SITE_URL}/privacy`,
+          'es-ES': `${SITE_URL}/es/privacy`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          'en-GB': `${SITE_URL}/terms`,
+          'es-ES': `${SITE_URL}/es/terms`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/es/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          'en-GB': `${SITE_URL}/privacy`,
+          'es-ES': `${SITE_URL}/es/privacy`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/es/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          'en-GB': `${SITE_URL}/terms`,
+          'es-ES': `${SITE_URL}/es/terms`,
+        },
+      },
+    },
     { url: `${SITE_URL}/press`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ];
 

@@ -7,7 +7,14 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Blanked privacy policy - what we collect, how we use it, who we share it with, and your rights. We never sell your data.',
-  alternates: { canonical: `${SITE_URL}/privacy` },
+  alternates: {
+    canonical: `${SITE_URL}/privacy`,
+    languages: {
+      'en-GB': `${SITE_URL}/privacy`,
+      'es-ES': `${SITE_URL}/es/privacy`,
+      'x-default': `${SITE_URL}/privacy`,
+    },
+  },
   openGraph: {
     title: 'Privacy Policy | Blanked',
     description: 'What we collect, how we use it, who we share it with, and your rights. We never sell your data.',

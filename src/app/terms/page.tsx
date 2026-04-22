@@ -7,7 +7,14 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'Blanked terms of service - the rules for using our visual memory game, Blanked+ subscriptions, in-app purchases, virtual currency, and your account.',
-  alternates: { canonical: `${SITE_URL}/terms` },
+  alternates: {
+    canonical: `${SITE_URL}/terms`,
+    languages: {
+      'en-GB': `${SITE_URL}/terms`,
+      'es-ES': `${SITE_URL}/es/terms`,
+      'x-default': `${SITE_URL}/terms`,
+    },
+  },
   openGraph: {
     title: 'Terms of Service | Blanked',
     description: 'The rules for using Blanked - accounts, subscriptions, in-app purchases, virtual currency.',

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { headers } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SITE_URL, FOUNDER, SOCIALS } from '@/lib/constants';
@@ -90,13 +91,19 @@ const siteJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // x-pathname is forwarded by middleware. Used here so /es/* routes get
+  // <html lang="es"> for accessibility and search-engine language signals.
+  const h = await headers();
+  const pathname = h.get('x-pathname') ?? '/';
+  const lang = pathname === '/es' || pathname.startsWith('/es/') ? 'es' : 'en';
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         {/* Warm up the connection to Supabase Storage before any blog
             banner <Image> is fetched — saves ~100-200ms on first
