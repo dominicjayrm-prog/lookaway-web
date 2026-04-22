@@ -13,10 +13,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Blanked - Train Your Brain in 2 Minutes a Day',
-    template: '%s | Blanked',
+    default: 'Blanked - Free Memory Training Game | Train Your Brain in 2 Minutes',
+    template: '%s | Blanked - Memory Training Game',
   },
-  description: 'A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Free to play on iOS.',
+  description: 'Blanked is a free memory training game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Play free on iOS.',
   keywords: [
     'memory game', 'brain training', 'visual memory', 'puzzle game',
     'brain game', 'cognitive training', 'memory training app', 'iOS game',
@@ -29,15 +29,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: SITE_URL,
-    title: 'Blanked - Train Your Brain in 2 Minutes a Day',
-    description: 'Study the scene. It disappears. Answer from memory. 6 game modes, 380+ levels. Free to play on iOS.',
+    title: 'Blanked - Free Memory Training Game | Train Your Brain in 2 Minutes',
+    description: 'Blanked is a free memory training game. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Free to play on iOS.',
     siteName: 'Blanked',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Blanked - Visual Memory Game' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Blanked - Free Memory Training Game for iOS' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blanked - Train Your Brain in 2 Minutes a Day',
-    description: 'Study the scene. It disappears. Answer from memory. 6 game modes, 380+ levels. Free on iOS.',
+    title: 'Blanked - Free Memory Training Game | Train Your Brain in 2 Minutes',
+    description: 'Blanked is a free memory training game. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels. Free on iOS.',
     images: ['/opengraph-image'],
   },
   robots: {
