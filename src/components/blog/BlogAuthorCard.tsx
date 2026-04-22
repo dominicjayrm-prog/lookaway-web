@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FOUNDER } from '@/lib/constants';
 
 /**
@@ -18,8 +19,7 @@ export default function BlogAuthorCard() {
       }}
       className="author-card"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={FOUNDER.avatar}
         alt={`${FOUNDER.name}, ${FOUNDER.role} of Blanked`}
         width={72}

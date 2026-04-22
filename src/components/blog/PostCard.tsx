@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { BlogPost } from '@/lib/supabase';
 
 function formatDate(iso: string | null) {
@@ -14,8 +15,16 @@ export default function PostCard({ post }: { post: BlogPost }) {
       textDecoration: 'none', color: 'inherit', transition: 'transform 0.2s, box-shadow 0.2s',
     }}>
       {post.banner_url && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={post.banner_url} alt={post.banner_alt ?? ''} style={{ width: '100%', aspectRatio: '1200/630', objectFit: 'cover', display: 'block' }} />
+        <div style={{ position: 'relative', width: '100%', aspectRatio: '1200/630', background: '#EEEDE8' }}>
+          <Image
+            src={post.banner_url}
+            alt={post.banner_alt ?? ''}
+            fill
+            sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 350px"
+            loading="lazy"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       )}
       <div style={{ padding: '20px 22px 22px' }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: '#1A1A18', margin: '0 0 8px', lineHeight: 1.3 }}>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FOUNDER } from '@/lib/constants';
 
 /**
@@ -17,8 +18,7 @@ export default function BlogAuthorByline({
       display: 'flex', alignItems: 'center', gap: 12,
       fontSize: 13, color: '#636E72',
     }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={FOUNDER.avatar}
         alt={`${FOUNDER.name}, ${FOUNDER.role} of Blanked`}
         width={36}

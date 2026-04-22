@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPublishedPostBySlug, getRelatedPosts } from '@/lib/blog';
 import { extractTocAndInjectIds } from '@/lib/toc';
 import { buildFaqJsonLd } from '@/lib/faqs';
 import PostBody from '@/components/blog/PostBody';
 import BlogDownloadCTA from '@/components/blog/BlogDownloadCTA';
 import RelatedPosts from '@/components/blog/RelatedPosts';
-import ReadingProgress from '@/components/blog/ReadingProgress';
+import ReadingProgress from '@/components/blog/ReadingProgressLoader';
 import Toc from '@/components/blog/Toc';
 import BlogFaqs from '@/components/blog/BlogFaqs';
 import ShareButtons from '@/components/blog/ShareButtons';
@@ -135,12 +136,16 @@ export default async function BlogPostPage({ params }: { params: Params }) {
           </header>
 
           {post.banner_url && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={post.banner_url}
-              alt={post.banner_alt ?? ''}
-              style={{ width: '100%', aspectRatio: '1200/630', objectFit: 'cover', borderRadius: 16, marginBottom: 32 }}
-            />
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '1200/630', marginBottom: 32 }}>
+              <Image
+                src={post.banner_url}
+                alt={post.banner_alt ?? ''}
+                fill
+                sizes="(max-width: 760px) 100vw, 760px"
+                priority
+                style={{ objectFit: 'cover', borderRadius: 16 }}
+              />
+            </div>
           )}
 
           {/* Mobile-only TOC (collapsed by default) */}
