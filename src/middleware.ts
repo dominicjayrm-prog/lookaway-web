@@ -44,6 +44,6 @@ export const config = {
   // Run on everything except static assets and Next internals so that every
   // rendered page gets x-pathname forwarded to server components.
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|icon|apple-icon|opengraph-image|robots.txt|sitemap.xml|manifest.json|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|otf)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|icon|apple-icon|opengraph-image|robots.txt|sitemap.xml|manifest.json|.*\\.(?:txt|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|otf)$).*)',
   ],
 };
