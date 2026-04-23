@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { headers } from 'next/headers';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SITE_URL, FOUNDER, SOCIALS } from '@/lib/constants';
@@ -122,6 +123,12 @@ export default async function RootLayout({
             don't block first paint. */}
         <Analytics />
         <SpeedInsights />
+        {/* Metricool tracker — afterInteractive so it fires once per
+            hydration without blocking first paint. Wrapped in an IIFE
+            so loadScript doesn't leak to the global scope. */}
+        <Script id="metricool-tracker" strategy="afterInteractive">
+          {`(function(){function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript";c.src="https://tracker.metricool.com/resources/be.js";c.onreadystatechange=a;c.onload=a;b.appendChild(c)}loadScript(function(){beTracker.t({hash:"86b60c6c76f087a3626dad62b73d3f50"})})})();`}
+        </Script>
       </body>
     </html>
   );
