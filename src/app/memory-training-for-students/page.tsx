@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
+import { listPublishedPosts } from '@/lib/blog';
 import { COLORS, SITE_URL, APP_STORE_URL } from '@/lib/constants';
 
 const P = COLORS;
@@ -48,7 +49,7 @@ const faqs = [
   },
   {
     q: 'Is Blanked really free?',
-    a: 'Yes. The full game is free, all six modes, all 380 plus levels. There is an optional Blanked+ subscription that removes ads and adds cosmetic items. It does not gate any actual gameplay.',
+    a: 'Yes. The full game is free, all six modes, all 400 plus levels. There is an optional Blanked+ subscription that removes ads and adds cosmetic items. It does not gate any actual gameplay.',
   },
   {
     q: 'Does it work on Android?',
@@ -56,8 +57,16 @@ const faqs = [
   },
 ];
 
-export default function StudentsPage() {
+export default async function StudentsPage() {
   const pageUrl = `${SITE_URL}/memory-training-for-students`;
+
+  const allPosts = await listPublishedPosts().catch(() => []);
+  const relatedPosts = allPosts
+    .filter((p) => {
+      const haystack = `${p.slug} ${p.title} ${(p.keywords ?? []).join(' ')}`.toLowerCase();
+      return /student|stud(y|ying|ied)|exam|academic|school|college|univ|forget|sleep/.test(haystack);
+    })
+    .slice(0, 3);
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -133,7 +142,9 @@ export default function StudentsPage() {
             On top of that, working-memory capacity, the underlying machinery for holding information in your head and manipulating it, is one of the strongest individual predictors of academic performance. Alloway and Alloway (2010) followed students for years and found working memory at age 5 predicted academic achievement at 11 better than IQ. Working memory is also trainable. Klingberg (2010) summarised the evidence: focused practice on working-memory tasks reliably improves working-memory performance.
           </p>
           <p style={paraStyle}>
-            Two minutes a day of focused visual recall is not going to replace your study sessions. It will sharpen the cognitive substrate they sit on. Read your notes. Test yourself on them. And keep the underlying recall machinery in shape with a tiny daily habit.
+            Two minutes a day of focused visual recall is not going to replace your study sessions. It will sharpen the cognitive substrate they sit on. Read your notes. Test yourself on them. And keep the underlying recall machinery in shape with a tiny daily habit. (For more on why recall fades so fast in the first place, our deeper dive on{' '}
+            <Link href="/blog" style={inlineLink}>why we forget things minutes after seeing them</Link>
+            {' '}is a useful companion read.)
           </p>
         </section>
 
@@ -208,6 +219,44 @@ export default function StudentsPage() {
           </div>
         </section>
 
+        {/* Keep reading */}
+        {relatedPosts.length > 0 && (
+          <section style={{ marginTop: 40 }}>
+            <h2 style={h2}>Keep reading</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+              {relatedPosts.map((p) => (
+                <Link
+                  key={p.id}
+                  href={`/blog/${p.slug}`}
+                  style={{
+                    display: 'block', padding: '14px 16px', borderRadius: 12,
+                    background: 'white', border: '1px solid rgba(0,0,0,0.04)',
+                    textDecoration: 'none', color: 'inherit',
+                    boxShadow: '0 1px 8px rgba(0,0,0,0.02)',
+                  }}
+                >
+                  <div style={{ fontSize: 11, fontWeight: 700, color: P.accent, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 }}>From the blog</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: P.text, lineHeight: 1.4, marginBottom: 4 }}>{p.title}</div>
+                  {p.subtitle && <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>{p.subtitle}</div>}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related comparisons */}
+        <section style={{ marginTop: 36 }}>
+          <p style={paraStyle}>
+            Comparing options? See how Blanked stacks up against{' '}
+            <Link href="/compare/elevate" style={inlineLink}>Elevate</Link>
+            {' '}(language and math focus, complementary to visual memory),{' '}
+            <Link href="/compare/lumosity" style={inlineLink}>Lumosity</Link>, and the rest of the field on the{' '}
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or read the parallel{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>memory games for seniors</Link>
+            {' '}guide for an audience-specific angle.
+          </p>
+        </section>
+
         {/* Sources */}
         <section style={{ marginTop: 40, padding: '14px 18px', borderRadius: 10, background: '#FAFAF7', border: '1px solid rgba(0,0,0,0.04)' }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: '#636E72', letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 8 }}>Sources</div>
@@ -249,4 +298,7 @@ const ctaPrimary: React.CSSProperties = {
   display: 'inline-block', padding: '14px 28px', borderRadius: 12,
   background: COLORS.text, color: 'white', fontSize: 15, fontWeight: 700,
   textDecoration: 'none',
+};
+const inlineLink: React.CSSProperties = {
+  color: COLORS.accent, textDecoration: 'underline',
 };
