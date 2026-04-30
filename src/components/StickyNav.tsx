@@ -34,7 +34,8 @@ export default function StickyNav() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }} className="sticky-nav-links">
           <Link href="/about" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>About</Link>
           <Link href="/blog" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Blog</Link>
-          <Link href="/compare/peak" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Compare</Link>
+          <Link href="/memory-test" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Memory Test</Link>
+          <Link href="/compare" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Compare</Link>
           <a
             href={APP_STORE_URL}
             target="_blank"
