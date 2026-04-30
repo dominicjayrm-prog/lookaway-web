@@ -260,7 +260,9 @@ export default async function SeniorsPage() {
         {/* Related comparisons */}
         <section style={{ marginTop: 36 }}>
           <p style={paraStyle}>
-            Wondering how Blanked stacks up against the bigger names? See our honest comparisons of{' '}
+            Want a quick check on your current visual memory? Try the free{' '}
+            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
+            {' '}in your browser, no signup, two minutes. Wondering how Blanked stacks up against the bigger names? See our honest comparisons of{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Blanked vs Lumosity</Link>,{' '}
             <Link href="/compare/brainhq" style={inlineLink}>Blanked vs BrainHQ</Link>
             {' '}(BrainHQ has the strongest research backing in older adults specifically), and the full{' '}
