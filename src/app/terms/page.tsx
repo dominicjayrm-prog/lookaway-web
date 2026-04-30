@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
+import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -43,6 +44,7 @@ const tldrStyle: React.CSSProperties = {
 export default function TermsPage() {
   return (
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
+      <BreadcrumbSchema items={[{ name: 'Home', url: SITE_URL }, { name: 'Terms of Service' }]} />
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
