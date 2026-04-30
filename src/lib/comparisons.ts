@@ -544,4 +544,90 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
     ],
   },
+
+  cognifit: {
+    slug: 'cognifit',
+    name: 'CogniFit',
+    tagline: 'cognitive assessment with a clinical and research focus',
+    websiteUrl: 'https://www.cognifit.com',
+    lastUpdated: '2026-04-30',
+    verdict:
+      'CogniFit positions itself toward research and clinical settings, with cognitive assessments as much as games. Blanked is a casual, focused visual-memory game. They are pretty different tools. Pick CogniFit if you want assessments and a clinical leaning. Pick Blanked if you want short, focused practice in two minutes a day.',
+    aboutCompetitor:
+      'CogniFit is an Israeli company that has been in the cognitive-assessment and training space since 1999. It is unusual in this market in that it offers cognitive assessments alongside games, including products positioned for ADHD, depression, and stroke recovery, sold to individuals as well as to clinics, schools, and researchers. The training games themselves cover memory, attention, perception, coordination, and reasoning.',
+    intro: [
+      'CogniFit is one of the older players in this category and probably the most clinical-feeling one available to consumers. It is the only mainstream brain-training app you might run into in a hospital or research lab as easily as on a phone.',
+      'Blanked is the opposite kind of product. It is a casual game built around one focused mechanic. There is no assessment, no training plan, no condition-specific package. There is just visual memory practice, two minutes at a time, six modes, 380 plus levels.',
+      'The honest comparison here is about intent. If you are interested in assessments, condition-specific training, or a platform that gets used in clinical or research contexts, CogniFit is the right shape. If you are looking for a casual daily habit, Blanked is.',
+    ],
+    rows: [
+      { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Cognitive assessment plus broad training across many domains' },
+      { feature: 'Assessment vs training', blanked: 'Training only, no assessment', competitor: 'Both assessment and training', advantage: 'competitor' },
+      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '20+ exercises and several condition-specific packages' },
+      { feature: 'Session length', blanked: '2 minutes', competitor: '~20 minutes per recommended training session' },
+      { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited free trial, then subscription' },
+      { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, clinical tone', advantage: 'blanked' },
+      { feature: 'Head-to-head with friends', blanked: 'Yes, identical scenes', competitor: 'No', advantage: 'blanked' },
+      { feature: 'Best for', blanked: 'Daily two-minute visual memory practice', competitor: 'Assessments and condition-specific training' },
+      { feature: 'Privacy: sells data?', blanked: 'No', competitor: 'See their policy', advantage: 'blanked' },
+    ],
+    pickBlankedIf: [
+      'You want focused practice on visual memory specifically',
+      'You want a casual, friendly game, not a clinical platform',
+      'You want two minutes a day, not twenty',
+      'You want the full game free without an assessment funnel',
+    ],
+    pickCompetitorIf: [
+      'You actually want a cognitive assessment, not just training',
+      'You are interested in a condition-specific package (ADHD, post-stroke, etc.)',
+      'You are happy paying a subscription for clinical-leaning content',
+      'You are using cognitive training as part of a research or therapeutic context',
+    ],
+    science: [
+      'CogniFit has been around long enough to be referenced in a real number of academic studies, particularly in the clinical literature where their assessment tools have been used as outcome measures. Their tasks are partly based on classic neuropsychological tests, which is more than most consumer brain-training apps can say. That academic footprint is genuine, even if it is not always positive about the underlying cognitive-transfer claims.',
+      'Like every other app in this space, CogniFit\'s training claims should be read alongside Simons and colleagues (2016) for Psychological Science in the Public Interest. The consensus there is that brain-training programs reliably improve performance on the trained tasks, with weaker evidence for transfer to broader cognitive function or daily life. CogniFit\'s clinical packaging does not change that underlying picture for the training side of the product.',
+      'Where Blanked stands honestly: focused visual-memory practice strengthens visual memory. That narrow benefit is supported by Engle and Kane (2004) and Klingberg (2010). We do not market a treatment for any condition.',
+      'CogniFit is fine if you want a clinical-feeling cognitive platform, especially for assessment. Just calibrate the training claims with the same scepticism you would apply to any other app in the category.',
+    ],
+    scienceSources: [
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+    ],
+    bottomLine: [
+      'CogniFit is the right choice if you actually want cognitive assessments alongside training, you have a specific condition you want to address, or you are using the platform in a research or therapeutic setting. The clinical positioning is genuine.',
+      'Blanked is the right choice if you want a casual, focused daily visual-memory game with no clinical framing, no assessment funnel, and no subscription required for the core experience.',
+      'For most everyday "I want to keep my brain sharp" goals, both will deliver narrow gains in the skills they explicitly train. The CogniFit packaging is heavier; the Blanked packaging is lighter. Pick the one whose framing fits your actual relationship with the practice.',
+    ],
+    faqs: [
+      {
+        q: 'Is CogniFit free to use?',
+        a: 'CogniFit has limited free access plus a paid subscription that unlocks the full assessments and training. Pricing varies by package and region. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Is CogniFit medically validated?',
+        a: 'CogniFit\'s assessment tools are partly based on classic neuropsychological tests and have been used in published studies. That is more academic footprint than most apps can claim. The training claims, like every app in this space, should be read alongside the wider Simons et al. (2016) consensus on transfer being narrow.',
+      },
+      {
+        q: 'Should I pick CogniFit if I have ADHD?',
+        a: 'CogniFit has an ADHD-focused package, which is an unusual offering for a consumer brain-training app. If you specifically want training packaged around ADHD, that is a real point in its favor. Treat the marketing claims with the same scepticism you would for any cognitive-training product, and consider it alongside, not instead of, evidence-based ADHD care from a clinician.',
+      },
+      {
+        q: 'Which is better for memory specifically?',
+        a: 'Blanked, by design. CogniFit covers many cognitive domains. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth wins.',
+      },
+      {
+        q: 'How long do sessions take?',
+        a: 'CogniFit recommends roughly 20 minutes per training session. Blanked is two minutes. Shorter habits are easier to keep.',
+      },
+      {
+        q: 'Does CogniFit have head-to-head friend challenges?',
+        a: 'No. CogniFit is built around individual training and assessment, not social play. Blanked has direct head-to-head: same scene, same questions.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. CogniFit is on iOS, Android, and the web.',
+      },
+    ],
+  },
 };
