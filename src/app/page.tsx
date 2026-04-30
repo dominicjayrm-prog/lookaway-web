@@ -127,7 +127,7 @@ export default function Home() {
 
                 <div className="fu fu4 stats-row" style={{ display: "flex", gap: 40 }}>
                   {[{ v: "400+", l: "Levels" }, { v: "6", l: "Game modes" }, { v: "2 min", l: "Per session" }].map((s, i) => (
-                    <div key={i}>
+                    <div key={i} style={{ textAlign: "center" }}>
                       <div style={{ fontSize: 28, fontWeight: 800, color: P.text }}>{s.v}</div>
                       <div style={{ fontSize: 13, color: "#B2BEC3", marginTop: 2 }}>{s.l}</div>
                     </div>
