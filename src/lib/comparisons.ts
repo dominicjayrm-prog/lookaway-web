@@ -459,4 +459,89 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
     ],
   },
+
+  brainhq: {
+    slug: 'brainhq',
+    name: 'BrainHQ',
+    tagline: 'the most peer-reviewed brain-training platform',
+    websiteUrl: 'https://www.brainhq.com',
+    lastUpdated: '2026-04-30',
+    verdict:
+      'BrainHQ has the strongest research backing of any brain-training app, full stop. It is built by Posit Science under Michael Merzenich, a neuroscientist with a serious career behind him. Blanked does not pretend to compete on research depth. Pick BrainHQ if peer-reviewed evidence is what you care about. Pick Blanked if you want focused, casual visual-memory practice in two minutes a day.',
+    aboutCompetitor:
+      'BrainHQ is made by Posit Science, founded by Michael Merzenich, a neuroscientist known for early work on neuroplasticity. The platform has been used in over 100 peer-reviewed studies, including the ACTIVE trial (a large multi-year US study on cognitive training in older adults) and the IMPACT study on speed-of-processing training. BrainHQ is genuinely the most-studied brain-training product on the market, with a particular strength in research on aging adults.',
+    intro: [
+      'If you came to brain training from reading the actual research literature, you have probably already heard of BrainHQ. Posit Science is unusual in this category in that it has run real, peer-reviewed studies on its own products, and some of those studies (notably ACTIVE) are widely cited in the academic conversation about cognitive training.',
+      'Blanked is not pretending to compete with that. We are an independent indie game built around focused visual-memory practice. We do not have a Stanford-trained neuroscientist on the masthead, we have not run randomized controlled trials, and we are not going to claim otherwise.',
+      'The honest comparison is about what each app is actually built for. BrainHQ is a serious cognitive-training platform with strong evidence behind some specific training programs, particularly for older adults. Blanked is a tight, casual, daily two-minute game for visual memory. Different tools, different jobs.',
+    ],
+    rows: [
+      { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across many domains, particularly attention and processing speed' },
+      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '~30 exercises across 6 categories' },
+      { feature: 'Session length', blanked: '2 minutes', competitor: '~30 minutes per recommended daily plan' },
+      { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited free trial, then subscription' },
+      { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, professional tone', advantage: 'blanked' },
+      { feature: 'Head-to-head with friends', blanked: 'Yes, identical scenes', competitor: 'No', advantage: 'blanked' },
+      { feature: 'Ads in free version', blanked: 'Occasional, removable', competitor: 'No ads' },
+      { feature: 'Published peer-reviewed studies', blanked: 'Built on existing memory research, no in-house claims', competitor: '100+ peer-reviewed studies, including the ACTIVE trial', advantage: 'competitor' },
+      { feature: 'Best for', blanked: 'Daily two-minute visual memory practice', competitor: 'Older adults, evidence-led cognitive training' },
+      { feature: 'Privacy: sells data?', blanked: 'No', competitor: 'See their policy', advantage: 'blanked' },
+    ],
+    pickBlankedIf: [
+      'You want focused visual-memory practice, not a 30-minute training plan',
+      'You want to play casually for two minutes a day, not study cognitive training',
+      'You want the full game free, not a subscription',
+      'You like a friendly tone with a mascot, not a clinical platform',
+    ],
+    pickCompetitorIf: [
+      'You want the most research-backed brain-training product available',
+      'You are an older adult specifically interested in evidence-led cognitive training',
+      'You are happy committing 30 minutes a day to a structured plan',
+      'You are willing to pay a subscription for that quality of evidence base',
+    ],
+    science: [
+      'BrainHQ is the rare brain-training product where the science section is actually substantial. The ACTIVE trial (Advanced Cognitive Training for Independent and Vital Elderly) ran from 1998 to 2014 across multiple US sites and tested speed-of-processing training, among other interventions, in older adults. Speed-of-processing training (the same approach BrainHQ commercialized) showed effects on real-world outcomes including reduced risk of dementia at long-term follow-up (Edwards et al., 2017). That is the strongest "transfer" evidence in the entire brain-training literature, and BrainHQ is on the right side of it.',
+      'IMPACT (Improvement in Memory with Plasticity-based Adaptive Cognitive Training) was a randomized controlled trial published in JAGS (Smith et al., 2009) that found benefits on auditory memory and attention in older adults using BrainHQ-style training. That is another genuinely peer-reviewed result.',
+      'Now the caveat. The Simons and colleagues (2016) review for Psychological Science in the Public Interest evaluated the entire field including BrainHQ\'s underlying research and concluded that the evidence is strongest for narrow, task-specific gains, with broader transfer being far more limited than most marketing claims. BrainHQ has more transfer evidence than any other app, but it is still partial. If you are an older adult specifically and the goal is reducing cognitive decline, the BrainHQ evidence is real. For other goals it is more in line with the rest of the category.',
+      'Blanked makes no equivalent research claims. We do focused visual-memory practice. The narrow benefit (visual memory practice strengthens visual memory) is supported by Engle and Kane (2004) and Klingberg (2010). That is the honest version.',
+    ],
+    scienceSources: [
+      { text: 'Edwards et al. (2017), "Speed of processing training results in lower risk of dementia", Alzheimer\'s & Dementia: Translational Research & Clinical Interventions', url: 'https://doi.org/10.1016/j.trci.2017.09.002' },
+      { text: 'Smith et al. (2009), "A cognitive training program based on principles of brain plasticity: results from the IMPACT study", Journal of the American Geriatrics Society', url: 'https://doi.org/10.1111/j.1532-5415.2008.02167.x' },
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+    ],
+    bottomLine: [
+      'BrainHQ is the right pick if you want the most peer-reviewed brain-training platform on the market, especially if you are an older adult interested in evidence-led cognitive training. The ACTIVE and IMPACT trials are real and unusual in this space.',
+      'Blanked is the right pick if you want a casual, friendly, focused two-minute visual-memory game with no clinical framing, no half-hour daily commitment, and no subscription required for the core experience.',
+      'These two are not really substitutes. If you have time and budget, do BrainHQ for serious cognitive training and Blanked on the side for daily visual-memory practice. They scratch different itches.',
+    ],
+    faqs: [
+      {
+        q: 'Is BrainHQ free to use?',
+        a: 'BrainHQ has a limited free trial but the full platform requires a paid subscription, historically priced around $14 a month or $96 a year. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Is BrainHQ actually backed by science?',
+        a: 'Yes, more than any other app in the category. The ACTIVE trial showed speed-of-processing training reduced dementia risk over 10 years, and IMPACT showed gains on auditory memory and attention. Both are peer-reviewed studies in real journals. The wider literature still cautions against broad cognitive-transfer claims, but for older adults specifically the evidence is genuinely strong.',
+      },
+      {
+        q: 'Should I pick BrainHQ over Blanked for visual memory?',
+        a: 'For visual memory specifically, no. BrainHQ\'s research strength is in attention, processing speed, and aging-related cognition. Blanked is built end-to-end around visual memory practice with six modes and 380 plus levels. Different goals.',
+      },
+      {
+        q: 'Is BrainHQ better for older adults?',
+        a: 'For evidence-led cognitive training designed with older adults in mind, yes. That is the population BrainHQ has been most thoroughly studied in. Blanked works for any age, but it is built as a casual game, not a clinical-leaning training program.',
+      },
+      {
+        q: 'How long do BrainHQ sessions take?',
+        a: 'BrainHQ recommends roughly 30 minutes a day across multiple exercises for the full training plan. Blanked is two minutes per session. Pick the time commitment that matches your real daily life.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. BrainHQ is available on iOS, Android, and the web.',
+      },
+    ],
+  },
 };
