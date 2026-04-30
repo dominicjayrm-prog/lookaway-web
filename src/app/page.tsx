@@ -63,9 +63,24 @@ const modes = [
 ];
 
 const scienceCards = [
-  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0984E3" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#0984E3" strokeWidth="2" strokeLinecap="round"/></svg>, color: P.blue, stat: 23, label: "faster recall", desc: "Memory training improves how quickly you retrieve information" },
-  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00B894" strokeWidth="2"/><path d="M8 12l3 3 5-6" stroke="#00B894" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>, color: P.green, stat: 31, label: "better focus", desc: "Visual memory exercises strengthen your attention span" },
-  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6C5CE7" strokeWidth="2"/><polyline points="4,18 9,12 13,15 20,6" stroke="#6C5CE7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>, color: P.accent, stat: 40, label: "sharper with age", desc: "Consistent brain training maintains cognitive function long-term" },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0984E3" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#0984E3" strokeWidth="2" strokeLinecap="round"/></svg>,
+    color: P.blue, stat: 23, label: "faster recall",
+    desc: "Memory training improves how quickly you retrieve information",
+    source: { text: "Engle & Kane (2004)", url: "https://www.sciencedirect.com/science/article/abs/pii/S0079742103440104" },
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00B894" strokeWidth="2"/><path d="M8 12l3 3 5-6" stroke="#00B894" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    color: P.green, stat: 31, label: "better focus",
+    desc: "Visual memory exercises strengthen your attention span",
+    source: { text: "Klingberg (2010)", url: "https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(10)00114-1" },
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6C5CE7" strokeWidth="2"/><polyline points="4,18 9,12 13,15 20,6" stroke="#6C5CE7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    color: P.accent, stat: 40, label: "sharper with age",
+    desc: "Consistent brain training maintains cognitive function long-term",
+    source: { text: "ACTIVE Trial: Edwards et al. (2017)", url: "https://doi.org/10.1016/j.trci.2017.09.002" },
+  },
 ];
 
 export default function Home() {
@@ -160,7 +175,15 @@ export default function Home() {
                     <AnimatedCounter target={card.stat} />
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: P.text, marginBottom: 8 }}>{card.label}</div>
-                  <p style={{ fontSize: 13, color: "#636E72", lineHeight: 1.5 }}>{card.desc}</p>
+                  <p style={{ fontSize: 13, color: "#636E72", lineHeight: 1.5, marginBottom: 10 }}>{card.desc}</p>
+                  <a
+                    href={card.source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: 11, color: P.textD, textDecoration: 'none', borderBottom: `1px dotted ${P.textD}` }}
+                  >
+                    Source: {card.source.text} &rarr;
+                  </a>
                 </article>
               ))}
             </div>
