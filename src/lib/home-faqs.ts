@@ -10,13 +10,13 @@ export interface Faq {
 export const HOME_FAQS: Faq[] = [
   {
     q: 'What is Blanked?',
-    a: 'Blanked is a visual memory game for iOS. You study a scene, it disappears, and you answer questions from memory. There are six different game modes and more than 380 levels, each focused on a different type of memory skill.',
-    aHtml: 'Blanked is a <strong>visual memory game</strong> for iOS. You study a scene, it disappears, and you answer questions from memory. There are six different game modes and more than 380 levels, each focused on a different type of memory skill. <a href="/about">Learn more about how we built it</a>.',
+    a: 'Blanked is a visual memory game for iOS. You study a scene, it disappears, and you answer questions from memory. There are six different game modes and more than 400 levels, each focused on a different type of memory skill.',
+    aHtml: 'Blanked is a <strong>visual memory game</strong> for iOS. You study a scene, it disappears, and you answer questions from memory. There are six different game modes and more than 400 levels, each focused on a different type of memory skill. <a href="/about">Learn more about how we built it</a>.',
   },
   {
     q: 'Is Blanked really free to play?',
-    a: 'Yes. The core game is free to play. You can play all 380+ levels without paying anything. We support the free version with occasional ads. If you prefer no ads and some extras, Blanked+ is an optional subscription.',
-    aHtml: 'Yes. The core game is <strong>free to play</strong>. You can play all 380+ levels without paying anything. We support the free version with occasional ads. If you prefer no ads and some extras, Blanked+ is an optional subscription. See how Blanked compares to paid alternatives like <a href="/compare/peak">Peak</a> and <a href="/compare/lumosity">Lumosity</a>.',
+    a: 'Yes. The core game is free to play. You can play all 400+ levels without paying anything. We support the free version with occasional ads. If you prefer no ads and some extras, Blanked+ is an optional subscription.',
+    aHtml: 'Yes. The core game is <strong>free to play</strong>. You can play all 400+ levels without paying anything. We support the free version with occasional ads. If you prefer no ads and some extras, Blanked+ is an optional subscription. See how Blanked compares to paid alternatives like <a href="/compare/peak">Peak</a> and <a href="/compare/lumosity">Lumosity</a>.',
   },
   {
     q: 'How much time do I need each day?',

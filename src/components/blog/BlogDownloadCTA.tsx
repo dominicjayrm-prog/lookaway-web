@@ -16,7 +16,7 @@ export default function BlogDownloadCTA() {
         Train your memory. Play Blanked free.
       </h3>
       <p style={{ fontSize: 14, color: '#636E72', marginBottom: 20 }}>
-        A visual memory game backed by science. 6 game modes, 380+ levels.
+        A visual memory game backed by science. 6 game modes, 400+ levels.
       </p>
       <a
         href={APP_STORE_URL}

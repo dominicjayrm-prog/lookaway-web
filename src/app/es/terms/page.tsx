@@ -80,7 +80,7 @@ export default function TermsPageES() {
             Blanked es un juego de memoria visual disponible en iOS. La Aplicación incluye:
           </p>
           <ul style={ulStyle}>
-            <li>Un juego base gratuito con más de 380 niveles repartidos en 6 modos de juego, duelos cara a cara con amistades y publicidad opcional dentro de la aplicación</li>
+            <li>Un juego base gratuito con más de 400 niveles repartidos en 6 modos de juego, duelos cara a cara con amistades y publicidad opcional dentro de la aplicación</li>
             <li><strong>Blanked+</strong>: una suscripción de renovación automática que desbloquea vidas ilimitadas, cosméticos exclusivos y elimina los anuncios (disponible en plan mensual o anual)</li>
             <li>Compras únicas opcionales dentro de la aplicación, como packs de gemas y la mejora &laquo;Quitar anuncios&raquo;</li>
           </ul>

@@ -22,7 +22,7 @@ const jsonLd = [
     "operatingSystem": "iOS",
     "applicationCategory": "GameApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "description": "A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels.",
+    "description": "A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 400+ levels.",
     "url": SITE_URL,
     "author": { "@type": "Organization", "name": "Blanked" },
     "genre": "Brain Training",
@@ -126,7 +126,7 @@ export default function Home() {
                 </div>
 
                 <div className="fu fu4 stats-row" style={{ display: "flex", gap: 40 }}>
-                  {[{ v: "380+", l: "Levels" }, { v: "6", l: "Game modes" }, { v: "2 min", l: "Per session" }].map((s, i) => (
+                  {[{ v: "400+", l: "Levels" }, { v: "6", l: "Game modes" }, { v: "2 min", l: "Per session" }].map((s, i) => (
                     <div key={i}>
                       <div style={{ fontSize: 28, fontWeight: 800, color: P.text }}>{s.v}</div>
                       <div style={{ fontSize: 13, color: "#B2BEC3", marginTop: 2 }}>{s.l}</div>
@@ -153,7 +153,7 @@ export default function Home() {
               A free visual memory game built around <span style={{ color: P.accent }}>science, not bloat</span>
             </h2>
             <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
-              Blanked is a free visual memory game for iOS. You study a scene full of shapes and colors for a few seconds, the screen goes blank, then you answer questions from memory. Six game modes, 380+ levels, two minutes a day. Built by an independent developer, not a big-tech subscription factory.
+              Blanked is a free visual memory game for iOS. You study a scene full of shapes and colors for a few seconds, the screen goes blank, then you answer questions from memory. Six game modes, 400+ levels, two minutes a day. Built by an independent developer, not a big-tech subscription factory.
             </p>
           </section>
 
@@ -236,7 +236,7 @@ export default function Home() {
                 },
                 {
                   title: 'Built for visual memory',
-                  body: 'While other apps spread thin across math, vocabulary, and logic, Blanked focuses on one thing: making your visual recall sharper. Six modes and 380+ levels of focused practice.',
+                  body: 'While other apps spread thin across math, vocabulary, and logic, Blanked focuses on one thing: making your visual recall sharper. Six modes and 400+ levels of focused practice.',
                 },
                 {
                   title: 'Two minutes, every day',
@@ -287,7 +287,7 @@ export default function Home() {
               </p>
 
               <div style={{ display: "flex", justifyContent: "center", gap: 32, marginBottom: 28 }}>
-                {[{ v: "2 min", l: "per session" }, { v: "380+", l: "levels" }, { v: "6", l: "game modes" }].map((s, i) => (
+                {[{ v: "2 min", l: "per session" }, { v: "400+", l: "levels" }, { v: "6", l: "game modes" }].map((s, i) => (
                   <div key={i}>
                     <div style={{ fontSize: 20, fontWeight: 800, color: P.text }}>{s.v}</div>
                     <div style={{ fontSize: 11, color: "#B2BEC3" }}>{s.l}</div>

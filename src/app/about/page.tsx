@@ -89,7 +89,7 @@ export default function AboutPage() {
             </li>
             <li style={valueCard}>
               <strong style={valueTitle}>Free to play, seriously</strong>
-              The whole game is free. All 380+ levels. Blanked+ is optional, not a gate on the content you care about.
+              The whole game is free. All 400+ levels. Blanked+ is optional, not a gate on the content you care about.
             </li>
             <li style={valueCard}>
               <strong style={valueTitle}>Small team, made with care</strong>
