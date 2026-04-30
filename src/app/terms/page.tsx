@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/terms`,
     languages: {
-      'en-GB': `${SITE_URL}/terms`,
+      'en': `${SITE_URL}/terms`,
       'es-ES': `${SITE_URL}/es/terms`,
       'x-default': `${SITE_URL}/terms`,
     },

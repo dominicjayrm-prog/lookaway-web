@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/privacy`,
     languages: {
-      'en-GB': `${SITE_URL}/privacy`,
+      'en': `${SITE_URL}/privacy`,
       'es-ES': `${SITE_URL}/es/privacy`,
       'x-default': `${SITE_URL}/privacy`,
     },

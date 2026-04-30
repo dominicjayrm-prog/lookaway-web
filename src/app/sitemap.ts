@@ -18,7 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.3,
       alternates: {
         languages: {
-          'en-GB': `${SITE_URL}/privacy`,
+          'en': `${SITE_URL}/privacy`,
           'es-ES': `${SITE_URL}/es/privacy`,
         },
       },
@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.3,
       alternates: {
         languages: {
-          'en-GB': `${SITE_URL}/terms`,
+          'en': `${SITE_URL}/terms`,
           'es-ES': `${SITE_URL}/es/terms`,
         },
       },
@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.3,
       alternates: {
         languages: {
-          'en-GB': `${SITE_URL}/privacy`,
+          'en': `${SITE_URL}/privacy`,
           'es-ES': `${SITE_URL}/es/privacy`,
         },
       },
@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.3,
       alternates: {
         languages: {
-          'en-GB': `${SITE_URL}/terms`,
+          'en': `${SITE_URL}/terms`,
           'es-ES': `${SITE_URL}/es/terms`,
         },
       },
