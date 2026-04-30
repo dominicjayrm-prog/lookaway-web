@@ -247,7 +247,9 @@ export default async function StudentsPage() {
         {/* Related comparisons */}
         <section style={{ marginTop: 36 }}>
           <p style={paraStyle}>
-            Comparing options? See how Blanked stacks up against{' '}
+            Want to know your starting point? Run our free{' '}
+            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
+            {' '}in your browser to set a baseline, then check it again in a few weeks. Comparing options? See how Blanked stacks up against{' '}
             <Link href="/compare/elevate" style={inlineLink}>Elevate</Link>
             {' '}(language and math focus, complementary to visual memory),{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Lumosity</Link>, and the rest of the field on the{' '}
