@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { COLORS } from '@/lib/constants';
+import { COLORS, APP_STORE_URL } from '@/lib/constants';
 
 const P = COLORS;
 const GRID = 5;
@@ -175,7 +175,20 @@ export default function MemoryTest() {
           <>
             <p style={resultHeadline}>You reached level <span style={{ color: P.accent }}>{finalLevel}</span>.</p>
             <p style={resultBody}>{percentileLabel(finalLevel)}</p>
-            <button type="button" onClick={startGame} style={btnPrimary}>Try again</button>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10, marginBottom: 14 }}>
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={btnAccent}
+              >
+                Keep training, free on iOS
+              </a>
+              <button type="button" onClick={startGame} style={btnSecondary}>Try again</button>
+            </div>
+            <p style={resultFooter}>
+              One score is a snapshot. Visual memory is built like a muscle: short, focused, daily practice. That is what Blanked is built for, two minutes a day.
+            </p>
           </>
         )}
       </div>
@@ -249,4 +262,24 @@ const btnPrimary: React.CSSProperties = {
   background: COLORS.text, color: 'white',
   fontSize: 15, fontWeight: 700, fontFamily: 'inherit',
   border: 'none', cursor: 'pointer',
+};
+
+const btnAccent: React.CSSProperties = {
+  display: 'inline-block',
+  padding: '12px 24px', borderRadius: 12,
+  background: COLORS.accent, color: 'white',
+  fontSize: 15, fontWeight: 700, fontFamily: 'inherit',
+  border: 'none', cursor: 'pointer', textDecoration: 'none',
+};
+
+const btnSecondary: React.CSSProperties = {
+  padding: '12px 24px', borderRadius: 12,
+  background: 'white', color: COLORS.text,
+  fontSize: 15, fontWeight: 700, fontFamily: 'inherit',
+  border: `1.5px solid ${COLORS.text}20`, cursor: 'pointer',
+};
+
+const resultFooter: React.CSSProperties = {
+  fontSize: 13, color: COLORS.textD, lineHeight: 1.55, marginTop: 8,
+  maxWidth: 460, marginLeft: 'auto', marginRight: 'auto',
 };
