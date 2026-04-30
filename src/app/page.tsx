@@ -215,6 +215,49 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ═══ WHY BLANKED ═══ */}
+          <section
+            id="why-blanked"
+            style={{ padding: '80px 40px', maxWidth: 1100, margin: '0 auto' }}
+            aria-label="Why Blanked"
+          >
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 8 }}>Why Blanked</div>
+              <h2 style={{ fontSize: 36, fontWeight: 800, color: P.text, letterSpacing: -0.5 }}>
+                Three things that <span style={{ color: P.accent }}>actually matter</span>
+              </h2>
+            </div>
+            <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+              {[
+                {
+                  title: 'Genuinely free',
+                  body: 'Most brain training apps lock the good stuff behind £80-a-year subscriptions. Blanked’s full game is free. Always. Optional Blanked+ removes ads and adds cosmetics, never gameplay.',
+                },
+                {
+                  title: 'Built for visual memory',
+                  body: 'While other apps spread thin across math, vocabulary, and logic, Blanked focuses on one thing: making your visual recall sharper. Six modes and 380+ levels of focused practice.',
+                },
+                {
+                  title: 'Two minutes, every day',
+                  body: 'No 15-minute training sessions you’ll skip after a week. Two minutes. Coffee-break length. Habit-friendly by design, because consistency is what actually builds skill.',
+                },
+              ].map((col, i) => (
+                <article key={i} style={{
+                  padding: '28px 24px', borderRadius: 18, background: 'white',
+                  boxShadow: '0 2px 16px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.03)',
+                }}>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: P.text, marginBottom: 10 }}>{col.title}</div>
+                  <p style={{ fontSize: 14, color: '#636E72', lineHeight: 1.6, margin: 0 }}>{col.body}</p>
+                </article>
+              ))}
+            </div>
+            <style>{`
+              @media (max-width: 800px) {
+                .why-grid { grid-template-columns: 1fr !important; }
+              }
+            `}</style>
+          </section>
+
           {/* ═══ MEET BLINK ═══ */}
           <MeetBlink />
 
