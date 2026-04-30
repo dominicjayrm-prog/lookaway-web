@@ -146,15 +146,74 @@ export default function Home() {
           {/* ═══ WHAT IS BLANKED ═══ */}
           <section
             id="what-is-blanked"
-            style={{ padding: '60px 40px 0', maxWidth: 820, margin: '0 auto' }}
+            style={{
+              padding: '80px 40px',
+              background: `linear-gradient(180deg, transparent 0%, ${P.accent}06 100%)`,
+            }}
             aria-label="What is Blanked"
           >
-            <h2 style={{ fontSize: 28, fontWeight: 800, color: P.text, letterSpacing: -0.3, marginBottom: 16, textAlign: 'center' }}>
-              A free visual memory game built around <span style={{ color: P.accent }}>science, not bloat</span>
-            </h2>
-            <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
-              Blanked is a free visual memory game for iOS. You study a scene full of shapes and colors for a few seconds, the screen goes blank, then you answer questions from memory. Six game modes, 400+ levels, two minutes a day. Built by an independent developer, not a big-tech subscription factory.
-            </p>
+            <div style={{ maxWidth: 820, margin: '0 auto', textAlign: 'center' }}>
+              {/* Credibility pill */}
+              <span
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '6px 14px', borderRadius: 999,
+                  background: `${P.accent}10`, border: `1px solid ${P.accent}30`,
+                  fontSize: 12, fontWeight: 600, color: P.accent,
+                  letterSpacing: 0.3, marginBottom: 20,
+                }}
+              >
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: P.accent }} />
+                Independent · Free · iOS
+              </span>
+
+              {/* Headline with gradient highlight on the punch line */}
+              <h2
+                style={{
+                  fontSize: 40, fontWeight: 800, color: P.text,
+                  letterSpacing: -0.5, lineHeight: 1.15, margin: '0 0 20px',
+                }}
+              >
+                A free visual memory game,{' '}
+                <span
+                  style={{
+                    background: `linear-gradient(90deg, ${P.accent}, ${P.accentL})`,
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    color: 'transparent',
+                  }}
+                >
+                  built by one developer, not a corporation
+                </span>
+              </h2>
+
+              <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, maxWidth: 680, margin: '0 auto 28px' }}>
+                Blanked is a free visual memory game for iOS. Study a scene, watch it disappear, answer from memory. Six game modes, 400+ levels, two minutes a day. No subscriptions to access the core game. No engagement-maxing bloat. Just memory training.
+              </p>
+
+              {/* Stat chips */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 12 }}>
+                {[
+                  { v: '6', l: 'game modes' },
+                  { v: '400+', l: 'levels' },
+                  { v: '2 min', l: 'per day' },
+                ].map((s, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      display: 'inline-flex', alignItems: 'baseline', gap: 8,
+                      padding: '10px 18px', borderRadius: 12,
+                      background: 'white', border: '1px solid rgba(0,0,0,0.05)',
+                      boxShadow: '0 1px 8px rgba(0,0,0,0.03)',
+                    }}
+                  >
+                    <span style={{ fontSize: 22, fontWeight: 800, color: P.text }}>{s.v}</span>
+                    <span style={{ fontSize: 13, color: '#636E72' }}>{s.l}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </section>
 
           {/* ═══ SCIENCE STATS ═══ */}
