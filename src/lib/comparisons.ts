@@ -369,8 +369,265 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     pickCompetitorIf: [
       'You want to train language and reading comprehension',
-      'You want to sharpen mental maths',
+      'You want to sharpen mental math',
       'You are preparing for verbal or quantitative tests',
+    ],
+  },
+
+  neuronation: {
+    slug: 'neuronation',
+    name: 'NeuroNation',
+    tagline: 'serious cognitive training with a clinical leaning',
+    websiteUrl: 'https://www.neuronation.com',
+    lastUpdated: '2026-04-30',
+    verdict:
+      'NeuroNation positions itself as cognitive training rather than a brain-game app, with a more clinical tone and partnerships with medical research. Blanked is the lighter, more focused option for visual memory specifically. If you want serious-feeling training across many cognitive areas, NeuroNation. If you want one skill done deeply in two minutes, Blanked.',
+    aboutCompetitor:
+      'NeuroNation is a Berlin-based cognitive training platform that has been around since 2011. It has 60+ exercises across memory, attention, mental speed, intelligence, and language, and tends to position itself as cognitive training rather than as a game. NeuroNation has collaborated with academic researchers, most notably on a study with Charite Berlin around training in older adults, which is more than most apps in this category.',
+    intro: [
+      'NeuroNation and Blanked share almost no DNA besides "open the app, do a short cognitive task". NeuroNation is built around a serious, almost clinical tone: assessments, training plans, "your IQ score over time" graphs. Blanked is built around a tight game loop: study a scene, the screen goes blank, answer from memory, two minutes, done.',
+      'If you tend to take cognitive training seriously and want a platform that frames itself that way, NeuroNation will feel right. If you would rather skip the medical framing and just practice one specific skill in the time it takes to drink half a coffee, Blanked is the better fit.',
+      'This page covers the practical comparison: focus, session length, free tier, the science each leans on, and which kind of person each one suits.',
+    ],
+    rows: [
+      { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across 5 areas' },
+      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '60+ exercises' },
+      { feature: 'Session length', blanked: '2 minutes', competitor: '~15 minutes per training plan session' },
+      { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited number of exercises free, rest paywalled' },
+      { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, clinical tone', advantage: 'blanked' },
+      { feature: 'Head-to-head with friends', blanked: 'Yes, identical scenes', competitor: 'No', advantage: 'blanked' },
+      { feature: 'Ads in free version', blanked: 'Occasional, removable', competitor: 'No ads, but very limited free content' },
+      { feature: 'Published peer-reviewed studies', blanked: 'Built on existing memory research, no in-house claims', competitor: 'Has collaborated on cognitive-training studies, including Charite Berlin', advantage: 'competitor' },
+      { feature: 'Privacy: sells data?', blanked: 'No', competitor: 'See their policy', advantage: 'blanked' },
+    ],
+    pickBlankedIf: [
+      'You want focused practice on visual memory specifically',
+      'Two minutes a day fits your life better than fifteen',
+      'You want the full game free, not a paywalled training plan',
+      'You like a friendly tone, not a clinical one',
+    ],
+    pickCompetitorIf: [
+      'You want a serious, clinical-feeling cognitive training platform',
+      'You like assessments, IQ-style tracking, and training plans',
+      'You want exercises across many cognitive areas, not just one',
+    ],
+    science: [
+      'NeuroNation is one of the few brain-training apps that has actually collaborated with academic researchers on outcome studies. The most-cited collaboration is a project with Charite Universitatsmedizin Berlin around cognitive training in older adults, which gives NeuroNation slightly more credibility than the median app in this space. They lean into this in their marketing, sometimes more than the underlying evidence justifies.',
+      'The wider research consensus is the same one that applies to every app in this category. Simons and colleagues (2016) reviewed the brain-training literature for Psychological Science in the Public Interest and concluded that practising a cognitive game reliably improves performance on the trained task and on closely related tasks, but that broader transfer to general intelligence or unrelated everyday function is weak. NeuroNation training will improve your performance at NeuroNation exercises. Whether that improvement carries into real-world memory or attention is, in the honest version, contested.',
+      'Where Blanked is upfront: focused visual-memory practice strengthens visual memory. That narrow benefit is supported by Engle and Kane (2004) and Klingberg (2010) on working-memory training. We do not promise to lift your IQ.',
+      'NeuroNation is fine if you want a training app with a clinical feel and you take that framing with a grain of salt. Blanked is fine if you want focused practice without the framing.',
+    ],
+    scienceSources: [
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+      { text: 'NeuroNation cooperation with Charite Universitatsmedizin Berlin (publicly listed on the NeuroNation site)' },
+    ],
+    bottomLine: [
+      'NeuroNation is the right pick if you want a serious-feeling cognitive training platform with assessment-style tracking and a clinical tone. The Charite collaboration is genuinely a point in its favor, even if the research caveats apply.',
+      'Blanked is the right pick if you want to actually get sharper at visual memory specifically, you want a two-minute daily habit, and you do not want training plans, assessments, or paywalls between you and the game.',
+      'Both are valid. Pick the one whose framing matches how you want to relate to your own training.',
+    ],
+    faqs: [
+      {
+        q: 'Is NeuroNation free to use?',
+        a: 'NeuroNation has a free tier with a small number of exercises available daily. The full training plan and the bulk of the catalog sit behind a Premium subscription, which historically prices around 5 to 7 EUR a month or 50 to 60 EUR a year. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Will NeuroNation make me smarter?',
+        a: 'Probably not in any broad sense. The Simons et al. (2016) consensus is that brain-training apps reliably improve performance on the games they contain but the evidence for broader cognitive transfer is weak. NeuroNation will sharpen the specific exercises it includes. So will Blanked, in its narrower visual-memory domain.',
+      },
+      {
+        q: 'Does NeuroNation actually have research backing?',
+        a: 'It has more than most. The collaboration with Charite Berlin on training in older adults is real and unusual for this category. Just remember that "research association" is not the same as "evidence the app does what its marketing implies", and the wider literature is cautious about brain-training claims.',
+      },
+      {
+        q: 'Which is better for memory specifically?',
+        a: 'Blanked, by design. NeuroNation has memory exercises but they are one of five categories. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth beats breadth.',
+      },
+      {
+        q: 'How long do sessions take?',
+        a: 'NeuroNation training plans typically run around fifteen minutes per session. Blanked is two minutes. The shorter habit is much easier to keep, and consistency is what actually builds skill.',
+      },
+      {
+        q: 'Does NeuroNation have head-to-head friend challenges?',
+        a: 'No. NeuroNation has friend lists and leaderboards but no mode where you and a friend tackle the exact same task. Blanked has direct head-to-head: same scene, same questions.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. NeuroNation is on both.',
+      },
+    ],
+  },
+
+  brainhq: {
+    slug: 'brainhq',
+    name: 'BrainHQ',
+    tagline: 'the most peer-reviewed brain-training platform',
+    websiteUrl: 'https://www.brainhq.com',
+    lastUpdated: '2026-04-30',
+    verdict:
+      'BrainHQ has the strongest research backing of any brain-training app, full stop. It is built by Posit Science under Michael Merzenich, a neuroscientist with a serious career behind him. Blanked does not pretend to compete on research depth. Pick BrainHQ if peer-reviewed evidence is what you care about. Pick Blanked if you want focused, casual visual-memory practice in two minutes a day.',
+    aboutCompetitor:
+      'BrainHQ is made by Posit Science, founded by Michael Merzenich, a neuroscientist known for early work on neuroplasticity. The platform has been used in over 100 peer-reviewed studies, including the ACTIVE trial (a large multi-year US study on cognitive training in older adults) and the IMPACT study on speed-of-processing training. BrainHQ is genuinely the most-studied brain-training product on the market, with a particular strength in research on aging adults.',
+    intro: [
+      'If you came to brain training from reading the actual research literature, you have probably already heard of BrainHQ. Posit Science is unusual in this category in that it has run real, peer-reviewed studies on its own products, and some of those studies (notably ACTIVE) are widely cited in the academic conversation about cognitive training.',
+      'Blanked is not pretending to compete with that. We are an independent indie game built around focused visual-memory practice. We do not have a Stanford-trained neuroscientist on the masthead, we have not run randomized controlled trials, and we are not going to claim otherwise.',
+      'The honest comparison is about what each app is actually built for. BrainHQ is a serious cognitive-training platform with strong evidence behind some specific training programs, particularly for older adults. Blanked is a tight, casual, daily two-minute game for visual memory. Different tools, different jobs.',
+    ],
+    rows: [
+      { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across many domains, particularly attention and processing speed' },
+      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '~30 exercises across 6 categories' },
+      { feature: 'Session length', blanked: '2 minutes', competitor: '~30 minutes per recommended daily plan' },
+      { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited free trial, then subscription' },
+      { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, professional tone', advantage: 'blanked' },
+      { feature: 'Head-to-head with friends', blanked: 'Yes, identical scenes', competitor: 'No', advantage: 'blanked' },
+      { feature: 'Ads in free version', blanked: 'Occasional, removable', competitor: 'No ads' },
+      { feature: 'Published peer-reviewed studies', blanked: 'Built on existing memory research, no in-house claims', competitor: '100+ peer-reviewed studies, including the ACTIVE trial', advantage: 'competitor' },
+      { feature: 'Best for', blanked: 'Daily two-minute visual memory practice', competitor: 'Older adults, evidence-led cognitive training' },
+      { feature: 'Privacy: sells data?', blanked: 'No', competitor: 'See their policy', advantage: 'blanked' },
+    ],
+    pickBlankedIf: [
+      'You want focused visual-memory practice, not a 30-minute training plan',
+      'You want to play casually for two minutes a day, not study cognitive training',
+      'You want the full game free, not a subscription',
+      'You like a friendly tone with a mascot, not a clinical platform',
+    ],
+    pickCompetitorIf: [
+      'You want the most research-backed brain-training product available',
+      'You are an older adult specifically interested in evidence-led cognitive training',
+      'You are happy committing 30 minutes a day to a structured plan',
+      'You are willing to pay a subscription for that quality of evidence base',
+    ],
+    science: [
+      'BrainHQ is the rare brain-training product where the science section is actually substantial. The ACTIVE trial (Advanced Cognitive Training for Independent and Vital Elderly) ran from 1998 to 2014 across multiple US sites and tested speed-of-processing training, among other interventions, in older adults. Speed-of-processing training (the same approach BrainHQ commercialized) showed effects on real-world outcomes including reduced risk of dementia at long-term follow-up (Edwards et al., 2017). That is the strongest "transfer" evidence in the entire brain-training literature, and BrainHQ is on the right side of it.',
+      'IMPACT (Improvement in Memory with Plasticity-based Adaptive Cognitive Training) was a randomized controlled trial published in JAGS (Smith et al., 2009) that found benefits on auditory memory and attention in older adults using BrainHQ-style training. That is another genuinely peer-reviewed result.',
+      'Now the caveat. The Simons and colleagues (2016) review for Psychological Science in the Public Interest evaluated the entire field including BrainHQ\'s underlying research and concluded that the evidence is strongest for narrow, task-specific gains, with broader transfer being far more limited than most marketing claims. BrainHQ has more transfer evidence than any other app, but it is still partial. If you are an older adult specifically and the goal is reducing cognitive decline, the BrainHQ evidence is real. For other goals it is more in line with the rest of the category.',
+      'Blanked makes no equivalent research claims. We do focused visual-memory practice. The narrow benefit (visual memory practice strengthens visual memory) is supported by Engle and Kane (2004) and Klingberg (2010). That is the honest version.',
+    ],
+    scienceSources: [
+      { text: 'Edwards et al. (2017), "Speed of processing training results in lower risk of dementia", Alzheimer\'s & Dementia: Translational Research & Clinical Interventions', url: 'https://doi.org/10.1016/j.trci.2017.09.002' },
+      { text: 'Smith et al. (2009), "A cognitive training program based on principles of brain plasticity: results from the IMPACT study", Journal of the American Geriatrics Society', url: 'https://doi.org/10.1111/j.1532-5415.2008.02167.x' },
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+    ],
+    bottomLine: [
+      'BrainHQ is the right pick if you want the most peer-reviewed brain-training platform on the market, especially if you are an older adult interested in evidence-led cognitive training. The ACTIVE and IMPACT trials are real and unusual in this space.',
+      'Blanked is the right pick if you want a casual, friendly, focused two-minute visual-memory game with no clinical framing, no half-hour daily commitment, and no subscription required for the core experience.',
+      'These two are not really substitutes. If you have time and budget, do BrainHQ for serious cognitive training and Blanked on the side for daily visual-memory practice. They scratch different itches.',
+    ],
+    faqs: [
+      {
+        q: 'Is BrainHQ free to use?',
+        a: 'BrainHQ has a limited free trial but the full platform requires a paid subscription, historically priced around $14 a month or $96 a year. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Is BrainHQ actually backed by science?',
+        a: 'Yes, more than any other app in the category. The ACTIVE trial showed speed-of-processing training reduced dementia risk over 10 years, and IMPACT showed gains on auditory memory and attention. Both are peer-reviewed studies in real journals. The wider literature still cautions against broad cognitive-transfer claims, but for older adults specifically the evidence is genuinely strong.',
+      },
+      {
+        q: 'Should I pick BrainHQ over Blanked for visual memory?',
+        a: 'For visual memory specifically, no. BrainHQ\'s research strength is in attention, processing speed, and aging-related cognition. Blanked is built end-to-end around visual memory practice with six modes and 380 plus levels. Different goals.',
+      },
+      {
+        q: 'Is BrainHQ better for older adults?',
+        a: 'For evidence-led cognitive training designed with older adults in mind, yes. That is the population BrainHQ has been most thoroughly studied in. Blanked works for any age, but it is built as a casual game, not a clinical-leaning training program.',
+      },
+      {
+        q: 'How long do BrainHQ sessions take?',
+        a: 'BrainHQ recommends roughly 30 minutes a day across multiple exercises for the full training plan. Blanked is two minutes per session. Pick the time commitment that matches your real daily life.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. BrainHQ is available on iOS, Android, and the web.',
+      },
+    ],
+  },
+
+  cognifit: {
+    slug: 'cognifit',
+    name: 'CogniFit',
+    tagline: 'cognitive assessment with a clinical and research focus',
+    websiteUrl: 'https://www.cognifit.com',
+    lastUpdated: '2026-04-30',
+    verdict:
+      'CogniFit positions itself toward research and clinical settings, with cognitive assessments as much as games. Blanked is a casual, focused visual-memory game. They are pretty different tools. Pick CogniFit if you want assessments and a clinical leaning. Pick Blanked if you want short, focused practice in two minutes a day.',
+    aboutCompetitor:
+      'CogniFit is an Israeli company that has been in the cognitive-assessment and training space since 1999. It is unusual in this market in that it offers cognitive assessments alongside games, including products positioned for ADHD, depression, and stroke recovery, sold to individuals as well as to clinics, schools, and researchers. The training games themselves cover memory, attention, perception, coordination, and reasoning.',
+    intro: [
+      'CogniFit is one of the older players in this category and probably the most clinical-feeling one available to consumers. It is the only mainstream brain-training app you might run into in a hospital or research lab as easily as on a phone.',
+      'Blanked is the opposite kind of product. It is a casual game built around one focused mechanic. There is no assessment, no training plan, no condition-specific package. There is just visual memory practice, two minutes at a time, six modes, 380 plus levels.',
+      'The honest comparison here is about intent. If you are interested in assessments, condition-specific training, or a platform that gets used in clinical or research contexts, CogniFit is the right shape. If you are looking for a casual daily habit, Blanked is.',
+    ],
+    rows: [
+      { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Cognitive assessment plus broad training across many domains' },
+      { feature: 'Assessment vs training', blanked: 'Training only, no assessment', competitor: 'Both assessment and training', advantage: 'competitor' },
+      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '20+ exercises and several condition-specific packages' },
+      { feature: 'Session length', blanked: '2 minutes', competitor: '~20 minutes per recommended training session' },
+      { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited free trial, then subscription' },
+      { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, clinical tone', advantage: 'blanked' },
+      { feature: 'Head-to-head with friends', blanked: 'Yes, identical scenes', competitor: 'No', advantage: 'blanked' },
+      { feature: 'Best for', blanked: 'Daily two-minute visual memory practice', competitor: 'Assessments and condition-specific training' },
+      { feature: 'Privacy: sells data?', blanked: 'No', competitor: 'See their policy', advantage: 'blanked' },
+    ],
+    pickBlankedIf: [
+      'You want focused practice on visual memory specifically',
+      'You want a casual, friendly game, not a clinical platform',
+      'You want two minutes a day, not twenty',
+      'You want the full game free without an assessment funnel',
+    ],
+    pickCompetitorIf: [
+      'You actually want a cognitive assessment, not just training',
+      'You are interested in a condition-specific package (ADHD, post-stroke, etc.)',
+      'You are happy paying a subscription for clinical-leaning content',
+      'You are using cognitive training as part of a research or therapeutic context',
+    ],
+    science: [
+      'CogniFit has been around long enough to be referenced in a real number of academic studies, particularly in the clinical literature where their assessment tools have been used as outcome measures. Their tasks are partly based on classic neuropsychological tests, which is more than most consumer brain-training apps can say. That academic footprint is genuine, even if it is not always positive about the underlying cognitive-transfer claims.',
+      'Like every other app in this space, CogniFit\'s training claims should be read alongside Simons and colleagues (2016) for Psychological Science in the Public Interest. The consensus there is that brain-training programs reliably improve performance on the trained tasks, with weaker evidence for transfer to broader cognitive function or daily life. CogniFit\'s clinical packaging does not change that underlying picture for the training side of the product.',
+      'Where Blanked stands honestly: focused visual-memory practice strengthens visual memory. That narrow benefit is supported by Engle and Kane (2004) and Klingberg (2010). We do not market a treatment for any condition.',
+      'CogniFit is fine if you want a clinical-feeling cognitive platform, especially for assessment. Just calibrate the training claims with the same scepticism you would apply to any other app in the category.',
+    ],
+    scienceSources: [
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+    ],
+    bottomLine: [
+      'CogniFit is the right choice if you actually want cognitive assessments alongside training, you have a specific condition you want to address, or you are using the platform in a research or therapeutic setting. The clinical positioning is genuine.',
+      'Blanked is the right choice if you want a casual, focused daily visual-memory game with no clinical framing, no assessment funnel, and no subscription required for the core experience.',
+      'For most everyday "I want to keep my brain sharp" goals, both will deliver narrow gains in the skills they explicitly train. The CogniFit packaging is heavier; the Blanked packaging is lighter. Pick the one whose framing fits your actual relationship with the practice.',
+    ],
+    faqs: [
+      {
+        q: 'Is CogniFit free to use?',
+        a: 'CogniFit has limited free access plus a paid subscription that unlocks the full assessments and training. Pricing varies by package and region. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Is CogniFit medically validated?',
+        a: 'CogniFit\'s assessment tools are partly based on classic neuropsychological tests and have been used in published studies. That is more academic footprint than most apps can claim. The training claims, like every app in this space, should be read alongside the wider Simons et al. (2016) consensus on transfer being narrow.',
+      },
+      {
+        q: 'Should I pick CogniFit if I have ADHD?',
+        a: 'CogniFit has an ADHD-focused package, which is an unusual offering for a consumer brain-training app. If you specifically want training packaged around ADHD, that is a real point in its favor. Treat the marketing claims with the same scepticism you would for any cognitive-training product, and consider it alongside, not instead of, evidence-based ADHD care from a clinician.',
+      },
+      {
+        q: 'Which is better for memory specifically?',
+        a: 'Blanked, by design. CogniFit covers many cognitive domains. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth wins.',
+      },
+      {
+        q: 'How long do sessions take?',
+        a: 'CogniFit recommends roughly 20 minutes per training session. Blanked is two minutes. Shorter habits are easier to keep.',
+      },
+      {
+        q: 'Does CogniFit have head-to-head friend challenges?',
+        a: 'No. CogniFit is built around individual training and assessment, not social play. Blanked has direct head-to-head: same scene, same questions.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. CogniFit is on iOS, Android, and the web.',
+      },
     ],
   },
 };

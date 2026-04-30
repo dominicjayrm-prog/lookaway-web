@@ -7,6 +7,7 @@ import { HOME_FAQS } from '@/lib/home-faqs';
 import PhoneMockup from '@/components/PhoneMockup';
 import StickyNav from '@/components/StickyNav';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import { COLORS, APP_STORE_URL, SITE_URL } from '@/lib/constants';
 
@@ -63,9 +64,24 @@ const modes = [
 ];
 
 const scienceCards = [
-  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0984E3" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#0984E3" strokeWidth="2" strokeLinecap="round"/></svg>, color: P.blue, stat: 23, label: "faster recall", desc: "Memory training improves how quickly you retrieve information" },
-  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00B894" strokeWidth="2"/><path d="M8 12l3 3 5-6" stroke="#00B894" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>, color: P.green, stat: 31, label: "better focus", desc: "Visual memory exercises strengthen your attention span" },
-  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6C5CE7" strokeWidth="2"/><polyline points="4,18 9,12 13,15 20,6" stroke="#6C5CE7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>, color: P.accent, stat: 40, label: "sharper with age", desc: "Consistent brain training maintains cognitive function long-term" },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0984E3" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#0984E3" strokeWidth="2" strokeLinecap="round"/></svg>,
+    color: P.blue, stat: 23, label: "faster recall",
+    desc: "Memory training improves how quickly you retrieve information",
+    source: { text: "Engle & Kane (2004)", url: "https://www.sciencedirect.com/science/article/abs/pii/S0079742103440104" },
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00B894" strokeWidth="2"/><path d="M8 12l3 3 5-6" stroke="#00B894" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    color: P.green, stat: 31, label: "better focus",
+    desc: "Visual memory exercises strengthen your attention span",
+    source: { text: "Klingberg (2010)", url: "https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(10)00114-1" },
+  },
+  {
+    icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6C5CE7" strokeWidth="2"/><polyline points="4,18 9,12 13,15 20,6" stroke="#6C5CE7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+    color: P.accent, stat: 40, label: "sharper with age",
+    desc: "Consistent brain training maintains cognitive function long-term",
+    source: { text: "ACTIVE Trial: Edwards et al. (2017)", url: "https://doi.org/10.1016/j.trci.2017.09.002" },
+  },
 ];
 
 export default function Home() {
@@ -127,6 +143,20 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ═══ WHAT IS BLANKED ═══ */}
+          <section
+            id="what-is-blanked"
+            style={{ padding: '60px 40px 0', maxWidth: 820, margin: '0 auto' }}
+            aria-label="What is Blanked"
+          >
+            <h2 style={{ fontSize: 28, fontWeight: 800, color: P.text, letterSpacing: -0.3, marginBottom: 16, textAlign: 'center' }}>
+              A free visual memory game built around <span style={{ color: P.accent }}>science, not bloat</span>
+            </h2>
+            <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
+              Blanked is a free visual memory game for iOS. You study a scene full of shapes and colors for a few seconds, the screen goes blank, then you answer questions from memory. Six game modes, 380+ levels, two minutes a day. Built by an independent developer, not a big-tech subscription factory.
+            </p>
+          </section>
+
           {/* ═══ SCIENCE STATS ═══ */}
           <section id="science" style={{ padding: "80px 40px", maxWidth: 1100, margin: "0 auto" }} aria-label="Science-backed benefits">
             <div style={{ textAlign: "center", marginBottom: 48 }}>
@@ -146,7 +176,15 @@ export default function Home() {
                     <AnimatedCounter target={card.stat} />
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: P.text, marginBottom: 8 }}>{card.label}</div>
-                  <p style={{ fontSize: 13, color: "#636E72", lineHeight: 1.5 }}>{card.desc}</p>
+                  <p style={{ fontSize: 13, color: "#636E72", lineHeight: 1.5, marginBottom: 10 }}>{card.desc}</p>
+                  <a
+                    href={card.source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: 11, color: P.textD, textDecoration: 'none', borderBottom: `1px dotted ${P.textD}` }}
+                  >
+                    Source: {card.source.text} &rarr;
+                  </a>
                 </article>
               ))}
             </div>
@@ -178,8 +216,56 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ═══ WHY BLANKED ═══ */}
+          <section
+            id="why-blanked"
+            style={{ padding: '80px 40px', maxWidth: 1100, margin: '0 auto' }}
+            aria-label="Why Blanked"
+          >
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 8 }}>Why Blanked</div>
+              <h2 style={{ fontSize: 36, fontWeight: 800, color: P.text, letterSpacing: -0.5 }}>
+                Three things that <span style={{ color: P.accent }}>actually matter</span>
+              </h2>
+            </div>
+            <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+              {[
+                {
+                  title: 'Genuinely free',
+                  body: 'Most brain training apps lock the good stuff behind £80-a-year subscriptions. Blanked’s full game is free. Always. Optional Blanked+ removes ads and adds cosmetics, never gameplay.',
+                },
+                {
+                  title: 'Built for visual memory',
+                  body: 'While other apps spread thin across math, vocabulary, and logic, Blanked focuses on one thing: making your visual recall sharper. Six modes and 380+ levels of focused practice.',
+                },
+                {
+                  title: 'Two minutes, every day',
+                  body: 'No 15-minute training sessions you’ll skip after a week. Two minutes. Coffee-break length. Habit-friendly by design, because consistency is what actually builds skill.',
+                },
+              ].map((col, i) => (
+                <article key={i} style={{
+                  padding: '28px 24px', borderRadius: 18, background: 'white',
+                  boxShadow: '0 2px 16px rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.03)',
+                }}>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: P.text, marginBottom: 10 }}>{col.title}</div>
+                  <p style={{ fontSize: 14, color: '#636E72', lineHeight: 1.6, margin: 0 }}>{col.body}</p>
+                </article>
+              ))}
+            </div>
+            <style>{`
+              @media (max-width: 800px) {
+                .why-grid { grid-template-columns: 1fr !important; }
+              }
+            `}</style>
+          </section>
+
           {/* ═══ MEET BLINK ═══ */}
           <MeetBlink />
+
+          {/* ═══ TESTIMONIALS ═══ */}
+          {/* Renders nothing while src/lib/testimonials.ts is empty.
+              Add real App Store quotes there to switch this section on. */}
+          <Testimonials />
 
           {/* ═══ FROM THE BLOG ═══ */}
           <LatestPosts />
