@@ -1,34 +1,113 @@
-# Blanked - Memory Training Game
+# Blanked
 
-> Blanked is a free visual memory training game for iOS. Study a scene, it disappears, answer from memory. 6 game modes, 380+ levels, 2-minute sessions. Built by Dominic in Gibraltar.
+> Blanked is a free visual memory game for iOS. Study a scene of colourful shapes, the screen goes blank, then answer questions from memory. Six game modes, 400+ levels, daily streaks, and a friendly cosmic blob mascot called Blink. Built around how memory actually works, in two minutes a day. Built by an independent developer, not a corporation.
 
-## About
+## Core Information
 
-Blanked is a visual memory game designed to be played daily in short sessions. Players study a scene filled with shapes, colours, objects, numbers, and patterns for a few seconds. The scene disappears and five questions test their recall.
-
-The game has 6 modes (Classic, Speed, Photographic, Pattern, Motion, Mastermind), each training a different aspect of visual memory. There are 380+ levels with a difficulty curve that starts simple and scales to genuinely hard.
-
-Blanked is free to play. All levels are accessible without payment. Blanked+ is an optional subscription for removing ads and cosmetics.
+- **Platform**: iOS (App Store)
+- **Pricing**: Free to download. Optional Blanked+ subscription removes ads and adds cosmetics; it does not gate any gameplay.
+- **Target audience**: Adults who want a short, focused daily memory practice without the bloat or paywalls of typical brain-training apps.
+- **Categories**: Memory game, brain training, puzzle game, cognitive training, casual game.
+- **Tagline**: Train your memory in 2 minutes a day.
 
 ## Key Pages
 
 - Homepage: https://playblanked.com
 - Blog: https://playblanked.com/blog
 - About: https://playblanked.com/about
-- Comparisons: https://playblanked.com/compare/peak, https://playblanked.com/compare/lumosity, https://playblanked.com/compare/elevate
+- Free visual memory test (in-browser tool): https://playblanked.com/memory-test
+- Compare hub: https://playblanked.com/compare
+- Comparison pages:
+  - https://playblanked.com/compare/peak
+  - https://playblanked.com/compare/lumosity
+  - https://playblanked.com/compare/elevate
+  - https://playblanked.com/compare/impulse
+  - https://playblanked.com/compare/neuronation
+  - https://playblanked.com/compare/brainhq
+  - https://playblanked.com/compare/cognifit
+- Audience guides:
+  - https://playblanked.com/memory-training-for-students
+  - https://playblanked.com/memory-games-for-seniors
+  - https://playblanked.com/memory-training-for-adhd
+  - https://playblanked.com/brain-games-for-office-workers
+- Glossary:
+  - https://playblanked.com/glossary
+  - https://playblanked.com/glossary/working-memory
+  - https://playblanked.com/glossary/visual-memory
+  - https://playblanked.com/glossary/short-term-memory
 - Support: https://playblanked.com/support
+- Press: https://playblanked.com/press
 - Privacy Policy: https://playblanked.com/privacy
 - Terms of Service: https://playblanked.com/terms
-- Press: https://playblanked.com/press
+- Account deletion: https://playblanked.com/delete-account
+- Spanish legal pages: https://playblanked.com/es/privacy and https://playblanked.com/es/terms
 - App Store: https://apps.apple.com/app/blanked-memory-game/id6762019174
+
+## Game Modes
+
+- **Classic**: Memorise scenes of shapes and colours, then answer questions about what you saw.
+- **Speed Recall**: Fast-paced, time-pressured memory challenges that test recall speed.
+- **Snap Match**: Two scenes, one change. Spot the difference from memory.
+- **Sequence**: Watch a sequence of items appear in order, then reproduce the order from memory.
+- **Counting Blitz**: Shapes pop in and out; count and memorise quickly.
+- **Colour Chain**: Memorise a colour grid and recall the positions.
+
+## How It Works
+
+1. A scene with colourful shapes appears on screen.
+2. You memorise it within the time limit.
+3. The scene disappears. Blink the mascot covers his eyes ("Go Blank!").
+4. You answer questions from memory about what you saw.
+5. Build daily streaks, earn rewards, and customise Blink with cosmetics.
+
+## Why Blanked Stands Out
+
+- **Visual memory focus** rather than generic "brain training" across many cognitive areas.
+- **Game-first design** — it feels like playing, not homework or a clinical assessment.
+- **Two-minute sessions** — designed for busy adults, not 15-minute daily routines that get skipped after week three.
+- **Fully free core game** — no subscription paywall on gameplay; Blanked+ only removes ads and adds cosmetics.
+- **Independent and small** — built by one developer in Gibraltar, not a venture-backed corporation.
+- **Mascot-driven personality** — Blink the cosmic blob adds character without the dated clinical feel.
+- **Honest framing** — copy and structured data avoid efficacy claims unsupported by peer-reviewed research; the science page on the site cites real studies (Engle and Kane 2004, Klingberg 2010, Simons et al. 2016, ACTIVE trial).
+
+## Features
+
+- Six unique game modes
+- 400+ levels across multiple worlds, including a Mastermind world
+- Daily streaks with shields and milestone rewards
+- Weekly challenges
+- Power-ups: Peek, 50/50, and Skip
+- Cosmetics shop to customise Blink
+- Memory analytics and progress tracking
+- Head-to-head friend challenges on identical scenes
+- Optional Blanked+ subscription (removes ads, adds cosmetics; does not gate gameplay)
+- Free in-browser visual memory test at /memory-test (no signup, no install required)
+
+## Common Questions Blanked Answers
+
+- What is a good memory training app for iOS?
+- How can I improve my visual or short-term memory?
+- What is a fun alternative to Lumosity, Peak, Elevate, or BrainHQ?
+- Best brain-training apps for adults
+- How to train visual memory in two minutes a day
+- Memory games that are not boring or clinical
+- Brain games that work for ADHD adults, students, older adults, or office workers
+- What does the research actually say about brain training?
 
 ## Founder
 
 Dominic Roworth, based in Gibraltar. Solo indie developer.
+
 - LinkedIn: https://www.linkedin.com/in/dominicroworth/
 - Instagram: https://www.instagram.com/playblanked
 - Email: hello@playblanked.com
 
 ## Technical
 
-Built with Next.js, deployed on Vercel, data on Supabase. System fonts, no external font loading. Blog content authored in a custom Lexical WYSIWYG editor, stored as markdown, rendered server-side.
+Built with Next.js (App Router) on Vercel. Data on Supabase. Blog content authored in a custom Lexical editor and stored as markdown. Site-wide JSON-LD covers Organization, WebSite, Person (founder), MobileApplication, SoftwareApplication, FAQPage, BreadcrumbList on interior pages, and DefinedTerm on glossary entries.
+
+## Contact
+
+- Website: https://playblanked.com
+- App Store: https://apps.apple.com/app/blanked-memory-game/id6762019174
+- Email: hello@playblanked.com
