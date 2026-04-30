@@ -1,3 +1,13 @@
+export interface ComparisonFAQ {
+  q: string;
+  a: string;
+}
+
+export interface ComparisonScienceSource {
+  text: string;
+  url?: string;
+}
+
 export interface Comparison {
   slug: string;
   name: string;
@@ -12,6 +22,21 @@ export interface Comparison {
   pickCompetitorIf: string[];
   /** Brief, fair summary of the competitor. */
   aboutCompetitor: string;
+
+  /** ISO date of last content review. */
+  lastUpdated?: string;
+  /** Link to the competitor's official site, used in the bottom-line outbound link. */
+  websiteUrl?: string;
+  /** Multi-paragraph intro section under the verdict card. */
+  intro?: string[];
+  /** Multi-paragraph "the science" section. */
+  science?: string[];
+  /** Real sources cited in the science section. */
+  scienceSources?: ComparisonScienceSource[];
+  /** Final verdict / closing argument paragraphs. */
+  bottomLine?: string[];
+  /** FAQ items for the page-specific FAQ section. */
+  faqs?: ComparisonFAQ[];
 }
 
 export const COMPARISONS: Record<string, Comparison> = {
