@@ -7,7 +7,6 @@ import { HOME_FAQS } from '@/lib/home-faqs';
 import PhoneMockup from '@/components/PhoneMockup';
 import StickyNav from '@/components/StickyNav';
 import AnimatedCounter from '@/components/AnimatedCounter';
-import EmailCapture from '@/components/EmailCapture';
 import Footer from '@/components/Footer';
 import { COLORS, APP_STORE_URL, SITE_URL } from '@/lib/constants';
 
@@ -267,26 +266,6 @@ export default function Home() {
 
           {/* ═══ FAQ ═══ */}
           <HomeFaq />
-
-          {/* ═══ ANDROID WAITLIST ═══ */}
-          <section
-            id="android-waitlist"
-            style={{ padding: '60px 40px 0', maxWidth: 600, margin: '0 auto' }}
-            aria-label="Android waitlist"
-          >
-            <div style={{ background: `${P.accent}06`, border: `1px solid ${P.accent}20`, borderRadius: 16, padding: '24px 28px', textAlign: 'center' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 8 }}>
-                Android coming soon
-              </div>
-              <h2 style={{ fontSize: 24, fontWeight: 800, color: P.text, margin: '0 0 8px', letterSpacing: -0.3 }}>
-                Want Blanked on Android?
-              </h2>
-              <p style={{ fontSize: 15, color: '#636E72', margin: '0 0 18px', lineHeight: 1.55 }}>
-                Drop your email and we&apos;ll let you know the moment it&apos;s ready. No spam, no marketing list, just one launch email.
-              </p>
-              <EmailCapture source="android-waitlist" variant="compact" />
-            </div>
-          </section>
 
           {/* ═══ FINAL CTA ═══ */}
           <section id="download" style={{ padding: "80px 40px 60px", textAlign: "center" }} aria-label="Download">
