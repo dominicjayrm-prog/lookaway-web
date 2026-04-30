@@ -369,8 +369,94 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     pickCompetitorIf: [
       'You want to train language and reading comprehension',
-      'You want to sharpen mental maths',
+      'You want to sharpen mental math',
       'You are preparing for verbal or quantitative tests',
+    ],
+  },
+
+  neuronation: {
+    slug: 'neuronation',
+    name: 'NeuroNation',
+    tagline: 'serious cognitive training with a clinical leaning',
+    websiteUrl: 'https://www.neuronation.com',
+    lastUpdated: '2026-04-30',
+    verdict:
+      'NeuroNation positions itself as cognitive training rather than a brain-game app, with a more clinical tone and partnerships with medical research. Blanked is the lighter, more focused option for visual memory specifically. If you want serious-feeling training across many cognitive areas, NeuroNation. If you want one skill done deeply in two minutes, Blanked.',
+    aboutCompetitor:
+      'NeuroNation is a Berlin-based cognitive training platform that has been around since 2011. It has 60+ exercises across memory, attention, mental speed, intelligence, and language, and tends to position itself as cognitive training rather than as a game. NeuroNation has collaborated with academic researchers, most notably on a study with Charite Berlin around training in older adults, which is more than most apps in this category.',
+    intro: [
+      'NeuroNation and Blanked share almost no DNA besides "open the app, do a short cognitive task". NeuroNation is built around a serious, almost clinical tone: assessments, training plans, "your IQ score over time" graphs. Blanked is built around a tight game loop: study a scene, the screen goes blank, answer from memory, two minutes, done.',
+      'If you tend to take cognitive training seriously and want a platform that frames itself that way, NeuroNation will feel right. If you would rather skip the medical framing and just practice one specific skill in the time it takes to drink half a coffee, Blanked is the better fit.',
+      'This page covers the practical comparison: focus, session length, free tier, the science each leans on, and which kind of person each one suits.',
+    ],
+    rows: [
+      { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across 5 areas' },
+      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '60+ exercises' },
+      { feature: 'Session length', blanked: '2 minutes', competitor: '~15 minutes per training plan session' },
+      { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited number of exercises free, rest paywalled' },
+      { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, clinical tone', advantage: 'blanked' },
+      { feature: 'Head-to-head with friends', blanked: 'Yes, identical scenes', competitor: 'No', advantage: 'blanked' },
+      { feature: 'Ads in free version', blanked: 'Occasional, removable', competitor: 'No ads, but very limited free content' },
+      { feature: 'Published peer-reviewed studies', blanked: 'Built on existing memory research, no in-house claims', competitor: 'Has collaborated on cognitive-training studies, including Charite Berlin', advantage: 'competitor' },
+      { feature: 'Privacy: sells data?', blanked: 'No', competitor: 'See their policy', advantage: 'blanked' },
+    ],
+    pickBlankedIf: [
+      'You want focused practice on visual memory specifically',
+      'Two minutes a day fits your life better than fifteen',
+      'You want the full game free, not a paywalled training plan',
+      'You like a friendly tone, not a clinical one',
+    ],
+    pickCompetitorIf: [
+      'You want a serious, clinical-feeling cognitive training platform',
+      'You like assessments, IQ-style tracking, and training plans',
+      'You want exercises across many cognitive areas, not just one',
+    ],
+    science: [
+      'NeuroNation is one of the few brain-training apps that has actually collaborated with academic researchers on outcome studies. The most-cited collaboration is a project with Charite Universitatsmedizin Berlin around cognitive training in older adults, which gives NeuroNation slightly more credibility than the median app in this space. They lean into this in their marketing, sometimes more than the underlying evidence justifies.',
+      'The wider research consensus is the same one that applies to every app in this category. Simons and colleagues (2016) reviewed the brain-training literature for Psychological Science in the Public Interest and concluded that practising a cognitive game reliably improves performance on the trained task and on closely related tasks, but that broader transfer to general intelligence or unrelated everyday function is weak. NeuroNation training will improve your performance at NeuroNation exercises. Whether that improvement carries into real-world memory or attention is, in the honest version, contested.',
+      'Where Blanked is upfront: focused visual-memory practice strengthens visual memory. That narrow benefit is supported by Engle and Kane (2004) and Klingberg (2010) on working-memory training. We do not promise to lift your IQ.',
+      'NeuroNation is fine if you want a training app with a clinical feel and you take that framing with a grain of salt. Blanked is fine if you want focused practice without the framing.',
+    ],
+    scienceSources: [
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+      { text: 'NeuroNation cooperation with Charite Universitatsmedizin Berlin (publicly listed on the NeuroNation site)' },
+    ],
+    bottomLine: [
+      'NeuroNation is the right pick if you want a serious-feeling cognitive training platform with assessment-style tracking and a clinical tone. The Charite collaboration is genuinely a point in its favor, even if the research caveats apply.',
+      'Blanked is the right pick if you want to actually get sharper at visual memory specifically, you want a two-minute daily habit, and you do not want training plans, assessments, or paywalls between you and the game.',
+      'Both are valid. Pick the one whose framing matches how you want to relate to your own training.',
+    ],
+    faqs: [
+      {
+        q: 'Is NeuroNation free to use?',
+        a: 'NeuroNation has a free tier with a small number of exercises available daily. The full training plan and the bulk of the catalog sit behind a Premium subscription, which historically prices around 5 to 7 EUR a month or 50 to 60 EUR a year. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Will NeuroNation make me smarter?',
+        a: 'Probably not in any broad sense. The Simons et al. (2016) consensus is that brain-training apps reliably improve performance on the games they contain but the evidence for broader cognitive transfer is weak. NeuroNation will sharpen the specific exercises it includes. So will Blanked, in its narrower visual-memory domain.',
+      },
+      {
+        q: 'Does NeuroNation actually have research backing?',
+        a: 'It has more than most. The collaboration with Charite Berlin on training in older adults is real and unusual for this category. Just remember that "research association" is not the same as "evidence the app does what its marketing implies", and the wider literature is cautious about brain-training claims.',
+      },
+      {
+        q: 'Which is better for memory specifically?',
+        a: 'Blanked, by design. NeuroNation has memory exercises but they are one of five categories. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth beats breadth.',
+      },
+      {
+        q: 'How long do sessions take?',
+        a: 'NeuroNation training plans typically run around fifteen minutes per session. Blanked is two minutes. The shorter habit is much easier to keep, and consistency is what actually builds skill.',
+      },
+      {
+        q: 'Does NeuroNation have head-to-head friend challenges?',
+        a: 'No. NeuroNation has friend lists and leaderboards but no mode where you and a friend tackle the exact same task. Blanked has direct head-to-head: same scene, same questions.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. NeuroNation is on both.',
+      },
     ],
   },
 };
