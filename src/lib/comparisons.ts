@@ -125,10 +125,64 @@ export const COMPARISONS: Record<string, Comparison> = {
     slug: 'lumosity',
     name: 'Lumosity',
     tagline: 'the original brain-training platform',
+    websiteUrl: 'https://www.lumosity.com',
+    lastUpdated: '2026-04-30',
     verdict:
-      'Lumosity is the granddaddy of brain-training apps with a huge catalogue. Blanked is the modern, focused alternative if visual memory is the thing you actually care about, at a fraction of the price.',
+      'Lumosity is the granddaddy of brain-training apps with a huge catalog. Blanked is the modern, focused alternative if visual memory is the thing you actually care about, at a fraction of the price.',
     aboutCompetitor:
-      'Lumosity launched in 2007 and was one of the first brain-training platforms. It has 50+ games and an extensive research programme. In 2016 the company was fined $2M by the FTC for overselling cognitive benefits; they have since tempered their claims.',
+      'Lumosity launched in 2007 and was one of the first brain-training platforms. It has 50+ games and an extensive in-house research program (Lumos Labs). In 2016 the company was fined $2 million by the US Federal Trade Commission for overselling cognitive benefits in its advertising; they have since tempered the marketing claims considerably.',
+    intro: [
+      'Lumosity is the app that basically invented modern brain training. It launched in 2007, peaked at over 100 million accounts, and made "training your brain" feel like brushing your teeth. If you have ever heard the phrase "brain games" outside of a sceptical academic context, Lumosity probably planted that seed.',
+      'Blanked is much smaller and much newer. It does one thing: visual memory training, six modes, 380 plus levels, two minutes a day. No daily fit index, no five-skill scorecard, no fifty-game catalog. Just one focused mechanic, executed properly.',
+      'This page lays out the honest comparison. Where Lumosity is genuinely better. Where Blanked is genuinely better. And what the actual research says about brain-training apps in general, including the FTC settlement that Lumosity does not love to talk about.',
+    ],
+    science: [
+      'Lumosity has the most extensive in-house research program of any brain-training app. Lumos Labs has published a number of peer-reviewed studies on the platform, including Hardy and colleagues (2015) in PLoS ONE which reported improved performance on cognitive assessments after Lumosity training. Compared with most competitors, that is a genuinely strong evidence base.',
+      'Now the difficult part. In 2016 the US Federal Trade Commission fined Lumos Labs $2 million for "deceptive advertising claims that Lumosity could prevent memory loss, dementia, and Alzheimer\'s disease, and that it could improve performance at school and work and on the SAT and ACT." Lumosity took down those claims and now markets the app more carefully. The product is the same product. The science was never as strong as the original advertising suggested.',
+      'The wider consensus paper is Simons and colleagues (2016) for Psychological Science in the Public Interest. After reviewing hundreds of studies, the authors concluded that brain-training games reliably improve performance on the trained tasks but the evidence for transfer to broader cognitive abilities is weak. This applies to Lumosity, to Blanked, and to every app in the category.',
+      'Where Blanked is upfront: focused visual-memory training improves visual memory (Engle and Kane, 2004; Klingberg, 2010). That is the narrow claim we make and the one the research actually supports. We do not claim Blanked will help you score higher on the SAT or stave off dementia. Anyone who tells you their app does that is selling you a story.',
+    ],
+    scienceSources: [
+      { text: 'FTC press release: Lumos Labs to pay $2M for deceptive advertising (2016)', url: 'https://www.ftc.gov/news-events/news/press-releases/2016/01/lumosity-pay-2-million-settle-ftc-deceptive-advertising-charges-its-brain-training-program' },
+      { text: 'Hardy et al. (2015), "Enhancing Cognitive Abilities with Comprehensive Training", PLoS ONE', url: 'https://doi.org/10.1371/journal.pone.0134467' },
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+    ],
+    bottomLine: [
+      'Lumosity is the right choice if you want the broadest catalog of brain games, you value the research program (with the FTC caveat in mind), and you do not mind paying around twelve pounds a month or sixty pounds a year. The polish and game variety are real strengths.',
+      'Blanked is the right choice if you actually want to train one specific cognitive skill seriously, you want a two-minute daily habit instead of a fifteen-minute one, and you do not want to pay a premium subscription for content you may never touch. The full game is free.',
+      'You can use both. Just be honest with yourself about why you are using each one. If you want a fun daily routine, Lumosity is well-suited. If you want to actually improve at something specific, focused practice always wins, and Blanked is built around that idea.',
+    ],
+    faqs: [
+      {
+        q: 'Why was Lumosity fined $2 million by the FTC?',
+        a: 'In 2016 the FTC found that Lumos Labs had been making deceptive claims that Lumosity could prevent memory loss, dementia, and Alzheimer\'s, and could boost academic and test performance. The settlement required Lumos Labs to stop those claims and refund affected subscribers. The app itself was not banned and Lumosity continues to operate, but the marketing was forced to become more accurate.',
+      },
+      {
+        q: 'Does Lumosity actually work?',
+        a: 'It depends what you mean by "work". Lumosity will reliably improve your performance on Lumosity\'s games. The research consensus (Simons et al., 2016) is that this kind of training does not transfer broadly to general intelligence or everyday cognition. Same caveat applies to Blanked. Pick the app whose narrow training matches the skill you actually want to improve.',
+      },
+      {
+        q: 'Is Lumosity free?',
+        a: 'Lumosity has a very limited free tier (a handful of games per day). Most of the catalog is locked behind a Premium subscription, currently around £11.99 a month or £59.99 a year depending on region. Blanked is fully free to play.',
+      },
+      {
+        q: 'Which is better for memory?',
+        a: 'Blanked, if visual memory is what you mean. Lumosity has memory-themed games, but they sit alongside attention, problem-solving, language, and math. Blanked focuses entirely on visual memory across six modes and 380 plus levels. Depth wins when you are trying to actually improve a specific skill.',
+      },
+      {
+        q: 'How long do daily sessions take?',
+        a: 'Lumosity\'s daily workout suggests three games and runs roughly ten to fifteen minutes. Blanked is two minutes. Habit formation research consistently shows that shorter daily commitments are easier to keep, and consistency is what builds skill.',
+      },
+      {
+        q: 'Does Lumosity have head-to-head friend challenges?',
+        a: 'No. Lumosity has leaderboards and a "Brain Profile" view of your strengths, but there is no mode where you and a friend tackle the exact same task. Blanked has direct head-to-head: send your friend the same scene and same questions, then compare.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. Lumosity is on both.',
+      },
+    ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'General cognition across 5 areas' },
       { feature: 'Number of games', blanked: '6 modes, 380+ levels', competitor: '50+ games' },
