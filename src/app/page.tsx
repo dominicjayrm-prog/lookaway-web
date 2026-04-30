@@ -67,19 +67,19 @@ const scienceCards = [
   {
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0984E3" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#0984E3" strokeWidth="2" strokeLinecap="round"/></svg>,
     color: P.blue, stat: 23, label: "faster recall",
-    desc: "Memory training improves how quickly you retrieve information",
+    desc: "Research on working-memory training shows up to 23% faster retrieval on trained tasks.",
     source: { text: "Engle & Kane (2004)", url: "https://www.sciencedirect.com/science/article/abs/pii/S0079742103440104" },
   },
   {
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00B894" strokeWidth="2"/><path d="M8 12l3 3 5-6" stroke="#00B894" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-    color: P.green, stat: 31, label: "better focus",
-    desc: "Visual memory exercises strengthen your attention span",
+    color: P.green, stat: 31, label: "improved attention",
+    desc: "Visual working-memory training is associated with measurable gains on focused-attention tasks.",
     source: { text: "Klingberg (2010)", url: "https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(10)00114-1" },
   },
   {
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6C5CE7" strokeWidth="2"/><polyline points="4,18 9,12 13,15 20,6" stroke="#6C5CE7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-    color: P.accent, stat: 40, label: "sharper with age",
-    desc: "Consistent brain training maintains cognitive function long-term",
+    color: P.accent, stat: 40, label: "lower dementia risk",
+    desc: "10-year follow-up of speed-of-processing training showed reduced dementia risk in older adults.",
     source: { text: "ACTIVE Trial: Edwards et al. (2017)", url: "https://doi.org/10.1016/j.trci.2017.09.002" },
   },
 ];
@@ -247,6 +247,10 @@ export default function Home() {
                 </article>
               ))}
             </div>
+
+            <p style={{ fontSize: 12, color: P.textD, textAlign: 'center', maxWidth: 720, margin: '28px auto 0', lineHeight: 1.55 }}>
+              These figures describe research on memory training generally. Blanked applies the same training principles. Studies measure performance on trained tasks; individual results vary, and gains tend to be narrow (Simons et al., 2016).
+            </p>
           </section>
 
           {/* ═══ GAME MODES ═══ */}
