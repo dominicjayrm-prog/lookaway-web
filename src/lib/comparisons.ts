@@ -291,11 +291,65 @@ export const COMPARISONS: Record<string, Comparison> = {
   elevate: {
     slug: 'elevate',
     name: 'Elevate',
-    tagline: 'language, maths, and focus training',
+    tagline: 'language, math, and focus training',
+    websiteUrl: 'https://elevateapp.com',
+    lastUpdated: '2026-04-30',
     verdict:
-      'Elevate is fantastic for language and maths skills. Blanked is built for a different skill entirely: visual memory. They complement each other rather than compete.',
+      'Elevate is fantastic for language and math skills. Blanked is built for a different skill entirely: visual memory. They complement each other rather than compete.',
     aboutCompetitor:
-      'Elevate is an Apple Design Award-winning brain-training app focused on communication and analytical skills. It has 40+ games across reading, writing, speaking, listening, and maths.',
+      'Elevate is an Apple Design Award winner (2014) focused on communication and analytical skills. It has 40+ games across reading, writing, speaking, listening, and math, packaged into a personalized daily workout. It is one of the most polished brain-training apps on the App Store and remains a category staple.',
+    intro: [
+      'Elevate and Blanked do not really compete. They train different muscles. Elevate is the right answer if you want to sharpen vocabulary, reading speed, mental math, and verbal expression. Blanked is the right answer if you want to train visual memory specifically and seriously.',
+      'In practice that difference matters more than it sounds. Most people picking a brain-training app have a vague goal like "I want to think more clearly". The honest move is to translate that goal into a specific skill, then pick the app built for that skill. If your goal is "communicate better, do mental math faster, read more carefully", Elevate is the answer. If your goal is "remember faces, places, scenes, and details from short exposure", Blanked is the answer.',
+      'This page lays out the practical comparison: features, focus, session length, free tier, friend features, the science behind each, and which one fits which kind of player.',
+    ],
+    science: [
+      'Elevate has not published the kind of large in-house research program that Lumosity has. The company has cited research collaborations and points to general cognitive-training literature, but there is no peer-reviewed study of Elevate-the-app specifically that I am aware of in the major journals. Elevate did win the Apple Design Award in 2014 for its UX and design, which is a real but separate kind of validation.',
+      'The wider research is the same here as everywhere else in the brain-training category. Simons and colleagues (2016) reviewed the field for Psychological Science in the Public Interest and concluded that practising a cognitive game reliably improves performance on that game and on closely related tasks, but the evidence for "broad transfer" to general intelligence or unrelated skills is weak. That applies to Elevate, to Blanked, and to every app in this space.',
+      'The narrow training that works best is the kind that targets a specific cognitive function. For verbal and language skills, Elevate is built around exactly that kind of focused practice and the underlying mechanism (deliberate repetition of a specific cognitive task) is well supported by learning research more broadly. For visual memory, focused repetition is what Blanked does, supported by Engle and Kane (2004) and Klingberg (2010) on working memory training.',
+      'Honest take: both apps will sharpen what they explicitly train. Neither will turn you into a different person. Pick the one whose narrow domain matches the skill you actually care about.',
+    ],
+    scienceSources: [
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+      { text: 'Apple Design Awards (2014), Elevate winner' },
+    ],
+    bottomLine: [
+      'Elevate is the right choice if your goal is verbal and analytical skills: vocabulary, reading comprehension, mental math, written expression. The app is genuinely well-designed and the focused practice format is the right shape for those skills.',
+      'Blanked is the right choice if your goal is visual memory: remembering scenes, faces, layouts, and details from short exposure. Different skill, different app, different mechanic.',
+      'These two are unusually compatible. Elevate in the morning for language and math, Blanked on the bus or in a coffee queue for visual memory. They genuinely do not overlap, so using both does not mean you are wasting time on the same training twice.',
+    ],
+    faqs: [
+      {
+        q: 'Is Elevate free to use?',
+        a: 'Elevate has a free tier that gives you a small number of games per day; the full daily workout and most of the catalog sit behind a Pro subscription, currently around £4.99 a month or £39.99 a year depending on region. Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Will Elevate make me smarter?',
+        a: 'Probably not in the broad sense. The Simons et al. (2016) consensus is that brain-training apps reliably improve performance on the games they contain but do not transfer to general intelligence or unrelated skills. Elevate will sharpen the specific verbal and analytical skills its games train. So will Blanked, in its narrower visual-memory domain.',
+      },
+      {
+        q: 'Which is better for memory specifically?',
+        a: 'Blanked, by design. Elevate has memory-themed games but its core focus is language, math, and communication. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth in one area beats breadth across many.',
+      },
+      {
+        q: 'How long do sessions take?',
+        a: 'Elevate workouts are usually three games and run around five minutes. Blanked is two minutes. Both are short enough to fit into most days, which matters more than you would think for actually building a habit.',
+      },
+      {
+        q: 'Can I use both Elevate and Blanked?',
+        a: 'Yes. They train different things and do not overlap. Many people use Elevate for verbal / analytical practice and Blanked for visual memory. If you have ten minutes a day, splitting it between them gives you wider coverage than spending it all in one app.',
+      },
+      {
+        q: 'Does Elevate have head-to-head friend challenges?',
+        a: 'No. Elevate has leaderboards and friend tracking but no mode where you and a friend tackle the exact same task. Blanked has direct head-to-head: same scene, same questions, fair comparison.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only with Android on the roadmap. Elevate is on both.',
+      },
+    ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory', competitor: 'Language, maths, focus', advantage: 'tie' },
       { feature: 'Number of games', blanked: '6 modes, 380+ levels', competitor: '40+ games' },
