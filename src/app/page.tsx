@@ -127,6 +127,20 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ═══ WHAT IS BLANKED ═══ */}
+          <section
+            id="what-is-blanked"
+            style={{ padding: '60px 40px 0', maxWidth: 820, margin: '0 auto' }}
+            aria-label="What is Blanked"
+          >
+            <h2 style={{ fontSize: 28, fontWeight: 800, color: P.text, letterSpacing: -0.3, marginBottom: 16, textAlign: 'center' }}>
+              A free visual memory game built around <span style={{ color: P.accent }}>science, not bloat</span>
+            </h2>
+            <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
+              Blanked is a free visual memory game for iOS. You study a scene full of shapes and colors for a few seconds, the screen goes blank, then you answer questions from memory. Six game modes, 380+ levels, two minutes a day. Built by an independent developer, not a big-tech subscription factory.
+            </p>
+          </section>
+
           {/* ═══ SCIENCE STATS ═══ */}
           <section id="science" style={{ padding: "80px 40px", maxWidth: 1100, margin: "0 auto" }} aria-label="Science-backed benefits">
             <div style={{ textAlign: "center", marginBottom: 48 }}>
