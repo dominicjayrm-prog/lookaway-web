@@ -44,10 +44,60 @@ export const COMPARISONS: Record<string, Comparison> = {
     slug: 'peak',
     name: 'Peak',
     tagline: 'brain games from Popcap alumni',
+    websiteUrl: 'https://www.peak.net',
+    lastUpdated: '2026-04-30',
     verdict:
       'Peak offers a wide variety of brain games across many cognitive domains. Blanked focuses deeply on visual memory specifically. Pick Blanked if you want to train one skill really well; pick Peak if you want breadth.',
     aboutCompetitor:
-      'Peak is a well-established brain-training app with 40+ games across memory, attention, language, and problem solving. It has been on the App Store since 2014 and is owned by Popcap / EA.',
+      'Peak is a well-established brain-training app with 40+ games across memory, attention, language, and problem solving. It has been on the App Store since 2014 and is owned by Popcap / EA. Peak partners with researchers from Cambridge and Yale, who help design some of the games and contribute the cognitive framing for Peak Pro.',
+    intro: [
+      'Peak and Blanked are both brain-training apps, but they answer two very different questions. Peak asks: how can we train your brain across as many cognitive areas as possible? Blanked asks: how can we make your visual memory genuinely sharper in two minutes a day?',
+      'If you have used Peak before you know the rhythm: a daily workout of three or four mini-games drawn from a rotating pool of forty plus, covering memory, attention, language, problem solving, and emotional control. It is engaging, gamified, and well-designed. It is also a buffet, and you cannot get really good at any one thing on a buffet diet.',
+      'Blanked is the opposite. One core mechanic, six modes, 380 plus levels of focused visual-memory training. The whole session is two minutes. There is nothing else to distract you. This page lays out how the two apps actually compare, where each one wins, and which one fits which kind of player.',
+    ],
+    science: [
+      'Peak collaborates with academic researchers, most notably the team behind Cambridge Brain Sciences (Adrian Owen and colleagues). Owen led the well-known 2010 Nature paper "Putting brain training to the test", which found that while participants improved on the games they trained, those gains did not transfer to broader untrained cognitive abilities. Peak has published less in-house research than Lumosity, but it benefits from this academic association.',
+      'The wider research consensus, summarised in Simons and colleagues (2016) for Psychological Science in the Public Interest, is consistent: short cognitive games reliably improve performance on the games themselves and on very closely related tasks, but the evidence for "broad transfer" to general intelligence or everyday function is weak. This applies to Peak, to Blanked, and to every app in this category.',
+      'Where Blanked is honest: we do not promise general cognitive improvement. We promise that focused visual-memory practice will sharpen visual memory, which is what the focused-training literature supports (Engle and Kane, 2004; Klingberg, 2010). If you train visual recall every day, your visual recall gets sharper. That is the narrow but real benefit.',
+      'Peak is genuinely well-designed and the academic partnership is a real plus for credibility. Just calibrate expectations: it will sharpen the specific skills its games train, not your overall brainpower.',
+    ],
+    scienceSources: [
+      { text: 'Owen et al. (2010), "Putting brain training to the test", Nature', url: 'https://www.nature.com/articles/nature09042' },
+      { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
+      { text: 'Engle & Kane (2004), "Executive Attention, Working Memory Capacity, and a Two-Factor Theory of Cognitive Control"' },
+      { text: 'Klingberg (2010), "Training and plasticity of working memory", Trends in Cognitive Sciences' },
+    ],
+    bottomLine: [
+      'Peak is the right choice if you want a daily cognitive workout that touches lots of different skills, you enjoy a slightly longer session, and you are happy with a subscription model. The Cambridge / Yale academic association is a real point in its favor.',
+      'Blanked is the right choice if you actually want to get noticeably sharper at one specific skill, you want a two-minute daily habit instead of a fifteen-minute one, and you want the full game free. The narrow focus is the feature, not a limitation.',
+      'You can absolutely use both. Peak in the morning for a varied workout, Blanked on the bus when you have two minutes spare. They do not really compete with each other if you treat them as different tools.',
+    ],
+    faqs: [
+      {
+        q: 'Is Peak free to use?',
+        a: 'Peak has a free tier with a limited daily workout, but most of the catalog and Peak Pro features sit behind a subscription (around £4.99 a month or roughly £40 a year, depending on your region and current pricing). Blanked is fully free to play, with an optional Blanked+ subscription that removes ads and adds cosmetics, not gameplay.',
+      },
+      {
+        q: 'Will Peak make me smarter?',
+        a: 'Probably not in any general sense. The Owen et al. (2010) study and the Simons et al. (2016) consensus both found that brain-training apps reliably improve performance on the games themselves but do not transfer to broader real-world abilities. Peak will sharpen the specific skills its games train. So will Blanked, in its narrower domain.',
+      },
+      {
+        q: 'Which is better for memory specifically?',
+        a: 'Blanked, by design. Peak has memory-themed games but they are one of many categories. Blanked is six modes and 380 plus levels all focused on visual memory. Depth beats breadth when you are trying to actually improve a specific skill.',
+      },
+      {
+        q: 'How long do sessions take?',
+        a: 'Peak workouts run roughly ten to fifteen minutes if you do the full daily routine. Blanked sessions are two minutes. The shorter session is easier to keep doing day after day, which is what actually matters for skill building.',
+      },
+      {
+        q: 'Does Peak have head-to-head friend challenges?',
+        a: 'Peak has leaderboards and lets you see friends\' scores, but there is no mode where you and a friend tackle the exact same scene or puzzle. Blanked sends a friend the same scene and same questions you saw, so the comparison is fair.',
+      },
+      {
+        q: 'Is Blanked available on Android?',
+        a: 'Not yet. Blanked is iOS-only at the moment with Android on the roadmap. Peak is on both iOS and Android.',
+      },
+    ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training', advantage: 'tie' },
       { feature: 'Number of game modes', blanked: '6 modes, 380+ levels', competitor: '40+ games, shorter per-game depth' },
