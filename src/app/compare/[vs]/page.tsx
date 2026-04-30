@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
+import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import BlogDownloadCTA from '@/components/blog/BlogDownloadCTA';
 import { COMPARISONS } from '@/lib/comparisons';
 import { COLORS, SITE_URL } from '@/lib/constants';
@@ -51,7 +52,7 @@ export default async function ComparePage({ params }: { params: Params }) {
   const c = COMPARISONS[vs];
   if (!c) notFound();
 
-  const jsonLd = {
+  const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `Blanked vs ${c.name}`,
@@ -59,11 +60,32 @@ export default async function ComparePage({ params }: { params: Params }) {
     author: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
     publisher: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/compare/${c.slug}` },
+    ...(c.lastUpdated ? { dateModified: c.lastUpdated } : {}),
   };
+
+  const faqJsonLd = c.faqs && c.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: c.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  } : null;
 
   return (
     <div style={{ background: P.bg, minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: SITE_URL },
+          { name: 'Compare', url: `${SITE_URL}/compare` },
+          { name: `Blanked vs ${c.name}` },
+        ]}
+      />
 
       <header style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 40px' }}>
         <Link href="/" aria-label="Blanked home" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
@@ -105,10 +127,19 @@ export default async function ComparePage({ params }: { params: Params }) {
           </p>
         </div>
 
+        {/* Intro */}
+        {c.intro && c.intro.length > 0 && (
+          <section style={{ marginBottom: 40 }}>
+            {c.intro.map((p, i) => (
+              <p key={i} style={paraStyle}>{p}</p>
+            ))}
+          </section>
+        )}
+
         {/* About competitor */}
         <section style={{ marginBottom: 40 }}>
-          <h2 style={{ fontSize: 22, fontWeight: 800, color: P.text, marginBottom: 12 }}>About {c.name}</h2>
-          <p style={{ fontSize: 16, color: '#636E72', lineHeight: 1.7 }}>
+          <h2 style={h2Style}>About {c.name}</h2>
+          <p style={paraStyle}>
             {c.aboutCompetitor}
           </p>
         </section>
@@ -178,7 +209,76 @@ export default async function ComparePage({ params }: { params: Params }) {
           </div>
         </section>
 
+        {/* Science */}
+        {c.science && c.science.length > 0 && (
+          <section style={{ marginBottom: 40 }}>
+            <h2 style={h2Style}>The science behind each app</h2>
+            {c.science.map((p, i) => (
+              <p key={i} style={paraStyle}>{p}</p>
+            ))}
+            {c.scienceSources && c.scienceSources.length > 0 && (
+              <div style={{ marginTop: 20, padding: '14px 16px', borderRadius: 10, background: '#FAFAF7', border: '1px solid rgba(0,0,0,0.04)' }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: '#636E72', letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 }}>
+                  Sources
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, color: '#636E72', lineHeight: 1.5 }}>
+                  {c.scienceSources.map((s, i) => (
+                    <li key={i}>
+                      {s.url ? (
+                        <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: P.accent, textDecoration: 'underline' }}>{s.text}</a>
+                      ) : s.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Bottom line */}
+        {c.bottomLine && c.bottomLine.length > 0 && (
+          <section style={{ marginBottom: 40 }}>
+            <h2 style={h2Style}>The bottom line</h2>
+            {c.bottomLine.map((p, i) => (
+              <p key={i} style={paraStyle}>{p}</p>
+            ))}
+            {c.websiteUrl && (
+              <p style={{ ...paraStyle, fontSize: 14, color: P.textD }}>
+                Want to compare for yourself? Visit{' '}
+                <a href={c.websiteUrl} target="_blank" rel="noopener noreferrer" style={{ color: P.accent, textDecoration: 'underline' }}>
+                  {c.name}&apos;s site
+                </a>
+                .
+              </p>
+            )}
+          </section>
+        )}
+
         <BlogDownloadCTA />
+
+        {/* FAQ */}
+        {c.faqs && c.faqs.length > 0 && (
+          <section style={{ marginTop: 40 }}>
+            <h2 style={h2Style}>Frequently asked questions</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {c.faqs.map((f, i) => (
+                <details key={i} style={{ background: 'white', border: '1px solid rgba(0,0,0,0.04)', borderRadius: 10, padding: '14px 18px' }}>
+                  <summary style={{ cursor: 'pointer', fontSize: 15, fontWeight: 700, color: P.text }}>{f.q}</summary>
+                  <p style={{ fontSize: 15, color: '#636E72', lineHeight: 1.65, marginTop: 10, marginBottom: 0 }}>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Last updated */}
+        {c.lastUpdated && (
+          <p style={{ fontSize: 12, color: P.textD, marginTop: 28, textAlign: 'center' }}>
+            Last updated: {new Date(c.lastUpdated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+            {' · '}
+            <Link href="/compare" style={{ color: P.accent, textDecoration: 'underline' }}>back to all comparisons</Link>
+          </p>
+        )}
 
         {/* Other comparisons */}
         <section style={{ marginTop: 40 }}>
@@ -209,6 +309,12 @@ export default async function ComparePage({ params }: { params: Params }) {
   );
 }
 
+const h2Style: React.CSSProperties = {
+  fontSize: 22, fontWeight: 800, color: COLORS.text, marginBottom: 12,
+};
+const paraStyle: React.CSSProperties = {
+  fontSize: 16, color: '#636E72', lineHeight: 1.7, marginBottom: 14,
+};
 const hCell: React.CSSProperties = {
   padding: '12px 16px', fontSize: 12, fontWeight: 700,
   color: '#636E72', letterSpacing: 0.5, textTransform: 'uppercase',
