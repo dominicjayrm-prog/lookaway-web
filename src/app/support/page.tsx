@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
+import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, CONTACT_EMAIL, SITE_URL, APP_STORE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -106,6 +107,7 @@ function Em() {
 export default function SupportPage() {
   return (
     <div style={{ width: '100%', background: P.bg, minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+      <BreadcrumbSchema items={[{ name: 'Home', url: SITE_URL }, { name: 'Support' }]} />
       {/* NAV */}
       <header style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 40px', display: 'flex', alignItems: 'center', gap: 10 }}>
         <Link href="/" aria-label="Blanked home" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>

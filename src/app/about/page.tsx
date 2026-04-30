@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
+import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, APP_STORE_URL, SITE_URL, FOUNDER } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ const p: React.CSSProperties = { fontSize: 16, color: '#636E72', lineHeight: 1.7
 export default function AboutPage() {
   return (
     <div style={{ width: '100%', background: P.bg, minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+      <BreadcrumbSchema items={[{ name: 'Home', url: SITE_URL }, { name: 'About' }]} />
       <header style={{ maxWidth: 1100, margin: '0 auto', padding: '20px 40px' }}>
         <Link href="/" aria-label="Blanked home" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
           <Blink size={30} expression="normal" />
@@ -89,7 +91,7 @@ export default function AboutPage() {
             </li>
             <li style={valueCard}>
               <strong style={valueTitle}>Free to play, seriously</strong>
-              The whole game is free. All 380+ levels. Blanked+ is optional, not a gate on the content you care about.
+              The whole game is free. All 400+ levels. Blanked+ is optional, not a gate on the content you care about.
             </li>
             <li style={valueCard}>
               <strong style={valueTitle}>Small team, made with care</strong>

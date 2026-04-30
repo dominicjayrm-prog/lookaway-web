@@ -53,7 +53,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     intro: [
       'Peak and Blanked are both brain-training apps, but they answer two very different questions. Peak asks: how can we train your brain across as many cognitive areas as possible? Blanked asks: how can we make your visual memory genuinely sharper in two minutes a day?',
       'If you have used Peak before you know the rhythm: a daily workout of three or four mini-games drawn from a rotating pool of forty plus, covering memory, attention, language, problem solving, and emotional control. It is engaging, gamified, and well-designed. It is also a buffet, and you cannot get really good at any one thing on a buffet diet.',
-      'Blanked is the opposite. One core mechanic, six modes, 380 plus levels of focused visual-memory training. The whole session is two minutes. There is nothing else to distract you. This page lays out how the two apps actually compare, where each one wins, and which one fits which kind of player.',
+      'Blanked is the opposite. One core mechanic, six modes, 400 plus levels of focused visual-memory training. The whole session is two minutes. There is nothing else to distract you. This page lays out how the two apps actually compare, where each one wins, and which one fits which kind of player.',
     ],
     science: [
       'Peak collaborates with academic researchers, most notably the team behind Cambridge Brain Sciences (Adrian Owen and colleagues). Owen led the well-known 2010 Nature paper "Putting brain training to the test", which found that while participants improved on the games they trained, those gains did not transfer to broader untrained cognitive abilities. Peak has published less in-house research than Lumosity, but it benefits from this academic association.',
@@ -83,7 +83,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Which is better for memory specifically?',
-        a: 'Blanked, by design. Peak has memory-themed games but they are one of many categories. Blanked is six modes and 380 plus levels all focused on visual memory. Depth beats breadth when you are trying to actually improve a specific skill.',
+        a: 'Blanked, by design. Peak has memory-themed games but they are one of many categories. Blanked is six modes and 400 plus levels all focused on visual memory. Depth beats breadth when you are trying to actually improve a specific skill.',
       },
       {
         q: 'How long do sessions take?',
@@ -100,7 +100,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training', advantage: 'tie' },
-      { feature: 'Number of game modes', blanked: '6 modes, 380+ levels', competitor: '40+ games, shorter per-game depth' },
+      { feature: 'Number of game modes', blanked: '6 modes, 400+ levels', competitor: '40+ games, shorter per-game depth' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '10-15 minutes' },
       { feature: 'Price', blanked: 'Free to play, optional Blanked+ subscription', competitor: 'Subscription only (Peak Pro ~£4.99/mo)', advantage: 'blanked' },
       { feature: 'Mascot / personality', blanked: 'Blink, a character who reacts in real time', competitor: 'No mascot', advantage: 'blanked' },
@@ -133,7 +133,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       'Lumosity launched in 2007 and was one of the first brain-training platforms. It has 50+ games and an extensive in-house research program (Lumos Labs). In 2016 the company was fined $2 million by the US Federal Trade Commission for overselling cognitive benefits in its advertising; they have since tempered the marketing claims considerably.',
     intro: [
       'Lumosity is the app that basically invented modern brain training. It launched in 2007, peaked at over 100 million accounts, and made "training your brain" feel like brushing your teeth. If you have ever heard the phrase "brain games" outside of a sceptical academic context, Lumosity probably planted that seed.',
-      'Blanked is much smaller and much newer. It does one thing: visual memory training, six modes, 380 plus levels, two minutes a day. No daily fit index, no five-skill scorecard, no fifty-game catalog. Just one focused mechanic, executed properly.',
+      'Blanked is much smaller and much newer. It does one thing: visual memory training, six modes, 400 plus levels, two minutes a day. No daily fit index, no five-skill scorecard, no fifty-game catalog. Just one focused mechanic, executed properly.',
       'This page lays out the honest comparison. Where Lumosity is genuinely better. Where Blanked is genuinely better. And what the actual research says about brain-training apps in general, including the FTC settlement that Lumosity does not love to talk about.',
     ],
     science: [
@@ -168,7 +168,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Which is better for memory?',
-        a: 'Blanked, if visual memory is what you mean. Lumosity has memory-themed games, but they sit alongside attention, problem-solving, language, and math. Blanked focuses entirely on visual memory across six modes and 380 plus levels. Depth wins when you are trying to actually improve a specific skill.',
+        a: 'Blanked, if visual memory is what you mean. Lumosity has memory-themed games, but they sit alongside attention, problem-solving, language, and math. Blanked focuses entirely on visual memory across six modes and 400 plus levels. Depth wins when you are trying to actually improve a specific skill.',
       },
       {
         q: 'How long do daily sessions take?',
@@ -185,7 +185,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'General cognition across 5 areas' },
-      { feature: 'Number of games', blanked: '6 modes, 380+ levels', competitor: '50+ games' },
+      { feature: 'Number of games', blanked: '6 modes, 400+ levels', competitor: '50+ games' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '10-15 minutes (3 games a day)' },
       { feature: 'Price', blanked: 'Free to play, optional Blanked+', competitor: '£11.99/mo or £59.99/yr', advantage: 'blanked' },
       { feature: 'Mascot / personality', blanked: 'Blink', competitor: 'No mascot', advantage: 'blanked' },
@@ -224,7 +224,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across many skills' },
-      { feature: 'Number of games', blanked: '6 modes, 380+ levels', competitor: '~40 mini-games, daily rotating set' },
+      { feature: 'Number of games', blanked: '6 modes, 400+ levels', competitor: '~40 mini-games, daily rotating set' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '~10 minutes per daily routine' },
       { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited daily games, rest paywalled' },
       { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot', advantage: 'blanked' },
@@ -271,7 +271,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Which is better for memory specifically?',
-        a: 'Blanked, by design. Impulse has a memory category, but it is one of many. Blanked focuses entirely on visual memory across six game modes and 380+ levels. If memory is your goal, the deeper, more focused practice wins.',
+        a: 'Blanked, by design. Impulse has a memory category, but it is one of many. Blanked focuses entirely on visual memory across six game modes and 400+ levels. If memory is your goal, the deeper, more focused practice wins.',
       },
       {
         q: 'How long does each app take per day?',
@@ -331,7 +331,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Which is better for memory specifically?',
-        a: 'Blanked, by design. Elevate has memory-themed games but its core focus is language, math, and communication. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth in one area beats breadth across many.',
+        a: 'Blanked, by design. Elevate has memory-themed games but its core focus is language, math, and communication. Blanked is six modes and 400 plus levels of focused visual-memory practice. If memory is the goal, depth in one area beats breadth across many.',
       },
       {
         q: 'How long do sessions take?',
@@ -352,7 +352,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory', competitor: 'Language, maths, focus', advantage: 'tie' },
-      { feature: 'Number of games', blanked: '6 modes, 380+ levels', competitor: '40+ games' },
+      { feature: 'Number of games', blanked: '6 modes, 400+ levels', competitor: '40+ games' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '~5 minutes, 3 games a day' },
       { feature: 'Price', blanked: 'Free to play, optional Blanked+', competitor: '£4.99/mo or £39.99/yr' },
       { feature: 'Free tier', blanked: 'Full game free to play', competitor: '3 games a day free, rest paywalled' },
@@ -391,7 +391,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across 5 areas' },
-      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '60+ exercises' },
+      { feature: 'Number of exercises', blanked: '6 modes, 400+ levels', competitor: '60+ exercises' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '~15 minutes per training plan session' },
       { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited number of exercises free, rest paywalled' },
       { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, clinical tone', advantage: 'blanked' },
@@ -443,7 +443,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Which is better for memory specifically?',
-        a: 'Blanked, by design. NeuroNation has memory exercises but they are one of five categories. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth beats breadth.',
+        a: 'Blanked, by design. NeuroNation has memory exercises but they are one of five categories. Blanked is six modes and 400 plus levels of focused visual-memory practice. If memory is the goal, depth beats breadth.',
       },
       {
         q: 'How long do sessions take?',
@@ -477,7 +477,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Broad cognitive training across many domains, particularly attention and processing speed' },
-      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '~30 exercises across 6 categories' },
+      { feature: 'Number of exercises', blanked: '6 modes, 400+ levels', competitor: '~30 exercises across 6 categories' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '~30 minutes per recommended daily plan' },
       { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited free trial, then subscription' },
       { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, professional tone', advantage: 'blanked' },
@@ -528,7 +528,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Should I pick BrainHQ over Blanked for visual memory?',
-        a: 'For visual memory specifically, no. BrainHQ\'s research strength is in attention, processing speed, and aging-related cognition. Blanked is built end-to-end around visual memory practice with six modes and 380 plus levels. Different goals.',
+        a: 'For visual memory specifically, no. BrainHQ\'s research strength is in attention, processing speed, and aging-related cognition. Blanked is built end-to-end around visual memory practice with six modes and 400 plus levels. Different goals.',
       },
       {
         q: 'Is BrainHQ better for older adults?',
@@ -557,13 +557,13 @@ export const COMPARISONS: Record<string, Comparison> = {
       'CogniFit is an Israeli company that has been in the cognitive-assessment and training space since 1999. It is unusual in this market in that it offers cognitive assessments alongside games, including products positioned for ADHD, depression, and stroke recovery, sold to individuals as well as to clinics, schools, and researchers. The training games themselves cover memory, attention, perception, coordination, and reasoning.',
     intro: [
       'CogniFit is one of the older players in this category and probably the most clinical-feeling one available to consumers. It is the only mainstream brain-training app you might run into in a hospital or research lab as easily as on a phone.',
-      'Blanked is the opposite kind of product. It is a casual game built around one focused mechanic. There is no assessment, no training plan, no condition-specific package. There is just visual memory practice, two minutes at a time, six modes, 380 plus levels.',
+      'Blanked is the opposite kind of product. It is a casual game built around one focused mechanic. There is no assessment, no training plan, no condition-specific package. There is just visual memory practice, two minutes at a time, six modes, 400 plus levels.',
       'The honest comparison here is about intent. If you are interested in assessments, condition-specific training, or a platform that gets used in clinical or research contexts, CogniFit is the right shape. If you are looking for a casual daily habit, Blanked is.',
     ],
     rows: [
       { feature: 'Core focus', blanked: 'Visual memory, done deeply', competitor: 'Cognitive assessment plus broad training across many domains' },
       { feature: 'Assessment vs training', blanked: 'Training only, no assessment', competitor: 'Both assessment and training', advantage: 'competitor' },
-      { feature: 'Number of exercises', blanked: '6 modes, 380+ levels', competitor: '20+ exercises and several condition-specific packages' },
+      { feature: 'Number of exercises', blanked: '6 modes, 400+ levels', competitor: '20+ exercises and several condition-specific packages' },
       { feature: 'Session length', blanked: '2 minutes', competitor: '~20 minutes per recommended training session' },
       { feature: 'Free tier', blanked: 'Full game free to play', competitor: 'Limited free trial, then subscription' },
       { feature: 'Mascot / personality', blanked: 'Blink, a character that reacts in real time', competitor: 'No mascot, clinical tone', advantage: 'blanked' },
@@ -614,7 +614,7 @@ export const COMPARISONS: Record<string, Comparison> = {
       },
       {
         q: 'Which is better for memory specifically?',
-        a: 'Blanked, by design. CogniFit covers many cognitive domains. Blanked is six modes and 380 plus levels of focused visual-memory practice. If memory is the goal, depth wins.',
+        a: 'Blanked, by design. CogniFit covers many cognitive domains. Blanked is six modes and 400 plus levels of focused visual-memory practice. If memory is the goal, depth wins.',
       },
       {
         q: 'How long do sessions take?',

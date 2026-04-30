@@ -22,7 +22,7 @@ const jsonLd = [
     "operatingSystem": "iOS",
     "applicationCategory": "GameApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "description": "A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 380+ levels.",
+    "description": "A free visual memory game built around how memory actually works. Study the scene, it disappears, answer from memory. 6 game modes, 400+ levels.",
     "url": SITE_URL,
     "author": { "@type": "Organization", "name": "Blanked" },
     "genre": "Brain Training",
@@ -67,19 +67,19 @@ const scienceCards = [
   {
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0984E3" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="#0984E3" strokeWidth="2" strokeLinecap="round"/></svg>,
     color: P.blue, stat: 23, label: "faster recall",
-    desc: "Memory training improves how quickly you retrieve information",
+    desc: "Research on working-memory training shows up to 23% faster retrieval on trained tasks.",
     source: { text: "Engle & Kane (2004)", url: "https://www.sciencedirect.com/science/article/abs/pii/S0079742103440104" },
   },
   {
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#00B894" strokeWidth="2"/><path d="M8 12l3 3 5-6" stroke="#00B894" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-    color: P.green, stat: 31, label: "better focus",
-    desc: "Visual memory exercises strengthen your attention span",
+    color: P.green, stat: 31, label: "improved attention",
+    desc: "Visual working-memory training is associated with measurable gains on focused-attention tasks.",
     source: { text: "Klingberg (2010)", url: "https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(10)00114-1" },
   },
   {
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6C5CE7" strokeWidth="2"/><polyline points="4,18 9,12 13,15 20,6" stroke="#6C5CE7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-    color: P.accent, stat: 40, label: "sharper with age",
-    desc: "Consistent brain training maintains cognitive function long-term",
+    color: P.accent, stat: 40, label: "lower dementia risk",
+    desc: "10-year follow-up of speed-of-processing training showed reduced dementia risk in older adults.",
     source: { text: "ACTIVE Trial: Edwards et al. (2017)", url: "https://doi.org/10.1016/j.trci.2017.09.002" },
   },
 ];
@@ -109,7 +109,7 @@ export default function Home() {
                 </h1>
 
                 <p className="fu fu2" style={{ fontSize: 17, color: "#636E72", lineHeight: 1.6, margin: "0 0 32px" }}>
-                  A visual memory game backed by science. Study the scene. It disappears. Answer from memory. Just 2 minutes a day.
+                  A visual memory game built around how memory actually works. Study the scene. It disappears. Answer from memory. Just 2 minutes a day.
                 </p>
 
                 <div className="fu fu3" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
@@ -126,7 +126,7 @@ export default function Home() {
                 </div>
 
                 <div className="fu fu4 stats-row" style={{ display: "flex", gap: 40 }}>
-                  {[{ v: "380+", l: "Levels" }, { v: "6", l: "Game modes" }, { v: "2 min", l: "Per session" }].map((s, i) => (
+                  {[{ v: "400+", l: "Levels" }, { v: "6", l: "Game modes" }, { v: "2 min", l: "Per session" }].map((s, i) => (
                     <div key={i}>
                       <div style={{ fontSize: 28, fontWeight: 800, color: P.text }}>{s.v}</div>
                       <div style={{ fontSize: 13, color: "#B2BEC3", marginTop: 2 }}>{s.l}</div>
@@ -146,22 +146,81 @@ export default function Home() {
           {/* ═══ WHAT IS BLANKED ═══ */}
           <section
             id="what-is-blanked"
-            style={{ padding: '60px 40px 0', maxWidth: 820, margin: '0 auto' }}
+            style={{
+              padding: '80px 40px',
+              background: `linear-gradient(180deg, transparent 0%, ${P.accent}06 100%)`,
+            }}
             aria-label="What is Blanked"
           >
-            <h2 style={{ fontSize: 28, fontWeight: 800, color: P.text, letterSpacing: -0.3, marginBottom: 16, textAlign: 'center' }}>
-              A free visual memory game built around <span style={{ color: P.accent }}>science, not bloat</span>
-            </h2>
-            <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
-              Blanked is a free visual memory game for iOS. You study a scene full of shapes and colors for a few seconds, the screen goes blank, then you answer questions from memory. Six game modes, 380+ levels, two minutes a day. Built by an independent developer, not a big-tech subscription factory.
-            </p>
+            <div style={{ maxWidth: 820, margin: '0 auto', textAlign: 'center' }}>
+              {/* Credibility pill */}
+              <span
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '6px 14px', borderRadius: 999,
+                  background: `${P.accent}10`, border: `1px solid ${P.accent}30`,
+                  fontSize: 12, fontWeight: 600, color: P.accent,
+                  letterSpacing: 0.3, marginBottom: 20,
+                }}
+              >
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: P.accent }} />
+                Independent · Free · iOS
+              </span>
+
+              {/* Headline with gradient highlight on the punch line */}
+              <h2
+                style={{
+                  fontSize: 40, fontWeight: 800, color: P.text,
+                  letterSpacing: -0.5, lineHeight: 1.15, margin: '0 0 20px',
+                }}
+              >
+                A free visual memory game,{' '}
+                <span
+                  style={{
+                    background: `linear-gradient(90deg, ${P.accent}, ${P.accentL})`,
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    color: 'transparent',
+                  }}
+                >
+                  built by one developer, not a corporation
+                </span>
+              </h2>
+
+              <p style={{ fontSize: 17, color: '#636E72', lineHeight: 1.7, maxWidth: 680, margin: '0 auto 28px' }}>
+                Blanked is a free visual memory game for iOS. Study a scene, watch it disappear, answer from memory. Six game modes, 400+ levels, two minutes a day. No subscriptions to access the core game. No engagement-maxing bloat. Just memory training.
+              </p>
+
+              {/* Stat chips */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 12 }}>
+                {[
+                  { v: '6', l: 'game modes' },
+                  { v: '400+', l: 'levels' },
+                  { v: '2 min', l: 'per day' },
+                ].map((s, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      display: 'inline-flex', alignItems: 'baseline', gap: 8,
+                      padding: '10px 18px', borderRadius: 12,
+                      background: 'white', border: '1px solid rgba(0,0,0,0.05)',
+                      boxShadow: '0 1px 8px rgba(0,0,0,0.03)',
+                    }}
+                  >
+                    <span style={{ fontSize: 22, fontWeight: 800, color: P.text }}>{s.v}</span>
+                    <span style={{ fontSize: 13, color: '#636E72' }}>{s.l}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </section>
 
           {/* ═══ SCIENCE STATS ═══ */}
           <section id="science" style={{ padding: "80px 40px", maxWidth: 1100, margin: "0 auto" }} aria-label="Science-backed benefits">
             <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Backed by science</div>
-              <h2 style={{ fontSize: 36, fontWeight: 800, color: P.text }}>Memory training actually <span style={{ color: P.accent }}>works</span></h2>
+              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Memory research</div>
+              <h2 style={{ fontSize: 36, fontWeight: 800, color: P.text }}>What the research says about <span style={{ color: P.accent }}>memory training</span></h2>
             </div>
             <div className="science-cards" style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap" }}>
               {scienceCards.map((card, i) => (
@@ -188,6 +247,10 @@ export default function Home() {
                 </article>
               ))}
             </div>
+
+            <p style={{ fontSize: 12, color: P.textD, textAlign: 'center', maxWidth: 720, margin: '28px auto 0', lineHeight: 1.55 }}>
+              These figures describe research on memory training generally. Blanked applies the same training principles. Studies measure performance on trained tasks; individual results vary, and gains tend to be narrow (Simons et al., 2016).
+            </p>
           </section>
 
           {/* ═══ GAME MODES ═══ */}
@@ -236,7 +299,7 @@ export default function Home() {
                 },
                 {
                   title: 'Built for visual memory',
-                  body: 'While other apps spread thin across math, vocabulary, and logic, Blanked focuses on one thing: making your visual recall sharper. Six modes and 380+ levels of focused practice.',
+                  body: 'While other apps spread thin across math, vocabulary, and logic, Blanked focuses on one thing: making your visual recall sharper. Six modes and 400+ levels of focused practice.',
                 },
                 {
                   title: 'Two minutes, every day',
@@ -287,7 +350,7 @@ export default function Home() {
               </p>
 
               <div style={{ display: "flex", justifyContent: "center", gap: 32, marginBottom: 28 }}>
-                {[{ v: "2 min", l: "per session" }, { v: "380+", l: "levels" }, { v: "6", l: "game modes" }].map((s, i) => (
+                {[{ v: "2 min", l: "per session" }, { v: "400+", l: "levels" }, { v: "6", l: "game modes" }].map((s, i) => (
                   <div key={i}>
                     <div style={{ fontSize: 20, fontWeight: 800, color: P.text }}>{s.v}</div>
                     <div style={{ fontSize: 11, color: "#B2BEC3" }}>{s.l}</div>

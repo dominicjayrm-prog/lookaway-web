@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
+import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -43,6 +44,7 @@ const tldrStyle: React.CSSProperties = {
 export default function TermsPageES() {
   return (
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
+      <BreadcrumbSchema items={[{ name: 'Inicio', url: SITE_URL }, { name: 'Términos del Servicio' }]} />
       {/* NAV */}
       <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
         <Link href="/" aria-label="Blanked inicio" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
@@ -80,7 +82,7 @@ export default function TermsPageES() {
             Blanked es un juego de memoria visual disponible en iOS. La Aplicación incluye:
           </p>
           <ul style={ulStyle}>
-            <li>Un juego base gratuito con más de 380 niveles repartidos en 6 modos de juego, duelos cara a cara con amistades y publicidad opcional dentro de la aplicación</li>
+            <li>Un juego base gratuito con más de 400 niveles repartidos en 6 modos de juego, duelos cara a cara con amistades y publicidad opcional dentro de la aplicación</li>
             <li><strong>Blanked+</strong>: una suscripción de renovación automática que desbloquea vidas ilimitadas, cosméticos exclusivos y elimina los anuncios (disponible en plan mensual o anual)</li>
             <li>Compras únicas opcionales dentro de la aplicación, como packs de gemas y la mejora &laquo;Quitar anuncios&raquo;</li>
           </ul>

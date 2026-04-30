@@ -7,16 +7,16 @@ import { COLORS, APP_SCHEME } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Join me on Blanked!',
-  description: 'A friend invited you to play Blanked - the visual memory game backed by science. 6 game modes, 380+ levels. Download it free on iOS and start training your memory.',
+  description: 'A friend invited you to play Blanked - a free visual memory game built around how memory actually works. 6 game modes, 400+ levels. Download it free on iOS and start training your memory.',
   openGraph: {
     title: 'Join me on Blanked!',
-    description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 380+ levels. Download free.',
+    description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 400+ levels. Download free.',
     images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Join me on Blanked!',
-    description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 380+ levels. Download free.',
+    description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 400+ levels. Download free.',
     images: ['/og-image.png'],
   },
   robots: { index: false, follow: false },
