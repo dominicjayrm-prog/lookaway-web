@@ -7,6 +7,7 @@ import { HOME_FAQS } from '@/lib/home-faqs';
 import PhoneMockup from '@/components/PhoneMockup';
 import StickyNav from '@/components/StickyNav';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import { COLORS, APP_STORE_URL, SITE_URL } from '@/lib/constants';
 
@@ -260,6 +261,11 @@ export default function Home() {
 
           {/* ═══ MEET BLINK ═══ */}
           <MeetBlink />
+
+          {/* ═══ TESTIMONIALS ═══ */}
+          {/* Renders nothing while src/lib/testimonials.ts is empty.
+              Add real App Store quotes there to switch this section on. */}
+          <Testimonials />
 
           {/* ═══ FROM THE BLOG ═══ */}
           <LatestPosts />
