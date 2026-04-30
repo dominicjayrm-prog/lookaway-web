@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Blanked: Free Visual Memory Game | Train Your Brain Daily',
     template: '%s | Blanked',
   },
-  description: 'Blanked is a free memory training game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 400+ levels. Play free on iOS.',
+  description: 'Blanked is a free memory training game built around how memory actually works. Study the scene, it disappears, answer from memory. 6 game modes, 400+ levels. Play free on iOS.',
   authors: [{ name: 'Blanked' }],
   creator: 'Blanked',
   publisher: 'Blanked',

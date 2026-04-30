@@ -7,7 +7,7 @@ import { COLORS, APP_SCHEME } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Join me on Blanked!',
-  description: 'A friend invited you to play Blanked - the visual memory game backed by science. 6 game modes, 400+ levels. Download it free on iOS and start training your memory.',
+  description: 'A friend invited you to play Blanked - a free visual memory game built around how memory actually works. 6 game modes, 400+ levels. Download it free on iOS and start training your memory.',
   openGraph: {
     title: 'Join me on Blanked!',
     description: 'A friend wants you to play Blanked - the visual memory game. 6 game modes, 400+ levels. Download free.',

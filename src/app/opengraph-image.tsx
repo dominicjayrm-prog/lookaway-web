@@ -41,7 +41,7 @@ export default async function Image() {
             Train your memory in 2 minutes a day
           </div>
           <div style={{ fontSize: 20, color: '#636E72', display: 'flex' }}>
-            The visual memory game backed by science
+            A free visual memory game, built by one developer
           </div>
         </div>
 

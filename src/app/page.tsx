@@ -22,7 +22,7 @@ const jsonLd = [
     "operatingSystem": "iOS",
     "applicationCategory": "GameApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "description": "A visual memory game backed by science. Study the scene, it disappears, answer from memory. 6 game modes, 400+ levels.",
+    "description": "A free visual memory game built around how memory actually works. Study the scene, it disappears, answer from memory. 6 game modes, 400+ levels.",
     "url": SITE_URL,
     "author": { "@type": "Organization", "name": "Blanked" },
     "genre": "Brain Training",
@@ -109,7 +109,7 @@ export default function Home() {
                 </h1>
 
                 <p className="fu fu2" style={{ fontSize: 17, color: "#636E72", lineHeight: 1.6, margin: "0 0 32px" }}>
-                  A visual memory game backed by science. Study the scene. It disappears. Answer from memory. Just 2 minutes a day.
+                  A visual memory game built around how memory actually works. Study the scene. It disappears. Answer from memory. Just 2 minutes a day.
                 </p>
 
                 <div className="fu fu3" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
@@ -219,8 +219,8 @@ export default function Home() {
           {/* ═══ SCIENCE STATS ═══ */}
           <section id="science" style={{ padding: "80px 40px", maxWidth: 1100, margin: "0 auto" }} aria-label="Science-backed benefits">
             <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Backed by science</div>
-              <h2 style={{ fontSize: 36, fontWeight: 800, color: P.text }}>Memory training actually <span style={{ color: P.accent }}>works</span></h2>
+              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Memory research</div>
+              <h2 style={{ fontSize: 36, fontWeight: 800, color: P.text }}>What the research says about <span style={{ color: P.accent }}>memory training</span></h2>
             </div>
             <div className="science-cards" style={{ display: "flex", gap: 20, justifyContent: "center", flexWrap: "wrap" }}>
               {scienceCards.map((card, i) => (
