@@ -48,12 +48,15 @@ export default function TermsPageES() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
       <BreadcrumbSchema items={[{ name: 'Inicio', url: SITE_URL }, { name: 'Términos del Servicio' }]} />
       {/* NAV */}
-      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
         <Link href="/" aria-label="Blanked inicio" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>
           </span>
+        </Link>
+        <Link href="/terms" hrefLang="en" style={{ fontSize: 13, color: COLORS.textD, textDecoration: "underline" }}>
+          Read in English
         </Link>
       </div>
 

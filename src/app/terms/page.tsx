@@ -49,12 +49,15 @@ export default function TermsPage() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
       <BreadcrumbSchema items={[{ name: 'Home', url: SITE_URL }, { name: 'Terms of Service' }]} />
       {/* NAV */}
-      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
         <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>
           </span>
+        </Link>
+        <Link href="/es/terms" hrefLang="es" style={{ fontSize: 13, color: COLORS.textD, textDecoration: "underline" }}>
+          Leer en español
         </Link>
       </div>
 
