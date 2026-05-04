@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Memory Training for Students: A 2-Minute Daily Habit',
   description:
-    'Memory training for students that actually fits into a real schedule. Backed by the testing effect, spaced practice, and working-memory research. Two minutes a day, free on iOS.',
+    'Memory training for students that fits a real schedule. Backed by retrieval-practice and working-memory research. Two minutes a day, free on iOS.',
   alternates: { canonical: `${SITE_URL}/memory-training-for-students` },
   openGraph: {
     type: 'article',

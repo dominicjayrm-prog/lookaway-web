@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Memory Games for Seniors: A Calm 2-Minute Daily Routine',
   description:
-    'Memory games for seniors that respect your time and your eyes. A calm two-minute daily routine, free, no subscriptions, no flashy noise. Backed by the ACTIVE trial and decades of research on cognitive training in older adults.',
+    'Memory games for seniors that respect your time and your eyes. A calm two-minute daily routine, free, no subscriptions, backed by real research.',
   alternates: { canonical: `${SITE_URL}/memory-games-for-seniors` },
   openGraph: {
     type: 'article',

@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Free Visual Memory Test: How Sharp Is Your Visual Recall?',
   description:
-    'A free, no-signup visual memory test. Tiles flash on a grid, you remember which ones. See how high you score and what your level means. Two minutes, runs in your browser.',
+    'Free visual memory test, no signup. Tiles flash on a grid, you remember which ones. See how high you score. Two minutes, runs in your browser.',
   alternates: { canonical: `${SITE_URL}/memory-test` },
   openGraph: {
     type: 'website',

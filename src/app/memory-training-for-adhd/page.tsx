@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Memory Training for ADHD: A Realistic 2-Minute Daily Practice',
   description:
-    'Memory training for ADHD adults: an honest look at what working-memory practice can and cannot do, and a two-minute daily routine that fits the way ADHD brains actually work.',
+    'Memory training for ADHD adults: an honest look at what working-memory practice can and cannot do, and a two-minute routine that fits ADHD brains.',
   alternates: { canonical: `${SITE_URL}/memory-training-for-adhd` },
   openGraph: {
     type: 'article',

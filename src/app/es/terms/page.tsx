@@ -7,7 +7,7 @@ import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Términos del Servicio',
-  description: 'Términos del servicio de Blanked: las reglas para usar nuestro juego de memoria visual, las suscripciones Blanked+, las compras dentro de la aplicación, la moneda virtual y tu cuenta.',
+  description: 'Términos del servicio de Blanked: las reglas para usar el juego de memoria visual, las suscripciones Blanked+ y tu cuenta.',
   alternates: {
     canonical: `${SITE_URL}/es/terms`,
     languages: {

@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Compare Blanked vs other memory training apps',
   description:
-    'Honest, side-by-side comparisons of Blanked against Lumosity, Peak, Elevate, Impulse, and other brain-training apps. Find the one that fits how you actually want to train.',
+    'Honest comparisons of Blanked vs Lumosity, Peak, Elevate, Impulse, BrainHQ and more. Find the brain-training app that fits how you actually want to train.',
   alternates: { canonical: `${SITE_URL}/compare` },
   openGraph: {
     type: 'website',
