@@ -253,9 +253,11 @@ export default async function StudentsPage() {
             <Link href="/compare/elevate" style={inlineLink}>Elevate</Link>
             {' '}(language and math focus, complementary to visual memory),{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Lumosity</Link>, and the rest of the field on the{' '}
-            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or read the parallel{' '}
-            <Link href="/memory-games-for-seniors" style={inlineLink}>memory games for seniors</Link>
-            {' '}guide for an audience-specific angle.
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or read the parallel guides for{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>memory games for seniors</Link>,{' '}
+            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
+            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>
+            {' '}for audience-specific angles.
           </p>
         </section>
 

@@ -9,13 +9,13 @@ import { COLORS, SITE_URL, APP_STORE_URL } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Memory Training for ADHD: A Realistic 2-Minute Daily Practice',
+  title: 'Memory Training for ADHD: A 2-Minute Daily Practice',
   description:
     'Memory training for ADHD adults: an honest look at what working-memory practice can and cannot do, and a two-minute routine that fits ADHD brains.',
   alternates: { canonical: `${SITE_URL}/memory-training-for-adhd` },
   openGraph: {
     type: 'article',
-    title: 'Memory Training for ADHD: A Realistic 2-Minute Daily Practice',
+    title: 'Memory Training for ADHD: A 2-Minute Daily Practice',
     description:
       'Memory training for ADHD adults: an honest look at what working-memory practice can and cannot do.',
     url: `${SITE_URL}/memory-training-for-adhd`,
@@ -75,7 +75,7 @@ export default async function ADHDPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Memory Training for ADHD: A Realistic 2-Minute Daily Practice',
+    headline: 'Memory Training for ADHD: A 2-Minute Daily Practice',
     description:
       'An honest look at what working-memory practice can and cannot do for ADHD adults, plus a two-minute daily routine that fits the way ADHD brains actually work.',
     author: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
@@ -246,10 +246,10 @@ export default async function ADHDPage() {
         <section style={{ marginTop: 36 }}>
           <p style={paraStyle}>
             See also the parallel guides for{' '}
-            <Link href="/memory-training-for-students" style={inlineLink}>students</Link>
-            {' '}and{' '}
-            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>, the free{' '}
-            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>, and how Blanked compares to{' '}
+            <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>, and{' '}
+            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>; the free{' '}
+            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>; and how Blanked compares to{' '}
             <Link href="/compare/cognifit" style={inlineLink}>CogniFit</Link>
             {' '}(which markets condition-specific packages including ADHD) on the{' '}
             <Link href="/compare" style={inlineLink}>compare hub</Link>.

@@ -266,7 +266,10 @@ export default async function SeniorsPage() {
             <Link href="/compare/lumosity" style={inlineLink}>Blanked vs Lumosity</Link>,{' '}
             <Link href="/compare/brainhq" style={inlineLink}>Blanked vs BrainHQ</Link>
             {' '}(BrainHQ has the strongest research backing in older adults specifically), and the full{' '}
-            <Link href="/compare" style={inlineLink}>compare hub</Link>.
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or see the parallel guides for{' '}
+            <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
+            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
+            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>.
           </p>
         </section>
 

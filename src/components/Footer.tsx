@@ -44,6 +44,7 @@ export default function Footer() {
           <Link href="/support" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Support</Link>
           <Link href="/privacy" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Privacy</Link>
           <Link href="/terms" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Terms</Link>
+          <Link href="/delete-account" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Delete account</Link>
           <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Contact us by email" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Contact</a>
           <Link href="/press" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Press</Link>
         </nav>
