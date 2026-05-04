@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Términos del Servicio',
-  description: 'Términos del servicio de Blanked: las reglas para usar nuestro juego de memoria visual, las suscripciones Blanked+, las compras dentro de la aplicación, la moneda virtual y tu cuenta.',
+  description: 'Términos del servicio de Blanked: las reglas para usar el juego de memoria visual, las suscripciones Blanked+ y tu cuenta.',
   alternates: {
     canonical: `${SITE_URL}/es/terms`,
     languages: {
@@ -17,11 +17,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'Blanked',
     title: 'Términos del Servicio | Blanked',
     description: 'Las reglas para usar Blanked: cuentas, suscripciones, compras dentro de la aplicación y moneda virtual.',
     url: `${SITE_URL}/es/terms`,
-    locale: 'es_ES',
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',
@@ -46,12 +48,15 @@ export default function TermsPageES() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
       <BreadcrumbSchema items={[{ name: 'Inicio', url: SITE_URL }, { name: 'Términos del Servicio' }]} />
       {/* NAV */}
-      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
         <Link href="/" aria-label="Blanked inicio" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>
           </span>
+        </Link>
+        <Link href="/terms" hrefLang="en" style={{ fontSize: 13, color: COLORS.textD, textDecoration: "underline" }}>
+          Read in English
         </Link>
       </div>
 

@@ -4,21 +4,24 @@ import { listPublishedPosts } from '@/lib/blog';
 import PostCard from '@/components/blog/PostCard';
 import Footer from '@/components/Footer';
 import Blink from '@/components/Blink';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Memory Science Blog: Brain Training, Recall, and Research',
   description: 'Articles on memory, brain training, and cognitive science from the team behind Blanked. Tips, research, and game-design insights.',
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
-    title: 'Blog | Blanked',
+    type: 'website',
+    locale: 'en_GB',
+    siteName: 'Blanked',
+    title: 'Memory Science Blog: Brain Training, Recall, and Research | Blanked',
     description: 'Articles on memory, brain training, and cognitive science from the team behind Blanked.',
     url: `${SITE_URL}/blog`,
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog | Blanked',
+    title: 'Memory Science Blog | Blanked',
     description: 'Articles on memory, brain training, and cognitive science.',
   },
 };

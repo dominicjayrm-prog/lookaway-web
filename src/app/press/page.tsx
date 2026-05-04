@@ -4,17 +4,20 @@ import Logo from '@/components/BlinkAppIcon';
 import BlinkAppIcon from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Press Kit',
   description: 'Blanked press kit - download logos, screenshots, and app information for media coverage. A visual memory game with 400+ levels across 6 game modes.',
   alternates: { canonical: `${SITE_URL}/press` },
   openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    siteName: 'Blanked',
     title: 'Press Kit | Blanked',
     description: 'Download Blanked logos, screenshots, and app information. A visual memory game with 400+ levels.',
     url: `${SITE_URL}/press`,
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',

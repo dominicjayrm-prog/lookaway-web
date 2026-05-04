@@ -242,6 +242,15 @@ export default async function ComparePage({ params }: { params: Params }) {
             {c.bottomLine.map((p, i) => (
               <p key={i} style={paraStyle}>{p}</p>
             ))}
+            {c.blogPostSlug && (
+              <p style={{ ...paraStyle, fontSize: 14, color: P.textD }}>
+                Want the longer read? Our blog post,{' '}
+                <Link href={`/blog/${c.blogPostSlug}`} style={{ color: P.accent, textDecoration: 'underline' }}>
+                  Blanked vs {c.name}: the long-form comparison
+                </Link>
+                , goes deeper into the side-by-side detail.
+              </p>
+            )}
             {c.websiteUrl && (
               <p style={{ ...paraStyle, fontSize: 14, color: P.textD }}>
                 Want to compare for yourself? Visit{' '}

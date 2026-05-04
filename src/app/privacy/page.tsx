@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -17,10 +17,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    siteName: 'Blanked',
     title: 'Privacy Policy | Blanked',
     description: 'What we collect, how we use it, who we share it with, and your rights. We never sell your data.',
     url: `${SITE_URL}/privacy`,
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',
@@ -41,12 +44,15 @@ export default function PrivacyPage() {
     <div style={{ width: "100%", maxWidth: 960, margin: "0 auto", background: COLORS.bg, minHeight: "100vh" }}>
       <BreadcrumbSchema items={[{ name: 'Home', url: SITE_URL }, { name: 'Privacy Policy' }]} />
       {/* NAV */}
-      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
         <Link href="/" aria-label="Blanked home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <Logo size={36} />
           <span style={{ fontSize: 18, fontWeight: 800, color: COLORS.text }}>
             <span style={{ color: COLORS.accent }}>Blanked</span>
           </span>
+        </Link>
+        <Link href="/es/privacy" hrefLang="es" style={{ fontSize: 13, color: COLORS.textD, textDecoration: "underline" }}>
+          Leer en español
         </Link>
       </div>
 

@@ -14,6 +14,17 @@ export const COLORS = {
 
 // TODO: Update APP_STORE_URL and APPLE_TEAM_ID when App Store listing is live
 export const APP_STORE_URL = "https://apps.apple.com/app/blanked-memory-game/id6762019174";
+
+/** Reusable Open Graph image with dimensions + alt. Spread into
+ *  `openGraph.images` and `twitter.images` so every page emits a
+ *  fully-specified og:image (Ahrefs / Facebook / Twitter all expect
+ *  width + height + alt for a complete og:image tag). */
+export const OG_IMAGE = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "Blanked - free visual memory game for iOS",
+} as const;
 export const SITE_URL = "https://playblanked.com";
 export const APP_SCHEME = "blanked://";
 export const CONTACT_EMAIL = "hello@playblanked.com";

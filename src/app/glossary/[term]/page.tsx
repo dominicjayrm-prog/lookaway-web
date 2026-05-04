@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const entry = GLOSSARY[term];
   if (!entry) return { title: 'Term not found', robots: { index: false } };
 
-  const title = `${entry.name}: ${entry.tagline.charAt(0).toUpperCase()}${entry.tagline.slice(1)}`;
-  const description = `${entry.name}: ${entry.tagline}. Plain-English definition with research citations.`;
+  const title = `What is ${entry.name.toLowerCase()}? A plain-English definition`;
+  const description = `${entry.name}: ${entry.tagline}.`;
   const url = `${SITE_URL}/glossary/${entry.slug}`;
 
   return {
