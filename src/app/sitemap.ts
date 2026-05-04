@@ -4,6 +4,11 @@ import { listPublishedPosts } from '@/lib/blog';
 import { COMPARISONS } from '@/lib/comparisons';
 import { GLOSSARY } from '@/lib/glossary';
 
+// Re-render the sitemap on every request so newly published blog posts
+// (and any other dynamic content) appear immediately, instead of being
+// served from a stale build-time snapshot.
+export const dynamic = 'force-dynamic';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await listPublishedPosts().catch(() => []);
   const now = new Date();
