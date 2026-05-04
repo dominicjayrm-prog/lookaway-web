@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad',
@@ -17,11 +17,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'Blanked',
     title: 'Política de Privacidad | Blanked',
     description: 'Qué datos recopilamos, cómo los usamos, con quién los compartimos y tus derechos. Nunca vendemos tus datos.',
     url: `${SITE_URL}/es/privacy`,
-    locale: 'es_ES',
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',

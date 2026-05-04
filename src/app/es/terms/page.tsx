@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Términos del Servicio',
@@ -17,11 +17,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'Blanked',
     title: 'Términos del Servicio | Blanked',
     description: 'Las reglas para usar Blanked: cuentas, suscripciones, compras dentro de la aplicación y moneda virtual.',
     url: `${SITE_URL}/es/terms`,
-    locale: 'es_ES',
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',

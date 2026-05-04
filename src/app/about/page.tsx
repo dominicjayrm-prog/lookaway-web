@@ -4,17 +4,20 @@ import Image from 'next/image';
 import Blink from '@/components/Blink';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, APP_STORE_URL, SITE_URL, FOUNDER } from '@/lib/constants';
+import { COLORS, APP_STORE_URL, SITE_URL, FOUNDER, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'About',
   description: 'The story behind Blanked - why we built a visual memory game, how Blink became our mascot, and what we believe about brain training.',
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    siteName: 'Blanked',
     title: 'About | Blanked',
     description: 'The story behind Blanked and the small team that made it.',
     url: `${SITE_URL}/about`,
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',

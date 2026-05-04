@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Logo from '@/components/BlinkAppIcon';
 import Footer from '@/components/Footer';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
-import { COLORS, CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Delete Your Blanked Account',
@@ -11,10 +11,13 @@ export const metadata: Metadata = {
     'Delete your Blanked account in two ways: in-app from Settings, or by email to hello@playblanked.com. Account and data removed within 30 days.',
   alternates: { canonical: `${SITE_URL}/delete-account` },
   openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    siteName: 'Blanked',
     title: 'Delete Your Blanked Account | Blanked',
     description: 'Delete your Blanked account in-app or by email. Removed within 30 days.',
     url: `${SITE_URL}/delete-account`,
-    images: ['/opengraph-image'],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary',
