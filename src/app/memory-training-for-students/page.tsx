@@ -57,6 +57,11 @@ const faqs = [
   },
 ];
 
+// ISR: rebuild this page at most once an hour. The only dynamic data is
+// the related-blog-posts list, which does not change minute to minute.
+// Without this the Supabase fetch ran on every request, hurting TTFB.
+export const revalidate = 3600;
+
 export default async function StudentsPage() {
   const pageUrl = `${SITE_URL}/memory-training-for-students`;
 

@@ -57,6 +57,8 @@ const faqs = [
   },
 ];
 
+export const revalidate = 3600;
+
 export default async function OfficeWorkersPage() {
   const pageUrl = `${SITE_URL}/brain-games-for-office-workers`;
 
