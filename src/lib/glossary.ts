@@ -21,6 +21,10 @@ export interface GlossaryTerm {
   name: string;
   /** Short tagline shown on the index card. */
   tagline: string;
+  /** Optional override for the meta description on /glossary/[slug].
+   *  Use when the auto-generated one (`name: tagline.`) lands outside the
+   *  120-160 char SEO sweet spot for a specific entry. */
+  metaDescription?: string;
   /** ~2-3 paragraph plain-language definition (each item is one paragraph). */
   definition: string[];
   /** "Why it matters" section paragraphs. */
@@ -42,6 +46,7 @@ export const GLOSSARY: Record<string, GlossaryTerm> = {
     slug: 'working-memory',
     name: 'Working memory',
     tagline: 'the system that holds and manipulates information for a few seconds at a time',
+    metaDescription: 'Working memory holds and manipulates information for a few seconds at a time. Plain-English definition, why it matters, and how to train it.',
     lastUpdated: '2026-04-30',
     definition: [
       'Working memory is the cognitive system that holds a small amount of information in mind for a few seconds at a time and lets you do something with it. Holding a phone number in your head while you walk to a different room to write it down is working memory. Holding the start of a sentence in mind while you read the end is working memory. Mental arithmetic is working memory.',
@@ -91,6 +96,7 @@ export const GLOSSARY: Record<string, GlossaryTerm> = {
     slug: 'visual-memory',
     name: 'Visual memory',
     tagline: 'the ability to remember what you have seen, from briefly glimpsed scenes to long-term mental images',
+    metaDescription: 'Visual memory is the ability to remember what you have seen, from glimpsed scenes to long-term mental images. Definition + how to train it.',
     lastUpdated: '2026-04-30',
     definition: [
       'Visual memory is the ability to encode, store, and retrieve information that came in through the eyes. It covers a wide span of timescales and tasks: the half-second buffer that holds a glimpsed image just long enough to recognise it, the seconds-long visuospatial sketchpad that lets you remember where the cup was on the counter, and the long-term visual store that lets you recognise a face you have not seen in a decade.',

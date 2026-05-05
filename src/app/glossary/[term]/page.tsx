@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!entry) return { title: 'Term not found', robots: { index: false } };
 
   const title = `What is ${entry.name.toLowerCase()}? A plain-English definition`;
-  const description = `${entry.name}: ${entry.tagline}.`;
+  const description = entry.metaDescription ?? `${entry.name}: ${entry.tagline}.`;
   const url = `${SITE_URL}/glossary/${entry.slug}`;
 
   return {

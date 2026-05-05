@@ -61,6 +61,8 @@ const faqs = [
   },
 ];
 
+export const revalidate = 3600;
+
 export default async function ADHDPage() {
   const pageUrl = `${SITE_URL}/memory-training-for-adhd`;
 

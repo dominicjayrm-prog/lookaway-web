@@ -61,6 +61,8 @@ const faqs = [
   },
 ];
 
+export const revalidate = 3600;
+
 export default async function SeniorsPage() {
   const pageUrl = `${SITE_URL}/memory-games-for-seniors`;
 
