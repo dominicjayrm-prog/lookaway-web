@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PostBody from '@/components/blog/PostBody';
 import { adminGetPost } from '@/lib/blog';
 import { extractTocAndInjectIds } from '@/lib/toc';
+import { rewriteExternalLinks } from '@/lib/external-links';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +17,8 @@ export default async function PostPreviewPage({ params }: { params: Promise<{ id
   const post = await adminGetPost(id);
   if (!post) notFound();
 
-  const { html: processedHtml } = extractTocAndInjectIds(post.content_html);
+  const { html: tocProcessed } = extractTocAndInjectIds(post.content_html);
+  const processedHtml = rewriteExternalLinks(tocProcessed);
 
   return (
     <div>

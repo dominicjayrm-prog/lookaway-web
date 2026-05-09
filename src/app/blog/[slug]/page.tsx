@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPublishedPostBySlug, getRelatedPosts } from '@/lib/blog';
 import { extractTocAndInjectIds } from '@/lib/toc';
+import { rewriteExternalLinks } from '@/lib/external-links';
 import { buildFaqJsonLd } from '@/lib/faqs';
 import PostBody from '@/components/blog/PostBody';
 import BlogDownloadCTA from '@/components/blog/BlogDownloadCTA';
@@ -66,7 +67,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   if (!post) notFound();
 
   const related = await getRelatedPosts(post);
-  const { html: processedHtml, items: tocItems } = extractTocAndInjectIds(post.content_html);
+  const { html: tocProcessed, items: tocItems } = extractTocAndInjectIds(post.content_html);
+  // Rewrite external links to add rel="noopener noreferrer nofollow"
+  // and target="_blank". Internal links (relative or pointing at the site's
+  // own domain) are left untouched. Done at render time so it applies to
+  // every existing post immediately, no per-post edits needed.
+  const processedHtml = rewriteExternalLinks(tocProcessed);
   const faqs = Array.isArray(post.faqs) ? post.faqs : [];
 
   const jsonLd = {
