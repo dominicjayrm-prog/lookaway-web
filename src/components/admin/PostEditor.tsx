@@ -191,6 +191,7 @@ export default function PostEditor({ post, existingSlugs }: Props) {
       alert('Fix the errors before publishing');
       return;
     }
+    if (!confirm(`Publish "${title}" live now?`)) return;
     setPublishing(true);
     const result = await save(true);
     setPublishing(false);
@@ -204,6 +205,20 @@ export default function PostEditor({ post, existingSlugs }: Props) {
     if (!confirm('Unpublish this post? It will no longer be visible on the blog.')) return;
     await save(false);
     router.refresh();
+  }
+
+  /** Save without changing publish state (existing posts) OR explicitly
+   *  create as draft (new posts). The latter sends `published: false`
+   *  defensively so a brand-new post can never accidentally land as
+   *  published, even if the API defaults change one day. */
+  async function saveAction() {
+    // For a brand-new post, force published:false so we cannot ever ship a
+    // post live with a single click. Existing posts preserve their state.
+    if (!post) {
+      await save(false);
+      return;
+    }
+    await save();
   }
 
   // Auto-save every 3s if there are unsaved changes. Uses refs so the interval
@@ -243,6 +258,33 @@ export default function PostEditor({ post, existingSlugs }: Props) {
           }}
         />
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          {/* Status badge so the author always knows whether they are
+              editing a draft or a live post. The most common cause of the
+              "I clicked Save Draft but it published" confusion is losing
+              track of which state the post is in. */}
+          {post && (
+            <span
+              style={{
+                fontSize: 11, fontWeight: 700, padding: '4px 10px', borderRadius: 6,
+                letterSpacing: 0.5, textTransform: 'uppercase',
+                background: post.published ? '#00B89415' : '#D4A01215',
+                color: post.published ? '#00B894' : '#D4A012',
+              }}
+            >
+              {post.published ? 'Live' : 'Draft'}
+            </span>
+          )}
+          {!post && (
+            <span
+              style={{
+                fontSize: 11, fontWeight: 700, padding: '4px 10px', borderRadius: 6,
+                letterSpacing: 0.5, textTransform: 'uppercase',
+                background: '#D4A01215', color: '#D4A012',
+              }}
+            >
+              New draft
+            </span>
+          )}
           <div style={{ fontSize: 12, color: lastSaveFailed ? '#FF6B6B' : '#636E72', fontWeight: lastSaveFailed ? 600 : 400 }}>
             {saving
               ? 'Saving…'
@@ -266,11 +308,12 @@ export default function PostEditor({ post, existingSlugs }: Props) {
           )}
           <button
             type="button"
-            onClick={() => save()}
+            onClick={saveAction}
             disabled={saving}
+            title={!post ? 'Save as a draft (not visible on the public blog)' : post.published ? 'Save changes to the live post' : 'Save changes to this draft'}
             style={{ padding: '8px 16px', borderRadius: 8, border: '1.5px solid #EEEDE8', background: 'white', fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
           >
-            Save draft
+            {!post ? 'Save as draft' : post.published ? 'Save changes' : 'Save draft'}
           </button>
           {post?.published ? (
             <button
@@ -284,8 +327,8 @@ export default function PostEditor({ post, existingSlugs }: Props) {
             <button
               type="button"
               onClick={publish}
-              disabled={!finalCanPublish || publishing}
-              title={finalCanPublish ? 'Publish now' : 'Fix errors to publish'}
+              disabled={!finalCanPublish || publishing || saving}
+              title={finalCanPublish ? 'Publish live now (you will be asked to confirm)' : 'Fix errors to publish'}
               style={{
                 padding: '8px 18px', borderRadius: 8, color: 'white', fontSize: 13, fontWeight: 600, border: 'none',
                 background: finalCanPublish ? '#00B894' : '#B2BEC3',
