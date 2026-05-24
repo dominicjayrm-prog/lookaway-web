@@ -323,6 +323,49 @@ export default function Home() {
           {/* ═══ FROM THE BLOG ═══ */}
           <LatestPosts />
 
+          {/* ═══ GUIDES (audience + category landing pages) ═══ */}
+          <section
+            id="guides"
+            style={{ padding: '60px 40px 0', maxWidth: 1000, margin: '0 auto' }}
+            aria-label="Guides by audience and category"
+          >
+            <div style={{ textAlign: 'center', marginBottom: 28 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: P.accent, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 8 }}>Guides</div>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: P.text, margin: 0, letterSpacing: -0.3 }}>
+                Find the right memory game <span style={{ color: P.accent }}>for you</span>
+              </h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
+              {[
+                { href: '/memory-games-for-adults', label: 'For adults' },
+                { href: '/memory-games-for-kids', label: 'For kids' },
+                { href: '/memory-games-for-seniors', label: 'For older adults' },
+                { href: '/memory-training-for-students', label: 'For students' },
+                { href: '/memory-training-for-adhd', label: 'For ADHD adults' },
+                { href: '/brain-games-for-office-workers', label: 'For office workers' },
+                { href: '/matching-games-for-adults', label: 'Matching games (adults)' },
+                { href: '/matching-games-for-kids', label: 'Matching games (kids)' },
+                { href: '/picture-memory-games-for-adults', label: 'Picture memory games' },
+                { href: '/brain-training-games-for-kids', label: 'Brain training for kids' },
+                { href: '/memory-test', label: 'Free visual memory test' },
+                { href: '/glossary', label: 'Memory science glossary' },
+              ].map((g) => (
+                <Link
+                  key={g.href}
+                  href={g.href}
+                  style={{
+                    padding: '12px 16px', borderRadius: 12,
+                    background: 'white', border: '1px solid rgba(0,0,0,0.05)',
+                    fontSize: 14, fontWeight: 600, color: P.text,
+                    textDecoration: 'none', boxShadow: '0 1px 6px rgba(0,0,0,0.02)',
+                  }}
+                >
+                  {g.label} <span style={{ color: P.accent }}>&rarr;</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           {/* ═══ FAQ ═══ */}
           <HomeFaq />
 
