@@ -4,6 +4,7 @@ import PostBody from '@/components/blog/PostBody';
 import { adminGetPost } from '@/lib/blog';
 import { extractTocAndInjectIds } from '@/lib/toc';
 import { rewriteExternalLinks } from '@/lib/external-links';
+import { autolinkGlossaryTerms } from '@/lib/autolink-glossary';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,7 +19,7 @@ export default async function PostPreviewPage({ params }: { params: Promise<{ id
   if (!post) notFound();
 
   const { html: tocProcessed } = extractTocAndInjectIds(post.content_html);
-  const processedHtml = rewriteExternalLinks(tocProcessed);
+  const processedHtml = rewriteExternalLinks(autolinkGlossaryTerms(tocProcessed));
 
   return (
     <div>
