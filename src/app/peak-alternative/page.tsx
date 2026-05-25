@@ -200,6 +200,8 @@ export default async function PeakAlternativePage() {
             Related: the in-depth{' '}
             <Link href="/compare/peak" style={inlineLink}>Blanked vs Peak comparison</Link>, the{' '}
             <Link href="/lumosity-alternative" style={inlineLink}>Lumosity alternative</Link>
+            {' '}page, the broader{' '}
+            <Link href="/free-memory-game-iphone" style={inlineLink}>free memory game for iPhone</Link>
             {' '}page, and the honest{' '}
             <Link href="/does-brain-training-work" style={inlineLink}>does brain training work?</Link>
             {' '}explainer.

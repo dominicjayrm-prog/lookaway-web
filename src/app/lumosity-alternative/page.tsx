@@ -229,6 +229,8 @@ export default async function LumosityAlternativePage() {
             Related: the in-depth{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Blanked vs Lumosity comparison</Link>, the parallel{' '}
             <Link href="/peak-alternative" style={inlineLink}>Peak alternative</Link>
+            {' '}page, the broader{' '}
+            <Link href="/free-memory-game-iphone" style={inlineLink}>free memory game for iPhone</Link>
             {' '}page, and the honest{' '}
             <Link href="/does-brain-training-work" style={inlineLink}>does brain training actually work?</Link>
             {' '}write-up.

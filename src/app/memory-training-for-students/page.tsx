@@ -254,15 +254,20 @@ export default async function StudentsPage() {
           <p style={paraStyle}>
             Want to know your starting point? Run our free{' '}
             <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
-            {' '}in your browser to set a baseline, then check it again in a few weeks. Comparing options? See how Blanked stacks up against{' '}
+            {' '}in your browser to set a baseline, then check it again in a few weeks. Exam-focused?{' '}
+            <Link href="/working-memory-exercises-for-adults" style={inlineLink}>Working memory exercises for adults</Link>
+            {' '}covers seven sourced exercises with the science. Trouble with names in seminars?{' '}
+            <Link href="/how-to-remember-names" style={inlineLink}>How to remember names</Link>
+            {' '}is the practical write-up. Comparing options? See how Blanked stacks up against{' '}
             <Link href="/compare/elevate" style={inlineLink}>Elevate</Link>
             {' '}(language and math focus, complementary to visual memory),{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Lumosity</Link>, and the rest of the field on the{' '}
-            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or read the parallel guides for{' '}
-            <Link href="/memory-games-for-seniors" style={inlineLink}>memory games for seniors</Link>,{' '}
-            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
-            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>
-            {' '}for audience-specific angles.
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. Parallel guides:{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>,{' '}
+            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>,{' '}
+            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>, and{' '}
+            <Link href="/memory-games-for-nurses" style={inlineLink}>nurses</Link>
+            {' '}(specifically for nursing-school recall demands).
           </p>
         </section>
 

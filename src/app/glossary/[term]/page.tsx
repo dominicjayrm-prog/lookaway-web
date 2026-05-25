@@ -167,6 +167,59 @@ export default async function GlossaryTermPage({ params }: { params: Params }) {
           </section>
         )}
 
+        {/* Related practice pages — surfaces the audit-recommended
+            cross-link from each definition entry to the matching
+            exercise / test page. Keeps the glossary tightly woven into
+            the practice cluster rather than sitting as an isolated
+            definition library. */}
+        {(() => {
+          const PRACTICE: Record<string, { href: string; label: string; blurb: string }[]> = {
+            'working-memory': [
+              { href: '/working-memory-exercises-for-adults', label: 'Working memory exercises for adults', blurb: 'Seven sourced exercises you can do today.' },
+              { href: '/number-memory-test', label: 'Number memory test (digit span)', blurb: 'Free in-browser test of the verbal short-term store.' },
+            ],
+            'visual-memory': [
+              { href: '/visual-memory-exercises', label: 'Visual memory exercises for adults', blurb: 'Eight sourced exercises, no clinical PDFs.' },
+              { href: '/memory-test', label: 'Free visual memory test', blurb: 'Set a baseline in two minutes, no signup.' },
+            ],
+            'short-term-memory': [
+              { href: '/number-memory-test', label: 'Number memory test', blurb: 'Classical digit-span paradigm, in your browser.' },
+              { href: '/working-memory-exercises-for-adults', label: 'Working memory exercises', blurb: 'The active manipulation layer above short-term storage.' },
+            ],
+            'photographic-memory': [
+              { href: '/visual-memory-exercises', label: 'Visual memory exercises (the real thing)', blurb: 'What the trainable version of visual recall actually looks like.' },
+              { href: '/memory-test', label: 'Free visual memory test', blurb: 'See your actual baseline, no myth required.' },
+            ],
+            'spatial-memory': [
+              { href: '/sequence-memory-test', label: 'Sequence memory test (Corsi-style)', blurb: 'The canonical visuospatial span task, in your browser.' },
+              { href: '/memory-games-for-seniors', label: 'Memory games for seniors', blurb: 'Spatial memory and the ageing question, handled honestly.' },
+            ],
+            'iconic-memory': [
+              { href: '/visual-memory-exercises', label: 'Visual memory exercises', blurb: 'Train the downstream attention step iconic memory feeds into.' },
+              { href: '/memory-test', label: 'Free visual memory test', blurb: 'The downstream short-term-memory side, benchmarked.' },
+            ],
+          };
+          const practice = PRACTICE[entry.slug];
+          if (!practice || practice.length === 0) return null;
+          return (
+            <section style={{ marginTop: 40 }}>
+              <h2 style={h2}>Train this</h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+                {practice.map((p) => (
+                  <Link
+                    key={p.href}
+                    href={p.href}
+                    style={{ display: 'block', padding: '14px 16px', borderRadius: 12, background: 'white', border: '1px solid rgba(0,0,0,0.04)', textDecoration: 'none', color: 'inherit', boxShadow: '0 1px 8px rgba(0,0,0,0.02)' }}
+                  >
+                    <div style={{ fontSize: 14, fontWeight: 700, color: P.text, marginBottom: 4 }}>{p.label}</div>
+                    <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>{p.blurb}</div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })()}
+
         {/* Other glossary entries */}
         {otherEntries.length > 0 && (
           <section style={{ marginTop: 40 }}>

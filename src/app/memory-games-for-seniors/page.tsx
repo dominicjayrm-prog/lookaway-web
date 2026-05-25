@@ -281,11 +281,15 @@ export default async function SeniorsPage() {
           <p style={paraStyle}>
             Want a quick check on your current visual memory? Try the free{' '}
             <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
-            {' '}in your browser, no signup, two minutes. Wondering how Blanked stacks up against the bigger names? See our honest comparisons of{' '}
+            {' '}in your browser, no signup, two minutes. The everyday "where did I leave it" problem gets the honest treatment at{' '}
+            <Link href="/how-to-remember-where-you-put-things" style={inlineLink}>how to remember where you put things</Link>; for the spatial-cognition side of ageing specifically, see the glossary entry on{' '}
+            <Link href="/glossary/spatial-memory" style={inlineLink}>spatial memory</Link>. Wondering how Blanked stacks up against the bigger names? See our honest comparisons of{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Blanked vs Lumosity</Link>,{' '}
             <Link href="/compare/brainhq" style={inlineLink}>Blanked vs BrainHQ</Link>
-            {' '}(BrainHQ has the strongest research backing in older adults specifically), and the full{' '}
-            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or see the parallel guides for{' '}
+            {' '}(BrainHQ has the strongest research backing in older adults specifically), the{' '}
+            <Link href="/peak-alternative" style={inlineLink}>Peak alternative</Link>
+            {' '}page, and the full{' '}
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. Parallel guides for{' '}
             <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
             <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
             <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>.

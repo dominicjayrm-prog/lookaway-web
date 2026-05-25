@@ -220,9 +220,15 @@ export default async function OfficeWorkersPage() {
           <p style={paraStyle}>
             See also the parallel guides for{' '}
             <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
-            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
-            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>; the free{' '}
-            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>; or how Blanked compares to{' '}
+            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>,{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>, and{' '}
+            <Link href="/memory-games-for-nurses" style={inlineLink}>nurses</Link>. For the specific recall problems most office workers actually have, see{' '}
+            <Link href="/how-to-remember-names" style={inlineLink}>how to remember names</Link>
+            {' '}(colleagues, clients, conference contacts) and{' '}
+            <Link href="/working-memory-exercises-for-adults" style={inlineLink}>working memory exercises for adults</Link>
+            {' '}(holding multi-step meeting actions in mind). Free{' '}
+            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
+            {' '}for a baseline. Or how Blanked compares to{' '}
             <Link href="/compare/elevate" style={inlineLink}>Elevate</Link>
             {' '}(verbal/math focus, often used in office contexts) on the{' '}
             <Link href="/compare" style={inlineLink}>compare hub</Link>.
