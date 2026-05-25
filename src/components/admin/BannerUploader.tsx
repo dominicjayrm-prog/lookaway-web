@@ -5,10 +5,14 @@ import { useState, useRef } from 'react';
 interface Props {
   bannerUrl: string | null;
   bannerAlt: string | null;
+  /** Post slug, forwarded to the upload endpoint so the stored filename
+   *  reads like `how-to-improve-focus-2026-ab12cdef.png` instead of an
+   *  opaque hash. Helps image SEO long-term. */
+  postSlug?: string;
   onChange: (url: string | null, alt: string | null) => void;
 }
 
-export default function BannerUploader({ bannerUrl, bannerAlt, onChange }: Props) {
+export default function BannerUploader({ bannerUrl, bannerAlt, postSlug, onChange }: Props) {
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -18,6 +22,7 @@ export default function BannerUploader({ bannerUrl, bannerAlt, onChange }: Props
     setUploading(true);
     const form = new FormData();
     form.append('file', file);
+    if (postSlug) form.append('slug', postSlug);
     try {
       const res = await fetch('/api/admin/upload', { method: 'POST', body: form });
       if (!res.ok) {

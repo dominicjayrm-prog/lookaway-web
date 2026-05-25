@@ -401,7 +401,12 @@ export default function PostEditor({ post, existingSlugs }: Props) {
 
           <div style={{ background: 'white', border: '1.5px solid #EEEDE8', borderRadius: 12, padding: 16 }}>
             <div style={{ fontSize: 11, fontWeight: 700, color: '#636E72', letterSpacing: 0.5, marginBottom: 10 }}>BANNER IMAGE</div>
-            <BannerUploader bannerUrl={bannerUrl} bannerAlt={bannerAlt} onChange={(u, a) => { setBannerUrl(u); setBannerAlt(a); }} />
+            <BannerUploader
+              bannerUrl={bannerUrl}
+              bannerAlt={bannerAlt}
+              postSlug={slug}
+              onChange={(u, a) => { setBannerUrl(u); setBannerAlt(a); }}
+            />
           </div>
 
           <SeoPanel
