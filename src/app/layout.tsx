@@ -80,7 +80,7 @@ const siteJsonLd = {
       givenName: FOUNDER.name,
       jobTitle: FOUNDER.role,
       worksFor: { '@id': `${SITE_URL}/#org` },
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/authors/dominic-roworth`,
       image: `${SITE_URL}${FOUNDER.avatar}`,
       sameAs: [FOUNDER.linkedin, FOUNDER.instagram],
     },

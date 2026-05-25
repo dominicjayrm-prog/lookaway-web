@@ -89,8 +89,9 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     // across profiles. Big E-E-A-T signal for a small-site founder blog.
     author: {
       '@type': 'Person',
+      '@id': `${SITE_URL}/authors/dominic-roworth`,
       name: FOUNDER.fullName,
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/authors/dominic-roworth`,
       image: `${SITE_URL}${FOUNDER.avatar}`,
       jobTitle: FOUNDER.role,
       worksFor: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
