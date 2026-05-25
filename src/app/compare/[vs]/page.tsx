@@ -242,6 +242,15 @@ export default async function ComparePage({ params }: { params: Params }) {
             {c.bottomLine.map((p, i) => (
               <p key={i} style={paraStyle}>{p}</p>
             ))}
+            {c.alternativePath && (
+              <p style={{ ...paraStyle, fontSize: 14, color: P.textD }}>
+                Looking for a free {c.name} alternative specifically? See{' '}
+                <Link href={c.alternativePath} style={{ color: P.accent, textDecoration: 'underline' }}>
+                  the free {c.name} alternative page
+                </Link>
+                , which covers the replacement-intent angle rather than the side-by-side.
+              </p>
+            )}
             {c.blogPostSlug && (
               <p style={{ ...paraStyle, fontSize: 14, color: P.textD }}>
                 Want the longer read? Our blog post,{' '}
