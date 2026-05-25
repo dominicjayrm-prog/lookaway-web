@@ -4,6 +4,8 @@ import { supabaseAdmin } from '@/lib/supabase';
 import { mdToHtml, mdWordCount, mdReadingTime } from '@/lib/markdown';
 import { isValidSlug } from '@/lib/slug';
 import { sanitizeFaqs } from '@/lib/faqs';
+import { notifyIndexNow } from '@/lib/indexnow';
+import { SITE_URL } from '@/lib/constants';
 
 async function requireAuth() {
   const session = await getSession();
@@ -56,6 +58,14 @@ export async function POST(req: NextRequest) {
     }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  // Best-effort IndexNow ping when a brand-new post is created already
+  // published. Fire-and-forget; never blocks the response and never
+  // throws even if IndexNow is down.
+  if (data?.published && data.slug) {
+    void notifyIndexNow([`${SITE_URL}/blog/${data.slug}`, `${SITE_URL}/sitemap.xml`]);
+  }
+
   return NextResponse.json(data);
 }
 

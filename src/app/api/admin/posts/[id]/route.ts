@@ -4,6 +4,8 @@ import { supabaseAdmin } from '@/lib/supabase';
 import { mdToHtml, mdWordCount, mdReadingTime } from '@/lib/markdown';
 import { isValidSlug } from '@/lib/slug';
 import { sanitizeFaqs } from '@/lib/faqs';
+import { notifyIndexNow } from '@/lib/indexnow';
+import { SITE_URL } from '@/lib/constants';
 
 async function requireAuth() {
   const session = await getSession();
@@ -80,6 +82,15 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  // Best-effort IndexNow ping when the saved post is currently published.
+  // Covers three real cases: a draft becoming published, a published post
+  // being edited, and a republish after a previous unpublish. Fire-and-
+  // forget; never blocks or throws.
+  if (data?.published && data.slug) {
+    void notifyIndexNow([`${SITE_URL}/blog/${data.slug}`, `${SITE_URL}/sitemap.xml`]);
+  }
+
   return NextResponse.json(data);
 }
 
