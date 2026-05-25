@@ -59,6 +59,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(p.updated_at),
     changeFrequency: 'monthly',
     priority: 0.7,
+    // Image sitemap data: lets Google Images find and rank the blog
+    // banner for image search. The image:title field defaults to the
+    // post title which Google uses as the caption.
+    ...(p.banner_url ? { images: [p.banner_url] } : {}),
   }));
 
   return [...staticEntries, ...compareEntries, ...glossaryEntries, ...postEntries];
