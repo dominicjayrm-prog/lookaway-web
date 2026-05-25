@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: SITE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/authors/dominic-roworth`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${SITE_URL}/support`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/press`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${SITE_URL}/compare`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
@@ -58,6 +59,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(p.updated_at),
     changeFrequency: 'monthly',
     priority: 0.7,
+    // Image sitemap data: lets Google Images find and rank the blog
+    // banner for image search. The image:title field defaults to the
+    // post title which Google uses as the caption.
+    ...(p.banner_url ? { images: [p.banner_url] } : {}),
   }));
 
   return [...staticEntries, ...compareEntries, ...glossaryEntries, ...postEntries];

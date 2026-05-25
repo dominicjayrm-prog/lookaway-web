@@ -1,20 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
+import sharp from 'sharp';
 import { getSession } from '@/lib/auth';
 import { supabaseAdmin } from '@/lib/supabase';
 
 const BUCKET = 'blog-banners';
-// Map of allowed MIME types to the canonical file extension we'll use when
-// saving. This prevents an attacker who crafts a filename like `hack.php.png`
-// from getting `php` as the stored extension — we ignore `file.name` entirely
-// and derive the extension from the MIME type instead.
-const MIME_TO_EXT: Record<string, string> = {
-  'image/jpeg': 'jpg',
-  'image/png': 'png',
-  'image/webp': 'webp',
-  'image/gif': 'gif',
-};
+// Allowed input MIME types. We accept PNG / JPG / WebP and transcode them
+// to WebP server-side so the file actually stored is always small and
+// modern. GIFs (often animated) bypass conversion and are stored as-is.
+// `file.name` is ignored entirely so a filename like `hack.php.png` cannot
+// give us `php` as the stored extension.
+const ACCEPTED_INPUT = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
 const MAX_SIZE = 8 * 1024 * 1024; // 8MB
+
+// Sharp WebP encode tuning. Quality 82 is the sweet spot for photo-style
+// banners: visually lossless to the eye, ~10x smaller than the source PNG.
+const WEBP_QUALITY = 82;
+// Cap dimensions at 1600x840 (2x the recommended 1200x630 social size).
+// Most uploads from ChatGPT come in at 1024 or 1536; this is a safety
+// ceiling for anyone uploading an absurdly large file by mistake.
+const MAX_W = 1600;
+const MAX_H = 840;
 
 /** Server-side slug sanitiser. Trusts nothing from the client. Keeps
  *  lowercase a-z, 0-9, and hyphens. Collapses runs of hyphens, trims, and
@@ -42,8 +48,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'No file provided' }, { status: 400 });
   }
 
-  const ext = MIME_TO_EXT[file.type];
-  if (!ext) {
+  if (!ACCEPTED_INPUT.has(file.type)) {
     return NextResponse.json({ error: 'Unsupported file type. Use JPG, PNG, WebP, or GIF.' }, { status: 400 });
   }
 
@@ -51,21 +56,40 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'File too large (max 8MB)' }, { status: 400 });
   }
 
-  const bytes = await file.arrayBuffer();
-  const hash = crypto.createHash('sha256').update(Buffer.from(bytes)).digest('hex').slice(0, 8);
+  const inputBytes = Buffer.from(await file.arrayBuffer());
+
+  // GIF (often animated): store as-is, animated WebP is supported but
+  // sharp's animated GIF -> animated WebP path is finicky and not worth
+  // the risk for a niche format that we rarely use for banners anyway.
+  let outBytes: Buffer = inputBytes;
+  let outExt = 'gif';
+  let outContentType = 'image/gif';
+
+  if (file.type !== 'image/gif') {
+    // Resize down (only if the image is bigger than the cap), then encode
+    // as WebP. withoutEnlargement keeps small uploads at their natural
+    // size; fit:inside preserves aspect ratio.
+    outBytes = await sharp(inputBytes)
+      .rotate() // honour EXIF orientation
+      .resize({ width: MAX_W, height: MAX_H, fit: 'inside', withoutEnlargement: true })
+      .webp({ quality: WEBP_QUALITY, effort: 5 })
+      .toBuffer();
+    outExt = 'webp';
+    outContentType = 'image/webp';
+  }
+
+  const hash = crypto.createHash('sha256').update(outBytes).digest('hex').slice(0, 8);
   // Prefer an SEO-friendly slug-based filename when the editor passes the
   // post slug along with the upload. Falls back to a hash-only filename for
-  // brand-new posts where the slug has not been filled in yet. The short
-  // content hash is always appended so a re-upload of a same-named banner
-  // cannot collide with the previous one (Supabase upsert is false).
+  // brand-new posts where the slug has not been filled in yet.
   const slug = safeSlug(form.get('slug'));
   const filename = slug
-    ? `${slug}-${hash}.${ext}`
-    : `${hash}-${Date.now()}.${ext}`;
+    ? `${slug}-${hash}.${outExt}`
+    : `${hash}-${Date.now()}.${outExt}`;
 
   const admin = supabaseAdmin();
-  const { error } = await admin.storage.from(BUCKET).upload(filename, bytes, {
-    contentType: file.type,
+  const { error } = await admin.storage.from(BUCKET).upload(filename, outBytes, {
+    contentType: outContentType,
     upsert: false,
   });
   if (error) {
@@ -73,5 +97,10 @@ export async function POST(req: NextRequest) {
   }
 
   const { data: publicUrl } = admin.storage.from(BUCKET).getPublicUrl(filename);
-  return NextResponse.json({ url: publicUrl.publicUrl, filename });
+  return NextResponse.json({
+    url: publicUrl.publicUrl,
+    filename,
+    originalBytes: inputBytes.length,
+    storedBytes: outBytes.length,
+  });
 }

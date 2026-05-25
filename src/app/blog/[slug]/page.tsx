@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getPublishedPostBySlug, getRelatedPosts } from '@/lib/blog';
 import { extractTocAndInjectIds } from '@/lib/toc';
 import { rewriteExternalLinks } from '@/lib/external-links';
+import { autolinkGlossaryTerms } from '@/lib/autolink-glossary';
 import { buildFaqJsonLd } from '@/lib/faqs';
 import PostBody from '@/components/blog/PostBody';
 import BlogDownloadCTA from '@/components/blog/BlogDownloadCTA';
@@ -68,11 +69,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
   const related = await getRelatedPosts(post);
   const { html: tocProcessed, items: tocItems } = extractTocAndInjectIds(post.content_html);
-  // Rewrite external links to add rel="noopener noreferrer nofollow"
-  // and target="_blank". Internal links (relative or pointing at the site's
-  // own domain) are left untouched. Done at render time so it applies to
-  // every existing post immediately, no per-post edits needed.
-  const processedHtml = rewriteExternalLinks(tocProcessed);
+  // Render-time HTML pipeline. Order matters: glossary auto-linking runs
+  // first so the new <a> tags it creates get picked up by the external-
+  // link rewriter (those new links are internal so they will be left
+  // alone, but ordering keeps things deterministic).
+  const withGlossaryLinks = autolinkGlossaryTerms(tocProcessed);
+  const processedHtml = rewriteExternalLinks(withGlossaryLinks);
   const faqs = Array.isArray(post.faqs) ? post.faqs : [];
 
   const jsonLd = {
@@ -87,8 +89,9 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     // across profiles. Big E-E-A-T signal for a small-site founder blog.
     author: {
       '@type': 'Person',
+      '@id': `${SITE_URL}/authors/dominic-roworth`,
       name: FOUNDER.fullName,
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/authors/dominic-roworth`,
       image: `${SITE_URL}${FOUNDER.avatar}`,
       jobTitle: FOUNDER.role,
       worksFor: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },

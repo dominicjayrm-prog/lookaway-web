@@ -80,7 +80,7 @@ const siteJsonLd = {
       givenName: FOUNDER.name,
       jobTitle: FOUNDER.role,
       worksFor: { '@id': `${SITE_URL}/#org` },
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/authors/dominic-roworth`,
       image: `${SITE_URL}${FOUNDER.avatar}`,
       sameAs: [FOUNDER.linkedin, FOUNDER.instagram],
     },
@@ -106,6 +106,14 @@ export default async function RootLayout({
             image load on mobile. */}
         <link rel="preconnect" href="https://xbhewtoryhtguvlmodfi.supabase.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://xbhewtoryhtguvlmodfi.supabase.co" />
+        {/* Same idea for the App Store — every page has a Download button
+            pointing here, so a warm TCP/TLS handshake shaves ~200ms off
+            the very first click. */}
+        <link rel="preconnect" href="https://apps.apple.com" />
+        <link rel="dns-prefetch" href="https://apps.apple.com" />
+        {/* RSS auto-discovery: lets readers / feed apps / browsers find
+            the blog feed automatically when they land on any page. */}
+        <link rel="alternate" type="application/rss+xml" title="Blanked Blog" href="/blog/feed.xml" />
       </head>
       <body>
         <script

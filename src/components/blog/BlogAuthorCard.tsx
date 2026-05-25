@@ -34,7 +34,7 @@ export default function BlogAuthorCard() {
           WRITTEN BY
         </div>
         <div style={{ fontSize: 17, fontWeight: 800, color: '#1A1A18' }}>
-          <Link href="/about" rel="author" style={{ color: 'inherit', textDecoration: 'none' }}>
+          <Link href="/authors/dominic-roworth" rel="author" style={{ color: 'inherit', textDecoration: 'none' }}>
             {FOUNDER.name}
           </Link>
           <span style={{ color: '#B2BEC3', fontWeight: 500, fontSize: 14 }}>  ·  {FOUNDER.role}, Blanked</span>
@@ -46,7 +46,7 @@ export default function BlogAuthorCard() {
           <a href={FOUNDER.linkedin} target="_blank" rel="noopener noreferrer" style={chip}>LinkedIn ↗</a>
           <a href={FOUNDER.instagram} target="_blank" rel="noopener noreferrer" style={chip}>Instagram ↗</a>
           <a href={`mailto:${FOUNDER.email}`} style={chip}>Email ↗</a>
-          <Link href="/about" style={chip}>About the team →</Link>
+          <Link href="/authors/dominic-roworth" style={chip}>Author profile &rarr;</Link>
         </div>
       </div>
       <style>{`

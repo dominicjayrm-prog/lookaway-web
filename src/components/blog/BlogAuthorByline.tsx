@@ -4,7 +4,8 @@ import { FOUNDER } from '@/lib/constants';
 
 /**
  * Small author strip shown near the post title. Avatar + name + role + date +
- * reading time. Name links to /about for SEO authorship signal.
+ * reading time. Name links to the author profile page for the strongest
+ * authorship signal (rel="author" + Person schema on the target page).
  */
 export default function BlogAuthorByline({
   publishedAt,
@@ -32,7 +33,7 @@ export default function BlogAuthorByline({
       <div style={{ lineHeight: 1.35 }}>
         <div>
           <Link
-            href="/about"
+            href="/authors/dominic-roworth"
             rel="author"
             style={{ color: '#1A1A18', fontWeight: 700, textDecoration: 'none' }}
           >
