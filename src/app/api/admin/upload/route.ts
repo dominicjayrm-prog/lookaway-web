@@ -16,6 +16,22 @@ const MIME_TO_EXT: Record<string, string> = {
 };
 const MAX_SIZE = 8 * 1024 * 1024; // 8MB
 
+/** Server-side slug sanitiser. Trusts nothing from the client. Keeps
+ *  lowercase a-z, 0-9, and hyphens. Collapses runs of hyphens, trims, and
+ *  hard-caps at 80 chars so even a malicious slug cannot blow up the file
+ *  path. */
+function safeSlug(raw: unknown): string {
+  if (typeof raw !== 'string') return '';
+  return raw
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80);
+}
+
 export async function POST(req: NextRequest) {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -36,8 +52,16 @@ export async function POST(req: NextRequest) {
   }
 
   const bytes = await file.arrayBuffer();
-  const hash = crypto.createHash('sha256').update(Buffer.from(bytes)).digest('hex').slice(0, 16);
-  const filename = `${hash}-${Date.now()}.${ext}`;
+  const hash = crypto.createHash('sha256').update(Buffer.from(bytes)).digest('hex').slice(0, 8);
+  // Prefer an SEO-friendly slug-based filename when the editor passes the
+  // post slug along with the upload. Falls back to a hash-only filename for
+  // brand-new posts where the slug has not been filled in yet. The short
+  // content hash is always appended so a re-upload of a same-named banner
+  // cannot collide with the previous one (Supabase upsert is false).
+  const slug = safeSlug(form.get('slug'));
+  const filename = slug
+    ? `${slug}-${hash}.${ext}`
+    : `${hash}-${Date.now()}.${ext}`;
 
   const admin = supabaseAdmin();
   const { error } = await admin.storage.from(BUCKET).upload(filename, bytes, {
