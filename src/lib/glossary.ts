@@ -186,4 +186,163 @@ export const GLOSSARY: Record<string, GlossaryTerm> = {
       { text: 'Simons et al. (2016), "Do Brain-Training Programs Work?", Psychological Science in the Public Interest', url: 'https://journals.sagepub.com/doi/10.1177/1529100616661983' },
     ],
   },
+
+  'photographic-memory': {
+    slug: 'photographic-memory',
+    name: 'Photographic memory',
+    tagline: 'the popular myth of perfect visual recall, and what people actually have instead',
+    metaDescription: 'Photographic memory: the popular myth of perfect visual recall. What the research says, why true photographic memory does not exist, and what real visual memory looks like.',
+    lastUpdated: '2026-05-25',
+    definition: [
+      'Photographic memory, in the everyday sense of the phrase, is the supposed ability to recall any image, page, or scene in perfect detail at will, as if a photograph of it had been taken and stored in the brain. It is one of the most familiar ideas in popular psychology, and it is also one of the most misleading. The honest answer from the research is that photographic memory, defined that way, basically does not exist.',
+      'What does exist is much narrower. Eidetic imagery is a real but rare phenomenon, found mostly in children between roughly 5 and 12, where a person can briefly hold a vivid afterimage of a recently viewed picture for tens of seconds and answer detailed questions about it. Even then the image fades, is partially constructed, and contains errors. By adulthood, eidetic imagery is vanishingly rare. The famous case study often cited (Stromeyer\'s 1970 report on a participant who could fuse random-dot stereograms across time) has never been independently replicated.',
+      'What most people who think they have photographic memory actually have is unusually strong visual memory in specific domains they care about. A graphic designer might recall layouts in striking detail. A chess player might reconstruct a board from a glance. The skill is real, but it is built on practice, attention, and meaningful encoding, not on a literal mental photograph.',
+    ],
+    whyItMatters: [
+      'The photographic-memory myth is everywhere in school advice, productivity content, and brain-training app marketing. Believing it sets up the wrong expectations for what training your memory will and will not do. Nobody trains their way into perfect recall, because perfect recall is not a thing the human brain does. What they can train is the much more useful and achievable skill of remembering what they paid attention to.',
+      'Understanding the myth also helps you spot bad memory advice. Anyone promising photographic recall, total recall, or memory like a camera is selling a story rather than a skill. The real, sourced research on how to actually improve memory looks much less glamorous: practice, sleep, encoding strategies, and time.',
+    ],
+    howItWorks: [
+      'Visual memory in adults is reconstructive, not photographic. When you remember a scene, you are not retrieving a stored image; you are rebuilding the scene from a small number of remembered features, filled in with assumptions and prior knowledge. This is why eyewitness testimony is notoriously unreliable, why two people can describe the same room differently, and why your memory of an event can shift over time without you noticing.',
+      'The brain regions involved (visual cortex for the perceptual side, the hippocampus and medial temporal lobe for binding it into a memory, prefrontal cortex for working-memory control) all operate on this reconstructive principle. There is no "image store" anywhere in the architecture. There never was.',
+    ],
+    howToImprove: [
+      'If you cannot have photographic memory, what can you have? Substantially sharper visual memory than your baseline, with focused practice. Memorise actively rather than passively. Pay deliberate attention to the things you want to remember; the encoding step is where most "forgetting" actually happens. Use mnemonics, place items into spatial scenes, group meaningful units rather than try to hold raw detail.',
+      'For the trainable visual short-term and working memory components specifically, focused practice on visual-recall tasks (the kind in our{\' \'}/memory-test) produces measurable gains within weeks. The gains are narrow but real. They will not give you photographic recall. They will give you sharper recognition of faces, layouts, and scenes than you had before.',
+    ],
+    faqs: [
+      {
+        q: 'Does photographic memory actually exist?',
+        a: 'In the everyday "perfect mental snapshot" sense, no. The closest real phenomenon is eidetic imagery, which is rare, mostly observed in children, and far more limited than the popular conception. By adulthood it is vanishingly rare and the famous reported cases have never been independently replicated.',
+      },
+      {
+        q: 'What is the difference between eidetic and photographic memory?',
+        a: 'Eidetic memory is the technical term for a brief, vivid afterimage held for tens of seconds after viewing a picture, observed mostly in young children. Photographic memory is the popular, broader, unscientific claim of permanent perfect recall of anything seen. Eidetic memory is real but narrow and rare; photographic memory in the popular sense is essentially a myth.',
+      },
+      {
+        q: 'How can someone remember a chess board after a glance?',
+        a: 'Through chunking. Expert chess players do not memorise 32 separate piece positions; they recognise familiar patterns (a particular opening structure, a known tactical motif) and store the position as a small number of meaningful chunks. Show them a random arrangement of pieces that does not correspond to a real game and their recall drops to ordinary levels. The skill is pattern recognition built through years of practice, not photographic capture.',
+      },
+      {
+        q: 'Can I train myself to have photographic memory?',
+        a: 'No, because the underlying claim does not match how memory works. You can absolutely train measurable gains in visual recall, working memory, and pattern recognition. People sometimes describe those gains in photographic-memory language because it is the cultural shorthand, but the skill behind the words is more interesting and more achievable than the myth.',
+      },
+      {
+        q: 'Why does this myth persist?',
+        a: 'A combination of confirmation bias (we remember the few times we recalled something vividly and forget the many times we did not), Hollywood (Will Hunting, Sherlock, every memory-savant trope), and self-help marketing (selling "unlock your photographic memory" courses). The myth is sticky because it offers something that sounds wonderful, but the actual cognitive science is much more grounded.',
+      },
+    ],
+    sources: [
+      { text: 'Brandimonte, Hitch, & Bishop (1992), "Influence of short-term memory codes on visual image processing"' },
+      { text: 'Hyman & Faries (1992), on the unreliability of eidetic memory claims' },
+      { text: 'Crowder (1992), "Sensory memory", in The Handbook of Cognition and Aging' },
+      { text: 'Stromeyer & Psotka (1970), "The detailed texture of eidetic images", Nature (the much-cited but never-replicated case)' },
+      { text: 'Loftus (1979), "Eyewitness Testimony" on the reconstructive nature of memory' },
+    ],
+  },
+
+  'spatial-memory': {
+    slug: 'spatial-memory',
+    name: 'Spatial memory',
+    tagline: 'the system that lets you remember where things are and how to find your way around',
+    metaDescription: 'Spatial memory: the cognitive system that lets you remember where things are, navigate familiar routes, and find your way home. Plain-English definition with research citations.',
+    lastUpdated: '2026-05-25',
+    definition: [
+      'Spatial memory is the cognitive system that holds and retrieves information about locations: where things are, how they relate to each other in space, and how to move between them. It is what lets you find your car in a multi-storey car park, recall which kitchen cupboard the coffee is in, navigate your way home in the dark, and remember which seat was yours in a meeting room.',
+      'Like most cognitive systems, spatial memory operates across timescales. There is a short-term version (the visuospatial sketchpad in Baddeley and Hitch\'s working-memory model, holding spatial information for seconds while you act on it) and a long-term version (the durable mental map of a city you grew up in, learned over years).',
+      'Spatial memory is closely tied to navigation but is not the same as it. Navigation also requires path integration (keeping track of where you are while moving), landmark recognition, and route planning. Spatial memory is the storage layer underneath all of that.',
+    ],
+    whyItMatters: [
+      'Spatial memory underwrites a surprisingly large slice of everyday cognition. Most "I cannot find my keys" experiences are spatial-memory failures rather than general forgetfulness. So is forgetting where you parked, missing a turn on a familiar route, or putting a remote control down without registering where. The system fails quietly because we rarely notice ourselves using it well.',
+      'Spatial memory also declines measurably with age, faster than some other memory subsystems. This is one of the reasons older adults often struggle more with navigation in unfamiliar places than with verbal recall. The good news is that spatial memory is moderately trainable; the games and tasks in our{\' \'}/memory-games-for-seniors guide draw on this.',
+    ],
+    howItWorks: [
+      'The brain region most directly responsible for spatial memory is the hippocampus, with substantial help from neighbouring medial temporal lobe structures. The 2014 Nobel Prize in Physiology or Medicine went to John O\'Keefe and the Mosers for the discovery of "place cells" (neurons that fire when an animal is in a specific location) and "grid cells" (neurons that create a coordinate-like map of the surrounding space). This system is essentially a built-in GPS, and it is the same hardware in humans.',
+      'The hippocampus is also one of the brain regions hit earliest in Alzheimer\'s disease, which explains why spatial disorientation (getting lost in familiar surroundings) is often one of the first noticeable symptoms.',
+      'On the shorter timescale, the visuospatial sketchpad in working memory holds spatial information for seconds. This is the system you use when you are carrying three things to different rooms and have to keep track of where each one goes. Capacity is small (the Corsi block-tapping task, the standard measure, tops out around 5-6 for most adults). See our entry on{\' \'}working memory for the broader picture.',
+    ],
+    howToImprove: [
+      'Spatial memory responds well to deliberate practice on spatial tasks. Variants of the Corsi block-tapping test, mental rotation exercises, and games that ask you to remember layouts (Blanked\'s Colour Chain and Speed Recall modes are this format) all produce measurable gains within weeks.',
+      'Everyday habits help too. Active navigation (planning a route from memory rather than following turn-by-turn directions) keeps the system engaged; constant satnav use is associated with reduced hippocampal engagement, though the long-term effects are still being studied. Walking new routes, exploring unfamiliar areas, and consciously noting landmarks all maintain the system.',
+      'For older adults specifically, the ACTIVE trial speed-of-processing training (which has the most peer-reviewed transfer evidence in the brain-training literature) shows benefits that include spatial-cognition components.',
+    ],
+    faqs: [
+      {
+        q: 'How is spatial memory different from visual memory?',
+        a: 'Visual memory is the broader category covering anything you have seen (faces, shapes, scenes, layouts). Spatial memory is the subset that specifically encodes locations and spatial relationships. The two overlap but are dissociable; some brain injuries impair one and not the other. See our entry on visual memory for the parent concept.',
+      },
+      {
+        q: 'Does using GPS make spatial memory worse?',
+        a: 'There is some evidence that heavy reliance on turn-by-turn navigation reduces engagement of the hippocampus and may weaken active navigation skills over time. The effect sizes are not huge and the long-term implications are still being studied. The honest advice is to use GPS when you need it but practise navigating from memory when you can, the same way you would take the stairs sometimes rather than always the lift.',
+      },
+      {
+        q: 'Why do older adults sometimes get lost in familiar places?',
+        a: 'Spatial memory and the hippocampus are among the systems most affected by normal ageing and by Alzheimer\'s disease specifically. Mild difficulty in unfamiliar places is normal with age. Getting lost in long-familiar places is worth talking to a doctor about, because it can be an early sign of cognitive decline.',
+      },
+      {
+        q: 'Can spatial memory be trained?',
+        a: 'Yes, on the specific tasks you train. Corsi-style block-tapping, mental rotation, and layout-memory games all produce measurable gains. As with all brain training, transfer to broader real-world spatial skills is more modest than the marketing usually implies, but the focused-task gains are real.',
+      },
+    ],
+    sources: [
+      { text: 'O\'Keefe & Nadel (1978), "The Hippocampus as a Cognitive Map"' },
+      { text: '2014 Nobel Prize: O\'Keefe, May-Britt Moser, Edvard Moser, for place cells and grid cells' },
+      { text: 'Baddeley & Hitch (1974), "Working Memory"' },
+      { text: 'Corsi (1972), "Human memory and the medial temporal region of the brain"' },
+      { text: 'Edwards et al. (2017), "Speed of processing training results in lower risk of dementia", ACTIVE Trial', url: 'https://doi.org/10.1016/j.trci.2017.09.002' },
+    ],
+  },
+
+  'iconic-memory': {
+    slug: 'iconic-memory',
+    name: 'Iconic memory',
+    tagline: 'the visual sensory store that holds a brief, vivid trace of what you have just seen for less than a second',
+    metaDescription: 'Iconic memory: the sub-second visual sensory store that holds a brief trace of what you just saw. The Sperling experiment, how it works, and how it differs from short-term memory.',
+    lastUpdated: '2026-05-25',
+    definition: [
+      'Iconic memory is the very brief visual sensory store that holds a vivid trace of what your eyes have just seen for roughly 200 to 500 milliseconds. It is the reason a quickly flashed scene leaves a fading mental afterimage you can interrogate for a fraction of a second before it disappears. It is the first stage of visual memory, sitting between raw perception and short-term memory.',
+      'Iconic memory is much larger than short-term memory (you briefly register far more than you can later report) but decays much faster. Whatever you do not transfer into short-term memory within about half a second is lost. This is why some people experience watching a fast scene and feeling they saw "everything" but cannot list the details a moment later: they did see everything, but only iconic memory held it, and iconic memory does not last.',
+      'The term and the concept come from George Sperling\'s 1960 doctoral dissertation, which produced one of the most elegant experimental results in cognitive psychology.',
+    ],
+    whyItMatters: [
+      'Iconic memory matters because it is the upstream stage that everything else in visual memory depends on. If the iconic store does not capture an image clearly, no amount of downstream processing can recover the details. Encoding from iconic memory into short-term memory is also where deliberate attention does most of its work; what you pay attention to in those few hundred milliseconds is what makes it further into the system.',
+      'For practical memory: many "I did not notice" experiences are iconic-memory transfer failures. The information was briefly present in iconic memory but was not attended to before it decayed. This is why mindfulness and slow looking are useful for memory: they extend the window in which iconic memory can hand off to short-term memory.',
+    ],
+    howItWorks: [
+      'Sperling\'s 1960 partial-report experiment is the canonical demonstration. Participants were shown a grid of letters for 50 milliseconds and asked to recall as many as they could. They typically reported only about four. But when Sperling cued them after the grid disappeared (with a tone telling them which row to report), they could accurately report any row. This proved they had briefly seen the entire grid; they simply could not retrieve all of it before the iconic trace faded.',
+      'The neural substrate is primary visual cortex and the closely connected early visual areas. The fade is thought to reflect the natural decay of the visual neural response over a few hundred milliseconds. A masking stimulus (showing a bright pattern immediately after the target) can wipe iconic memory clean before it would otherwise fade, an effect heavily used in cognitive psychology experiments.',
+    ],
+    howToImprove: [
+      'Iconic memory itself is largely fixed; it is built into the early visual system and does not respond much to training. What does respond is the downstream transfer to short-term memory: paying deliberate attention, slowing down, and using encoding strategies. The same focused-attention training that helps short-term and working memory effectively widens the window during which iconic memory can be exploited.',
+      'In practical terms, if you want to remember more of what you see, the answer is not "improve iconic memory"; it is "look longer and more deliberately so attention can capture what iconic memory briefly held". For training that downstream encoding step specifically, our{\' \'}/visual-memory-exercises page covers the techniques.',
+    ],
+    faqs: [
+      {
+        q: 'How long does iconic memory last?',
+        a: 'Roughly 200 to 500 milliseconds in most studies. The trace fades exponentially and is essentially gone by one second. A bright mask shown immediately after the target can wipe it even faster.',
+      },
+      {
+        q: 'What is the Sperling experiment?',
+        a: 'George Sperling\'s 1960 partial-report study showed participants a grid of letters for 50 ms, then cued them which row to recall. They could recall any row accurately if cued quickly enough, proving they had briefly seen the entire grid in iconic memory. Whole-report (just say everything you saw) caps out at about four items because the iconic trace fades before they can be reported.',
+      },
+      {
+        q: 'How is iconic memory different from short-term memory?',
+        a: 'Iconic memory is much larger but much shorter. It can hold a richly detailed visual scene for under a second; short-term memory can hold a much smaller amount (roughly 4 to 7 items) for tens of seconds. Iconic memory feeds into short-term memory through selective attention.',
+      },
+      {
+        q: 'Is iconic memory the same as photographic memory?',
+        a: 'No. Iconic memory is universal, sub-second, and decays quickly. Photographic memory, in the popular sense of permanent perfect recall, is essentially a myth (see our entry on photographic memory). The two are sometimes confused because both involve vivid visual traces, but iconic memory is genuinely real and short, while photographic memory in the everyday sense is genuinely not real.',
+      },
+      {
+        q: 'Can iconic memory be trained?',
+        a: 'Not directly in any meaningful way; it is built into early visual processing and is largely fixed. What can be trained is the attentional transfer from iconic memory into short-term memory, which is what most "improve visual memory" practices target.',
+      },
+    ],
+    sources: [
+      { text: 'Sperling (1960), "The Information Available in Brief Visual Presentations", Psychological Monographs' },
+      { text: 'Neisser (1967), "Cognitive Psychology" — introduced the term "iconic memory"' },
+      { text: 'Coltheart (1980), "Iconic memory and visible persistence", Perception & Psychophysics' },
+      { text: 'Baddeley (2003), "Working memory: looking back and looking forward", Nature Reviews Neuroscience' },
+    ],
+  },
 };
