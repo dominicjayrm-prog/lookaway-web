@@ -187,16 +187,41 @@ export default function MemoryTestPage() {
           </div>
         </section>
 
+        {/* Test variants — the wider visual memory test cluster */}
+        <section style={{ marginTop: 36 }}>
+          <h2 style={h2}>More memory tests</h2>
+          <p style={paraStyle}>
+            This is the headline visual memory test. Three more variants cover specific paradigms and are worth trying alongside it:
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+            <Link href="/sequence-memory-test" style={variantCardStyle}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: P.text, marginBottom: 4 }}>Sequence memory test</div>
+              <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>The Corsi block-tapping variant: reproduce a sequence of lit tiles in order.</div>
+            </Link>
+            <Link href="/number-memory-test" style={variantCardStyle}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: P.text, marginBottom: 4 }}>Number memory test</div>
+              <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>Classical digit span: how many digits can you hold in mind?</div>
+            </Link>
+            <Link href="/human-benchmark-alternative" style={variantCardStyle}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: P.text, marginBottom: 4 }}>Vs Human Benchmark</div>
+              <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>How this test compares to the popular Human Benchmark battery.</div>
+            </Link>
+          </div>
+        </section>
+
         {/* Related */}
         <section style={{ marginTop: 36 }}>
           <p style={paraStyle}>
             Want more context? Read the parallel guides for{' '}
             <Link href="/memory-training-for-students" style={inlineLink}>students</Link>
             {' '}and{' '}
-            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>, or see how Blanked compares to{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>, the broader{' '}
+            <Link href="/visual-memory-exercises" style={inlineLink}>visual memory exercises</Link>
+            {' '}guide, or see how Blanked compares to{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Lumosity</Link>,{' '}
             <Link href="/compare/peak" style={inlineLink}>Peak</Link>, and the rest on the{' '}
-            <Link href="/compare" style={inlineLink}>compare hub</Link>.
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. New to brain training generally? Read{' '}
+            <Link href="/does-brain-training-work" style={inlineLink}>does brain training actually work?</Link>
           </p>
         </section>
 
@@ -240,4 +265,10 @@ const ctaPrimary: React.CSSProperties = {
 };
 const inlineLink: React.CSSProperties = {
   color: COLORS.accent, textDecoration: 'underline',
+};
+const variantCardStyle: React.CSSProperties = {
+  display: 'block', padding: '14px 16px', borderRadius: 12,
+  background: 'white', border: '1px solid rgba(0,0,0,0.04)',
+  textDecoration: 'none', color: 'inherit',
+  boxShadow: '0 1px 8px rgba(0,0,0,0.02)',
 };

@@ -154,6 +154,23 @@ export default async function SeniorsPage() {
           </p>
         </section>
 
+        {/* Is it really free */}
+        <section style={section}>
+          <h2 style={h2}>Is it really free?</h2>
+          <p style={paraStyle}>
+            Yes, and we are explicit about this because the wider brain-training app market is not. Lumosity, Peak, Elevate, NeuroNation and BrainHQ all run subscription models, typically £4 to £12 a month, with their free tiers limited to a few games per day. That is a normal pricing model; it is also a real friction for anyone on a fixed income.
+          </p>
+          <p style={paraStyle}>
+            Blanked is genuinely free. All six game modes, all 400+ levels, daily streaks, friend challenges: free, no paywall on gameplay. Ads run in the free tier; they are short and skippable. The optional Blanked+ subscription removes the ads and adds cosmetic items only; it does not gate any content. If you want to support the developer or just prefer no ads, it is there. If you want to play the full game indefinitely without paying anything, that is also fine.
+          </p>
+          <p style={paraStyle}>
+            For the wider field, see our compare hub on{' '}
+            <Link href="/compare" style={inlineLink}>brain-training apps</Link>, or the dedicated{' '}
+            <Link href="/lumosity-alternative" style={inlineLink}>Lumosity alternative</Link>
+            {' '}page for the replacement-intent angle.
+          </p>
+        </section>
+
         {/* How Blanked is built for older players */}
         <section style={section}>
           <h2 style={h2}>How Blanked is built for older players</h2>
@@ -264,11 +281,15 @@ export default async function SeniorsPage() {
           <p style={paraStyle}>
             Want a quick check on your current visual memory? Try the free{' '}
             <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
-            {' '}in your browser, no signup, two minutes. Wondering how Blanked stacks up against the bigger names? See our honest comparisons of{' '}
+            {' '}in your browser, no signup, two minutes. The everyday "where did I leave it" problem gets the honest treatment at{' '}
+            <Link href="/how-to-remember-where-you-put-things" style={inlineLink}>how to remember where you put things</Link>; for the spatial-cognition side of ageing specifically, see the glossary entry on{' '}
+            <Link href="/glossary/spatial-memory" style={inlineLink}>spatial memory</Link>. Wondering how Blanked stacks up against the bigger names? See our honest comparisons of{' '}
             <Link href="/compare/lumosity" style={inlineLink}>Blanked vs Lumosity</Link>,{' '}
             <Link href="/compare/brainhq" style={inlineLink}>Blanked vs BrainHQ</Link>
-            {' '}(BrainHQ has the strongest research backing in older adults specifically), and the full{' '}
-            <Link href="/compare" style={inlineLink}>compare hub</Link>. Or see the parallel guides for{' '}
+            {' '}(BrainHQ has the strongest research backing in older adults specifically), the{' '}
+            <Link href="/peak-alternative" style={inlineLink}>Peak alternative</Link>
+            {' '}page, and the full{' '}
+            <Link href="/compare" style={inlineLink}>compare hub</Link>. Parallel guides for{' '}
             <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
             <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
             <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>.

@@ -298,11 +298,22 @@ export default async function MemoryGamesForAdultsPage() {
             See also the audience-specific guides for{' '}
             <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
             <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>,{' '}
-            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>, and{' '}
-            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>. Comparing options? The{' '}
+            <Link href="/memory-training-for-adhd" style={inlineLink}>ADHD adults</Link>,{' '}
+            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>, and{' '}
+            <Link href="/memory-games-for-nurses" style={inlineLink}>nurses</Link>. Exercise routines:{' '}
+            <Link href="/visual-memory-exercises" style={inlineLink}>visual memory exercises</Link>
+            {' '}and{' '}
+            <Link href="/working-memory-exercises-for-adults" style={inlineLink}>working memory exercises</Link>. Looking for free options specifically?{' '}
+            <Link href="/free-memory-game-iphone" style={inlineLink}>Free memory game for iPhone</Link>,{' '}
+            <Link href="/lumosity-alternative" style={inlineLink}>Lumosity alternative</Link>, and{' '}
+            <Link href="/peak-alternative" style={inlineLink}>Peak alternative</Link>
+            {' '}cover the replacement-intent angle. Comparing options? The{' '}
             <Link href="/compare" style={inlineLink}>compare hub</Link>
             {' '}covers Blanked against Lumosity, Peak, Elevate, BrainHQ, and the rest of the field. Want a quick benchmark first? Try the free{' '}
-            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>.
+            <Link href="/memory-test" style={inlineLink}>visual memory test</Link>
+            {' '}or the{' '}
+            <Link href="/human-benchmark-alternative" style={inlineLink}>Human Benchmark alternative</Link>
+            {' '}page.
           </p>
         </section>
 

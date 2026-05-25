@@ -249,8 +249,13 @@ export default async function ADHDPage() {
           <p style={paraStyle}>
             See also the parallel guides for{' '}
             <Link href="/memory-training-for-students" style={inlineLink}>students</Link>,{' '}
-            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>, and{' '}
-            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>; the free{' '}
+            <Link href="/memory-games-for-seniors" style={inlineLink}>older adults</Link>,{' '}
+            <Link href="/brain-games-for-office-workers" style={inlineLink}>office workers</Link>, and{' '}
+            <Link href="/memory-games-for-nurses" style={inlineLink}>nurses</Link>; the{' '}
+            <Link href="/working-memory-exercises-for-adults" style={inlineLink}>working memory exercises</Link>
+            {' '}page; the practical{' '}
+            <Link href="/how-to-remember-where-you-put-things" style={inlineLink}>how to remember where you put things</Link>
+            {' '}piece (especially relevant for ADHD); the free{' '}
             <Link href="/memory-test" style={inlineLink}>visual memory test</Link>; and how Blanked compares to{' '}
             <Link href="/compare/cognifit" style={inlineLink}>CogniFit</Link>
             {' '}(which markets condition-specific packages including ADHD) on the{' '}

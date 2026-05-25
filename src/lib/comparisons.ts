@@ -28,6 +28,10 @@ export interface Comparison {
    *  an extra dofollow internal link, and so visitors can choose the depth
    *  they want. */
   blogPostSlug?: string;
+  /** Optional path of a sister "/{name}-alternative" page that targets
+   *  free-alternative replacement intent specifically. Different intent from
+   *  the comparison page; bridging the two boosts both URLs. */
+  alternativePath?: string;
   /** ISO date of last content review. */
   lastUpdated?: string;
   /** Link to the competitor's official site, used in the bottom-line outbound link. */
@@ -51,6 +55,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     tagline: 'brain games from Popcap alumni',
     websiteUrl: 'https://www.peak.net',
     blogPostSlug: 'blanked-vs-peak-which-memory-training-app-should-you-use',
+    alternativePath: '/peak-alternative',
     lastUpdated: '2026-04-30',
     verdict:
       'Peak offers a wide variety of brain games across many cognitive domains. Blanked focuses deeply on visual memory specifically. Pick Blanked if you want to train one skill really well; pick Peak if you want breadth.',
@@ -133,6 +138,7 @@ export const COMPARISONS: Record<string, Comparison> = {
     tagline: 'the original brain-training platform',
     websiteUrl: 'https://www.lumosity.com',
     blogPostSlug: 'blanked-vs-lumosity-honest-comparison-2026',
+    alternativePath: '/lumosity-alternative',
     lastUpdated: '2026-04-30',
     verdict:
       'Lumosity is the granddaddy of brain-training apps with a huge catalog. Blanked is the modern, focused alternative if visual memory is the thing you actually care about, at a fraction of the price.',
