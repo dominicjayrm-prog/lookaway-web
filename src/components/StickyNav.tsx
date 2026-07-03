@@ -35,6 +35,7 @@ export default function StickyNav() {
           <Link href="/about" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>About</Link>
           <Link href="/blog" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Blog</Link>
           <Link href="/memory-test" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Memory Test</Link>
+          <Link href="/daily" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Daily</Link>
           <Link href="/compare" style={{ fontSize: 13, color: COLORS.textM, fontWeight: 600 }}>Compare</Link>
           <a
             href={APP_STORE_URL}

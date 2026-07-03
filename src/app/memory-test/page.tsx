@@ -194,6 +194,10 @@ export default function MemoryTestPage() {
             This is the headline visual memory test. Three more variants cover specific paradigms and are worth trying alongside it:
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+            <Link href="/daily" style={variantCardStyle}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: P.text, marginBottom: 4 }}>Daily memory challenge</div>
+              <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>One puzzle a day, same for everyone. Share your grid, keep your streak.</div>
+            </Link>
             <Link href="/sequence-memory-test" style={variantCardStyle}>
               <div style={{ fontSize: 13, fontWeight: 800, color: P.text, marginBottom: 4 }}>Sequence memory test</div>
               <div style={{ fontSize: 12, color: P.textD, lineHeight: 1.4 }}>The Corsi block-tapping variant: reproduce a sequence of lit tiles in order.</div>
