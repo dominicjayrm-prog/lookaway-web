@@ -9,7 +9,7 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'How to Remember Where You Put Things: A Working-Memory Fix',
+  title: 'How to Remember Where You Put Things',
   description:
     'How to remember where you put things, honestly. The fix is not better memory — it is better encoding. The two-second habit that actually works, plus the science.',
   alternates: { canonical: `${SITE_URL}/how-to-remember-where-you-put-things` },

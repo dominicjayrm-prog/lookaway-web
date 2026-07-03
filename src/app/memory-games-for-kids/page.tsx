@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Memory Games for Kids: What Works at Each Age',
   description:
-    'Memory games for kids that actually help, broken down by age. What the research says about working memory in childhood, free options, and how to fit it into a real family schedule.',
+    'Memory games for kids that actually help, broken down by age. What the research says about working memory in childhood, plus free options.',
   alternates: { canonical: `${SITE_URL}/memory-games-for-kids` },
   openGraph: {
     type: 'article',

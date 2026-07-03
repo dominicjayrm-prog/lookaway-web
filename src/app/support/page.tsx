@@ -6,7 +6,7 @@ import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, CONTACT_EMAIL, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Support',
+  title: 'Support: Help, Contact, and FAQs',
   description: 'Need help with Blanked? Get in touch, report a bug, ask about your account, or tell us what you think. We reply within 48 hours.',
   alternates: { canonical: `${SITE_URL}/support` },
   openGraph: {

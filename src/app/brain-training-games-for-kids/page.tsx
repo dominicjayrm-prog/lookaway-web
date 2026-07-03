@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Brain Training Games for Kids: What Actually Helps',
   description:
-    'Brain training games for kids that actually do something. What the research says about working memory, attention, and concentration practice in childhood, plus free options.',
+    'Brain training games for kids that actually do something. What research says about working memory and attention in childhood, plus free options.',
   alternates: { canonical: `${SITE_URL}/brain-training-games-for-kids` },
   openGraph: {
     type: 'article',

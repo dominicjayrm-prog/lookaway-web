@@ -9,7 +9,7 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Working Memory Exercises for Adults: 7 That Actually Work',
+  title: 'Working Memory Exercises for Adults: 7 That Work',
   description:
     'Seven working memory exercises for adults, sourced from real cognitive-psychology paradigms. Not a clinical PDF. Plus honest expectations and how to fit them in.',
   alternates: { canonical: `${SITE_URL}/working-memory-exercises-for-adults` },

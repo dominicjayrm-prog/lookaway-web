@@ -9,15 +9,15 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Matching Games for Adults: What Works (and What Does Not)',
+  title: 'Matching Games for Adults: What Actually Works',
   description:
-    'Matching games for adults explained: how they actually train memory, which versions are worth your time, and what to play instead if you want real visual recall practice.',
+    'Matching games for adults explained: how they train memory, which versions are worth your time, and what to play for real recall practice.',
   alternates: { canonical: `${SITE_URL}/matching-games-for-adults` },
   openGraph: {
     type: 'article',
     locale: 'en_GB',
     siteName: 'Blanked',
-    title: 'Matching Games for Adults: What Works (and What Does Not)',
+    title: 'Matching Games for Adults: What Actually Works',
     description: 'How matching games actually train memory, and what to play if you want real visual recall practice.',
     url: `${SITE_URL}/matching-games-for-adults`,
     images: [OG_IMAGE],
@@ -73,7 +73,7 @@ export default async function MatchingGamesForAdultsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Matching Games for Adults: What Works (and What Does Not)',
+    headline: 'Matching Games for Adults: What Actually Works',
     description:
       'How matching games for adults actually train memory, which versions are worth your time, and what to play instead if you want serious visual recall practice.',
     author: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },

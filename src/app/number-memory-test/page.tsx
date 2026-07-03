@@ -9,7 +9,7 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Number Memory Test (Online, Free): What is Your Digit Span?',
+  title: 'Number Memory Test: What Is Your Digit Span?',
   description:
     'Free online number memory test. A number appears, then disappears, then you type it back. Two minutes, no signup, modeled on the classical digit-span task.',
   alternates: { canonical: `${SITE_URL}/number-memory-test` },

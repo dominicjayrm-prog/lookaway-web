@@ -9,9 +9,9 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Sequence Memory Test (Online, Free): How High Can You Go?',
+  title: 'Sequence Memory Test: Free and Online',
   description:
-    'Free online sequence memory test. Tiles light up in order, you reproduce the sequence. Two minutes, no signup, runs in your browser. Modeled on the Corsi block-tapping task.',
+    'Free online sequence memory test. Tiles light up in order, you reproduce the sequence. Two minutes, no signup, modeled on the Corsi block-tapping task.',
   alternates: { canonical: `${SITE_URL}/sequence-memory-test` },
   openGraph: { type: 'website', locale: 'en_GB', siteName: 'Blanked', title: 'Sequence Memory Test (Free, Online)', description: 'How long a sequence can you reproduce from memory?', url: `${SITE_URL}/sequence-memory-test`, images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', title: 'Sequence Memory Test', description: 'Free, in-browser, two minutes.', images: [OG_IMAGE] },

@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Free Lumosity Alternative: Honest, No Subscription, iOS',
   description:
-    'Looking for a free Lumosity alternative? Blanked is a visual memory game with no paywall on the core game, no inflated claims, and a two-minute daily habit. iOS, free.',
+    'Looking for a free Lumosity alternative? Blanked is a visual memory game with no paywall, no inflated claims, and a two-minute daily habit. iOS, free.',
   alternates: { canonical: `${SITE_URL}/lumosity-alternative` },
   openGraph: {
     type: 'article',

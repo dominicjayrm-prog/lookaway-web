@@ -7,7 +7,7 @@ import Blink from '@/components/Blink';
 import { SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Memory Science Blog: Brain Training, Recall, and Research',
+  title: 'Memory Science Blog: Training and Recall',
   description: 'Articles on memory, brain training, and cognitive science from the team behind Blanked. Tips, research, and game-design insights.',
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {

@@ -9,7 +9,7 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Picture Memory Games for Adults: A Sharper Visual Recall Habit',
+  title: 'Picture Memory Games for Adults That Work',
   description:
     'Picture memory games for adults explained. How they work, what they actually train, and a free two-minute daily option built around scene recall.',
   alternates: { canonical: `${SITE_URL}/picture-memory-games-for-adults` },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     type: 'article',
     locale: 'en_GB',
     siteName: 'Blanked',
-    title: 'Picture Memory Games for Adults: A Sharper Visual Recall Habit',
+    title: 'Picture Memory Games for Adults That Work',
     description: 'How picture memory games train visual recall. Plus a free, focused daily option.',
     url: `${SITE_URL}/picture-memory-games-for-adults`,
     images: [OG_IMAGE],
@@ -73,7 +73,7 @@ export default async function PictureMemoryGamesForAdultsPage() {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Picture Memory Games for Adults: A Sharper Visual Recall Habit',
+    headline: 'Picture Memory Games for Adults That Work',
     description:
       'How picture memory games train visual recall in adults, what the research supports, and a free daily option built around scene memory.',
     author: { '@type': 'Organization', name: 'Blanked', url: SITE_URL },
