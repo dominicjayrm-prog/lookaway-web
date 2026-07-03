@@ -7,7 +7,7 @@ import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, APP_STORE_URL, SITE_URL, FOUNDER, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About: Why We Built a Visual Memory Game',
   description: 'The story behind Blanked - why we built a visual memory game, how Blink became our mascot, and what we believe about brain training.',
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {

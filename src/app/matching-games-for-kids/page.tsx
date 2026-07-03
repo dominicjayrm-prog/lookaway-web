@@ -11,7 +11,7 @@ const P = COLORS;
 export const metadata: Metadata = {
   title: 'Matching Games for Kids: The Best Free Options by Age',
   description:
-    'Matching games for kids that actually help with memory and focus. Free options broken down by age, online matching games, and what to do when your child outgrows the format.',
+    'Matching games for kids that help with memory and focus. Free options by age, and what to do when your child outgrows the format.',
   alternates: { canonical: `${SITE_URL}/matching-games-for-kids` },
   openGraph: {
     type: 'article',

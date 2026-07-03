@@ -9,13 +9,13 @@ import { COLORS, SITE_URL, APP_STORE_URL } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Free Visual Memory Test: How Sharp Is Your Visual Recall?',
+  title: 'Free Visual Memory Test (2-Minute, Online)',
   description:
     'Free visual memory test, no signup. Tiles flash on a grid, you remember which ones. See how high you score. Two minutes, runs in your browser.',
   alternates: { canonical: `${SITE_URL}/memory-test` },
   openGraph: {
     type: 'website',
-    title: 'Free Visual Memory Test: How Sharp Is Your Visual Recall?',
+    title: 'Free Visual Memory Test (2-Minute, Online)',
     description:
       'A free, no-signup visual memory test that runs in your browser. See how high you score.',
     url: `${SITE_URL}/memory-test`,

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const c = COMPARISONS[vs];
   if (!c) return { title: 'Comparison not found', robots: { index: false } };
 
-  const title = `Blanked vs ${c.name}: which memory game is right for you?`;
+  const title = `Blanked vs ${c.name}: Honest Comparison`;
   const description = `An honest, side-by-side comparison of Blanked and ${c.name}. We cover pricing, focus areas, session length, game modes, and who each one is best for.`;
   const url = `${SITE_URL}/compare/${c.slug}`;
 

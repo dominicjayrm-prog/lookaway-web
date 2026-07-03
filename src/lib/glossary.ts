@@ -191,7 +191,7 @@ export const GLOSSARY: Record<string, GlossaryTerm> = {
     slug: 'photographic-memory',
     name: 'Photographic memory',
     tagline: 'the popular myth of perfect visual recall, and what people actually have instead',
-    metaDescription: 'Photographic memory: the popular myth of perfect visual recall. What the research says, why true photographic memory does not exist, and what real visual memory looks like.',
+    metaDescription: 'Photographic memory: the myth of perfect visual recall. Why research says it does not exist, and what real visual memory looks like.',
     lastUpdated: '2026-05-25',
     definition: [
       'Photographic memory, in the everyday sense of the phrase, is the supposed ability to recall any image, page, or scene in perfect detail at will, as if a photograph of it had been taken and stored in the brain. It is one of the most familiar ideas in popular psychology, and it is also one of the most misleading. The honest answer from the research is that photographic memory, defined that way, basically does not exist.',
@@ -245,7 +245,7 @@ export const GLOSSARY: Record<string, GlossaryTerm> = {
     slug: 'spatial-memory',
     name: 'Spatial memory',
     tagline: 'the system that lets you remember where things are and how to find your way around',
-    metaDescription: 'Spatial memory: the cognitive system that lets you remember where things are, navigate familiar routes, and find your way home. Plain-English definition with research citations.',
+    metaDescription: 'Spatial memory: the system that lets you remember where things are, navigate familiar routes, and find your way home. Plain-English definition.',
     lastUpdated: '2026-05-25',
     definition: [
       'Spatial memory is the cognitive system that holds and retrieves information about locations: where things are, how they relate to each other in space, and how to move between them. It is what lets you find your car in a multi-storey car park, recall which kitchen cupboard the coffee is in, navigate your way home in the dark, and remember which seat was yours in a meeting room.',
@@ -297,7 +297,7 @@ export const GLOSSARY: Record<string, GlossaryTerm> = {
     slug: 'iconic-memory',
     name: 'Iconic memory',
     tagline: 'the visual sensory store that holds a brief, vivid trace of what you have just seen for less than a second',
-    metaDescription: 'Iconic memory: the sub-second visual sensory store that holds a brief trace of what you just saw. The Sperling experiment, how it works, and how it differs from short-term memory.',
+    metaDescription: 'Iconic memory: the sub-second visual store holding a brief trace of what you just saw. The Sperling experiment and how it differs from short-term memory.',
     lastUpdated: '2026-05-25',
     definition: [
       'Iconic memory is the very brief visual sensory store that holds a vivid trace of what your eyes have just seen for roughly 200 to 500 milliseconds. It is the reason a quickly flashed scene leaves a fading mental afterimage you can interrogate for a fraction of a second before it disappears. It is the first stage of visual memory, sitting between raw perception and short-term memory.',

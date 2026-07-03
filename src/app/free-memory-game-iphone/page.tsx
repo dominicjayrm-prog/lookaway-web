@@ -8,9 +8,9 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Free Memory Game for iPhone (No Ads in Premium): Blanked',
+  title: 'Free Memory Game for iPhone, No Paywall',
   description:
-    'A genuinely free memory game for iPhone. Six modes, 400+ levels, no paywall on the core game. Ad-supported free version; optional Blanked+ removes ads for the cost of a coffee.',
+    'A genuinely free memory game for iPhone. Six modes, 400+ levels, no paywall on the core game. Optional Blanked+ removes ads for the cost of a coffee.',
   alternates: { canonical: `${SITE_URL}/free-memory-game-iphone` },
   openGraph: { type: 'article', locale: 'en_GB', siteName: 'Blanked', title: 'Free Memory Game for iPhone', description: 'Genuinely free. No paywall on the core game.', url: `${SITE_URL}/free-memory-game-iphone`, images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', title: 'Free Memory Game for iPhone', description: 'Genuinely free. No paywall on the core game.', images: [OG_IMAGE] },

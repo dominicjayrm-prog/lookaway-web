@@ -9,9 +9,9 @@ import { COLORS, SITE_URL, APP_STORE_URL, OG_IMAGE } from '@/lib/constants';
 const P = COLORS;
 
 export const metadata: Metadata = {
-  title: 'Memory Games for Nurses: Practical Training for High-Stakes Recall',
+  title: 'Memory Games for Nurses: High-Stakes Recall',
   description:
-    'Memory games for nurses and nursing students. Practical visual-memory training for drug names, procedures, and patient details. Honest about what works and what does not.',
+    'Memory games for nurses and nursing students. Practical visual-memory training for drug names, procedures, and patient details.',
   alternates: { canonical: `${SITE_URL}/memory-games-for-nurses` },
   openGraph: { type: 'article', locale: 'en_GB', siteName: 'Blanked', title: 'Memory Games for Nurses', description: 'Practical visual-memory training for nursing.', url: `${SITE_URL}/memory-games-for-nurses`, images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', title: 'Memory Games for Nurses', description: 'Practical visual-memory training for nursing.', images: [OG_IMAGE] },

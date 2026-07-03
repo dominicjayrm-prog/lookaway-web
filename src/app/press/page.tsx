@@ -7,7 +7,7 @@ import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import { COLORS, CONTACT_EMAIL, SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Press Kit',
+  title: 'Press Kit: Logos, Screenshots, App Info',
   description: 'Blanked press kit - download logos, screenshots, and app information for media coverage. A visual memory game with 400+ levels across 6 game modes.',
   alternates: { canonical: `${SITE_URL}/press` },
   openGraph: {
