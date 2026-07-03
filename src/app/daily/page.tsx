@@ -19,14 +19,12 @@ export const metadata: Metadata = {
     description:
       'Five rounds, same puzzle for everyone today. Play free in your browser and keep your streak.',
     url: `${SITE_URL}/daily`,
-    images: ['/opengraph-image'],
     siteName: 'Blanked',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Daily Memory Challenge',
     description: 'One memory puzzle a day, same for everyone. Free, in your browser.',
-    images: ['/opengraph-image'],
   },
 };
 
@@ -158,10 +156,10 @@ export default function DailyPage() {
         {/* App CTA */}
         <section style={{ marginTop: 40, padding: '28px 24px', borderRadius: 16, background: `${P.accent}08`, border: `1px solid ${P.accent}20`, textAlign: 'center' }}>
           <h2 style={{ fontSize: 22, fontWeight: 800, color: P.text, margin: '0 0 8px' }}>
-            One puzzle a day is the appetiser
+            To play the full game, download <span style={{ color: P.accent }}>Blanked</span>
           </h2>
           <p style={{ fontSize: 15, color: '#636E72', lineHeight: 1.6, margin: '0 0 18px', maxWidth: 480, marginLeft: 'auto', marginRight: 'auto' }}>
-            Blanked is the full training: six modes, 400+ levels, difficulty that adapts to you, and a streak that lives on your account instead of one browser.
+            The web challenge is one puzzle a day. The full game is six modes, 400+ levels, difficulty that adapts to you, and a streak that lives on your account instead of one browser.
           </p>
           <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" style={ctaPrimary}>
             Get Blanked free on iOS
