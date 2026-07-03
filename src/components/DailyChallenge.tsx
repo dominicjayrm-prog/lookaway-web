@@ -124,6 +124,7 @@ export default function DailyChallenge() {
   const [cleared, setCleared] = useState(0);
   const [countdown, setCountdown] = useState('');
   const [copied, setCopied] = useState(false);
+  const [stats, setStats] = useState<{ plays: number; perfectPct: number; avgCleared: number } | null>(null);
 
   // Everything date-dependent happens after mount so SSR output is stable.
   useEffect(() => {
@@ -148,6 +149,17 @@ export default function DailyChallenge() {
     const t = setInterval(() => setCountdown(fmtCountdown(msToMidnight())), 1000);
     return () => clearInterval(t);
   }, [phase]);
+
+  // Aggregate stats for today's challenge (how everyone else did).
+  useEffect(() => {
+    if (phase !== 'done' || !today) return;
+    fetch(`/api/daily/stats?date=${today}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (d && typeof d.plays === 'number') setStats(d);
+      })
+      .catch(() => {});
+  }, [phase, today]);
 
   const patterns = useMemo(() => (today ? dailyPatterns(today) : []), [today]);
   const num = today ? challengeNumber(today) : 0;
@@ -192,6 +204,13 @@ export default function DailyChallenge() {
     } catch {
       // Private browsing: results just will not persist.
     }
+    // Anonymous aggregate reporting (fire-and-forget): date, rounds
+    // cleared, and the hit/miss rows. Nothing identifying is sent.
+    fetch('/api/daily/result', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date: today, cleared: clearedCount, rows: shareRows }),
+    }).catch(() => {});
     setStreak(nextStreak);
     setRows(shareRows);
     setCleared(clearedCount);
@@ -343,6 +362,11 @@ export default function DailyChallenge() {
             <p style={streakLine}>
               🔥 {streak}-day streak · Next challenge in <span style={{ fontVariantNumeric: 'tabular-nums' }}>{countdown}</span>
             </p>
+            {stats && stats.plays >= 10 && (
+              <p style={{ ...streakLine, marginTop: -8 }}>
+                Today: {stats.plays.toLocaleString()} players · {stats.perfectPct}% cleared all five rounds
+              </p>
+            )}
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10, marginBottom: 14 }}>
               <button type="button" onClick={onShare} style={btnPrimary}>
                 {copied ? 'Copied!' : 'Share your result'}
@@ -352,7 +376,7 @@ export default function DailyChallenge() {
               </a>
             </div>
             <p style={resultFooter}>
-              The web challenge is one puzzle a day. The app has six modes, 400+ levels, and tracks your streak properly, free on iOS.
+              This web challenge is one puzzle a day, made for the browser. To play the full game, download Blanked: six modes, 400+ levels, and a streak that lives on your account. Free on iOS.
             </p>
           </>
         )}
