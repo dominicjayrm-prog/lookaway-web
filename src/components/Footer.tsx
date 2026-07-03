@@ -40,6 +40,7 @@ export default function Footer() {
           <Link href="/about" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>About</Link>
           <Link href="/blog" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Blog</Link>
           <Link href="/memory-test" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Memory Test</Link>
+          <Link href="/daily" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Daily Challenge</Link>
           <Link href="/compare" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Compare</Link>
           <Link href="/support" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Support</Link>
           <Link href="/privacy" style={{ fontSize: 12, color: COLORS.textD, cursor: "pointer" }}>Privacy</Link>

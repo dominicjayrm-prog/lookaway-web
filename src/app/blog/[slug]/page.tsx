@@ -17,6 +17,7 @@ import ShareButtons from '@/components/blog/ShareButtons';
 import BlogAuthorByline from '@/components/blog/BlogAuthorByline';
 import BlogAuthorCard from '@/components/blog/BlogAuthorCard';
 import EmailCapture from '@/components/EmailCapture';
+import DailyChallengeBanner from '@/components/blog/DailyChallengeBanner';
 import Footer from '@/components/Footer';
 import Blink from '@/components/Blink';
 import { SITE_URL, FOUNDER } from '@/lib/constants';
@@ -180,6 +181,8 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             url={`${SITE_URL}/blog/${post.slug}`}
             title={post.title}
           />
+
+          <DailyChallengeBanner />
 
           <BlogAuthorCard />
 
