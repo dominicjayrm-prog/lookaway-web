@@ -1,11 +1,13 @@
 import { supabasePublic, supabaseAdmin, type BlogPost } from './supabase';
 
-/** List all published posts, newest first. Public (uses RLS). */
+/** List all published posts, newest first. Public (uses RLS).
+ *  Excludes scheduled posts: published_at in the future means "queued". */
 export async function listPublishedPosts(): Promise<BlogPost[]> {
   const { data, error } = await supabasePublic()
     .from('blog_posts')
     .select('*')
     .eq('published', true)
+    .lte('published_at', new Date().toISOString())
     .order('published_at', { ascending: false });
   if (error) { console.error('listPublishedPosts', error); return []; }
   return (data ?? []) as BlogPost[];
@@ -18,6 +20,7 @@ export async function getPublishedPostBySlug(slug: string): Promise<BlogPost | n
     .select('*')
     .eq('slug', slug)
     .eq('published', true)
+    .lte('published_at', new Date().toISOString())
     .maybeSingle();
   if (error) { console.error('getPublishedPostBySlug', error); return null; }
   return data as BlogPost | null;
@@ -31,6 +34,7 @@ export async function getRelatedPosts(post: BlogPost, limit = 3): Promise<BlogPo
       .from('blog_posts')
       .select('*')
       .eq('published', true)
+      .lte('published_at', new Date().toISOString())
       .neq('id', post.id)
       .order('published_at', { ascending: false })
       .limit(limit);
@@ -40,6 +44,7 @@ export async function getRelatedPosts(post: BlogPost, limit = 3): Promise<BlogPo
     .from('blog_posts')
     .select('*')
     .eq('published', true)
+    .lte('published_at', new Date().toISOString())
     .neq('id', post.id)
     .overlaps('keywords', post.keywords)
     .order('published_at', { ascending: false })
@@ -81,6 +86,7 @@ export async function listPublishedSlugs(): Promise<string[]> {
   const { data } = await supabasePublic()
     .from('blog_posts')
     .select('slug')
-    .eq('published', true);
+    .eq('published', true)
+    .lte('published_at', new Date().toISOString());
   return (data ?? []).map(r => r.slug as string);
 }
